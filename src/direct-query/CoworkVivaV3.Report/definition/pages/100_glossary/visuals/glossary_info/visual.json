@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "glossary_info",
   "position": {
-    "x": 75,
+    "x": 59,
     "y": 532,
     "z": 1500,
     "height": 192,
-    "width": 280,
+    "width": 240,
     "tabOrder": 700
   },
   "visual": {
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Cowork person-week architecture\nPerson Query supplies Person ID + Sunday-start week. Cowork activity is aggregated before a validated 1:1 join. Missing activity is zero only when weekly source coverage is confirmed; otherwise it stays unknown.\n\nInterpretation boundary\nShows observed Cowork use and Person Query context. It does not infer eligibility, productivity, task completion, quality, or causality.",
+                    "value": "Complete model contract\nAll 117 current measures are documented, including hidden helpers and alternate bookmark states. Use Category and Source family to narrow the table.\n\nInterpretation boundary\nRead each result with its displayed period, population, filters, source coverage, evidence class, and privacy state.",
                     "textStyle": {
                       "fontWeight": "normal",
                       "fontSize": "8pt"

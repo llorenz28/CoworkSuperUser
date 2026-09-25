@@ -3,6 +3,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+$python = (Get-Command python -ErrorAction Stop).Source
 $projects = @(
     "src\optimized-export\CoworkVivaV3.pbip",
     "src\direct-query\CoworkVivaV3.pbip"
@@ -25,6 +26,11 @@ foreach ($relativePath in $projects) {
     & powerbi-report-author validate $project | Out-Host
     if ($LASTEXITCODE -ne 0) {
         throw "PBIR validation failed for $relativePath"
+    }
+
+    & $python (Join-Path $PSScriptRoot "sync_metric_glossary.py") --check | Out-Host
+    if ($LASTEXITCODE -ne 0) {
+        throw "Metric glossary synchronization failed."
     }
 
     $projectRoot = Split-Path $project
@@ -79,6 +85,57 @@ foreach ($expressions in @($optimizedExpressions, $directExpressions)) {
     )
     if ($populatedParameter.Success) {
         throw "A customer parameter contains a persisted value."
+    }
+}
+
+$requiredPersonFields = @(
+    "Person ID",
+    "Organization",
+    "Function",
+    "Level",
+    "Manager Source",
+    "Collaboration Hours",
+    "Active Connected Hours",
+    "Email Hours",
+    "Chat Hours",
+    "Meeting Hours",
+    "Unscheduled Call Hours",
+    "After Hours Collaboration",
+    "Weekend Collaboration Hours",
+    "Collaboration Span",
+    "Internal Network Size",
+    "External Network Size",
+    "Strong Ties",
+    "Diverse Ties",
+    "Network Outside Organization"
+)
+foreach ($variant in @(
+    @{ Name = "optimized-export"; Expressions = $optimizedExpressions },
+    @{ Name = "direct-query"; Expressions = $directExpressions }
+)) {
+    foreach ($field in $requiredPersonFields) {
+        if (-not $variant.Expressions.Contains($field, [StringComparison]::Ordinal)) {
+            throw "$($variant.Name) is missing required Person Query field: $field"
+        }
+    }
+    if (
+        $variant.Expressions -notmatch
+        '\[(?:Service Name|ServiceName)\]\s*=\s*"Cowork"'
+    ) {
+        throw "$($variant.Name) is missing the exact Service Name = Cowork filter."
+    }
+}
+
+$legacyTerms = @(
+    "Novice Users",
+    "Novice User Share",
+    "Cowork Novice User",
+    "Novice users"
+)
+foreach ($term in $legacyTerms) {
+    $match = $sourceFiles | Select-String -SimpleMatch $term
+    if ($match) {
+        throw "Legacy model terminology remains: $term"
     }
 }
 

@@ -46,7 +46,7 @@ function addFooter(slide, section, number) {
     x: 0.55, y: 7.12, w: 3.3, h: 0.18, fontFace: "Segoe UI", fontSize: 8,
     color: C.muted, margin: 0,
   });
-  slide.addText(`Version 1.0 | Public | ${section}`, {
+  slide.addText(`Version 1.0.1 | Public | ${section}`, {
     x: 8.5, y: 7.12, w: 3.9, h: 0.18, fontFace: "Segoe UI", fontSize: 8,
     color: C.muted, align: "right", margin: 0,
   });
@@ -174,7 +174,7 @@ function sectionSlide(kicker, title, subtitle, number) {
     x: 0.72, y: 5.72, w: 6.8, h: 0.35, fontFace: "Segoe UI Semibold",
     fontSize: 13, color: "BBA9D8", margin: 0,
   });
-  slide.addText("CoworkSuperUser | Version 1.0 | Public", {
+  slide.addText("CoworkSuperUser | Version 1.0.1 | Public", {
     x: 0.72, y: 6.75, w: 4.5, h: 0.2, fontFace: "Segoe UI",
     fontSize: 9, color: "BBA9D8", margin: 0,
   });
@@ -472,7 +472,7 @@ sectionSlide("SECTION 2", "Methodology and operating controls", "Understand the 
     addCard(slide, x, 2.28, 2.3, 2.3, s[1], s[2], s[3]);
     if (i < 4) slide.addShape(pptx.ShapeType.chevron, { x: x + 2.28, y: 1.55, w: 0.35, h: 0.35, fill: { color: "B9AEC8" }, line: { color: "B9AEC8" } });
   });
-  addCard(slide, 1.15, 5.15, 11.0, 0.85, "Recommended query period", "Use a rolling six-month Person Query when possible. Shorter histories load, but longer history produces stronger 12-week stage and movement context.", C.purple);
+  addCard(slide, 1.15, 5.15, 11.0, 0.85, "Recommended query period", "Use all available Cowork history beginning with the first available week. Aim for at least 12 covered weeks when available; do not add pre-Cowork weeks.", C.purple);
   addGuardrail(slide, "Both analyses must use the same partition and overlapping dates. Do not remove required columns after export.");
 }
 

@@ -1,6 +1,6 @@
 # CoworkSuperUser interpretation guide
 
-**Version:** 1.0.0  
+**Version:** 1.0.1
 **Audience:** Microsoft 365 Copilot adoption leads, Viva Insights analysts, enablement teams, program owners, and Power BI owners
 
 CoworkSuperUser is a data-free Power BI template for understanding observed Cowork reach, return, usage stages, consumption, potential champions, and descriptive work-pattern context. This guide explains what each page answers, how to read it, what to investigate, and which conclusions remain outside the evidence.
@@ -328,4 +328,3 @@ The analytical population comes from the coverage-qualified Person Query. `IsCop
 | Missing metric | “This result is unavailable from the current query fields or history.” |
 
 Do not claim causal impact, realized savings, employee performance, or a cross-tenant benchmark.
-

@@ -138,8 +138,9 @@ security, and sensitivity labeling after loading production data.
 
 ### Person Query
 
-Use up to a rolling last six months when possible, beginning with the first week
-Cowork data exists. Do not request or interpret pre-Cowork weeks as zero.
+Use all available Cowork history beginning with the first week Cowork data
+exists. Aim for at least 12 covered weeks when available so the report can use
+its full stage window. Do not request or interpret pre-Cowork weeks as zero.
 
 | Setting | Required value |
 | --- | --- |
@@ -261,7 +262,7 @@ Read [SECURITY.md](SECURITY.md) before using production data.
 Before setup, a Viva Insights administrator or Insights Analyst must create two
 completed analyses in the same partition.
 
-**[Email the query prerequisites](mailto:?subject=Viva%20Insights%20query%20setup%20for%20CoworkSuperUser&body=Please%20create%20two%20completed%20Viva%20Insights%20analyses%20in%20the%20same%20partition%20for%20the%20public%20CoworkSuperUser%20Power%20BI%20template.%0A%0A1.%20Person%20Query%3A%20up%20to%20the%20rolling%20last%206%20months%20beginning%20with%20the%20first%20available%20Cowork%20week%3B%20group%20by%20Week%3B%20include%20Person%20ID%2C%20Organization%2C%20Function%2C%20Level%2C%20Supervisor%20indicator%2C%20collaboration%20hours%2C%20active%20connected%20hours%2C%20email%2C%20chat%2C%20meeting%2C%20unscheduled%20calls%2C%20after-hours%20and%20weekend%20collaboration%2C%20collaboration%20span%2C%20network%20size%2C%20strong%20ties%2C%20diverse%20ties%2C%20and%20network%20outside%20organization.%0A%0A2.%20Cowork%20consumption%20query%3A%20same%20date%20range%3B%20group%20by%20Day%3B%20Person%20and%20Service%20entities%3B%20filter%20Service%20Name%20equals%20Cowork%3B%20include%20Session%20count%2C%20Total%20Copilot%20Credits%20used%2C%20Spending%20policy%20limit%2C%20and%20User%20limit.%0A%0AWhen%20both%20analyses%20show%20Completed%20or%20Success%2C%20please%20provide%20the%20shared%20Partition%20ID%2C%20Person%20Query%20ID%2C%20and%20Consumption%20Query%20ID.%20Do%20not%20send%20exported%20person-level%20data%20by%20email.%0A%0AGuide%3A%20https%3A%2F%2Fgithub.com%2Fmicrosoft%2FCoworkSuperUser%2Fblob%2Fmain%2Fdocs%2FQUERY_SETUP.md)**
+**[Email the query prerequisites](mailto:?subject=Viva%20Insights%20query%20setup%20for%20CoworkSuperUser&body=Please%20create%20two%20completed%20Viva%20Insights%20analyses%20in%20the%20same%20partition%20for%20the%20public%20CoworkSuperUser%20Power%20BI%20template.%0A%0A1.%20Person%20Query%3A%20all%20available%20Cowork%20history%20beginning%20with%20the%20first%20available%20Cowork%20week%2C%20aiming%20for%20at%20least%2012%20covered%20weeks%20when%20available%3B%20group%20by%20Week%3B%20include%20Person%20ID%2C%20Organization%2C%20Function%2C%20Level%2C%20Supervisor%20indicator%2C%20collaboration%20hours%2C%20active%20connected%20hours%2C%20email%2C%20chat%2C%20meeting%2C%20unscheduled%20calls%2C%20after-hours%20and%20weekend%20collaboration%2C%20collaboration%20span%2C%20network%20size%2C%20strong%20ties%2C%20diverse%20ties%2C%20and%20network%20outside%20organization.%0A%0A2.%20Cowork%20consumption%20query%3A%20same%20date%20range%3B%20group%20by%20Day%3B%20Person%20and%20Service%20entities%3B%20filter%20Service%20Name%20equals%20Cowork%3B%20include%20Session%20count%2C%20Total%20Copilot%20Credits%20used%2C%20Spending%20policy%20limit%2C%20and%20User%20limit.%0A%0AWhen%20both%20analyses%20show%20Completed%20or%20Success%2C%20please%20provide%20the%20shared%20Partition%20ID%2C%20Person%20Query%20ID%2C%20and%20Consumption%20Query%20ID.%20Do%20not%20send%20exported%20person-level%20data%20by%20email.%0A%0AGuide%3A%20https%3A%2F%2Fgithub.com%2Fmicrosoft%2FCoworkSuperUser%2Fblob%2Fmain%2Fdocs%2FQUERY_SETUP.md)**
 
 ## Repository structure
 
@@ -296,7 +297,7 @@ adapted by this project.
 
 ## Release status and feedback
 
-The current public release is **v1.0.0**. Review the
+The current public release is **v1.0.1**. Review the
 [changelog](CHANGELOG.md) and
 [release manifest](validation/release-manifest.json) before broad distribution.
 

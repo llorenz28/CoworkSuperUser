@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "glossary_table",
   "position": {
-    "x": 375,
+    "x": 315,
     "y": 116,
     "z": 2000,
     "height": 600,
-    "width": 920,
+    "width": 992,
     "tabOrder": 500
   },
   "visual": {
@@ -15,21 +15,6 @@
       "queryState": {
         "Values": {
           "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metric Definitions"
-                    }
-                  },
-                  "Property": "Category"
-                }
-              },
-              "queryRef": "Metric Definitions.Category",
-              "nativeQueryRef": "Category",
-              "displayName": "Category"
-            },
             {
               "field": {
                 "Column": {
@@ -53,12 +38,12 @@
                       "Entity": "Metric Definitions"
                     }
                   },
-                  "Property": "Source Family"
+                  "Property": "Definition"
                 }
               },
-              "queryRef": "Metric Definitions.Source Family",
-              "nativeQueryRef": "Source Family",
-              "displayName": "Source family"
+              "queryRef": "Metric Definitions.Definition",
+              "nativeQueryRef": "Definition",
+              "displayName": "Definition"
             },
             {
               "field": {
@@ -68,27 +53,12 @@
                       "Entity": "Metric Definitions"
                     }
                   },
-                  "Property": "Calculation"
+                  "Property": "Report Use"
                 }
               },
-              "queryRef": "Metric Definitions.Calculation",
-              "nativeQueryRef": "Calculation",
-              "displayName": "Calculation"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Metric Definitions"
-                    }
-                  },
-                  "Property": "Grain"
-                }
-              },
-              "queryRef": "Metric Definitions.Grain",
-              "nativeQueryRef": "Grain",
-              "displayName": "Grain"
+              "queryRef": "Metric Definitions.Report Use",
+              "nativeQueryRef": "Report Use",
+              "displayName": "Report use"
             },
             {
               "field": {
@@ -136,7 +106,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "9D"
                 }
               }
             },
@@ -207,7 +177,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "9D"
                 }
               }
             },
@@ -243,7 +213,7 @@
             "autoSizeColumnWidth": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -302,7 +272,7 @@
             "rowPadding": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "3D"
                 }
               }
             },
@@ -313,6 +283,64 @@
                 }
               }
             }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "150D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Metric Definitions.Metric"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "330D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Metric Definitions.Definition"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "190D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Metric Definitions.Report Use"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "260D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Metric Definitions.Caveat"
           }
         }
       ]
@@ -393,7 +421,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Definitions for every measure used on every report page, including hidden pages.'"
+                  "Value": "'Complete glossary table with one row for every current semantic-model measure, including hidden helpers and bookmark-only report use.'"
                 }
               }
             }
@@ -460,7 +488,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Complete report measure definitions'"
+                  "Value": "'Complete measure definitions | 117 current measures'"
                 }
               }
             },

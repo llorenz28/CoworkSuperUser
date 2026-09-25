@@ -134,7 +134,7 @@ table 'Usage Segment Snapshot'
 		lineageTag: f7c7c2f5-eb40-4fa2-8e0c-295367a30d01
 
 	/// People in the latest Cowork Developing User stage.
-	measure 'Novice Users' =
+	measure 'Developing Users' =
 			VAR _people =
 			    CALCULATE(
 			        DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]),
@@ -148,7 +148,7 @@ table 'Usage Segment Snapshot'
 		lineageTag: 0a174644-1fe6-4ea4-a496-ea4fcecc3051
 
 	/// Share in the latest Cowork Developing User stage.
-	measure 'Novice User Share' =
+	measure 'Developing User Share' =
 			VAR _people =
 			    CALCULATE(
 			        DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]),
@@ -956,4 +956,3 @@ table 'Usage Segment Snapshot'
 				            )
 				        )
 				)
-

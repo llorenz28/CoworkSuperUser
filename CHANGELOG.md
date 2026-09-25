@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.1 - 2026-09-25
+
+- Documented all 117 current semantic-model measures, including hidden helpers and bookmark-only report states.
+- Removed stale glossary entries and legacy Novice terminology in favor of Developing.
+- Reworked the Methods and Metric Guide into a readable four-column layout.
+- Enforced the complete Person Query field contract and exact `Service Name = "Cowork"` consumption filter.
+- Replaced the fixed six-month request with all available Cowork history from the first available week, targeting at least 12 covered weeks when available.
+- Added the inline narrated walkthrough and reorganized the public README around quick start, connection paths, query setup, release assets, security, and interpretation.
+- Re-exported both data-free PBIT connection editions and refreshed the interpretation storyboard.
+
 ## 2026-09-24
 
 - Added optimized-export and Direct Query PBIT variants with the same report experience.
