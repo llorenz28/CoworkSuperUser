@@ -191,7 +191,7 @@ function sectionSlide(kicker, title, subtitle, number) {
     x: 8.8, y: -1.7, w: 6.2, h: 6.2, fill: { color: C.purple2, transparency: 18 },
     line: { color: C.purple2, transparency: 100 },
   });
-  addPill(slide, "VERSION 1.0 | PUBLIC", 0.65, 0.52, 1.85, C.teal);
+  addPill(slide, "VERSION 1.0.1 | PUBLIC", 0.65, 0.52, 1.85, C.teal);
   slide.addText("CoworkSuperUser", {
     x: 0.65, y: 1.42, w: 5.35, h: 0.72, fontFace: "Segoe UI Semibold",
     fontSize: 35, bold: true, color: C.white, margin: 0,
@@ -239,7 +239,7 @@ function sectionSlide(kicker, title, subtitle, number) {
 
 {
   const slide = pptx.addSlide("CONTENT");
-  addHeader(slide, "What's in version 1.0", "A customer-ready Viva Insights release with two setup paths and one interpretation contract", "Interpretation Guide", 3);
+  addHeader(slide, "What's in version 1.0.1", "A customer-ready Viva Insights release with two setup paths and one interpretation contract", "Interpretation Guide", 3);
   const cards = [
     ["Two published templates", "Direct Query for script-free saved-query setup and Optimized Export for the fastest validated refresh."],
     ["Available-history stages", "Up to 4- and 12-week windows load early histories and clearly identify provisional results."],

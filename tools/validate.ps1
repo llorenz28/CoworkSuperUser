@@ -152,7 +152,33 @@ foreach ($artifact in $manifest.artifacts) {
         throw "Release hash mismatch: $($artifact.path)"
     }
 
-    if ([IO.Path]::GetExtension($path) -ne ".pbit") {
+    $extension = [IO.Path]::GetExtension($path)
+    if ($extension -eq ".pptx") {
+        $signature = [IO.File]::ReadAllBytes($path)[0..3]
+        if (
+            $signature[0] -ne 0x50 -or
+            $signature[1] -ne 0x4B -or
+            $signature[2] -ne 0x03 -or
+            $signature[3] -ne 0x04
+        ) {
+            throw "PPTX is not an unprotected Open XML package: $($artifact.path)"
+        }
+        $presentation = [System.IO.Compression.ZipFile]::OpenRead($path)
+        try {
+            if (
+                -not $presentation.GetEntry("[Content_Types].xml") -or
+                -not $presentation.GetEntry("ppt/presentation.xml")
+            ) {
+                throw "PPTX package structure is incomplete: $($artifact.path)"
+            }
+        }
+        finally {
+            $presentation.Dispose()
+        }
+        continue
+    }
+
+    if ($extension -ne ".pbit") {
         continue
     }
     $archive = [System.IO.Compression.ZipFile]::OpenRead($path)
