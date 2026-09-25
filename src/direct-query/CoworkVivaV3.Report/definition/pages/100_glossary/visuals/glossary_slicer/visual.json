@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "glossary_slicer",
   "position": {
-    "x": 75,
+    "x": 59,
     "y": 116,
     "z": 1000,
     "height": 228,
-    "width": 280,
+    "width": 240,
     "tabOrder": 400
   },
   "visual": {

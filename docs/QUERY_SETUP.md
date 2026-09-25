@@ -19,7 +19,7 @@ Both queries must use the same Viva Insights partition and overlapping dates.
 
 1. Open **Analysis results** in the Analyst Workbench.
 2. Select **Create analysis** and choose **Person query**.
-3. Use a rolling **last 6 months** period when possible.
+3. Use **all available Cowork history**, beginning with the first week Cowork data is actually available. Aim for at least 12 covered weeks when available so the report can use its full stage window. Do not add pre-Cowork weeks or interpret them as zero activity.
 4. Set **Group by** to **Week**.
 5. Filter the base population to active employees if that matches your approved analysis scope.
 6. Add these organizational attributes:
@@ -116,4 +116,3 @@ This variant keeps the Person query connected and reads the Cowork consumption e
 - Work Pattern Context shows only metrics supplied by the Person query.
 - Methods and Metric Guide reports populated history and source status.
 - No visual shows an error.
-

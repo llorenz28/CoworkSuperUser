@@ -1,6 +1,6 @@
 {
-  "releaseDate": "2026-09-24",
-  "version": "1.0.0",
+  "releaseDate": "2026-09-25",
+  "version": "1.0.1",
   "classification": "Public",
   "pbitPurviewLabelRetained": false,
   "pbitLabelNote": "Power BI sensitivity labels apply to PBIX files and are not retained in PBIT exports.",
@@ -8,6 +8,8 @@
     "pages": 9,
     "bookmarks": 39,
     "measures": 117,
+    "glossaryRows": 117,
+    "hiddenMeasuresDocumented": 6,
     "activePage": "Start Here",
     "headerAlignment": "Passed for all 9 pages"
   },
@@ -18,6 +20,10 @@
     "fabricatedImageWeeks": 26,
     "fabricatedRefreshSeconds": 33.4,
     "populatedModelHealth": "Passed",
+    "populatedPageVisualReview": "Passed for all 9 pages",
+    "glossarySynchronization": "117 measures, 117 unique definitions, zero stale rows",
+    "historyGuidance": "All available Cowork history from the first available week; target at least 12 covered weeks when available",
+    "customerFacingLegacyTerminology": "None",
     "privacyScan": "Passed",
     "pbirValidation": "Passed with 4 remote-schema availability warnings",
     "storyboardSlides": 24,
@@ -31,18 +37,18 @@
   "artifacts": [
     {
       "path": "CoworkSuperUser - Direct Query.pbit",
-      "bytes": 606089,
-      "sha256": "A23DA172AAC48C2606CF00A94A5ECFD6CF67129472CDF03DA36CA040DD9EFE95"
+      "bytes": 615419,
+      "sha256": "26DF2EBF5B80FB7BF3395F4BAF97986FAC30D79A6C1C154C99BA3C82D0E20569"
     },
     {
       "path": "CoworkSuperUser - Optimized Export.pbit",
-      "bytes": 602385,
-      "sha256": "10E91E6FCD7C6D7D1DCD93A1F2B1F27C9ADFE8309AC1AFFBE920B02B96BF8A90"
+      "bytes": 617210,
+      "sha256": "410B793A70944D7A063740EF04DE429876557BAEF26512CF39CD9F7933AB0224"
     },
     {
       "path": "CoworkSuperUser Interpretation Storyboard.pptx",
-      "bytes": 1933414,
-      "sha256": "275E5362123FAF34D4DF833D88DB77550B9948C6650F70DFCD60A56433CEAF8F"
+      "bytes": 2083328,
+      "sha256": "E315203F518CF753BD009D3516DD6FB2C77A8ED6C49EF515E52FA515F64B1875"
     },
     {
       "path": "media/CoworkSuperUser-Walkthrough.mp4",

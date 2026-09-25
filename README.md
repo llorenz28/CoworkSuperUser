@@ -1,85 +1,83 @@
-<div align="center">
-
 # CoworkSuperUser
 
-### Turn Viva Insights and Cowork consumption data into a clear, privacy-aware adoption story.
+> **Turn Viva Insights and Microsoft 365 Copilot Cowork consumption data into a
+> clear, privacy-aware story of reach, repeat use, usage stages, potential
+> champions, and work-pattern context.**
 
-[![Built by Microsoft](https://img.shields.io/badge/Built%20by-Microsoft-0078d4?style=for-the-badge&logo=microsoft&logoColor=white)](https://microsoft.github.io/Analytics-Hub/team/)
-[![Analytics Hub](https://img.shields.io/badge/Analytics%20Hub-11%20Repositories-8661c5?style=for-the-badge&logo=github&logoColor=white)](https://microsoft.github.io/Analytics-Hub/)
-
-**All Reports:** [https://microsoft.github.io/Analytics-Hub/](https://microsoft.github.io/Analytics-Hub/)
-
-**Cowork Billing:** [https://microsoft.github.io/Analytics-Hub/cowork-billing/](https://microsoft.github.io/Analytics-Hub/cowork-billing/)
-
-**Found this useful? Star this repository to help others discover it.**
-
-**[Dashboard Preview](#dashboard-preview)** | **[Download](#download)** | **[Instructions](#instructions)** | **[Interpretation](#interpretation-and-storytelling)** | **[Related Resources](#related-resources)** | **[Email Your Admin](#email-your-admin)**
-
-</div>
-
----
+[![Status](https://img.shields.io/badge/status-testing-D83B96)](CHANGELOG.md)
+[![Power BI](https://img.shields.io/badge/Power%20BI-2%20PBITs%20%2B%20PBIP-F2C811)](src/)
+[![Classification](https://img.shields.io/badge/classification-Public-008272)](SECURITY.md)
+[![Microsoft Analytics Hub](https://img.shields.io/badge/Microsoft-Analytics%20Hub-0078D4)](https://microsoft.github.io/Analytics-Hub/)
 
 > [!IMPORTANT]
-> **Version 1.0 is public and in testing.** Validate outputs, source coverage, privacy requirements, and metric definitions before using findings for production decisions.
+> **Template status: Public and in testing.** Validate source coverage, privacy
+> requirements, outputs, and metric definitions before using findings for
+> production decisions.
 
-CoworkSuperUser is a data-free Power BI template for Microsoft 365 Copilot Cowork program owners, Viva Insights analysts, adoption leads, enablement teams, and Power BI owners. It connects:
+CoworkSuperUser is a data-free Power BI template for Cowork program owners,
+Viva Insights analysts, adoption leads, enablement teams, and Power BI owners.
+It combines:
 
-- Observed Cowork reach and weekly return
+- A Viva Insights Person Query that defines the approved person-week population
+- A Microsoft 365 Copilot consumption query filtered to exactly
+  `Service Name = "Cowork"`
 - Available-history usage stages and movement
 - Cowork sessions, credits, and consumption intensity
-- Organizational adoption patterns
-- Potential peer-enablement champions
-- Descriptive collaboration-network and beyond-hours context
-- Transparent sources, formulas, evidence classes, and privacy rules
+- Organizational adoption patterns and potential peer-enablement champions
+- Descriptive collaboration, network, and beyond-hours context
+- A complete glossary for all 117 semantic-model measures, including helpers
 
-The repository includes two customer connection options with the same nine pages, 39 bookmarks, 117 measures, visuals, filters, and interpretation logic.
+Both connection editions provide the same nine report pages, 39
+bookmark-controlled states, 117 measures, visual logic, filters, privacy rules,
+and interpretation guidance.
 
-<a id="dashboard-preview"></a>
+<div align="center">
+<img src="images/CoworkSuperUser.gif" alt="Animated preview of all nine CoworkSuperUser pages using deterministic fabricated data" width="900">
+</div>
 
-## Dashboard preview
+The preview uses deterministic fabricated Contoso, Fabrikam, and Northwind data
+for 1,200 fictional people across 26 weeks. It contains no customer findings,
+identities, or benchmarks.
 
-<details open>
-<summary><strong>CoworkSuperUser dashboard preview</strong></summary>
+> **CoworkSuperUser Walkthrough:** a narrated tour of observed reach, weekly
+> return, usage-stage movement, potential champions, sessions and credits,
+> work-pattern context, metric interpretation, and the two setup paths.
 
-<br>
+https://github.com/user-attachments/assets/67e54184-bc7f-4e7f-a2fc-ed6d8c34545f
 
-<img src="images/CoworkSuperUser.gif" alt="CoworkSuperUser dashboard preview using deterministic fabricated data" width="100%" />
-
-The preview uses deterministic fabricated Contoso, Fabrikam, and Northwind data for 1,200 fictional people across 26 weeks. It contains no customer findings, identities, or benchmarks.
-
-</details>
-
----
-
-<a id="download"></a>
-
-## Download
-
-| Template | Customer inputs | Best for | Download |
-| --- | --- | --- | --- |
-| **Direct Query** | Partition ID, Person Query ID, Consumption Query ID | Script-free saved-query connection and scheduled refresh | [Download PBIT](https://github.com/microsoft/CoworkSuperUser/raw/main/CoworkSuperUser%20-%20Direct%20Query.pbit) |
-| **Optimized Export** | Partition ID, Person Query ID, Cowork consumption export folder | Fastest validated refresh and support fallback | [Download PBIT](https://github.com/microsoft/CoworkSuperUser/raw/main/CoworkSuperUser%20-%20Optimized%20Export.pbit) |
-
-> The Direct Query name describes the customer setup experience. The Viva Insights connector retrieves saved-query results, and Power BI imports those results during refresh; this is not Tabular DirectQuery storage mode.
-
-### Validated release characteristics
-
-- Nine report pages
-- 39 bookmark-controlled states
-- 117 measures
-- Start Here saved as the opening page
-- Header alignment validated across all pages
-- Short histories load with provisional or unavailable labels
-- Aggregate person-derived results suppressed below 10 people
-- No tenant identifiers, customer data, local QA paths, or cached semantic-model data in the PBIT files
+[Open or download the MP4](media/CoworkSuperUser-Walkthrough.mp4) ·
+[Read the transcript](media/CoworkSuperUser-Walkthrough-transcript.md) ·
+[Download subtitles](media/CoworkSuperUser-Walkthrough.srt)
 
 ---
 
-## Questions the report answers
+## New here? Start in 3 steps
+
+1. Ask a Viva Insights analyst to create the
+   [Person and Cowork consumption queries](docs/QUERY_SETUP.md).
+2. Download the
+   [Direct Query template](https://github.com/microsoft/CoworkSuperUser/raw/main/CoworkSuperUser%20-%20Direct%20Query.pbit)
+   or
+   [Optimized Export template](https://github.com/microsoft/CoworkSuperUser/raw/main/CoworkSuperUser%20-%20Optimized%20Export.pbit).
+3. Enter the requested identifiers or export folder, select **Load**, and
+   complete the [post-load checks](SETUP.md).
+
+The Direct Query edition is the simplest customer experience: enter the
+Partition, Person Query, and Consumption Query identifiers. The Viva Insights
+connector retrieves saved-query results and Power BI imports them during
+refresh; this is not Tabular DirectQuery storage mode.
+
+> **Not ready to load production data?** Review the animation, walkthrough,
+> interpretation storyboard, and fabricated page captures first. The public
+> assets contain no customer data.
+
+---
+
+## What the report answers
 
 | Page | Business question |
 | --- | --- |
-| **Start Here** | Which page should I use for my question? |
+| **Start Here** | Which page and connection path should I use? |
 | **Executive Adoption** | Is observed Cowork reach broadening, and how much use is sustained? |
 | **Weekly Adoption & Usage** | Are people joining, returning, intensifying, or churning? |
 | **Adoption by Attributes** | Where do reach and sustained-use patterns differ? |
@@ -87,189 +85,184 @@ The preview uses deterministic fabricated Contoso, Fabrikam, and Northwind data 
 | **Champion Identification** | Who may be a suitable peer-enablement partner? |
 | **Sessions and Credits** | How much Cowork frequency and credit consumption is observed? |
 | **Work Pattern Context** | Which collaboration or beyond-hours differences should be investigated? |
-| **Methods and Metric Guide** | How is each metric calculated and interpreted? |
+| **Methods and Metric Guide** | How is every current metric calculated and interpreted? |
 
-Potential champion results are enablement signals, not employee-performance ratings. Confirm role fit, willingness, manager support, and appropriate data use before outreach.
+Potential champion results are enablement signals, not employee-performance
+ratings. Confirm role fit, willingness, manager support, and approved data use
+before outreach.
 
----
+![Weekly adoption and usage page populated with fabricated data](images/report-pages/03-weekly-adoption.png)
 
-<a id="instructions"></a>
+## Why use this template
 
-## Instructions
+- Keep the Person Query population intact while separating Cowork users from
+  covered people with zero observed Cowork sessions.
+- Read reach, repeat use, usage stage, movement, sessions, and credits as
+  distinct signals.
+- Compare functions and organization groups without treating correlation as
+  causation.
+- Identify possible peer-enablement champions using transparent criteria.
+- Preserve missing optional evidence as unavailable rather than converting it
+  to zero.
+- Suppress aggregate person-derived results below the 10-person privacy floor.
+- Trace every current measure to its definition, source, grain, evidence class,
+  caveat, and report use.
+
+## Choose your connection path
+
+| | Direct Query | Optimized Export |
+| --- | --- | --- |
+| **Best for** | Script-free saved-query connection and scheduled refresh | Fastest validated refresh and support fallback |
+| **Inputs** | Partition ID, Person Query ID, Consumption Query ID | Partition ID, Person Query ID, Cowork consumption export folder |
+| **Consumption source** | Viva Insights saved-query connector | `PersonM365CreditsMetrics.csv` |
+| **Validated load** | 43,440 person-week rows, 3,620 people, 12 weeks, 81,798 sessions | Same report contract using the optimized export path |
+| **Download** | [`CoworkSuperUser - Direct Query.pbit`](https://github.com/microsoft/CoworkSuperUser/raw/main/CoworkSuperUser%20-%20Direct%20Query.pbit) | [`CoworkSuperUser - Optimized Export.pbit`](https://github.com/microsoft/CoworkSuperUser/raw/main/CoworkSuperUser%20-%20Optimized%20Export.pbit) |
+
+Both templates open on **Start Here** and explain both connection choices.
+
+## Before you start
+
+- A current [Power BI Desktop](https://powerbi.microsoft.com/desktop/)
+- **Insights Analyst** access to the target Viva Insights partition
+- Access to the
+  [Viva Insights Analyst Workbench](https://analysis.insights.cloud.microsoft/)
+- Permission to use individual-level data for the approved adoption and
+  enablement purpose
+- Power BI workspace permission to publish and configure refresh
+
+The report exposes pseudonymous Person IDs in selected detail paths. Customers
+remain responsible for approved purpose, access control, retention, row-level
+security, and sensitivity labeling after loading production data.
+
+## Required Viva Insights inputs
+
+### Person Query
+
+Use all available Cowork history beginning with the first week Cowork data
+exists. Aim for at least 12 covered weeks when available so the report can use
+its full stage window. Do not request or interpret pre-Cowork weeks as zero.
+
+| Setting | Required value |
+| --- | --- |
+| Group by | **Week** |
+| Population attributes | Person ID, Organization, Function type, Layer or level, Supervisor indicator |
+| Collaboration metrics | Collaboration hours, active connected hours, email hours, chat hours, meeting hours, unscheduled call hours |
+| Beyond-hours metrics | After-hours collaboration, weekend collaboration hours, collaboration span |
+| Network metrics | Internal network size, external network size, strong ties, diverse ties, network outside organization |
+
+### Cowork consumption query
+
+| Setting | Required value |
+| --- | --- |
+| Date range | Same period as the Person Query |
+| Group by | **Day** |
+| Entities | Person and Service |
+| Filter | **Service Name equals `Cowork`** |
+| Metrics | Session count, Total Copilot Credits used, Spending policy limit, User limit |
+
+The Person Query supplies the full approved population and work-pattern context.
+The consumption query supplies Cowork activity. The template defensively
+rechecks the exact Cowork filter, aggregates consumption to person-week, and
+keeps covered people without Cowork sessions as zero/non-users rather than
+dropping them.
 
 ![Viva Insights Person Query setup reference](https://raw.githubusercontent.com/microsoft/DecodingSuperUsage/refs/heads/DecodingSuperUsage/images/viva_insights_setup.gif)
 
-The animation above is the public DecodingSuperUsage Person Query setup reference. CoworkSuperUser additionally requires the Cowork consumption query described below.
+The animation is the public DecodingSuperUsage Person Query reference.
+CoworkSuperUser additionally requires the Cowork consumption query above.
 
-<details open>
-<summary><strong>Quick setup</strong></summary>
+Read the complete instructions:
+**[Build the Viva Insights queries](docs/QUERY_SETUP.md)**.
 
-### 1. Build the Person Query
+## Load and validate
 
-In the [Viva Insights Analyst Workbench](https://analysis.insights.cloud.microsoft/):
+1. Run both analyses and wait for **Completed** or **Success**.
+2. Record the shared Partition ID, Person Query ID, and Consumption Query ID.
+3. Open the selected PBIT and provide the requested values.
+4. Confirm the expected population, covered weeks, organization values,
+   sessions, and visible work-pattern views.
+5. Check history-status labels, privacy suppression, and every page for visual
+   errors before publishing.
+6. Save as PBIX, apply the organization's required Purview sensitivity label,
+   and publish only to an approved Power BI or Fabric workspace.
 
-1. Open **Analysis results**.
-2. Select **Create analysis > Person query**.
-3. Use a rolling **last 6 months** period when possible.
-4. Set **Group by** to **Week**.
-5. Include Person ID, Organization, Function type, Layer or level, and Supervisor indicator.
-6. Include collaboration hours, active connected hours, email, chat, meeting, unscheduled calls, after-hours collaboration, weekend collaboration, collaboration span, network size, strong ties, diverse ties, and network outside organization.
-7. Run the query and wait for **Completed** or **Success**.
+For Optimized Export, configure an on-premises data gateway after publishing if
+the consumption CSV remains in a local folder. See
+[Setup](SETUP.md) and [Troubleshooting](docs/TROUBLESHOOTING.md).
 
-### 2. Build the Cowork consumption query
+## Release kit
 
-1. Create the Microsoft 365 Copilot consumption or cost-management analysis.
-2. Use the same date range.
-3. Set **Group by** to **Day**.
-4. Use Person and Service as entities.
-5. Filter **Service Name** to exactly `Cowork`.
-6. Include Session count, Total Copilot Credits used, Spending policy limit, and User limit.
-7. Run the query and wait for **Completed** or **Success**.
+| Resource | Open or download |
+| --- | --- |
+| Direct Query Power BI template | [`CoworkSuperUser - Direct Query.pbit`](CoworkSuperUser%20-%20Direct%20Query.pbit) |
+| Optimized Export Power BI template | [`CoworkSuperUser - Optimized Export.pbit`](CoworkSuperUser%20-%20Optimized%20Export.pbit) |
+| Step-by-step setup | [`SETUP.md`](SETUP.md) |
+| Query build instructions | [`docs/QUERY_SETUP.md`](docs/QUERY_SETUP.md) |
+| Interpretation guide | [`INTERPRETATION_GUIDE.md`](INTERPRETATION_GUIDE.md) |
+| Interpretation storyboard | [`PPTX`](CoworkSuperUser%20Interpretation%20Storyboard.pptx) |
+| Narrated walkthrough | [`MP4`](media/CoworkSuperUser-Walkthrough.mp4) · [`Transcript`](media/CoworkSuperUser-Walkthrough-transcript.md) · [`Subtitles`](media/CoworkSuperUser-Walkthrough.srt) |
+| Editable PBIP sources | [`Direct Query`](src/direct-query/CoworkVivaV3.pbip) · [`Optimized Export`](src/optimized-export/CoworkVivaV3.pbip) |
+| Troubleshooting | [`docs/TROUBLESHOOTING.md`](docs/TROUBLESHOOTING.md) |
+| Security guidance | [`SECURITY.md`](SECURITY.md) |
+| Release evidence | [`validation/release-manifest.json`](validation/release-manifest.json) |
 
-### 3. Copy the identifiers
+### Validated report contract
 
-Record:
+- Nine report pages
+- 39 bookmark-controlled states
+- 117 semantic-model measures
+- Complete 117-row Methods and Metric Guide
+- Start Here saved as the opening page
+- Consistent page-header alignment
+- Available-history four- and twelve-week windows
+- Aggregate person-derived results suppressed below 10 people
+- No tenant identifiers, customer data, local QA paths, or cached model data in
+  the distributable templates
 
-- Shared Partition Identifier
-- Person Query Identifier
-- Consumption Query Identifier
+Power BI sensitivity labels apply to PBIX files and are not retained in PBIT
+exports. The public classification is documented here and in the release
+manifest; customers must label the refreshed PBIX before sharing it.
 
-Use raw GUIDs only.
+## Interpretation boundaries
 
-### 4. Load a template
-
-- **Direct Query:** enter all three identifiers.
-- **Optimized Export:** enter the partition and Person Query identifiers, then select the folder containing `PersonM365CreditsMetrics.csv`.
-
-### 5. Validate
-
-Confirm population, weeks, sessions, organization coverage, visible work-pattern buttons, history status, privacy suppression, and no visual errors.
-
-Read the complete guide: **[Build the Viva Insights queries](docs/QUERY_SETUP.md)**.
-
-</details>
-
-<details>
-<summary><strong>Access and roles</strong></summary>
-
-- **Insights Analyst** for the target Viva Insights partition
-- Access to the Analyst Workbench
-- Power BI Desktop to open PBIT files
-- Permission to use individual-level data for the approved adoption and enablement purpose
-- Power BI workspace permission to publish and configure semantic-model refresh
-
-The report exposes pseudonymous User IDs in selected drill paths. Customers are responsible for access control, approved purpose, retention, and sensitivity labeling after loading production data.
-
-</details>
-
-<details>
-<summary><strong>Publish and refresh</strong></summary>
-
-1. Save the loaded report as PBIX.
-2. Apply the customer's required Purview sensitivity label.
-3. Publish to an approved Power BI or Fabric workspace.
-4. Configure Viva Insights OAuth credentials.
-5. For Optimized Export, configure an on-premises data gateway for the local folder.
-6. Schedule refresh after the saved Viva analyses normally complete.
-7. Verify that a new covered week appears before using refreshed findings.
-
-</details>
-
-<details>
-<summary><strong>Row-level security</strong></summary>
-
-Define roles in Power BI Desktop against the `Organization` table when different audiences should see different functions or organizations. After publishing, assign Entra ID security groups to roles from the semantic model's **Security** settings.
-
-Use groups rather than individual accounts. Workspace admins and semantic-model owners can see all data. Test each role with **Modeling > View as** before distribution.
-
-</details>
-
-<details>
-<summary><strong>Troubleshooting</strong></summary>
-
-Common fixes:
-
-| Symptom | Likely cause | Fix |
-| --- | --- | --- |
-| Access to the resource is forbidden | Stale Viva Insights credentials | Clear Viva Insights permissions, exit Desktop, reopen, and sign in |
-| Blank visuals | Query incomplete or required fields missing | Wait for Success and rerun with the documented fields |
-| Work-pattern buttons missing | Optional Person Query metric absent or blank | Add the metric and rerun the Person Query |
-| Provisional history | Fewer weeks than the selected cap | Continue refreshing; the report uses available covered weeks |
-| Local-folder refresh fails in service | Gateway not configured | Configure a gateway or use Direct Query |
-
-See **[Troubleshooting](docs/TROUBLESHOOTING.md)**.
-
-</details>
-
----
-
-<a id="interpretation-and-storytelling"></a>
-
-## Interpretation and storytelling
-
-- [Interpretation Storyboard PPTX](CoworkSuperUser%20Interpretation%20Storyboard.pptx)
-- [Detailed interpretation guide](INTERPRETATION_GUIDE.md)
-- [Narrated walkthrough MP4](media/CoworkSuperUser-Walkthrough.mp4)
-- [Walkthrough transcript](media/CoworkSuperUser-Walkthrough-transcript.md)
-- [Captions](media/CoworkSuperUser-Walkthrough.srt)
-
-Use these assets to:
-
-- Create an executive-ready review
-- Separate reach, return, stage movement, and consumption
-- Explain potential champions responsibly
-- Frame work-pattern context without a causal claim
-- Carry period, population, filters, source status, evidence class, and privacy state into decision records
-
-The walkthrough uses the same `en-US-AvaNeural` voice, friendly-professional pacing, 1080p format, and story rhythm as the Cowork Adoption Intelligence walkthrough.
-
----
-
-## Privacy and interpretation boundaries
-
-1. The Person Query is the analytical population spine, not proof of Cowork entitlement.
+1. The Person Query is the analytical population spine, not proof of Cowork
+   entitlement.
 2. Observed active-user share is not an eligibility-based adoption rate.
 3. Sessions are not tasks.
-4. Credits are not productivity, quality, complexity, time saved, or business value.
+4. Credits are not productivity, quality, complexity, time saved, or business
+   value.
 5. Work-pattern differences are descriptive and non-causal.
 6. Champion candidates are outreach starting points, not personnel scores.
 7. Missing optional evidence means unavailable, not zero.
-8. Aggregate person-derived results below 10 people are suppressed.
+8. Pre-Cowork weeks are outside the analysis, not zero-use weeks.
+9. Aggregate person-derived results below 10 people are suppressed.
 
----
+Use the
+[interpretation guide](INTERPRETATION_GUIDE.md) and
+[interpretation storyboard](CoworkSuperUser%20Interpretation%20Storyboard.pptx)
+before presenting results.
 
-<a id="related-resources"></a>
+## Security and privacy
 
-## Related resources
+The PBIT files are data-free and contain no customer data or machine-bound
+`.pbi` cache. Production Person Query and consumption results can contain
+personal and business information. Never commit them, attach them to an issue,
+or place them in an unapproved location.
 
-### Microsoft templates
+Define row-level security roles against the `Organization` table when audiences
+should see different functions or organizations. Assign Entra ID security
+groups rather than individual accounts and test each role with
+**Modeling > View as**. Workspace admins and semantic-model owners can see all
+data.
 
-- [Cowork Adoption Intelligence](https://github.com/microsoft/Cowork-Adoption-Intelligence)
-- [Decoding Super Usage](https://github.com/microsoft/DecodingSuperUsage)
-- [Cowork Billing](https://microsoft.github.io/Analytics-Hub/cowork-billing/)
-- [Microsoft Analytics Hub](https://microsoft.github.io/Analytics-Hub/)
+Read [SECURITY.md](SECURITY.md) before using production data.
 
-### Viva Insights
+## Email your Viva Insights analyst
 
-- [Viva Insights Analyst Workbench](https://analysis.insights.cloud.microsoft/)
-- [Viva Insights Python library](https://microsoft.github.io/vivainsights-py/)
-- [Viva Insights R library](https://microsoft.github.io/vivainsights/)
+Before setup, a Viva Insights administrator or Insights Analyst must create two
+completed analyses in the same partition.
 
-### Attribution
-
-See [ATTRIBUTION.md](ATTRIBUTION.md) for the public Microsoft patterns and assets adapted by this project.
-
----
-
-<a id="email-your-admin"></a>
-
-## Email your admin
-
-Before setup, a Viva Insights administrator or Insights Analyst must create the Person and Cowork consumption queries.
-
-**[Email the query prerequisites](mailto:?subject=Action%20Required%3A%20Viva%20Insights%20query%20setup%20for%20CoworkSuperUser%20Power%20BI&body=To%3A%20Viva%20Insights%20Administrator%20/%20Insights%20Analyst%0A%0AWe%20are%20preparing%20the%20public%20CoworkSuperUser%20Power%20BI%20report%20for%20Microsoft%20365%20Copilot%20Cowork%20adoption%20analysis.%20Please%20create%20two%20completed%20Viva%20Insights%20analyses%20in%20the%20same%20partition.%0A%0A1.%20PERSON%20QUERY%0A-%20Rolling%20last%206%20months%20when%20possible%0A-%20Group%20by%20Week%0A-%20Active%20employee%20population%0A-%20Attributes%3A%20Person%20ID%2C%20Organization%2C%20Function%20type%2C%20Layer%20or%20level%2C%20Supervisor%20indicator%0A-%20Metrics%3A%20collaboration%20hours%2C%20active%20connected%20hours%2C%20email%2C%20chat%2C%20meeting%2C%20unscheduled%20calls%2C%20after-hours%20collaboration%2C%20weekend%20collaboration%2C%20collaboration%20span%2C%20internal%20and%20external%20network%20size%2C%20strong%20and%20diverse%20ties%2C%20and%20network%20outside%20organization%0A%0A2.%20COWORK%20CONSUMPTION%20QUERY%0A-%20Same%20date%20range%0A-%20Group%20by%20Day%0A-%20Entity%3A%20Person%20and%20Service%0A-%20Filter%20Service%20Name%20%3D%20Cowork%0A-%20Metrics%3A%20Session%20count%2C%20Total%20Copilot%20Credits%20used%2C%20Spending%20policy%20limit%2C%20User%20limit%0A%0AWait%20for%20both%20results%20to%20show%20Completed%20or%20Success.%20Then%20provide%20the%20shared%20Partition%20ID%2C%20Person%20Query%20ID%2C%20and%20Consumption%20Query%20ID.%20Please%20do%20not%20send%20exported%20person-level%20data%20by%20email.%0A%0ASetup%20guide%3A%20https%3A//github.com/microsoft/CoworkSuperUser/blob/main/docs/QUERY_SETUP.md)**
-
----
+**[Email the query prerequisites](mailto:?subject=Viva%20Insights%20query%20setup%20for%20CoworkSuperUser&body=Please%20create%20two%20completed%20Viva%20Insights%20analyses%20in%20the%20same%20partition%20for%20the%20public%20CoworkSuperUser%20Power%20BI%20template.%0A%0A1.%20Person%20Query%3A%20all%20available%20Cowork%20history%20beginning%20with%20the%20first%20available%20Cowork%20week%2C%20aiming%20for%20at%20least%2012%20covered%20weeks%20when%20available%3B%20group%20by%20Week%3B%20include%20Person%20ID%2C%20Organization%2C%20Function%2C%20Level%2C%20Supervisor%20indicator%2C%20collaboration%20hours%2C%20active%20connected%20hours%2C%20email%2C%20chat%2C%20meeting%2C%20unscheduled%20calls%2C%20after-hours%20and%20weekend%20collaboration%2C%20collaboration%20span%2C%20network%20size%2C%20strong%20ties%2C%20diverse%20ties%2C%20and%20network%20outside%20organization.%0A%0A2.%20Cowork%20consumption%20query%3A%20same%20date%20range%3B%20group%20by%20Day%3B%20Person%20and%20Service%20entities%3B%20filter%20Service%20Name%20equals%20Cowork%3B%20include%20Session%20count%2C%20Total%20Copilot%20Credits%20used%2C%20Spending%20policy%20limit%2C%20and%20User%20limit.%0A%0AWhen%20both%20analyses%20show%20Completed%20or%20Success%2C%20please%20provide%20the%20shared%20Partition%20ID%2C%20Person%20Query%20ID%2C%20and%20Consumption%20Query%20ID.%20Do%20not%20send%20exported%20person-level%20data%20by%20email.%0A%0AGuide%3A%20https%3A%2F%2Fgithub.com%2Fmicrosoft%2FCoworkSuperUser%2Fblob%2Fmain%2Fdocs%2FQUERY_SETUP.md)**
 
 ## Repository structure
 
@@ -289,13 +282,39 @@ tools/
 validation/
 ```
 
-The distributable PBIT files contain no customer data or machine-bound `.pbi` cache. After loading customer data, apply the organization's required sensitivity label before sharing the saved PBIX.
+## Related resources
 
----
+- [Cowork Adoption Intelligence](https://github.com/microsoft/Cowork-Adoption-Intelligence)
+- [Decoding Super Usage](https://github.com/microsoft/DecodingSuperUsage)
+- [Cowork Billing](https://microsoft.github.io/Analytics-Hub/cowork-billing/)
+- [Microsoft Analytics Hub](https://microsoft.github.io/Analytics-Hub/)
+- [Viva Insights Analyst Workbench](https://analysis.insights.cloud.microsoft/)
+- [Viva Insights Python library](https://microsoft.github.io/vivainsights-py/)
+- [Viva Insights R library](https://microsoft.github.io/vivainsights/)
 
-## Feedback and updates
+See [ATTRIBUTION.md](ATTRIBUTION.md) for the Microsoft patterns and public assets
+adapted by this project.
 
-- Use [GitHub Issues](https://github.com/microsoft/CoworkSuperUser/issues) for reproducible defects and documentation gaps.
-- Star the repository for discovery.
-- Watch releases for updated templates, definitions, and walkthrough assets.
+## Release status and feedback
 
+The current public release is **v1.0.1**. Review the
+[changelog](CHANGELOG.md) and
+[release manifest](validation/release-manifest.json) before broad distribution.
+
+- Use [GitHub Issues](https://github.com/microsoft/CoworkSuperUser/issues) for
+  reproducible defects and documentation gaps.
+- Do not attach tenant exports, credentials, customer identifiers, or
+  identifiable screenshots.
+- Star the repository for discovery and watch releases for updated templates,
+  definitions, and walkthrough assets.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Trademarks
+
+This project may contain Microsoft trademarks or logos. Use of Microsoft
+trademarks or logos must follow
+[Microsoft's Trademark and Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks).
+Modified versions must not cause confusion or imply Microsoft sponsorship.

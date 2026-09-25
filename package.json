@@ -1,7 +1,7 @@
 {
   "name": "cowork-super-user-release-tools",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "build:storyboard": "node tools/build_interpretation_storyboard.js"
   },
