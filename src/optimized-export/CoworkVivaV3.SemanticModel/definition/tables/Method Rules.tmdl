@@ -33,7 +33,7 @@ table 'Method Rules'
 		source =
 				let
 					Data = #table({"Step", "Stage", "Rule", "Evidence Class"}, {
-					        {1, "Connect required sources", "Load PersonM365CreditsMetrics.csv from the configured Viva export folder and load the Person Query through VivaInsights.Data.", "Observed"},
+					        {1, "Connect required sources", "Load the Consumption Dashboard daily export PersonServiceCreditsMetrics.csv (legacy PersonM365CreditsMetrics.csv is also accepted) and load the Person Query through VivaInsights.Data.", "Observed"},
 					        {2, "Filter Cowork", "Keep only rows where ServiceName is exactly Cowork.", "Observed"},
 					        {3, "Retain the base", "Keep validated Person Query rows at Person ID plus Sunday-start week as the analytical spine.", "Observed"},
 					        {4, "Aggregate and join", "Aggregate Cowork policy rows to Person ID plus week, assert uniqueness, then left join to the Person Query base.", "Derived"},
@@ -45,4 +45,3 @@ table 'Method Rules'
 					    })
 				in
 					Data
-

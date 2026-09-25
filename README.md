@@ -114,7 +114,7 @@ before outreach.
 | --- | --- | --- |
 | **Best for** | Script-free saved-query connection and scheduled refresh | Fastest validated refresh and support fallback |
 | **Inputs** | Partition ID, Person Query ID, Consumption Query ID | Partition ID, Person Query ID, Cowork consumption export folder |
-| **Consumption source** | Viva Insights saved-query connector | `PersonM365CreditsMetrics.csv` |
+| **Consumption source** | Viva Insights saved-query connector | Consumption Dashboard `PersonServiceCreditsMetrics.csv` |
 | **Refresh behavior** | Imports both completed saved-query results during refresh | Imports the connected Person Query and the exported Cowork consumption CSV |
 | **Download** | [`CoworkSuperUser - Direct Query.pbit`](https://github.com/microsoft/CoworkSuperUser/raw/main/CoworkSuperUser%20-%20Direct%20Query.pbit) | [`CoworkSuperUser - Optimized Export.pbit`](https://github.com/microsoft/CoworkSuperUser/raw/main/CoworkSuperUser%20-%20Optimized%20Export.pbit) |
 
@@ -130,32 +130,27 @@ Both templates open on **Start Here** and explain both connection choices.
 ![Viva Insights Person Query setup reference](https://raw.githubusercontent.com/microsoft/DecodingSuperUsage/refs/heads/DecodingSuperUsage/images/viva_insights_setup.gif)
 
 The animation is the public DecodingSuperUsage Person Query reference.
-CoworkSuperUser requires both the Person Query and the Cowork consumption
-analysis described below.
+CoworkSuperUser also needs Cowork consumption data.
+
+| Customer path | Consumption source | Template |
+| --- | --- | --- |
+| **Recommended** | Consumption Dashboard > Download > Export by day | Optimized Export |
+| **Advanced** | Custom consumption query; requires Insights Analyst plus global-partition access | Direct Query |
 
 <details open>
 <summary><strong>Written setup guide</strong></summary>
 
-### Step 1: Confirm access and dates
-
-You need current Power BI Desktop, access to the
-[Viva Insights Analyst Workbench](https://analysis.insights.cloud.microsoft/),
-and the **Insights Analyst** role for the target partition.
-
-Use all available Cowork history beginning with the first week Cowork data
-exists. Aim for at least 12 covered weeks when available. Use the same partition
-and overlapping dates for both analyses. Do not add pre-Cowork weeks or
-interpret them as zero.
-
-### Step 2: Build the Person Query
+### Step 1: Build the Person Query
 
 1. Open **Analysis results**.
 2. Select **Create analysis > Person query > Set up analysis**.
-3. Set **Group by** to **Week**.
-4. Select the approved employee population. If appropriate, filter to active
+3. Use all available Cowork history from the first available week; aim for at
+   least 12 covered weeks when available.
+4. Set **Group by** to **Week**.
+5. Select the approved employee population. If appropriate, filter to active
    employees.
-5. Include every field below.
-6. Run the analysis and wait for **Completed** or **Success**.
+6. Include every field below.
+7. Run the analysis and wait for **Success**.
 
 **Attributes**
 
@@ -181,75 +176,45 @@ analysis.
 
 Reference: [Viva Insights advanced analysis metric descriptions](https://learn.microsoft.com/viva/insights/advanced/reference/metrics).
 
-The result must remain unique at one row per person per week. Do not filter this
-query to Cowork users; it defines the full approved analytical population.
+The result must remain unique at one row per person per week. Do not filter the
+Person Query to Cowork users.
 
-### Step 3: Build the Cowork consumption analysis
+### Step 2: Recommended customer path
 
-1. Select **Create analysis**.
-2. Choose the Microsoft 365 Copilot consumption or cost-management analysis
-   that exposes Person, Service, sessions, credits, and policy limits.
-3. Use the same partition and an overlapping date range.
-4. Set **Group by** to **Day**.
-5. Include the **Person** and **Service** entities.
-6. Apply the exact filter:
+1. Select **Consumption Dashboard** in the Viva Insights left navigation.
+2. Select the **download** button in the upper-right.
+3. Select **Export by day**.
+4. Extract the downloaded ZIP to a protected folder.
+5. Keep `PersonServiceCreditsMetrics.csv` in that folder unchanged.
+6. In **Analysis results**, copy the successful Person Query link. It contains
+   the Partition Identifier and Person Query Identifier.
+7. Open `CoworkSuperUser - Optimized Export.pbit`.
+8. Enter the Partition Identifier, Person Query Identifier, and the **folder**
+   containing `PersonServiceCreditsMetrics.csv`.
+9. Select **Load** and authenticate with an organizational account that can read
+   the Person Query.
 
-   ```text
-   Service Name equals Cowork
-   ```
+The template reads the official dashboard filename directly. No rename is
+required.
 
-7. Include Session count, Total Copilot Credits used, Spending policy limit,
-   and User limit.
-8. Retain Person ID, Service ID, Service Name, Spending Policy ID, Metric Date,
-   and People Historical ID when available.
-9. Run the analysis and wait for **Completed** or **Success**.
+### Advanced Direct Query path
 
-The model checks the exact Cowork filter again and aggregates daily and policy
-rows to person-week. Covered people with no Cowork session remain in the report
-as zero/non-users rather than being removed.
+This path requires an **Insights Analyst assigned to the global partition**.
+A Global Administrator can export the dashboard but cannot run a custom
+consumption query based on the Global Administrator role alone.
 
-### Step 4: Copy the identifiers
-
-From the completed result details, record:
-
-- The shared **Partition Identifier**
-- The **Person Query Identifier**
-- The **Consumption Query Identifier**
-
-If the page only provides **Copy link**, use the partition and result GUIDs from
-that link. Enter raw GUIDs only—no labels, quotation marks, braces, or URLs.
-
-### Step 5A: Connect Direct Query
-
-1. Open `CoworkSuperUser - Direct Query.pbit`.
-2. Enter the Partition, Person Query, and Consumption Query identifiers.
-3. Select **Load**.
-4. Sign in using **Organizational account/OAuth2** with an account that can read
-   the partition and both completed results.
-5. If Power BI asks for a privacy level, use the organization-approved level;
-   **Organizational** is normally appropriate.
-6. Wait for the entire refresh to finish.
-
-This edition imports both saved-query results during refresh; it is not Tabular
-DirectQuery storage mode.
-
-### Step 5B: Connect Optimized Export
-
-1. Export the completed Cowork consumption result as row-level CSV.
-2. Place the CSV in a dedicated protected folder.
-3. Ensure its filename is exactly:
-
-   ```text
-   PersonM365CreditsMetrics.csv
-   ```
-
-4. Remove duplicate copies beneath that folder and close the file in Excel.
-5. Open `CoworkSuperUser - Optimized Export.pbit`.
-6. Enter the Partition Identifier, Person Query Identifier, and the **folder**
-   containing the CSV.
-7. Select **Load** and authenticate to Viva Insights for the Person Query.
-
-The folder loader searches subfolders and rejects missing or duplicate copies.
+1. Select **Create analysis > Custom query > Create custom query > Consumption
+   query**.
+2. Set **Group by** to **Day** under **More settings**.
+3. Keep Total Copilot Credits used, Session count, User limit, and Spending
+   policy limit.
+4. Add `ServiceName = Cowork`.
+5. Run the query and wait for **Success**.
+6. Copy the Person Query and Consumption Query links from Analysis results.
+7. Open `CoworkSuperUser - Direct Query.pbit`.
+8. Enter the shared Partition Identifier, Person Query Identifier, and
+   Consumption Query Identifier.
+9. Select **Load** and sign in with the Insights Analyst organizational account.
 
 Read the full runbook:
 **[Build and connect the Viva Insights analyses](docs/QUERY_SETUP.md)**.

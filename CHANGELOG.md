@@ -9,6 +9,7 @@
 - Replaced the fixed six-month request with all available Cowork history from the first available week, targeting at least 12 covered weeks when available.
 - Added the inline narrated walkthrough and reorganized the public README around quick start, connection paths, query setup, release assets, security, and interpretation.
 - Published a complete DecodingSuperUsage-style two-analysis setup runbook covering query creation, identifiers, both connection paths, authentication, validation, publishing, refresh, and troubleshooting.
+- Made the Consumption Dashboard daily export the recommended customer path and added direct support for its official `PersonServiceCreditsMetrics.csv` filename and `TotalCreditsUsed` column.
 - Re-exported both data-free PBIT connection editions and refreshed the interpretation storyboard.
 - Replaced the IRM-encrypted storyboard artifact with an unprotected Open XML PPTX that opens in PowerPoint for the web and customer tenants.
 

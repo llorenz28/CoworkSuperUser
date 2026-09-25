@@ -173,7 +173,7 @@ $requiredSetupInstructions = @(
     "Strong ties",
     "Diverse ties",
     "Network outside organization",
-    "Service Name equals Cowork",
+    "ServiceName = Cowork",
     "Session count",
     "Total Copilot Credits used",
     "Spending policy limit",
@@ -181,7 +181,10 @@ $requiredSetupInstructions = @(
     "Partition Identifier",
     "Person Query Identifier",
     "Consumption Query Identifier",
-    "PersonM365CreditsMetrics.csv",
+    "Consumption Dashboard",
+    "Export by day",
+    "PersonServiceCreditsMetrics.csv",
+    "global partition",
     "Organizational account",
     "OAuth2",
     "Data source settings",
@@ -191,6 +194,12 @@ $requiredSetupInstructions = @(
 foreach ($instruction in $requiredSetupInstructions) {
     if (-not $setupText.Contains($instruction, [StringComparison]::OrdinalIgnoreCase)) {
         throw "Public setup documentation is incomplete: $instruction"
+    }
+    if (
+        $optimizedExpressions -notmatch "PersonServiceCreditsMetrics\.csv" -or
+        $optimizedExpressions -notmatch "TotalCreditsUsed"
+    ) {
+        throw "Optimized Export does not support the official Consumption Dashboard export schema."
     }
 }
 if ($setupText -match "(?i)(last\s+6\s+months|rolling\s+last\s+6|six\s+months)") {

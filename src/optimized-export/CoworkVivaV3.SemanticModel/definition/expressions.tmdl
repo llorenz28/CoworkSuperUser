@@ -33,25 +33,27 @@ expression 'Viva Export File Catalog' =
 
 expression fnLoadVivaExportCsv =
 		let
-			fn = (fileName as text) as table =>
+			fn = (fileNames as list) as table =>
 				let
 					Catalog = #"Viva Export File Catalog",
+					NormalizedNames = List.Transform(fileNames, each Text.Lower(_)),
+					DisplayNames = Text.Combine(fileNames, " or "),
 					Matches = Table.SelectRows(
 						Catalog,
-						each Text.Lower([Name]) = Text.Lower(fileName)
+						each List.Contains(NormalizedNames, Text.Lower([Name]))
 					),
 					MatchCount = Table.RowCount(Matches),
 					Path =
 						if MatchCount = 0 then
 							error Error.Record(
 								"Cowork Adoption - export file not found",
-								"Could not find " & fileName & " under the configured export folder.",
-								[Folder = #"Viva Export Folder Path", File = fileName])
+								"Could not find " & DisplayNames & " under the configured export folder.",
+								[Folder = #"Viva Export Folder Path", Files = fileNames])
 						else if MatchCount > 1 then
 							error Error.Record(
 								"Cowork Adoption - duplicate export files",
-								"More than one copy of " & fileName & " was found under the configured export folder.",
-								[Folder = #"Viva Export Folder Path", File = fileName])
+								"More than one supported consumption export was found under the configured export folder.",
+								[Folder = #"Viva Export Folder Path", Files = fileNames])
 						else Matches{0}[Folder Path] & Matches{0}[Name],
 					Source = Csv.Document(
 						File.Contents(Path),
@@ -283,7 +285,12 @@ expression 'Integrated Person Week Source' =
 		        {"Person Sort"}
 		    ),
 		
-		    ConsumptionRaw = fnLoadVivaExportCsv("PersonM365CreditsMetrics.csv"),
+		    ConsumptionRaw = fnLoadVivaExportCsv(
+		        {
+		            "PersonServiceCreditsMetrics.csv",
+		            "PersonM365CreditsMetrics.csv"
+		        }
+		    ),
 		    ConsumptionNonFolded = Table.StopFolding(ConsumptionRaw),
 		    ConsumptionCoworkRaw = Table.SelectRows(
 		        ConsumptionNonFolded,
@@ -298,7 +305,7 @@ expression 'Integrated Person Week Source' =
 		            {"Metric Date", "MetricDate"},
 		            {"Session Count", "Session count", "SessionCount"},
 		            {"Spending Policy Limit", "Spending policy limit", "SpendingPolicyLimit"},
-		            {"AI Credits", "Total Copilot Credits used", "TotalCopilotCreditsUsed"},
+		            {"AI Credits", "Total Copilot Credits used", "TotalCopilotCreditsUsed", "TotalCreditsUsed"},
 		            {"User Limit", "User limit", "UserLimit"},
 		            {"People Historical ID", "PeopleHistoricalId"}
 		        }

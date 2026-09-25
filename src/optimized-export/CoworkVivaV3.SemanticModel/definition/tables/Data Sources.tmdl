@@ -52,9 +52,8 @@ table 'Data Sources'
 				let
 					Data = #table({"Source", "Grain", "Key", "Date Window", "Data Origin", "Validation Status", "Source Sort"}, {
 					        {"Viva Insights Person Query", "Person-week base", "Person ID + Sunday-start week", "Configured Person Query period", "VivaInsights.Data connector", "Required source; unique base key validated; descriptive only", 1},
-					        {"PersonM365CreditsMetrics.csv", "Raw person-service-policy-period", "Person ID + Service Name + Spending Policy ID + Metric Date", "Available Cowork export period", "Viva Export Folder Path", "Required source; schema and weekly coverage validated after filtering to Cowork", 2},
+					        {"PersonServiceCreditsMetrics.csv", "Raw person-service-policy-period", "Person ID + Service Name + Spending Policy ID + Metric Date", "Available Consumption Dashboard export period", "Viva Export Folder Path", "Required source; legacy PersonM365CreditsMetrics.csv also accepted; schema and weekly coverage validated after filtering to Cowork", 2},
 					        {"Cowork adoption derivations", "Person-week and person-window", "Person ID + Sunday-start week", "Available source overlap", "Derived from Person Query and Cowork consumption", "Base rows preserved; joins and coverage reconciled", 3}
 					    })
 				in
 					Data
-
