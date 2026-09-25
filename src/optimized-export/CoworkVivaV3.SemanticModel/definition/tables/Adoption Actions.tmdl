@@ -1,0 +1,48 @@
+/// Transparent aggregate adoption actions, triggers, and interpretation guidance.
+table 'Adoption Actions'
+	lineageTag: 99b309df-672b-471e-bbc8-c0135ea9f580
+
+	column Action
+		dataType: string
+		lineageTag: c2fd869e-0ccf-4513-bbe8-17720e3fa650
+		summarizeBy: none
+		sourceColumn: Action
+		sortByColumn: 'Action Sort'
+
+	column 'Action Sort'
+		dataType: int64
+		isHidden
+		lineageTag: e1d575b7-c787-44ba-ac85-2696698e5a29
+		summarizeBy: none
+		sourceColumn: Action Sort
+
+	column Trigger
+		dataType: string
+		lineageTag: 6bf2a738-f054-45f6-9dc4-bed8fc19969c
+		summarizeBy: none
+		sourceColumn: Trigger
+
+	column Interpretation
+		dataType: string
+		lineageTag: 6f939d69-f692-4167-8c6d-ef4a4c46c092
+		summarizeBy: none
+		sourceColumn: Interpretation
+
+	column 'Evidence Class'
+		dataType: string
+		lineageTag: 834a37de-bd7e-4152-ba61-f8b6598f2a96
+		summarizeBy: none
+		sourceColumn: Evidence Class
+
+	partition 'Adoption Actions' = m
+		mode: import
+		source =
+				let
+					Data = #table({"Action", "Action Sort", "Trigger", "Interpretation", "Evidence Class"}, {
+					        {"Activate observed use", 1, "Observed Cowork user share trails the organization benchmark.", "Prioritize access validation, awareness, and role-relevant first-use support.", "Derived"},
+					        {"Build repeat habit", 2, "Observed use is established but sustained-use share trails the benchmark.", "Prioritize repeatable scenarios, manager reinforcement, and follow-up learning.", "Derived"},
+					        {"Scale champion practice", 3, "Observed use and sustained-use share meet or exceed benchmarks.", "Use aggregate Cowork Power and Habitual cohorts for peer learning without exposing individuals.", "Derived"}
+					    })
+				in
+					Data
+

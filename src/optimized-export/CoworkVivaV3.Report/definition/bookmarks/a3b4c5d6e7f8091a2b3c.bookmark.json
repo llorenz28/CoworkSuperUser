@@ -1,0 +1,287 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Adoption by Attributes - Sustained-use share",
+  "name": "a3b4c5d6e7f8091a2b3c",
+  "options": {
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [
+      "161df1d27dcbb32234fd",
+      "1d625dc12038052f58ce",
+      "attribute_readiness_company_observed",
+      "attribute_readiness_company_sustained",
+      "attribute_readiness_guide",
+      "usage_tier_by_dept",
+      "attribute_weekly_rate_title",
+      "attribute_weekly_rate_kpi_rate",
+      "attribute_weekly_rate_kpi_change",
+      "attribute_weekly_rate_kpi_people",
+      "attribute_weekly_rate_kpi_return",
+      "attribute_weekly_rate_selection_trend",
+      "attribute_weekly_rate_company_trend",
+      "attribute_weekly_rate_guide",
+      "delegation_tier_by_dept",
+      "attribute_focus_company_reach",
+      "attribute_focus_company_repeat",
+      "attribute_focus_total_users",
+      "attribute_focus_power_users",
+      "attribute_action_focus_guide",
+      "attribute_view_sustained_share_button",
+      "attribute_view_sustained_share_button_selected",
+      "attribute_view_readiness_button",
+      "attribute_view_readiness_button_selected",
+      "attribute_view_weekly_rate_button",
+      "attribute_view_weekly_rate_button_selected",
+      "attribute_view_watchlist_button",
+      "attribute_view_watchlist_button_selected"
+    ],
+    "suppressActiveSection": true,
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.0",
+    "activeSection": "102_adoption_attributes",
+    "sections": {
+      "102_adoption_attributes": {
+        "visualContainers": {
+          "161df1d27dcbb32234fd": {
+            "singleVisual": {
+              "visualType": "lineStackedColumnComboChart",
+              "objects": {}
+            }
+          },
+          "1d625dc12038052f58ce": {
+            "singleVisual": {
+              "visualType": "clusteredBarChart",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "attribute_readiness_company_observed": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "attribute_readiness_company_sustained": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "attribute_readiness_guide": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "usage_tier_by_dept": {
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "attribute_weekly_rate_title": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "attribute_weekly_rate_kpi_rate": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "attribute_weekly_rate_kpi_change": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "attribute_weekly_rate_kpi_people": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "attribute_weekly_rate_kpi_return": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "attribute_weekly_rate_selection_trend": {
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "attribute_weekly_rate_company_trend": {
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "attribute_weekly_rate_guide": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "delegation_tier_by_dept": {
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "attribute_focus_company_reach": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "attribute_focus_company_repeat": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "attribute_focus_total_users": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "attribute_focus_power_users": {
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "attribute_action_focus_guide": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "attribute_view_sustained_share_button": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "attribute_view_sustained_share_button_selected": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "attribute_view_readiness_button": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "attribute_view_readiness_button_selected": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "attribute_view_weekly_rate_button": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "attribute_view_weekly_rate_button_selected": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "attribute_view_watchlist_button": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "attribute_view_watchlist_button_selected": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

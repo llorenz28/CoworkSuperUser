@@ -1,0 +1,11 @@
+.pbi/
+*.pbix
+*.bak
+*.tmp
+*.log
+__pycache__/
+validation/screenshots/
+node_modules/
+media/.walkthrough-build/
+media/composed/
+storyboard-render/

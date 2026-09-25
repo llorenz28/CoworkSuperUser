@@ -1,0 +1,142 @@
+/// Long-form person-week Person Query context metrics used for date-aware adoption-group comparisons.
+table 'Person Metrics'
+	lineageTag: 561f65ec-f207-4e74-a841-440c90f6436b
+
+	/// Selected work-pattern metric with a bucket-compatible default.
+	measure 'Selected Work Pattern Metric' = SELECTEDVALUE('Person Metrics'[Metric], "Internal Network Size")
+		formatString: General
+		displayFolder: Adoption context
+		lineageTag: 22709cdb-aba7-4eca-9988-d0599969f26d
+
+	/// Returns one when the selected work-pattern metric has source values.
+	measure 'Selected Metric Available' =
+			VAR _metric = [Selected Work Pattern Metric]
+			VAR _rows =
+			    SWITCH(
+			        _metric,
+			        "Internal Network Size", CALCULATE(COUNTA('Consumption Weekly'[Internal Network Size]), REMOVEFILTERS('Consumption Weekly')),
+			        "After Hours Collaboration", CALCULATE(COUNTA('Consumption Weekly'[After Hours Collaboration]), REMOVEFILTERS('Consumption Weekly')),
+			        "External Network Size", CALCULATE(COUNTA('Consumption Weekly'[External Network Size]), REMOVEFILTERS('Consumption Weekly')),
+			        "Weekend Collaboration Hours", CALCULATE(COUNTA('Consumption Weekly'[Weekend Collaboration Hours]), REMOVEFILTERS('Consumption Weekly')),
+			        "Network Outside Organization", CALCULATE(COUNTA('Consumption Weekly'[Network Outside Organization]), REMOVEFILTERS('Consumption Weekly')),
+			        "Collaboration Span", CALCULATE(COUNTA('Consumption Weekly'[Collaboration Span]), REMOVEFILTERS('Consumption Weekly')),
+			        0
+			    )
+			RETURN IF(_rows > 0, 1, 0)
+		formatString: 0
+		displayFolder: Adoption context
+		lineageTag: bb110c86-f633-4d2d-a047-b1aeb783a0b0
+
+	/// Standardized mean difference between sustained Cowork users and the rest; descriptive and non-causal.
+	measure 'Standardized Difference' =
+			VAR _metric = [Selected Work Pattern Metric]
+			VAR _sustainedIds = CALCULATETABLE(VALUES('Usage Segment Snapshot'[Person ID]), 'Usage Segment Snapshot'[Latest Sustained] = "Yes")
+			VAR _restIds = CALCULATETABLE(VALUES('Usage Segment Snapshot'[Person ID]), 'Usage Segment Snapshot'[Latest Sustained] = "No", 'Usage Segment Snapshot'[Latest Coverage Status] = "Complete")
+			VAR _sustainedMean = CALCULATE(SWITCH(_metric, "Collaboration Hours", AVERAGE('Consumption Weekly'[Collaboration Hours]), "Active Connected Hours", AVERAGE('Consumption Weekly'[Active Connected Hours]), "Email Hours", AVERAGE('Consumption Weekly'[Email Hours]), "Chat Hours", AVERAGE('Consumption Weekly'[Chat Hours]), "Meeting Hours", AVERAGE('Consumption Weekly'[Meeting Hours]), "Unscheduled Call Hours", AVERAGE('Consumption Weekly'[Unscheduled Call Hours]), "After Hours Collaboration", AVERAGE('Consumption Weekly'[After Hours Collaboration]), "Weekend Collaboration Hours", AVERAGE('Consumption Weekly'[Weekend Collaboration Hours]), "Collaboration Span", AVERAGE('Consumption Weekly'[Collaboration Span]), "Internal Network Size", AVERAGE('Consumption Weekly'[Internal Network Size]), "External Network Size", AVERAGE('Consumption Weekly'[External Network Size]), "Strong Ties", AVERAGE('Consumption Weekly'[Strong Ties]), "Diverse Ties", AVERAGE('Consumption Weekly'[Diverse Ties]), "Network Outside Organization", AVERAGE('Consumption Weekly'[Network Outside Organization])), TREATAS(_sustainedIds, 'Consumption Weekly'[Person ID]))
+			VAR _restMean = CALCULATE(SWITCH(_metric, "Collaboration Hours", AVERAGE('Consumption Weekly'[Collaboration Hours]), "Active Connected Hours", AVERAGE('Consumption Weekly'[Active Connected Hours]), "Email Hours", AVERAGE('Consumption Weekly'[Email Hours]), "Chat Hours", AVERAGE('Consumption Weekly'[Chat Hours]), "Meeting Hours", AVERAGE('Consumption Weekly'[Meeting Hours]), "Unscheduled Call Hours", AVERAGE('Consumption Weekly'[Unscheduled Call Hours]), "After Hours Collaboration", AVERAGE('Consumption Weekly'[After Hours Collaboration]), "Weekend Collaboration Hours", AVERAGE('Consumption Weekly'[Weekend Collaboration Hours]), "Collaboration Span", AVERAGE('Consumption Weekly'[Collaboration Span]), "Internal Network Size", AVERAGE('Consumption Weekly'[Internal Network Size]), "External Network Size", AVERAGE('Consumption Weekly'[External Network Size]), "Strong Ties", AVERAGE('Consumption Weekly'[Strong Ties]), "Diverse Ties", AVERAGE('Consumption Weekly'[Diverse Ties]), "Network Outside Organization", AVERAGE('Consumption Weekly'[Network Outside Organization])), TREATAS(_restIds, 'Consumption Weekly'[Person ID]))
+			VAR _sustainedStd = CALCULATE(SWITCH(_metric, "Collaboration Hours", STDEV.S('Consumption Weekly'[Collaboration Hours]), "Active Connected Hours", STDEV.S('Consumption Weekly'[Active Connected Hours]), "Email Hours", STDEV.S('Consumption Weekly'[Email Hours]), "Chat Hours", STDEV.S('Consumption Weekly'[Chat Hours]), "Meeting Hours", STDEV.S('Consumption Weekly'[Meeting Hours]), "Unscheduled Call Hours", STDEV.S('Consumption Weekly'[Unscheduled Call Hours]), "After Hours Collaboration", STDEV.S('Consumption Weekly'[After Hours Collaboration]), "Weekend Collaboration Hours", STDEV.S('Consumption Weekly'[Weekend Collaboration Hours]), "Collaboration Span", STDEV.S('Consumption Weekly'[Collaboration Span]), "Internal Network Size", STDEV.S('Consumption Weekly'[Internal Network Size]), "External Network Size", STDEV.S('Consumption Weekly'[External Network Size]), "Strong Ties", STDEV.S('Consumption Weekly'[Strong Ties]), "Diverse Ties", STDEV.S('Consumption Weekly'[Diverse Ties]), "Network Outside Organization", STDEV.S('Consumption Weekly'[Network Outside Organization])), TREATAS(_sustainedIds, 'Consumption Weekly'[Person ID]))
+			VAR _restStd = CALCULATE(SWITCH(_metric, "Collaboration Hours", STDEV.S('Consumption Weekly'[Collaboration Hours]), "Active Connected Hours", STDEV.S('Consumption Weekly'[Active Connected Hours]), "Email Hours", STDEV.S('Consumption Weekly'[Email Hours]), "Chat Hours", STDEV.S('Consumption Weekly'[Chat Hours]), "Meeting Hours", STDEV.S('Consumption Weekly'[Meeting Hours]), "Unscheduled Call Hours", STDEV.S('Consumption Weekly'[Unscheduled Call Hours]), "After Hours Collaboration", STDEV.S('Consumption Weekly'[After Hours Collaboration]), "Weekend Collaboration Hours", STDEV.S('Consumption Weekly'[Weekend Collaboration Hours]), "Collaboration Span", STDEV.S('Consumption Weekly'[Collaboration Span]), "Internal Network Size", STDEV.S('Consumption Weekly'[Internal Network Size]), "External Network Size", STDEV.S('Consumption Weekly'[External Network Size]), "Strong Ties", STDEV.S('Consumption Weekly'[Strong Ties]), "Diverse Ties", STDEV.S('Consumption Weekly'[Diverse Ties]), "Network Outside Organization", STDEV.S('Consumption Weekly'[Network Outside Organization])), TREATAS(_restIds, 'Consumption Weekly'[Person ID]))
+			VAR _pooled = SQRT(DIVIDE(POWER(_sustainedStd, 2) + POWER(_restStd, 2), 2))
+			RETURN IF([Observation Weeks] > 0 && COUNTROWS(_sustainedIds) >= [Privacy Floor] && COUNTROWS(_restIds) >= [Privacy Floor], DIVIDE(_sustainedMean - _restMean, _pooled))
+		formatString: 0.00
+		displayFolder: Adoption context
+		lineageTag: af95c4c0-6897-47ec-ac59-e9ccb55d3eb9
+
+	/// Privacy-safe average for the selected metric; defaults to Collaboration Hours when one metric is not selected.
+	measure 'Selected Metric Overall Average' =
+			VAR _metric =
+			    SELECTEDVALUE('Person Metrics'[Metric], "Internal Network Size")
+			VAR _people = CALCULATE(DISTINCTCOUNT('Consumption Weekly'[Person ID]), REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment], 'Usage Segment Snapshot'[Latest Segment Sort]))
+			RETURN IF(_people >= [Privacy Floor], CALCULATE(SWITCH(_metric, "Collaboration Hours", AVERAGE('Consumption Weekly'[Collaboration Hours]), "Active Connected Hours", AVERAGE('Consumption Weekly'[Active Connected Hours]), "Email Hours", AVERAGE('Consumption Weekly'[Email Hours]), "Chat Hours", AVERAGE('Consumption Weekly'[Chat Hours]), "Meeting Hours", AVERAGE('Consumption Weekly'[Meeting Hours]), "Unscheduled Call Hours", AVERAGE('Consumption Weekly'[Unscheduled Call Hours]), "After Hours Collaboration", AVERAGE('Consumption Weekly'[After Hours Collaboration]), "Weekend Collaboration Hours", AVERAGE('Consumption Weekly'[Weekend Collaboration Hours]), "Collaboration Span", AVERAGE('Consumption Weekly'[Collaboration Span]), "Internal Network Size", AVERAGE('Consumption Weekly'[Internal Network Size]), "External Network Size", AVERAGE('Consumption Weekly'[External Network Size]), "Strong Ties", AVERAGE('Consumption Weekly'[Strong Ties]), "Diverse Ties", AVERAGE('Consumption Weekly'[Diverse Ties]), "Network Outside Organization", AVERAGE('Consumption Weekly'[Network Outside Organization])), REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment], 'Usage Segment Snapshot'[Latest Segment Sort])))
+		formatString: #,##0.0
+		displayFolder: Adoption context
+		lineageTag: f59755c0-f7ca-47bd-b366-2a7001f04362
+
+	/// Privacy-safe selected-metric average for Cowork Habitual and Power users.
+	measure 'Selected Metric Sustained Average' =
+			VAR _metric =
+			    SELECTEDVALUE('Person Metrics'[Metric], "Internal Network Size")
+			VAR _ids = CALCULATETABLE(VALUES('Usage Segment Snapshot'[Person ID]), 'Usage Segment Snapshot'[Latest Sustained] = "Yes")
+			RETURN IF([Observation Weeks] > 0 && COUNTROWS(_ids) >= [Privacy Floor], CALCULATE(SWITCH(_metric, "Collaboration Hours", AVERAGE('Consumption Weekly'[Collaboration Hours]), "Active Connected Hours", AVERAGE('Consumption Weekly'[Active Connected Hours]), "Email Hours", AVERAGE('Consumption Weekly'[Email Hours]), "Chat Hours", AVERAGE('Consumption Weekly'[Chat Hours]), "Meeting Hours", AVERAGE('Consumption Weekly'[Meeting Hours]), "Unscheduled Call Hours", AVERAGE('Consumption Weekly'[Unscheduled Call Hours]), "After Hours Collaboration", AVERAGE('Consumption Weekly'[After Hours Collaboration]), "Weekend Collaboration Hours", AVERAGE('Consumption Weekly'[Weekend Collaboration Hours]), "Collaboration Span", AVERAGE('Consumption Weekly'[Collaboration Span]), "Internal Network Size", AVERAGE('Consumption Weekly'[Internal Network Size]), "External Network Size", AVERAGE('Consumption Weekly'[External Network Size]), "Strong Ties", AVERAGE('Consumption Weekly'[Strong Ties]), "Diverse Ties", AVERAGE('Consumption Weekly'[Diverse Ties]), "Network Outside Organization", AVERAGE('Consumption Weekly'[Network Outside Organization])), TREATAS(_ids, 'Consumption Weekly'[Person ID])))
+		formatString: #,##0.0
+		displayFolder: Adoption context
+		lineageTag: cddb1288-bef7-4f1c-abbb-6ca139486310
+
+	/// Privacy-safe selected-metric average for Cowork Non-user, Low, and Developing users.
+	measure 'Selected Metric Other Average' =
+			VAR _metric =
+			    SELECTEDVALUE('Person Metrics'[Metric], "Internal Network Size")
+			VAR _ids = CALCULATETABLE(VALUES('Usage Segment Snapshot'[Person ID]), 'Usage Segment Snapshot'[Latest Sustained] = "No", 'Usage Segment Snapshot'[Latest Coverage Status] = "Complete")
+			RETURN IF([Observation Weeks] > 0 && COUNTROWS(_ids) >= [Privacy Floor], CALCULATE(SWITCH(_metric, "Collaboration Hours", AVERAGE('Consumption Weekly'[Collaboration Hours]), "Active Connected Hours", AVERAGE('Consumption Weekly'[Active Connected Hours]), "Email Hours", AVERAGE('Consumption Weekly'[Email Hours]), "Chat Hours", AVERAGE('Consumption Weekly'[Chat Hours]), "Meeting Hours", AVERAGE('Consumption Weekly'[Meeting Hours]), "Unscheduled Call Hours", AVERAGE('Consumption Weekly'[Unscheduled Call Hours]), "After Hours Collaboration", AVERAGE('Consumption Weekly'[After Hours Collaboration]), "Weekend Collaboration Hours", AVERAGE('Consumption Weekly'[Weekend Collaboration Hours]), "Collaboration Span", AVERAGE('Consumption Weekly'[Collaboration Span]), "Internal Network Size", AVERAGE('Consumption Weekly'[Internal Network Size]), "External Network Size", AVERAGE('Consumption Weekly'[External Network Size]), "Strong Ties", AVERAGE('Consumption Weekly'[Strong Ties]), "Diverse Ties", AVERAGE('Consumption Weekly'[Diverse Ties]), "Network Outside Organization", AVERAGE('Consumption Weekly'[Network Outside Organization])), TREATAS(_ids, 'Consumption Weekly'[Person ID])))
+		formatString: #,##0.0
+		displayFolder: Adoption context
+		lineageTag: cfee43bf-0114-4cc8-9e2e-847b856a6dd2
+
+	/// Privacy-safe percent difference between each Cowork stage and the Cowork Non-user baseline for the selected metric.
+	measure 'Selected Metric Stage Difference vs Non-user' =
+			VAR _metric =
+			    SELECTEDVALUE('Person Metrics'[Metric], "Internal Network Size")
+			VAR _currentIds = VALUES('Usage Segment Snapshot'[Person ID])
+			VAR _baselineIds = CALCULATETABLE(VALUES('Usage Segment Snapshot'[Person ID]), REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment], 'Usage Segment Snapshot'[Latest Segment Sort]), 'Usage Segment Snapshot'[Latest Segment] = "Cowork Non-user")
+			VAR _current = CALCULATE(SWITCH(_metric, "Collaboration Hours", AVERAGE('Consumption Weekly'[Collaboration Hours]), "Active Connected Hours", AVERAGE('Consumption Weekly'[Active Connected Hours]), "Email Hours", AVERAGE('Consumption Weekly'[Email Hours]), "Chat Hours", AVERAGE('Consumption Weekly'[Chat Hours]), "Meeting Hours", AVERAGE('Consumption Weekly'[Meeting Hours]), "Unscheduled Call Hours", AVERAGE('Consumption Weekly'[Unscheduled Call Hours]), "After Hours Collaboration", AVERAGE('Consumption Weekly'[After Hours Collaboration]), "Weekend Collaboration Hours", AVERAGE('Consumption Weekly'[Weekend Collaboration Hours]), "Collaboration Span", AVERAGE('Consumption Weekly'[Collaboration Span]), "Internal Network Size", AVERAGE('Consumption Weekly'[Internal Network Size]), "External Network Size", AVERAGE('Consumption Weekly'[External Network Size]), "Strong Ties", AVERAGE('Consumption Weekly'[Strong Ties]), "Diverse Ties", AVERAGE('Consumption Weekly'[Diverse Ties]), "Network Outside Organization", AVERAGE('Consumption Weekly'[Network Outside Organization])), TREATAS(_currentIds, 'Consumption Weekly'[Person ID]))
+			VAR _baseline = CALCULATE(SWITCH(_metric, "Collaboration Hours", AVERAGE('Consumption Weekly'[Collaboration Hours]), "Active Connected Hours", AVERAGE('Consumption Weekly'[Active Connected Hours]), "Email Hours", AVERAGE('Consumption Weekly'[Email Hours]), "Chat Hours", AVERAGE('Consumption Weekly'[Chat Hours]), "Meeting Hours", AVERAGE('Consumption Weekly'[Meeting Hours]), "Unscheduled Call Hours", AVERAGE('Consumption Weekly'[Unscheduled Call Hours]), "After Hours Collaboration", AVERAGE('Consumption Weekly'[After Hours Collaboration]), "Weekend Collaboration Hours", AVERAGE('Consumption Weekly'[Weekend Collaboration Hours]), "Collaboration Span", AVERAGE('Consumption Weekly'[Collaboration Span]), "Internal Network Size", AVERAGE('Consumption Weekly'[Internal Network Size]), "External Network Size", AVERAGE('Consumption Weekly'[External Network Size]), "Strong Ties", AVERAGE('Consumption Weekly'[Strong Ties]), "Diverse Ties", AVERAGE('Consumption Weekly'[Diverse Ties]), "Network Outside Organization", AVERAGE('Consumption Weekly'[Network Outside Organization])), TREATAS(_baselineIds, 'Consumption Weekly'[Person ID]))
+			RETURN IF([Observation Weeks] > 0 && COUNTROWS(_currentIds) >= [Privacy Floor] && COUNTROWS(_baselineIds) >= [Privacy Floor], DIVIDE(_current - _baseline, _baseline))
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Adoption context
+		lineageTag: 664e5ead-7802-4492-8baf-6e8e24c81100
+
+	/// Privacy-safe average selected work-pattern metric for the current Cowork stage.
+	measure 'Selected Metric Stage Average' =
+			VAR _metric =
+			    SELECTEDVALUE('Person Metrics'[Metric], "Internal Network Size")
+			VAR _ids = VALUES('Usage Segment Snapshot'[Person ID])
+			VAR _people = COUNTROWS(_ids)
+			VAR _value = CALCULATE(SWITCH(_metric, "Collaboration Hours", AVERAGE('Consumption Weekly'[Collaboration Hours]), "Active Connected Hours", AVERAGE('Consumption Weekly'[Active Connected Hours]), "Email Hours", AVERAGE('Consumption Weekly'[Email Hours]), "Chat Hours", AVERAGE('Consumption Weekly'[Chat Hours]), "Meeting Hours", AVERAGE('Consumption Weekly'[Meeting Hours]), "Unscheduled Call Hours", AVERAGE('Consumption Weekly'[Unscheduled Call Hours]), "After Hours Collaboration", AVERAGE('Consumption Weekly'[After Hours Collaboration]), "Weekend Collaboration Hours", AVERAGE('Consumption Weekly'[Weekend Collaboration Hours]), "Collaboration Span", AVERAGE('Consumption Weekly'[Collaboration Span]), "Internal Network Size", AVERAGE('Consumption Weekly'[Internal Network Size]), "External Network Size", AVERAGE('Consumption Weekly'[External Network Size]), "Strong Ties", AVERAGE('Consumption Weekly'[Strong Ties]), "Diverse Ties", AVERAGE('Consumption Weekly'[Diverse Ties]), "Network Outside Organization", AVERAGE('Consumption Weekly'[Network Outside Organization])), TREATAS(_ids, 'Consumption Weekly'[Person ID]))
+			RETURN IF([Observation Weeks] > 0 && _people >= [Privacy Floor], _value)
+		formatString: #,##0.0
+		displayFolder: Adoption context
+		lineageTag: 5e2057b1-14a1-421d-b6ad-f7be9220fbd4
+
+	column Bucket
+		dataType: string
+		lineageTag: a8e7c589-9652-4f76-a9f0-ed06cefdae57
+		summarizeBy: none
+		sourceColumn: Bucket
+		sortByColumn: 'Bucket Sort'
+
+	column 'Bucket Sort'
+		dataType: int64
+		isHidden
+		lineageTag: 36b347b4-32ad-4700-89a8-7b7908e5ec6b
+		summarizeBy: none
+		sourceColumn: Bucket Sort
+
+	column Metric
+		dataType: string
+		lineageTag: b24a8897-f9d8-47a5-8477-5756704d5334
+		summarizeBy: none
+		sourceColumn: Metric
+		sortByColumn: 'Metric Sort'
+
+	column 'Metric Sort'
+		dataType: int64
+		isHidden
+		lineageTag: 6c2186be-84cc-4465-989a-33715a1f98ce
+		summarizeBy: none
+		sourceColumn: Metric Sort
+
+	partition 'Person Metrics' = m
+		mode: import
+		source =
+				let
+					Data = #table({"Bucket", "Bucket Sort", "Metric", "Metric Sort"}, {
+					        {"Collaboration network", 1, "Internal Network Size", 1},
+					        {"Beyond-hours work", 2, "After Hours Collaboration", 2},
+					        {"Collaboration network", 1, "External Network Size", 3},
+					        {"Beyond-hours work", 2, "Weekend Collaboration Hours", 4},
+					        {"Collaboration network", 1, "Network Outside Organization", 5},
+					        {"Beyond-hours work", 2, "Collaboration Span", 6}
+					    })
+				in
+					Data
+

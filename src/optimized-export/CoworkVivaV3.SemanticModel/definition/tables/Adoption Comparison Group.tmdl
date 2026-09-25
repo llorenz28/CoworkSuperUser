@@ -1,0 +1,29 @@
+/// Disconnected Sustained users and Rest of population comparison axis.
+table 'Adoption Comparison Group'
+	lineageTag: b365d6b7-6f2e-4bb7-b8a1-3eef6d41508b
+
+	column Group
+		dataType: string
+		lineageTag: 54621ea0-ab19-45c6-8da2-8ae8b9942e38
+		summarizeBy: none
+		sourceColumn: Group
+		sortByColumn: 'Group Sort'
+
+	column 'Group Sort'
+		dataType: int64
+		isHidden
+		lineageTag: c6e93a75-7745-44e4-8fff-4599f6c79b45
+		summarizeBy: none
+		sourceColumn: Group Sort
+
+	partition 'Adoption Comparison Group' = m
+		mode: import
+		source =
+				let
+					Data = #table({"Group", "Group Sort"}, {
+					        {"Sustained users", 1},
+					        {"Rest of population", 2}
+					    })
+				in
+					Data
+

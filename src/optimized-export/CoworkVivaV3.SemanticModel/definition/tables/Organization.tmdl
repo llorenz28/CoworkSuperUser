@@ -1,0 +1,224 @@
+/// One row per person with hidden source identifiers, a report-facing pseudonymous User ID, and organization attributes.
+table Organization
+	lineageTag: 2aa40079-28e5-4bd5-aaab-c78678876785
+
+	/// Distinct people in the current organization and report filter context.
+	measure Population = DISTINCTCOUNT('Organization'[Person ID])
+		formatString: #,##0
+		displayFolder: Population
+		lineageTag: 023427d5-7d48-4b36-bfae-2e1abb629a45
+
+	/// Minimum distinct-person denominator for reportable results.
+	measure 'Privacy Floor' = 10
+		formatString: #,##0
+		displayFolder: Population
+		lineageTag: ce079bc2-e332-4aa1-af23-a383a05fd3ef
+
+	/// Distinct people returned only when the privacy floor is met.
+	measure 'Reportable Population' =
+			IF(
+			    ISINSCOPE('Organization'[User ID]),
+			    [Population],
+			    IF([Population] >= [Privacy Floor], [Population])
+			)
+		formatString: #,##0
+		displayFolder: Population
+		lineageTag: 84485d83-ca29-414c-b342-408ce997459b
+
+	column 'Person ID'
+		dataType: string
+		isHidden
+		lineageTag: cac186bb-9d4e-4f8e-bf9e-34bab28be41d
+		summarizeBy: none
+		sourceColumn: [Person ID]
+
+	column 'User ID'
+		dataType: string
+		lineageTag: fff93b64-f39a-44e2-b136-923edc220b19
+		summarizeBy: none
+		sourceColumn: [User ID]
+
+	column 'People Historical ID'
+		dataType: string
+		isHidden
+		lineageTag: 6cadf135-39e8-4050-bc88-42818a5c4299
+		summarizeBy: none
+		sourceColumn: [People Historical ID]
+
+	column Organization
+		dataType: string
+		lineageTag: 643d00cc-f19f-480f-8913-065fcd0bb121
+		summarizeBy: none
+		sourceColumn: [Organization]
+
+	column Function
+		dataType: string
+		lineageTag: 9b14e850-b2e4-48c5-9fd7-d8490ddb16b8
+		summarizeBy: none
+		sourceColumn: [Function]
+
+	column Level
+		dataType: string
+		lineageTag: 540c5f2c-887b-4cd2-8736-8f4243796500
+		summarizeBy: none
+		sourceColumn: [Level]
+
+	column Manager
+		dataType: string
+		isHidden
+		lineageTag: 2d20ed45-f179-4378-9550-4f9da88bb788
+		summarizeBy: none
+		sourceColumn: [Manager]
+
+	column 'Is Copilot Licensed'
+		dataType: string
+		isHidden
+		lineageTag: 0a718e64-461e-4f2a-af30-289eaa17f7b1
+		summarizeBy: none
+		sourceColumn: [Is Copilot Licensed]
+
+	column 'Person Sort'
+		dataType: int64
+		isHidden
+		lineageTag: d1c733fb-36a6-41c2-a737-c05d830f2187
+		summarizeBy: none
+		sourceColumn: [Person Sort]
+
+	column 'Complete Coverage'
+		dataType: string
+		lineageTag: 459a78fd-05e7-460e-97dc-800a2e1dc752
+		summarizeBy: none
+		sourceColumn: [Complete Coverage]
+
+	column 'Usage Stage'
+		dataType: string
+		lineageTag: 6539231f-97d9-42c9-a3bc-9f45c9af9a33
+		summarizeBy: none
+		sourceColumn: [Usage Stage]
+		sortByColumn: 'Usage Stage Sort'
+
+	column 'Usage Stage Sort'
+		dataType: int64
+		isHidden
+		lineageTag: ac6bac26-78fe-4b2b-8a4e-4792da5ef8b3
+		summarizeBy: none
+		sourceColumn: [Usage Stage Sort]
+
+	partition Organization = calculated
+		mode: import
+		source =
+				VAR _source =
+				    SELECTCOLUMNS(
+				        'Consumption Weekly',
+				        "Person ID", 'Consumption Weekly'[Person ID] & "",
+				        "User ID", 'Consumption Weekly'[User ID] & "",
+				        "People Historical ID", 'Consumption Weekly'[People Historical ID] & "",
+				        "Organization", 'Consumption Weekly'[Organization] & "",
+				        "Function", 'Consumption Weekly'[Function] & "",
+				        "Level", 'Consumption Weekly'[Level] & "",
+				        "Manager", 'Consumption Weekly'[Manager] & "",
+				        "Is Copilot Licensed", 'Consumption Weekly'[Is Copilot Licensed] & "",
+				        "Person Sort", 'Consumption Weekly'[Person Sort],
+				        "Week Start", 'Consumption Weekly'[Week Start],
+				        "Consumption Coverage", 'Consumption Weekly'[Consumption Coverage],
+				        "Sessions", 'Consumption Weekly'[Sessions]
+				    )
+				VAR _weeks =
+				    DISTINCT(SELECTCOLUMNS(_source, "Week Start", [Week Start]))
+				VAR _weekCount = COUNTROWS(_weeks)
+				VAR _latestWeeks = TOPN(4, _weeks, [Week Start], DESC)
+				VAR _baseWeeks = COUNTROWS(_latestWeeks)
+				VAR _latestSource =
+				    FILTER(
+				        _source,
+				        VAR _currentWeek = [Week Start]
+				        RETURN CONTAINS(_latestWeeks, [Week Start], _currentWeek)
+				    )
+				VAR _personAll =
+				    GROUPBY(
+				        _source,
+				        [Person ID],
+				        "User ID", MAXX(CURRENTGROUP(), [User ID]),
+				        "People Historical ID", MAXX(CURRENTGROUP(), [People Historical ID]),
+				        "Organization", MAXX(CURRENTGROUP(), [Organization]),
+				        "Function", MAXX(CURRENTGROUP(), [Function]),
+				        "Level", MAXX(CURRENTGROUP(), [Level]),
+				        "Manager", MAXX(CURRENTGROUP(), [Manager]),
+				        "Is Copilot Licensed", MAXX(CURRENTGROUP(), [Is Copilot Licensed]),
+				        "Person Sort", MAXX(CURRENTGROUP(), [Person Sort]),
+				        "Known Full Weeks",
+				            SUMX(
+				                CURRENTGROUP(),
+				                IF([Consumption Coverage] <> "Unknown", 1, 0)
+				            )
+				    )
+				VAR _personLatest =
+				    GROUPBY(
+				        _latestSource,
+				        [Person ID],
+				        "Known Weeks",
+				            SUMX(
+				                CURRENTGROUP(),
+				                IF([Consumption Coverage] <> "Unknown", 1, 0)
+				            ),
+				        "Active Weeks", SUMX(CURRENTGROUP(), IF([Sessions] > 0, 1, 0)),
+				        "Session Total", SUMX(CURRENTGROUP(), [Sessions])
+				    )
+				VAR _joined = NATURALLEFTOUTERJOIN(_personAll, _personLatest)
+				VAR _withStage =
+				    ADDCOLUMNS(
+				        _joined,
+				        "Complete Coverage",
+				            IF([Known Full Weeks] = _weekCount, "Yes", "No"),
+				        "Usage Stage",
+				            VAR _known = COALESCE([Known Weeks], 0)
+				            VAR _active = COALESCE([Active Weeks], 0)
+				            VAR _averageSessions =
+				                IF(
+				                    _known = _baseWeeks && _baseWeeks > 0,
+				                    DIVIDE([Session Total], _baseWeeks)
+				                )
+				            VAR _activeRate = DIVIDE(_active, _known, 0)
+				            RETURN
+				                SWITCH(
+				                    TRUE(),
+				                    _known < _baseWeeks, "Cowork coverage unknown",
+				                    _activeRate >= 0.75 && _averageSessions >= 6, "Cowork Power User",
+				                    _activeRate >= 0.75, "Cowork Habitual User",
+				                    _activeRate >= 0.25, "Cowork Developing User",
+				                    _active > 0, "Cowork Low User",
+				                    "Cowork Non-user"
+				                )
+				    )
+				VAR _withSort =
+				    ADDCOLUMNS(
+				        _withStage,
+				        "Usage Stage Sort",
+				            SWITCH(
+				                [Usage Stage],
+				                "Cowork Power User", 1,
+				                "Cowork Habitual User", 2,
+				                "Cowork Developing User", 3,
+				                "Cowork Low User", 4,
+				                "Cowork Non-user", 5,
+				                "Cowork coverage unknown", 6,
+				                7
+				            )
+				    )
+				RETURN
+				    SELECTCOLUMNS(
+				        _withSort,
+				        "Person ID", [Person ID],
+				        "User ID", COALESCE([User ID], [Person ID]) & "",
+				        "People Historical ID", COALESCE([People Historical ID], "") & "",
+				        "Organization", COALESCE([Organization], "Not provided") & "",
+				        "Function", COALESCE([Function], "Not provided") & "",
+				        "Level", COALESCE([Level], "Not provided") & "",
+				        "Manager", COALESCE([Manager], "Not provided") & "",
+				        "Is Copilot Licensed", COALESCE([Is Copilot Licensed], "Not supplied") & "",
+				        "Person Sort", INT([Person Sort]),
+				        "Complete Coverage", [Complete Coverage],
+				        "Usage Stage", [Usage Stage],
+				        "Usage Stage Sort", [Usage Stage Sort]
+				    )
+

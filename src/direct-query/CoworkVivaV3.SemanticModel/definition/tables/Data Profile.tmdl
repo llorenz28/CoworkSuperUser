@@ -1,0 +1,51 @@
+/// Refresh-quality checks and source-period metadata produced by deterministic preparation.
+table 'Data Profile'
+	lineageTag: 92e22b4d-ce5e-4710-9c41-f926a72d739b
+
+	column Metric
+		dataType: string
+		lineageTag: 35deab41-3a3a-48a3-84f4-258a3a4fa322
+		summarizeBy: none
+		sourceColumn: Metric
+
+	column Value
+		dataType: string
+		lineageTag: 08de33ca-c75b-474b-8e1a-931d6bc5ffea
+		summarizeBy: none
+		sourceColumn: Value
+
+	column Status
+		dataType: string
+		lineageTag: c793d1f9-384d-42af-a38c-0fc712d2492b
+		summarizeBy: none
+		sourceColumn: Status
+
+	column Detail
+		dataType: string
+		lineageTag: d7c646ba-fa15-4c94-8aae-13e58aafba92
+		summarizeBy: none
+		sourceColumn: Detail
+
+	partition 'Data Profile' = m
+		mode: import
+		source =
+				let
+					Data = #table({"Metric", "Value", "Status", "Detail"}, {
+					        {"Analytical Population", "1200", "Pass", "Distinct people retained from the Person Query base."},
+					        {"Person Query Base Rows", "31200", "Pass", "Retained person-week rows before Cowork consumption is left joined."},
+					        {"Consumption Covered Weeks", "26 of 26", "Pass", "Weeks with at least one Cowork consumption fact; missing person rows in covered weeks are established zeros."},
+					        {"Unknown Person-Weeks", "0", "Pass", "Person Query base rows without a Cowork fact in a week whose source coverage was not established."},
+					        {"Unmatched Consumption Keys", "0", "Pass", "Aggregated Cowork person-week keys not present in the retained Person Query base."},
+					        {"Observed Cowork Active Users", "1117", "Pass", "Distinct people with positive Cowork sessions; this is not an eligibility-based adoption rate."},
+					        {"Complete Analysis Horizon", "2026-01-11 to 2026-07-05", "Pass", "Blended analysis is trimmed to the latest complete Person Query Sunday-start week."},
+					        {"Data Freshness", "81 days", "Review", "Days since the latest complete aligned week. The packaged demonstration data is intentionally static; replace it with current customer Viva Insights exports for live analysis."},
+					        {"Excluded Partial Consumption Weeks", "0", "Pass", "Consumption weeks later than the Person Query horizon are excluded from blended analysis."},
+					        {"Policy Duplicate Rows", "1752", "Pass", "Policy rows are aggregated to person-week before analytical joins."},
+					        {"Power Session Threshold", "6", "Pass", "Average sessions per observed week required in addition to the 75% active-week rule."},
+					        {"History Readiness", "26 covered weeks", "Pass", "Stages begin with the first covered Cowork week; movement begins with the second. Results remain provisional until the selected cap is populated."},
+					        {"Cowork Eligibility Denominator", "Not supplied", "Review", "IsCopilotLicensed is generic and is not used as Cowork access eligibility."},
+					        {"Global Partition Access", "Required", "Review", "Consumption metrics cannot be queried by analysts limited to a non-global partition."}
+					    })
+				in
+					Data
+

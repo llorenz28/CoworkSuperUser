@@ -1,0 +1,959 @@
+/// Latest and previous selected-window usage stages, movement, and champion cohort for each person.
+table 'Usage Segment Snapshot'
+	lineageTag: 35fff33a-6f76-4c2f-8c17-699f0109880d
+
+	/// People with complete Cowork coverage in the latest selected rolling-window window.
+	measure 'Latest Classified Population' =
+			CALCULATE(
+			    DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]),
+			    REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment]),
+			    REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment Sort]),
+			    'Usage Segment Snapshot'[Latest Coverage Status] = "Complete"
+			)
+		formatString: #,##0
+		isHidden
+		displayFolder: Coverage
+		lineageTag: ed21fed7-8f3e-495a-b917-5e4dcc3f7cc9
+
+	/// People with complete Cowork coverage in the previous selected rolling-window window.
+	measure 'Previous Classified Population' =
+			CALCULATE(
+			    DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]),
+			    REMOVEFILTERS('Usage Segment Snapshot'[Previous Segment]),
+			    REMOVEFILTERS('Usage Segment Snapshot'[Previous Segment Sort]),
+			    'Usage Segment Snapshot'[Previous Coverage Status] = "Complete"
+			)
+		formatString: #,##0
+		isHidden
+		displayFolder: Coverage
+		lineageTag: d4ea7f69-111a-407f-9b1e-5e786dc05fbe
+
+	/// People with complete Cowork coverage in both rolling windows.
+	measure 'Movement Comparable Population' =
+			CALCULATE(
+			    DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]),
+			    REMOVEFILTERS('Usage Segment Snapshot'[Movement]),
+			    REMOVEFILTERS('Usage Segment Snapshot'[Movement Sort]),
+			    'Usage Segment Snapshot'[Latest Coverage Status] = "Complete",
+			    'Usage Segment Snapshot'[Previous Coverage Status] = "Complete"
+			)
+		formatString: #,##0
+		isHidden
+		displayFolder: Coverage
+		lineageTag: fe33bbf9-5f39-4ab9-9300-ba149042e3b4
+
+	/// People in the latest Cowork stage context when privacy-safe.
+	measure 'Latest Segment People' =
+			VAR _people = DISTINCTCOUNT('Usage Segment Snapshot'[Person ID])
+			RETURN IF([Latest Classified Population] >= [Privacy Floor] && _people >= [Privacy Floor], _people)
+		formatString: #,##0
+		displayFolder: Latest stage
+		lineageTag: 961075ed-922b-4b6f-bd3a-e400810284d1
+
+	/// Latest Cowork stage share.
+	measure 'Latest Segment Share' = DIVIDE([Latest Segment People], [Latest Classified Population])
+		formatString: 0.0%
+		displayFolder: Latest stage
+		lineageTag: 4cfefe37-fafa-4f06-8d79-1870bc1c5f4c
+
+	/// Average weekly Cowork sessions for people in the selected latest stage; privacy suppressed.
+	measure 'Average Sessions per Person' =
+			VAR _people =
+			    DISTINCTCOUNT('Usage Segment Snapshot'[Person ID])
+			RETURN
+			IF(
+			    [Latest Classified Population] >= [Privacy Floor] && _people >= [Privacy Floor],
+			    AVERAGE('Usage Segment Snapshot'[Latest Average Weekly Sessions])
+			)
+		formatString: #,##0.0
+		displayFolder: Latest stage
+		lineageTag: dd54cabf-7b9e-49a2-b18a-5c31c6003a46
+
+	/// People in the latest Cowork Power User stage.
+	measure 'Power Users' =
+			VAR _people =
+			    CALCULATE(
+			        DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment Sort]),
+			        'Usage Segment Snapshot'[Latest Segment] = "Cowork Power User"
+			    )
+			RETURN IF([Latest Classified Population] >= [Privacy Floor] && _people >= [Privacy Floor], _people)
+		formatString: #,##0
+		displayFolder: Latest stage
+		lineageTag: a187eb15-d21b-4b26-89b0-f18946055665
+
+	/// Share in the latest Cowork Power User stage.
+	measure 'Power User Share' =
+			VAR _people =
+			    CALCULATE(
+			        DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment Sort]),
+			        'Usage Segment Snapshot'[Latest Segment] = "Cowork Power User"
+			    )
+			RETURN
+			IF(
+			    [Latest Classified Population] >= [Privacy Floor] && _people >= [Privacy Floor],
+			    DIVIDE(_people, [Latest Classified Population])
+			)
+		formatString: 0.0%
+		displayFolder: Latest stage
+		lineageTag: 6781b26c-df61-455a-8eb6-2bc211eca77f
+
+	/// People in the latest Cowork Habitual User stage.
+	measure 'Habitual Users' =
+			VAR _people =
+			    CALCULATE(
+			        DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment Sort]),
+			        'Usage Segment Snapshot'[Latest Segment] = "Cowork Habitual User"
+			    )
+			RETURN IF([Latest Classified Population] >= [Privacy Floor] && _people >= [Privacy Floor], _people)
+		formatString: #,##0
+		displayFolder: Latest stage
+		lineageTag: 63aa8691-b0bc-43fb-a77b-52254ea020fb
+
+	/// Share in the latest Cowork Habitual User stage.
+	measure 'Habitual User Share' =
+			VAR _people =
+			    CALCULATE(
+			        DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment Sort]),
+			        'Usage Segment Snapshot'[Latest Segment] = "Cowork Habitual User"
+			    )
+			RETURN
+			IF(
+			    [Latest Classified Population] >= [Privacy Floor] && _people >= [Privacy Floor],
+			    DIVIDE(_people, [Latest Classified Population])
+			)
+		formatString: 0.0%
+		displayFolder: Latest stage
+		lineageTag: f7c7c2f5-eb40-4fa2-8e0c-295367a30d01
+
+	/// People in the latest Cowork Developing User stage.
+	measure 'Novice Users' =
+			VAR _people =
+			    CALCULATE(
+			        DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment Sort]),
+			        'Usage Segment Snapshot'[Latest Segment] = "Cowork Developing User"
+			    )
+			RETURN IF([Latest Classified Population] >= [Privacy Floor] && _people >= [Privacy Floor], _people)
+		formatString: #,##0
+		displayFolder: Latest stage
+		lineageTag: 0a174644-1fe6-4ea4-a496-ea4fcecc3051
+
+	/// Share in the latest Cowork Developing User stage.
+	measure 'Novice User Share' =
+			VAR _people =
+			    CALCULATE(
+			        DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment Sort]),
+			        'Usage Segment Snapshot'[Latest Segment] = "Cowork Developing User"
+			    )
+			RETURN
+			IF(
+			    [Latest Classified Population] >= [Privacy Floor] && _people >= [Privacy Floor],
+			    DIVIDE(_people, [Latest Classified Population])
+			)
+		formatString: 0.0%
+		displayFolder: Latest stage
+		lineageTag: a0121658-5b7d-4d46-8888-13e45670efc4
+
+	/// People in the latest Cowork Low User stage.
+	measure 'Low Users' =
+			VAR _people =
+			    CALCULATE(
+			        DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment Sort]),
+			        'Usage Segment Snapshot'[Latest Segment] = "Cowork Low User"
+			    )
+			RETURN IF([Latest Classified Population] >= [Privacy Floor] && _people >= [Privacy Floor], _people)
+		formatString: #,##0
+		displayFolder: Latest stage
+		lineageTag: c8063497-41cf-4ddc-ba10-870d68e4cbfc
+
+	/// Share in the latest Cowork Low User stage.
+	measure 'Low User Share' =
+			VAR _people =
+			    CALCULATE(
+			        DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment Sort]),
+			        'Usage Segment Snapshot'[Latest Segment] = "Cowork Low User"
+			    )
+			RETURN
+			IF(
+			    [Latest Classified Population] >= [Privacy Floor] && _people >= [Privacy Floor],
+			    DIVIDE(_people, [Latest Classified Population])
+			)
+		formatString: 0.0%
+		displayFolder: Latest stage
+		lineageTag: 831e56c8-7bff-4c4b-ab80-92efc8b5282c
+
+	/// People in the latest Cowork Non-user stage.
+	measure Non-users =
+			VAR _people =
+			    CALCULATE(
+			        DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment Sort]),
+			        'Usage Segment Snapshot'[Latest Segment] = "Cowork Non-user"
+			    )
+			RETURN IF([Latest Classified Population] >= [Privacy Floor] && _people >= [Privacy Floor], _people)
+		formatString: #,##0
+		displayFolder: Latest stage
+		lineageTag: 9e634ee2-35a2-4d40-b8b6-8107402011e2
+
+	/// Share in the latest Cowork Non-user stage.
+	measure 'Non-user Share' =
+			VAR _people =
+			    CALCULATE(
+			        DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment Sort]),
+			        'Usage Segment Snapshot'[Latest Segment] = "Cowork Non-user"
+			    )
+			RETURN
+			IF(
+			    [Latest Classified Population] >= [Privacy Floor] && _people >= [Privacy Floor],
+			    DIVIDE(_people, [Latest Classified Population])
+			)
+		formatString: 0.0%
+		displayFolder: Latest stage
+		lineageTag: a24a4c7c-53a7-47e6-9d52-4daf3378d60d
+
+	/// People in the latest Cowork Power or Habitual stage; returns an explicit 0/1 value on authorized employee-detail rows.
+	measure 'Sustained Users' =
+			VAR _people =
+			    CALCULATE(
+			        DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment Sort]),
+			        'Usage Segment Snapshot'[Latest Segment] IN {"Cowork Power User", "Cowork Habitual User"}
+			    )
+			RETURN
+			IF(
+			    ISINSCOPE('Organization'[User ID]),
+			    COALESCE(_people, 0),
+			    IF([Latest Classified Population] >= [Privacy Floor] && _people >= [Privacy Floor], _people)
+			)
+		formatString: #,##0
+		displayFolder: Latest stage
+		lineageTag: 4aa192af-4993-4c3e-81d6-afe02c1c320d
+
+	/// Cowork Power and Habitual users divided by people with complete latest-window coverage; returns 0% or 100% on employee-detail rows.
+	measure 'Sustained Usage Share' =
+			IF(
+			    ISINSCOPE('Organization'[User ID]),
+			    IF(
+			        SELECTEDVALUE('Usage Segment Snapshot'[Latest Coverage Status]) = "Complete",
+			        [Sustained Users]
+			    ),
+			    DIVIDE([Sustained Users], [Latest Classified Population])
+			)
+		formatString: 0.0%
+		displayFolder: Latest stage
+		lineageTag: 379931fe-6fa0-4183-a2b6-bec15d373147
+
+	/// People with any activity in the latest selected rolling-window window.
+	measure 'Latest Window Active Users' =
+			VAR _people =
+			    CALCULATE(
+			        DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment]),
+			        REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment Sort]),
+			        'Usage Segment Snapshot'[Latest Segment] IN {
+			            "Cowork Power User",
+			            "Cowork Habitual User",
+			            "Cowork Developing User",
+			            "Cowork Low User"
+			        }
+			    )
+			RETURN IF([Latest Classified Population] >= [Privacy Floor] && _people >= [Privacy Floor], _people)
+		formatString: #,##0
+		displayFolder: Latest stage
+		lineageTag: 25b728f0-20e5-42d5-82ec-4512de49954c
+
+	/// Latest selected rolling-window active users divided by people with complete latest-window coverage.
+	measure 'Latest Window Reach' = DIVIDE([Latest Window Active Users], [Latest Classified Population])
+		formatString: 0.0%
+		displayFolder: Latest stage
+		lineageTag: 9caf658e-57a3-42e0-9fda-d0ac751a9417
+
+	/// People in the selected stage-movement class when privacy-safe.
+	measure 'Movement People' =
+			VAR _movement = SELECTEDVALUE('Adoption Movement'[Movement])
+			VAR _people = CALCULATE(DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]), TREATAS({_movement}, 'Usage Segment Snapshot'[Movement]))
+			RETURN IF([Movement Comparable Population] >= [Privacy Floor] && _people >= [Privacy Floor], _people)
+		formatString: #,##0
+		displayFolder: Movement
+		lineageTag: 21c7c159-4b05-4e2d-a449-30cdaa0ef835
+
+	/// Privacy-safe movement share.
+	measure 'Movement Share' = DIVIDE([Movement People], [Movement Comparable Population])
+		formatString: 0.0%
+		displayFolder: Movement
+		lineageTag: 76d3f825-5bea-4206-b4b3-6bdbbeb67793
+
+	/// People whose Cowork stage improved when privacy-safe.
+	measure 'Improved People' =
+			VAR _people = CALCULATE(DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]), 'Usage Segment Snapshot'[Movement] = "Improved")
+			RETURN IF([Movement Comparable Population] >= [Privacy Floor] && _people >= [Privacy Floor], _people)
+		formatString: #,##0
+		displayFolder: Movement
+		lineageTag: 3a47f4e3-caaf-417d-8925-83c94291483f
+
+	/// People whose Cowork stage stayed stable when privacy-safe; returns an explicit 0/1 value on authorized employee-detail rows.
+	measure 'Stable People' =
+			VAR _people = CALCULATE(DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]), 'Usage Segment Snapshot'[Movement] = "Stable")
+			RETURN
+			IF(
+			    ISINSCOPE('Organization'[User ID]),
+			    COALESCE(_people, 0),
+			    IF([Movement Comparable Population] >= [Privacy Floor] && _people >= [Privacy Floor], _people)
+			)
+		formatString: #,##0
+		displayFolder: Movement
+		lineageTag: 34525bf5-30e0-4298-9e42-7450cf099046
+
+	/// People whose Cowork stage declined when privacy-safe.
+	measure 'Declined People' =
+			VAR _people = CALCULATE(DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]), 'Usage Segment Snapshot'[Movement] = "Declined")
+			RETURN IF([Movement Comparable Population] >= [Privacy Floor] && _people >= [Privacy Floor], _people)
+		formatString: #,##0
+		displayFolder: Movement
+		lineageTag: fccc9f28-9a48-46e5-886f-673dfb30b3a4
+
+	/// People in the selected Cowork stage transition when privacy-safe.
+	measure 'Transition People' =
+			VAR _people = DISTINCTCOUNT('Usage Segment Snapshot'[Person ID])
+			RETURN IF([Movement Comparable Population] >= [Privacy Floor] && _people >= [Privacy Floor], _people)
+		formatString: #,##0
+		displayFolder: Movement
+		lineageTag: da24f61d-b59f-4510-b4ea-252339f4ed3b
+
+	/// Share of previously sustained Cowork users still sustained; returns 0% or 100% for applicable employee-detail rows.
+	measure 'Sustained Retention Rate' =
+			VAR _previousSustained = CALCULATE(DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]), 'Usage Segment Snapshot'[Previous Sustained] = "Yes")
+			VAR _retained = CALCULATE(DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]), 'Usage Segment Snapshot'[Previous Sustained] = "Yes", 'Usage Segment Snapshot'[Latest Sustained] = "Yes")
+			RETURN
+			IF(
+			    ISINSCOPE('Organization'[User ID]),
+			    IF(
+			        SELECTEDVALUE('Usage Segment Snapshot'[Previous Sustained]) = "Yes",
+			        IF(SELECTEDVALUE('Usage Segment Snapshot'[Latest Sustained]) = "Yes", 1, 0)
+			    ),
+			    IF(
+			        [Movement Comparable Population] >= [Privacy Floor]
+			            && _previousSustained >= [Privacy Floor]
+			            && _retained >= [Privacy Floor],
+			        DIVIDE(_retained, _previousSustained)
+			    )
+			)
+		formatString: 0.0%
+		displayFolder: Movement
+		lineageTag: c86eb7e6-1afa-474f-8644-0080bf639a60
+
+	/// Aggregate Cowork Power and Habitual cohort size.
+	measure 'Champion Cohort People' =
+			VAR _people = CALCULATE(DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]), 'Usage Segment Snapshot'[Latest Segment] IN {"Cowork Power User", "Cowork Habitual User"})
+			RETURN IF([Latest Classified Population] >= [Privacy Floor] && _people >= [Privacy Floor], _people)
+		formatString: #,##0
+		displayFolder: Champion cohorts
+		lineageTag: 6aa5e21c-00a8-43fc-a6c5-132a93108b46
+
+	/// Aggregate Cowork Power and Habitual cohort share.
+	measure 'Champion Cohort Share' = DIVIDE([Champion Cohort People], [Latest Classified Population])
+		formatString: 0.0%
+		displayFolder: Champion cohorts
+		lineageTag: 8ea3807d-f58e-4f5e-9a6b-ef481f926b04
+
+	/// Potential champions in the fixed top 10% of sustained users for the latest selected-window window.
+	measure 'Champion Candidate Count' =
+			CALCULATE(
+			    DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]),
+			    'Usage Segment Snapshot'[Champion Candidate] = "Yes"
+			)
+		formatString: #,##0
+		displayFolder: Champion identification
+		lineageTag: edd59e67-0408-42a5-98ba-60b3e569dabc
+
+	/// Average active weeks among potential champions in the latest selected-window window.
+	measure 'Champion Candidate Average Active Weeks' =
+			CALCULATE(
+			    AVERAGE('Usage Segment Snapshot'[Latest Active Weeks]),
+			    'Usage Segment Snapshot'[Champion Candidate] = "Yes"
+			)
+		formatString: 0.0
+		displayFolder: Champion identification
+		lineageTag: e623a29b-e61e-4459-9a57-0e32ca880ae9
+
+	/// Average weekly Cowork sessions among potential champions in the latest selected-window window.
+	measure 'Champion Candidate Average Weekly Sessions' =
+			CALCULATE(
+			    AVERAGE('Usage Segment Snapshot'[Latest Average Weekly Sessions]),
+			    'Usage Segment Snapshot'[Champion Candidate] = "Yes"
+			)
+		formatString: 0.0
+		displayFolder: Champion identification
+		lineageTag: b9800b3b-a896-47fd-97a7-19f5846ce08a
+
+	/// Share of visible departments with at least one potential champion.
+	measure 'Champion Department Coverage' =
+			VAR _departments =
+			    FILTER(
+			        ALLSELECTED('Organization'[Function]),
+			        'Organization'[Function] <> "Not provided"
+			    )
+			VAR _covered =
+			    COUNTROWS(
+			        FILTER(
+			            _departments,
+			            CALCULATE([Champion Candidate Count]) > 0
+			        )
+			    )
+			RETURN DIVIDE(_covered, COUNTROWS(_departments))
+		formatString: 0%
+		displayFolder: Champion identification
+		lineageTag: 74ad35f2-c6c6-486e-a4cf-a625de1efc62
+
+	/// Global candidate order based on active weeks, then average weekly sessions.
+	measure 'Champion Rank' =
+			IF(
+			    SELECTEDVALUE('Usage Segment Snapshot'[Champion Candidate]) = "Yes",
+			    MAX('Usage Segment Snapshot'[Champion Candidate Rank])
+			)
+		formatString: #,##0
+		displayFolder: Champion identification
+		lineageTag: 645e9992-b12b-4b11-8a8e-89d779f924bd
+
+	/// Plain-language activity evidence for a potential champion.
+	measure 'Champion Evidence Label' =
+			IF(
+			    SELECTEDVALUE('Usage Segment Snapshot'[Champion Candidate]) = "Yes",
+			    SELECTEDVALUE('Usage Segment Snapshot'[Champion Evidence])
+			)
+		displayFolder: Champion identification
+		lineageTag: a578f70e-9476-4f65-a5d0-2344ea7a0f79
+
+	/// Estimated sessions from the average and actual window length used in champion selection.
+	measure 'Champion Sessions in Window' =
+			IF(
+			    SELECTEDVALUE('Usage Segment Snapshot'[Champion Candidate]) = "Yes",
+			    ROUND(
+			        MAX('Usage Segment Snapshot'[Latest Average Weekly Sessions])
+			            * MAX('Usage Segment Snapshot'[Latest Base Weeks]),
+			        0
+			    )
+			)
+		formatString: #,##0
+		displayFolder: Champion identification
+		lineageTag: e32a7732-35d1-4f88-b470-3fb7147b326a
+
+	/// Most recent week with positive Cowork sessions for a potential champion.
+	measure 'Champion Last Active Week' =
+			IF(
+			    SELECTEDVALUE('Usage Segment Snapshot'[Champion Candidate]) = "Yes",
+			    CALCULATE(
+			        MAX('Consumption Weekly'[Week Start]),
+			        'Consumption Weekly'[Sessions] > 0
+			    )
+			)
+		formatString: mmm d, yyyy
+		displayFolder: Champion identification
+		lineageTag: 8d895ea1-8e5d-49e7-961e-75614c545e9a
+
+	column 'Person ID'
+		dataType: string
+		isHidden
+		lineageTag: aa3e6f65-4464-4076-bf4d-2e02c931ff81
+		summarizeBy: none
+		sourceColumn: [Person ID]
+
+	column 'Person Sort'
+		dataType: int64
+		isHidden
+		lineageTag: cc700588-eac4-444e-a663-dd54b7765a64
+		summarizeBy: none
+		sourceColumn: [Person Sort]
+
+	column 'Window Weeks'
+		dataType: int64
+		isHidden
+		lineageTag: 603a099f-a7f8-4347-8f42-13bee8a81de5
+		summarizeBy: none
+		sourceColumn: [Window Weeks]
+
+	column 'Window Label'
+		dataType: string
+		isHidden
+		lineageTag: 65b4c426-20f8-4fe7-b843-c3cd1d6241e0
+		summarizeBy: none
+		sourceColumn: [Window Label]
+
+	column 'Latest Window End'
+		dataType: dateTime
+		isHidden
+		formatString: Short Date
+		lineageTag: 74e5a2f7-6d82-4663-808f-0f6d5ea7d007
+		summarizeBy: none
+		sourceColumn: [Latest Window End]
+
+	column 'Latest Base Weeks'
+		dataType: int64
+		isHidden
+		lineageTag: 54836c4e-1631-4417-bf1b-e0369e2d06aa
+		summarizeBy: none
+		sourceColumn: [Latest Base Weeks]
+
+	column 'Latest Observed Weeks'
+		dataType: int64
+		isHidden
+		lineageTag: bae7d5d6-c829-4b66-8fd6-f776067dae7b
+		summarizeBy: none
+		sourceColumn: [Latest Observed Weeks]
+
+	column 'Latest Coverage Status'
+		dataType: string
+		isHidden
+		lineageTag: ff85bd3e-cbb1-4d0e-8024-c00b26a1d134
+		summarizeBy: none
+		sourceColumn: [Latest Coverage Status]
+
+	column 'Latest Classification Status'
+		dataType: string
+		isHidden
+		lineageTag: 7049b515-67be-42cb-8cca-c98174a7091f
+		summarizeBy: none
+		sourceColumn: [Latest Classification Status]
+
+	column 'Latest Active Weeks'
+		dataType: int64
+		isHidden
+		lineageTag: 94b4980e-82ed-45e3-b097-77d5b6791598
+		summarizeBy: none
+		sourceColumn: [Latest Active Weeks]
+
+	column 'Latest Active Week Rate'
+		dataType: decimal
+		isHidden
+		lineageTag: ac3152a1-d24c-4452-9edd-05330e2d516d
+		summarizeBy: none
+		sourceColumn: [Latest Active Week Rate]
+
+	column 'Latest Average Weekly Sessions'
+		dataType: decimal
+		isHidden
+		lineageTag: 324557e8-87e3-4ad1-9f66-86a5652180c0
+		summarizeBy: none
+		sourceColumn: [Latest Average Weekly Sessions]
+
+	column 'Latest Average Weekly Credits'
+		dataType: decimal
+		isHidden
+		lineageTag: 4c172884-4e9a-4a8d-9da0-6fda3c19a48f
+		summarizeBy: none
+		sourceColumn: [Latest Average Weekly Credits]
+
+	column 'Latest Segment'
+		dataType: string
+		lineageTag: c6057e34-0877-425a-9827-b8a9eeadfc5d
+		summarizeBy: none
+		sourceColumn: [Latest Segment]
+		sortByColumn: 'Latest Segment Sort'
+
+	column 'Latest Segment Sort'
+		dataType: int64
+		isHidden
+		lineageTag: 05d48049-5b1d-4b83-bb0e-a850cecef36a
+		summarizeBy: none
+		sourceColumn: [Latest Segment Sort]
+
+	column 'Transition Latest Stage'
+		dataType: string
+		isHidden
+		lineageTag: 74a47bf6-ee65-4d0b-9cb1-4ddff1b0301a
+		summarizeBy: none
+		sourceColumn: [Transition Latest Stage]
+		sortByColumn: 'Transition Latest Stage Sort'
+
+	column 'Transition Latest Stage Sort'
+		dataType: int64
+		isHidden
+		lineageTag: 52b85314-3a39-4d39-9a00-266f365636b6
+		summarizeBy: none
+		sourceColumn: [Transition Latest Stage Sort]
+
+	column 'Power Session Threshold'
+		dataType: decimal
+		isHidden
+		lineageTag: d86abef2-2887-4575-a99b-d9a2a1ebbe28
+		summarizeBy: none
+		sourceColumn: [Power Session Threshold]
+
+	column 'Previous Window End'
+		dataType: dateTime
+		isHidden
+		formatString: Short Date
+		lineageTag: c13d6627-899f-4787-9d92-3f886b3b44f4
+		summarizeBy: none
+		sourceColumn: [Previous Window End]
+
+	column 'Previous Base Weeks'
+		dataType: int64
+		isHidden
+		lineageTag: 0a1c500f-b46a-454f-b782-625b393ae0e1
+		summarizeBy: none
+		sourceColumn: [Previous Base Weeks]
+
+	column 'Previous Observed Weeks'
+		dataType: int64
+		isHidden
+		lineageTag: 0ed1a51d-f121-40e2-9144-05fbf73c12c8
+		summarizeBy: none
+		sourceColumn: [Previous Observed Weeks]
+
+	column 'Previous Coverage Status'
+		dataType: string
+		isHidden
+		lineageTag: ecd98fa8-0dd6-4b6b-8eb1-3e8c2e1caa7c
+		summarizeBy: none
+		sourceColumn: [Previous Coverage Status]
+
+	column 'Previous Classification Status'
+		dataType: string
+		isHidden
+		lineageTag: 08402214-4ed6-4f6f-a992-9620156ec6e4
+		summarizeBy: none
+		sourceColumn: [Previous Classification Status]
+
+	column 'Previous Active Weeks'
+		dataType: int64
+		isHidden
+		lineageTag: 6c08dbac-6099-49d5-b938-215a4f4f60db
+		summarizeBy: none
+		sourceColumn: [Previous Active Weeks]
+
+	column 'Previous Active Week Rate'
+		dataType: decimal
+		isHidden
+		lineageTag: c8ddf3e8-5ed4-4852-ada3-56a80a5712b1
+		summarizeBy: none
+		sourceColumn: [Previous Active Week Rate]
+
+	column 'Previous Average Weekly Sessions'
+		dataType: decimal
+		isHidden
+		lineageTag: b2ca9c69-86fd-4149-8b4a-78f0a4a9c09f
+		summarizeBy: none
+		sourceColumn: [Previous Average Weekly Sessions]
+
+	column 'Previous Average Weekly Credits'
+		dataType: decimal
+		isHidden
+		lineageTag: 629a8242-9507-45f8-b958-5c2aa819d1f1
+		summarizeBy: none
+		sourceColumn: [Previous Average Weekly Credits]
+
+	column 'Previous Segment'
+		dataType: string
+		lineageTag: b0646b53-4ea1-43ca-8a62-dcd0a397c420
+		summarizeBy: none
+		sourceColumn: [Previous Segment]
+		sortByColumn: 'Previous Segment Sort'
+
+	column 'Previous Segment Sort'
+		dataType: int64
+		isHidden
+		lineageTag: 8cbd28c4-ca9f-44ee-9b44-86e4a8eb391a
+		summarizeBy: none
+		sourceColumn: [Previous Segment Sort]
+
+	column 'Transition Previous Stage'
+		dataType: string
+		isHidden
+		lineageTag: 97bd07d4-6600-41f4-9858-c94d5eaf5bc2
+		summarizeBy: none
+		sourceColumn: [Transition Previous Stage]
+		sortByColumn: 'Transition Previous Stage Sort'
+
+	column 'Transition Previous Stage Sort'
+		dataType: int64
+		isHidden
+		lineageTag: 871f5028-e396-499e-9783-3406fef75b3e
+		summarizeBy: none
+		sourceColumn: [Transition Previous Stage Sort]
+
+	column 'Latest Sustained'
+		dataType: string
+		isHidden
+		lineageTag: 47cc0c2a-7443-45c1-9481-bd7319f3cfcb
+		summarizeBy: none
+		sourceColumn: [Latest Sustained]
+
+	column 'Previous Sustained'
+		dataType: string
+		isHidden
+		lineageTag: 6d4df87b-3ac1-44c7-ab50-94f6c811dea8
+		summarizeBy: none
+		sourceColumn: [Previous Sustained]
+
+	column Movement
+		dataType: string
+		lineageTag: c3d49599-5ee3-4088-9104-31aa5ed9382d
+		summarizeBy: none
+		sourceColumn: [Movement]
+		sortByColumn: 'Movement Sort'
+
+	column 'Movement Sort'
+		dataType: int64
+		isHidden
+		lineageTag: d81c5124-0619-4e45-bbec-1d75b87abc19
+		summarizeBy: none
+		sourceColumn: [Movement Sort]
+
+	column 'Champion Cohort'
+		dataType: string
+		lineageTag: 0c017cf5-7639-44ac-a745-ad3eb28624e7
+		summarizeBy: none
+		sourceColumn: [Champion Cohort]
+		sortByColumn: 'Champion Cohort Sort'
+
+	column 'Champion Cohort Sort'
+		dataType: int64
+		isHidden
+		lineageTag: 85c6484f-ed95-4500-8f7b-b414078b0b45
+		summarizeBy: none
+		sourceColumn: [Champion Cohort Sort]
+
+	column 'Champion Candidate Rank'
+		dataType: int64
+		isHidden
+		lineageTag: 39bc082b-1adc-4d6e-a160-68d30bb8d328
+		summarizeBy: none
+		sourceColumn: [Champion Candidate Rank]
+
+	column 'Champion Candidate'
+		dataType: string
+		isHidden
+		lineageTag: 78ee21fe-c0b6-45f5-8073-5f24624538f8
+		summarizeBy: none
+		sourceColumn: [Champion Candidate]
+
+	column 'Champion Evidence'
+		dataType: string
+		isHidden
+		lineageTag: 29c3bbef-479e-465a-808e-d8a891901231
+		summarizeBy: none
+		sourceColumn: [Champion Evidence]
+
+	partition 'Usage Segment Snapshot' = calculated
+		mode: import
+		source =
+				VAR _windows =
+				    DISTINCT(
+				        SELECTCOLUMNS(
+				            'Usage Segments Weekly',
+				            "Window Weeks", 'Usage Segments Weekly'[Window Weeks]
+				        )
+				    )
+				RETURN
+				GENERATE(
+				    _windows,
+				    VAR _selectedWindow = [Window Weeks]
+				    VAR _latestEnd =
+				        MAXX(
+				            FILTER(
+				                ALL('Usage Segments Weekly'),
+				                'Usage Segments Weekly'[Window Weeks] = _selectedWindow
+				            ),
+				            'Usage Segments Weekly'[Window End]
+				        )
+				    VAR _previousEnd = _latestEnd - 7
+				    VAR _latest =
+				        SELECTCOLUMNS(
+				            FILTER(
+				                ALL('Usage Segments Weekly'),
+				                'Usage Segments Weekly'[Window Weeks] = _selectedWindow
+				                    && 'Usage Segments Weekly'[Window End] = _latestEnd
+				            ),
+				            "Person ID", 'Usage Segments Weekly'[Person ID] & "",
+				            "Person Sort", 'Usage Segments Weekly'[Person Sort],
+				            "Window Label", 'Usage Segments Weekly'[Window Label],
+				            "Latest Window End", 'Usage Segments Weekly'[Window End],
+				            "Latest Base Weeks", 'Usage Segments Weekly'[Base Weeks],
+				            "Latest Observed Weeks", 'Usage Segments Weekly'[Observed Weeks],
+				            "Latest Coverage Status", 'Usage Segments Weekly'[Coverage Status],
+				            "Latest Classification Status", 'Usage Segments Weekly'[Classification Status],
+				            "Latest Active Weeks", 'Usage Segments Weekly'[Active Weeks],
+				            "Latest Active Week Rate", 'Usage Segments Weekly'[Active Week Rate],
+				            "Latest Average Weekly Sessions", 'Usage Segments Weekly'[Average Weekly Sessions],
+				            "Latest Average Weekly Credits", 'Usage Segments Weekly'[Average Weekly Credits],
+				            "Latest Segment", 'Usage Segments Weekly'[Usage Segment],
+				            "Latest Segment Sort", 'Usage Segments Weekly'[Segment Sort],
+				            "Transition Latest Stage", 'Usage Segments Weekly'[Usage Segment],
+				            "Transition Latest Stage Sort",
+				                SWITCH(
+				                    'Usage Segments Weekly'[Usage Segment],
+				                    "Cowork Non-user", 1,
+				                    "Cowork Low User", 2,
+				                    "Cowork Developing User", 3,
+				                    "Cowork Habitual User", 4,
+				                    "Cowork Power User", 5,
+				                    6
+				                ),
+				            "Power Session Threshold", 'Usage Segments Weekly'[Power Session Threshold]
+				        )
+				    VAR _previous =
+				        SELECTCOLUMNS(
+				            FILTER(
+				                ALL('Usage Segments Weekly'),
+				                'Usage Segments Weekly'[Window Weeks] = _selectedWindow
+				                    && 'Usage Segments Weekly'[Window End] = _previousEnd
+				            ),
+				            "Person ID", 'Usage Segments Weekly'[Person ID] & "",
+				            "Previous Window End", 'Usage Segments Weekly'[Window End],
+				            "Previous Base Weeks", 'Usage Segments Weekly'[Base Weeks],
+				            "Previous Observed Weeks", 'Usage Segments Weekly'[Observed Weeks],
+				            "Previous Coverage Status", 'Usage Segments Weekly'[Coverage Status],
+				            "Previous Classification Status", 'Usage Segments Weekly'[Classification Status],
+				            "Previous Active Weeks", 'Usage Segments Weekly'[Active Weeks],
+				            "Previous Active Week Rate", 'Usage Segments Weekly'[Active Week Rate],
+				            "Previous Average Weekly Sessions", 'Usage Segments Weekly'[Average Weekly Sessions],
+				            "Previous Average Weekly Credits", 'Usage Segments Weekly'[Average Weekly Credits],
+				            "Previous Segment", 'Usage Segments Weekly'[Usage Segment],
+				            "Previous Segment Sort", 'Usage Segments Weekly'[Segment Sort],
+				            "Transition Previous Stage", 'Usage Segments Weekly'[Usage Segment],
+				            "Transition Previous Stage Sort",
+				                SWITCH(
+				                    'Usage Segments Weekly'[Usage Segment],
+				                    "Cowork Non-user", 1,
+				                    "Cowork Low User", 2,
+				                    "Cowork Developing User", 3,
+				                    "Cowork Habitual User", 4,
+				                    "Cowork Power User", 5,
+				                    6
+				                )
+				        )
+				    VAR _joined = NATURALLEFTOUTERJOIN(_latest, _previous)
+				    VAR _states =
+				        ADDCOLUMNS(
+				            _joined,
+				        "Latest Sustained",
+				            IF([Latest Segment] IN {"Cowork Power User", "Cowork Habitual User"}, "Yes", "No"),
+				        "Previous Sustained",
+				            IF([Previous Segment] IN {"Cowork Power User", "Cowork Habitual User"}, "Yes", "No"),
+				        "Movement",
+				            SWITCH(
+				                TRUE(),
+				                COALESCE([Previous Base Weeks], 0) = 0, "Insufficient history",
+				                [Latest Coverage Status] <> "Complete" || [Previous Coverage Status] <> "Complete", "Coverage incomplete",
+				                [Latest Segment Sort] < [Previous Segment Sort], "Improved",
+				                [Latest Segment Sort] > [Previous Segment Sort], "Declined",
+				                "Stable"
+				            ),
+				        "Champion Cohort",
+				            SWITCH(
+				                [Latest Segment],
+				                "Cowork Power User", "Cowork Power User cohort",
+				                "Cowork Habitual User", "Cowork Habitual User cohort",
+				                "Cowork Developing User", "Developing cohort",
+				                "Cowork Low User", "Developing cohort",
+				                "Cowork Non-user", "Cowork Non-user",
+				                "Cowork coverage unknown", "Coverage unknown",
+				                "Insufficient history"
+				            )
+				        )
+				    VAR _sortedStates =
+				        ADDCOLUMNS(
+				            _states,
+				        "Movement Sort",
+				            SWITCH(
+				                [Movement],
+				                "Improved", 1,
+				                "Stable", 2,
+				                "Declined", 3,
+				                "Coverage incomplete", 4,
+				                5
+				            ),
+				        "Champion Cohort Sort",
+				            SWITCH(
+				                [Champion Cohort],
+				                "Cowork Power User cohort", 1,
+				                "Cowork Habitual User cohort", 2,
+				                "Developing cohort", 3,
+				                "Cowork Non-user", 4,
+				                "Coverage unknown", 5,
+				                6
+				            )
+				        )
+				    VAR _eligible =
+				        FILTER(
+				            _sortedStates,
+				            [Latest Sustained] = "Yes"
+				                && [Latest Base Weeks] > 0
+				                && [Latest Coverage Status] = "Complete"
+				        )
+				    VAR _eligibleCount = COUNTROWS(_eligible)
+				    VAR _candidateSlots =
+				        IF(_eligibleCount > 0, MAX(1, ROUNDUP(_eligibleCount * 0.10, 0)), 0)
+				    VAR _ranked =
+				        ADDCOLUMNS(
+				            _sortedStates,
+				        "Champion Candidate Rank",
+				            IF(
+				                [Latest Sustained] = "Yes"
+				                    && [Latest Base Weeks] > 0
+				                    && [Latest Coverage Status] = "Complete",
+				                COALESCE(
+				                    RANK(
+				                        SKIP,
+				                        _eligible,
+				                        ORDERBY(
+				                            [Latest Active Week Rate], DESC,
+				                            [Latest Average Weekly Sessions], DESC,
+				                            [Person Sort], ASC
+				                        ),
+				                        ,
+				                        ,
+				                        MATCHBY([Person Sort])
+				                    ),
+				                    0
+				                ),
+				                0
+				            )
+				        )
+				    RETURN
+				        ADDCOLUMNS(
+				            _ranked,
+				        "Champion Candidate",
+				            IF(
+				                [Champion Candidate Rank] > 0
+				                    && [Champion Candidate Rank] <= _candidateSlots,
+				                "Yes",
+				                "No"
+				            ),
+				        "Champion Evidence",
+				            SWITCH(
+				                TRUE(),
+				                [Latest Coverage Status] <> "Complete", "Coverage incomplete",
+				                [Champion Candidate Rank] > 0
+				                    && [Champion Candidate Rank] <= _candidateSlots,
+				                    IF(
+				                        [Latest Base Weeks] < 4,
+				                        "Early sustained-use signal",
+				                        IF([Latest Segment] = "Cowork Power User", "High use + sustained", "Sustained use")
+				                    ),
+				                [Latest Base Weeks] < 4, "Not selected - early history",
+				                "Not selected"
+				            )
+				        )
+				)
+

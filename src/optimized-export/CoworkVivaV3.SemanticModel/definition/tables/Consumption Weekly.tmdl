@@ -1,0 +1,794 @@
+/// Person Query-based Sunday-start person-week Cowork sessions and credits after policy aggregation, coverage qualification, and left joining.
+table 'Consumption Weekly'
+	lineageTag: 83d899bb-15ea-489d-9508-618d8c88dbcc
+
+	/// People with a retained Person Query base row and known Cowork consumption status for every selected week.
+	measure 'Covered Population' =
+			VAR _requiredWeeks = COUNTROWS(VALUES('Calendar'[Week Start]))
+			VAR _coveredPeople =
+			    COUNTROWS(
+			        FILTER(
+			            VALUES('Organization'[Person ID]),
+			            CALCULATE(
+			                DISTINCTCOUNT('Consumption Weekly'[Week Start]),
+			                'Consumption Weekly'[Consumption Coverage] <> "Unknown"
+			            ) = _requiredWeeks
+			        )
+			    )
+			RETURN _coveredPeople
+		formatString: #,##0
+		isHidden
+		displayFolder: Coverage
+		lineageTag: 0fddbe7e-1346-4808-8474-01c1d541d4fb
+
+	/// Observed Cowork sessions after policy-row aggregation.
+	measure 'Total Cowork Sessions' =
+			VAR _people =
+			    CALCULATE(
+			        DISTINCTCOUNT('Consumption Weekly'[Person ID]),
+			        'Consumption Weekly'[Sessions] > 0
+			    )
+			VAR _sessions = SUM('Consumption Weekly'[Sessions])
+			RETURN
+			    IF(
+			        ISINSCOPE('Organization'[User ID]),
+			        COALESCE(_sessions, 0),
+			        IF([Covered Population] >= [Privacy Floor] && _people >= [Privacy Floor], _sessions)
+			    )
+		formatString: #,##0
+		displayFolder: Observed activity
+		lineageTag: 5026955c-84a3-4fba-9a08-d08a5002091f
+
+	/// Observed Cowork credits after policy-row aggregation.
+	measure 'Total Cowork Credits' =
+			VAR _people =
+			    CALCULATE(
+			        DISTINCTCOUNT('Consumption Weekly'[Person ID]),
+			        'Consumption Weekly'[Sessions] > 0
+			    )
+			VAR _credits = SUM('Consumption Weekly'[AI Credits])
+			RETURN
+			    IF(
+			        ISINSCOPE('Organization'[User ID]),
+			        COALESCE(_credits, 0),
+			        IF([Covered Population] >= [Privacy Floor] && _people >= [Privacy Floor], _credits)
+			    )
+		formatString: #,##0.0
+		displayFolder: Observed activity
+		lineageTag: 6e0ba721-0220-4e7b-907c-0bf9f527387e
+
+	/// Total observed Cowork credits consumed in each of the latest 12 covered weeks in the current date selection.
+	measure 'Total Cowork Credits (Latest 12 Weeks)' =
+			VAR _week = SELECTEDVALUE('Calendar'[Week Start])
+			VAR _selectedWeeks =
+			    CALCULATETABLE(
+			        VALUES('Consumption Weekly'[Week Start]),
+			        ALLSELECTED('Calendar'),
+			        'Consumption Weekly'[Consumption Coverage] <> "Unknown"
+			    )
+			VAR _latestWeeks = TOPN(12, _selectedWeeks, 'Consumption Weekly'[Week Start], DESC)
+			RETURN
+			    IF(
+			        NOT ISBLANK(_week)
+			            && CONTAINS(_latestWeeks, 'Consumption Weekly'[Week Start], _week),
+			        [Total Cowork Credits]
+			    )
+		formatString: 0.0,,"M"
+		displayFolder: Weekly momentum\Latest 12 weeks
+		lineageTag: ecaa8d64-17f7-4a37-a490-84e683bf3c33
+
+	/// Observed Cowork credits divided by observed Cowork sessions; descriptive consumption intensity only.
+	measure 'Credits per Session' = DIVIDE([Total Cowork Credits], [Total Cowork Sessions])
+		formatString: #,##0.00
+		displayFolder: Observed activity
+		lineageTag: 9ba3ed2a-0ad2-4a9d-abd4-e710a2824c0b
+
+	/// Privacy-safe weekly active people shown only for the latest 12 weeks in the current date selection.
+	measure 'Weekly Active People (Latest 12 Weeks)' =
+			VAR _week = SELECTEDVALUE('Calendar'[Week Start])
+			VAR _selectedWeeks =
+			    CALCULATETABLE(
+			        VALUES('Consumption Weekly'[Week Start]),
+			        ALLSELECTED('Calendar'),
+			        'Consumption Weekly'[Consumption Coverage] <> "Unknown"
+			    )
+			VAR _latestWeeks = TOPN(12, _selectedWeeks, 'Consumption Weekly'[Week Start], DESC)
+			RETURN
+			    IF(
+			        NOT ISBLANK(_week)
+			            && CONTAINS(_latestWeeks, 'Consumption Weekly'[Week Start], _week),
+			        [Weekly Active People]
+			    )
+		formatString: #,##0
+		displayFolder: Weekly momentum\Latest 12 weeks
+		lineageTag: d5d18f0b-3c0a-48fa-a13b-e47ea65a696f
+
+	/// Weekly active share shown only for the latest 12 weeks in the current date selection.
+	measure 'Weekly Active Rate (Latest 12 Weeks)' =
+			VAR _week = SELECTEDVALUE('Calendar'[Week Start])
+			VAR _selectedWeeks =
+			    CALCULATETABLE(
+			        VALUES('Consumption Weekly'[Week Start]),
+			        ALLSELECTED('Calendar'),
+			        'Consumption Weekly'[Consumption Coverage] <> "Unknown"
+			    )
+			VAR _latestWeeks = TOPN(12, _selectedWeeks, 'Consumption Weekly'[Week Start], DESC)
+			RETURN
+			    IF(
+			        NOT ISBLANK(_week)
+			            && CONTAINS(_latestWeeks, 'Consumption Weekly'[Week Start], _week),
+			        [Weekly Active Rate]
+			    )
+		formatString: 0.0%
+		displayFolder: Weekly momentum\Latest 12 weeks
+		lineageTag: 78b27e91-be40-43f9-868d-c2a36dce4997
+
+	/// Observed Cowork credits per session shown only for the latest 12 weeks in the current date selection.
+	measure 'Credits per Session (Latest 12 Weeks)' =
+			VAR _week = SELECTEDVALUE('Calendar'[Week Start])
+			VAR _selectedWeeks =
+			    CALCULATETABLE(
+			        VALUES('Consumption Weekly'[Week Start]),
+			        ALLSELECTED('Calendar'),
+			        'Consumption Weekly'[Consumption Coverage] <> "Unknown"
+			    )
+			VAR _latestWeeks = TOPN(12, _selectedWeeks, 'Consumption Weekly'[Week Start], DESC)
+			RETURN
+			    IF(
+			        NOT ISBLANK(_week)
+			            && CONTAINS(_latestWeeks, 'Consumption Weekly'[Week Start], _week),
+			        [Credits per Session]
+			    )
+		formatString: #,##0.0
+		displayFolder: Weekly momentum\Latest 12 weeks
+		lineageTag: 348d25a1-3df3-4403-a07b-aa83373b6355
+
+	/// Weekly return rate shown only for the latest 12 weeks in the current date selection.
+	measure 'Weekly Return Rate (Latest 12 Weeks)' =
+			VAR _week = SELECTEDVALUE('Calendar'[Week Start])
+			VAR _selectedWeeks =
+			    CALCULATETABLE(
+			        VALUES('Consumption Weekly'[Week Start]),
+			        ALLSELECTED('Calendar'),
+			        'Consumption Weekly'[Consumption Coverage] <> "Unknown"
+			    )
+			VAR _latestWeeks = TOPN(12, _selectedWeeks, 'Consumption Weekly'[Week Start], DESC)
+			RETURN
+			    IF(
+			        NOT ISBLANK(_week)
+			            && CONTAINS(_latestWeeks, 'Consumption Weekly'[Week Start], _week),
+			        [Weekly Return Rate]
+			    )
+		formatString: 0.0%
+		displayFolder: Weekly momentum\Latest 12 weeks
+		lineageTag: a61cbab1-cc8a-4a33-ab97-52900887e94f
+
+	/// New people shown only for the latest 12 weeks in the current date selection.
+	measure 'New People (Latest 12 Weeks)' =
+			VAR _week = SELECTEDVALUE('Calendar'[Week Start])
+			VAR _selectedWeeks =
+			    CALCULATETABLE(
+			        VALUES('Consumption Weekly'[Week Start]),
+			        ALLSELECTED('Calendar'),
+			        'Consumption Weekly'[Consumption Coverage] <> "Unknown"
+			    )
+			VAR _latestWeeks = TOPN(12, _selectedWeeks, 'Consumption Weekly'[Week Start], DESC)
+			RETURN
+			    IF(
+			        NOT ISBLANK(_week)
+			            && CONTAINS(_latestWeeks, 'Consumption Weekly'[Week Start], _week),
+			        [New People]
+			    )
+		formatString: #,##0
+		displayFolder: Cohort\Latest 12 weeks
+		lineageTag: eb4b9b4d-6abb-4b11-805f-3c46520fd540
+
+	/// Retained people shown only for the latest 12 weeks in the current date selection.
+	measure 'Retained People (Latest 12 Weeks)' =
+			VAR _week = SELECTEDVALUE('Calendar'[Week Start])
+			VAR _selectedWeeks =
+			    CALCULATETABLE(
+			        VALUES('Consumption Weekly'[Week Start]),
+			        ALLSELECTED('Calendar'),
+			        'Consumption Weekly'[Consumption Coverage] <> "Unknown"
+			    )
+			VAR _latestWeeks = TOPN(12, _selectedWeeks, 'Consumption Weekly'[Week Start], DESC)
+			RETURN
+			    IF(
+			        NOT ISBLANK(_week)
+			            && CONTAINS(_latestWeeks, 'Consumption Weekly'[Week Start], _week),
+			        [Retained People]
+			    )
+		formatString: #,##0
+		displayFolder: Cohort\Latest 12 weeks
+		lineageTag: 1f30b531-2366-45da-bc36-de73be832815
+
+	/// Resurrected people shown only for the latest 12 weeks in the current date selection.
+	measure 'Resurrected People (Latest 12 Weeks)' =
+			VAR _week = SELECTEDVALUE('Calendar'[Week Start])
+			VAR _selectedWeeks =
+			    CALCULATETABLE(
+			        VALUES('Consumption Weekly'[Week Start]),
+			        ALLSELECTED('Calendar'),
+			        'Consumption Weekly'[Consumption Coverage] <> "Unknown"
+			    )
+			VAR _latestWeeks = TOPN(12, _selectedWeeks, 'Consumption Weekly'[Week Start], DESC)
+			RETURN
+			    IF(
+			        NOT ISBLANK(_week)
+			            && CONTAINS(_latestWeeks, 'Consumption Weekly'[Week Start], _week),
+			        [Resurrected People]
+			    )
+		formatString: #,##0
+		displayFolder: Cohort\Latest 12 weeks
+		lineageTag: a4927403-622c-4e54-b397-8bbcb94233e8
+
+	/// Negative churn plotting value shown only for the latest 12 weeks in the current date selection.
+	measure 'Churned People (Negative, Latest 12 Weeks)' =
+			VAR _week = SELECTEDVALUE('Calendar'[Week Start])
+			VAR _selectedWeeks =
+			    CALCULATETABLE(
+			        VALUES('Consumption Weekly'[Week Start]),
+			        ALLSELECTED('Calendar'),
+			        'Consumption Weekly'[Consumption Coverage] <> "Unknown"
+			    )
+			VAR _latestWeeks = TOPN(12, _selectedWeeks, 'Consumption Weekly'[Week Start], DESC)
+			RETURN
+			    IF(
+			        NOT ISBLANK(_week)
+			            && CONTAINS(_latestWeeks, 'Consumption Weekly'[Week Start], _week),
+			        [Churned People (Negative)]
+			    )
+		formatString: #,##0;#,##0;0
+		displayFolder: Cohort\Latest 12 weeks
+		lineageTag: fa2e6239-7c5a-461e-948f-efccfeded7b6
+
+	/// Distinct people with positive Cowork sessions; this is not an eligibility-based adoption count.
+	measure 'Observed Cowork Active Users' =
+			VAR _people =
+			    CALCULATE(
+			        DISTINCTCOUNT('Consumption Weekly'[Person ID]),
+			        'Consumption Weekly'[Sessions] > 0
+			    )
+			RETURN IF([Covered Population] >= [Privacy Floor] && _people >= [Privacy Floor], _people)
+		formatString: #,##0
+		displayFolder: Observed breadth
+		lineageTag: 97bd5b31-94e1-4d94-9fbf-601f869c412d
+
+	/// Observed Cowork active users divided by the coverage-qualified Person Query population, not a Cowork eligibility roster.
+	measure 'Observed Cowork User Share' = DIVIDE([Observed Cowork Active Users], [Covered Population])
+		formatString: 0.0%
+		displayFolder: Observed breadth
+		lineageTag: 3de09f5e-fc58-4f64-843d-47731122c4d9
+
+	/// Distinct people with positive Cowork sessions in the current Sunday-start week.
+	measure 'Weekly Active People' =
+			VAR _people =
+			    CALCULATE(
+			        DISTINCTCOUNT('Consumption Weekly'[Person ID]),
+			        'Consumption Weekly'[Sessions] > 0
+			    )
+			RETURN
+			    IF(
+			        ISINSCOPE('Organization'[User ID]),
+			        COALESCE(_people, 0),
+			        IF([Covered Population] >= [Privacy Floor] && _people >= [Privacy Floor], _people)
+			    )
+		formatString: #,##0
+		displayFolder: Weekly momentum
+		lineageTag: 5f740f63-23c7-40ed-ae84-644c68b4e087
+
+	/// Weekly active people divided by the coverage-qualified Person Query population; not an eligibility-based adoption rate.
+	measure 'Weekly Active Rate' = DIVIDE([Weekly Active People], [Covered Population])
+		formatString: 0.0%
+		displayFolder: Weekly momentum
+		lineageTag: 2badbdea-c361-4df8-b724-63effd32da18
+
+	/// Weekly active people in the latest complete Person Query-aligned week.
+	measure 'Latest Weekly Active People' =
+			VAR _latestWeek = CALCULATE(MAX('Calendar'[Week Start]), REMOVEFILTERS('Calendar'))
+			RETURN
+			CALCULATE(
+			    [Weekly Active People],
+			    REMOVEFILTERS('Calendar'),
+			    TREATAS({_latestWeek}, 'Calendar'[Week Start])
+			)
+		formatString: #,##0
+		displayFolder: Weekly momentum
+		lineageTag: 40ba5a82-8499-4f0e-9457-2e57fcb84d94
+
+	/// Latest complete-week active people divided by the analytical population.
+	measure 'Latest Weekly Active Rate' =
+			VAR _latestWeek = CALCULATE(MAX('Calendar'[Week Start]), REMOVEFILTERS('Calendar'))
+			VAR _covered =
+			    CALCULATE(
+			        [Covered Population],
+			        REMOVEFILTERS('Calendar'),
+			        TREATAS({_latestWeek}, 'Calendar'[Week Start])
+			    )
+			RETURN DIVIDE([Latest Weekly Active People], _covered)
+		formatString: 0.0%
+		displayFolder: Weekly momentum
+		lineageTag: 1973120c-c7ae-4261-8097-592a5f4a937d
+
+	/// Average privacy-safe weekly active people across the complete source period.
+	measure 'Average Weekly Active People' =
+			VAR _weeks = CALCULATETABLE(VALUES('Calendar'[Week Start]), REMOVEFILTERS('Calendar'))
+			VAR _weekCount = COUNTROWS(_weeks)
+			VAR _average =
+			    AVERAGEX(
+			        _weeks,
+			        VAR _week = 'Calendar'[Week Start]
+			        RETURN
+			            CALCULATE(
+			                DISTINCTCOUNT('Consumption Weekly'[Person ID]),
+			                REMOVEFILTERS('Calendar'),
+			                TREATAS({_week}, 'Calendar'[Week Start]),
+			                'Consumption Weekly'[Sessions] > 0
+			            )
+			    )
+			RETURN IF([Covered Population] >= [Privacy Floor] && _weekCount > 0, _average)
+		formatString: #,##0
+		displayFolder: Weekly momentum
+		lineageTag: fd2503c9-bad7-498e-aaf2-cdf5a1446c22
+
+	/// Average weekly Cowork sessions per privacy-safe active person.
+	measure 'Sessions per Active Person' =
+			AVERAGEX(
+			    VALUES('Calendar'[Week Start]),
+			    DIVIDE([Total Cowork Sessions], [Weekly Active People])
+			)
+		formatString: #,##0.0
+		displayFolder: Weekly momentum
+		lineageTag: cf03858b-d3d1-4657-9b21-5821dd7c1619
+
+	/// Average observed weekly active share over the four latest complete weeks.
+	measure 'Recent 4-Week Active Rate' =
+			VAR _weeks =
+			    TOPN(
+			        4,
+			        CALCULATETABLE(VALUES('Calendar'[Week Start]), REMOVEFILTERS('Calendar')),
+			        'Calendar'[Week Start],
+			        DESC
+			    )
+			VAR _average =
+			    AVERAGEX(
+			        _weeks,
+			        VAR _week = 'Calendar'[Week Start]
+			        VAR _people =
+			            CALCULATE(
+			                DISTINCTCOUNT('Consumption Weekly'[Person ID]),
+			                REMOVEFILTERS('Calendar'),
+			                TREATAS({_week}, 'Calendar'[Week Start]),
+			                'Consumption Weekly'[Sessions] > 0
+			            )
+			        VAR _covered =
+			            CALCULATE(
+			                [Covered Population],
+			                REMOVEFILTERS('Calendar'),
+			                TREATAS({_week}, 'Calendar'[Week Start])
+			            )
+			        RETURN DIVIDE(_people, _covered)
+			    )
+			RETURN IF([Covered Population] >= [Privacy Floor] && COUNTROWS(_weeks) = 4, _average)
+		formatString: 0.0%
+		displayFolder: Weekly momentum
+		lineageTag: 534e45df-59e7-4768-9f84-fa4367392650
+
+	/// Average observed weekly active share over the preceding four complete weeks.
+	measure 'Prior 4-Week Active Rate' =
+			VAR _allWeeks = CALCULATETABLE(VALUES('Calendar'[Week Start]), REMOVEFILTERS('Calendar'))
+			VAR _latestEight = TOPN(8, _allWeeks, 'Calendar'[Week Start], DESC)
+			VAR _latestFour = TOPN(4, _allWeeks, 'Calendar'[Week Start], DESC)
+			VAR _priorFour = EXCEPT(_latestEight, _latestFour)
+			VAR _average =
+			    AVERAGEX(
+			        _priorFour,
+			        VAR _week = 'Calendar'[Week Start]
+			        VAR _people =
+			            CALCULATE(
+			                DISTINCTCOUNT('Consumption Weekly'[Person ID]),
+			                REMOVEFILTERS('Calendar'),
+			                TREATAS({_week}, 'Calendar'[Week Start]),
+			                'Consumption Weekly'[Sessions] > 0
+			            )
+			        VAR _covered =
+			            CALCULATE(
+			                [Covered Population],
+			                REMOVEFILTERS('Calendar'),
+			                TREATAS({_week}, 'Calendar'[Week Start])
+			            )
+			        RETURN DIVIDE(_people, _covered)
+			    )
+			RETURN IF([Covered Population] >= [Privacy Floor] && COUNTROWS(_priorFour) = 4, _average)
+		formatString: 0.0%
+		displayFolder: Weekly momentum
+		lineageTag: f6dbc994-9053-4dd3-b2c2-e979b180f1b7
+
+	/// Recent four-week observed active share minus the preceding four-week share.
+	measure 'Active Rate Momentum pp' = 100 * ([Recent 4-Week Active Rate] - [Prior 4-Week Active Rate])
+		formatString: 0.0 "pp"
+		displayFolder: Weekly momentum
+		lineageTag: bf8088b9-eea4-415f-a998-3ab79f70d798
+
+	/// Privacy-safe active people in the preceding week.
+	measure 'Prior Week Active People' =
+			VAR _week = MAX('Calendar'[Week Start])
+			VAR _prior = _week - 7
+			VAR _people =
+			    CALCULATE(
+			        DISTINCTCOUNT('Consumption Weekly'[Person ID]),
+			        'Consumption Weekly'[Week Start] = _prior,
+			        'Consumption Weekly'[Sessions] > 0,
+			        'Organization'[Complete Coverage] = "Yes",
+			        REMOVEFILTERS('Calendar')
+			    )
+			RETURN
+			    IF(
+			        ISINSCOPE('Organization'[User ID]),
+			        COALESCE(_people, 0),
+			        IF([Covered Population] >= [Privacy Floor] && _people >= [Privacy Floor], _people)
+			    )
+		formatString: #,##0
+		isHidden
+		displayFolder: Cohort
+		lineageTag: d3640f8e-85b8-438c-ae00-510a0c03fcef
+
+	/// People active this week with no earlier observed Cowork session.
+	measure 'New People' =
+			VAR _week = MAX('Calendar'[Week Start])
+			VAR _firstWeek = CALCULATE(MIN('Calendar'[Week Start]), REMOVEFILTERS('Calendar'))
+			VAR _thisWeek =
+			    CALCULATETABLE(
+			        VALUES('Consumption Weekly'[Person ID]),
+			        'Consumption Weekly'[Week Start] = _week,
+			        'Consumption Weekly'[Sessions] > 0,
+			        'Organization'[Complete Coverage] = "Yes",
+			        REMOVEFILTERS('Calendar')
+			    )
+			VAR _everBefore =
+			    CALCULATETABLE(
+			        VALUES('Consumption Weekly'[Person ID]),
+			        'Consumption Weekly'[Week Start] < _week,
+			        'Consumption Weekly'[Sessions] > 0,
+			        'Organization'[Complete Coverage] = "Yes",
+			        REMOVEFILTERS('Calendar')
+			    )
+			VAR _result = COUNTROWS(EXCEPT(_thisWeek, _everBefore))
+			RETURN
+			    IF(
+			        ISINSCOPE('Organization'[User ID]),
+			        IF(_week > _firstWeek, _result),
+			        IF(
+			            [Covered Population] >= [Privacy Floor]
+			                && _week > _firstWeek
+			                && _result >= [Privacy Floor],
+			            _result
+			        )
+			    )
+		formatString: #,##0
+		displayFolder: Cohort
+		lineageTag: aa967230-cd99-44ac-b7ae-0480c058430b
+
+	/// People active in both the current and preceding week.
+	measure 'Retained People' =
+			VAR _week = MAX('Calendar'[Week Start])
+			VAR _prior = _week - 7
+			VAR _firstWeek = CALCULATE(MIN('Calendar'[Week Start]), REMOVEFILTERS('Calendar'))
+			VAR _thisWeek =
+			    CALCULATETABLE(
+			        VALUES('Consumption Weekly'[Person ID]),
+			        'Consumption Weekly'[Week Start] = _week,
+			        'Consumption Weekly'[Sessions] > 0,
+			        'Organization'[Complete Coverage] = "Yes",
+			        REMOVEFILTERS('Calendar')
+			    )
+			VAR _priorWeek =
+			    CALCULATETABLE(
+			        VALUES('Consumption Weekly'[Person ID]),
+			        'Consumption Weekly'[Week Start] = _prior,
+			        'Consumption Weekly'[Sessions] > 0,
+			        'Organization'[Complete Coverage] = "Yes",
+			        REMOVEFILTERS('Calendar')
+			    )
+			VAR _result = COUNTROWS(INTERSECT(_thisWeek, _priorWeek))
+			RETURN
+			    IF(
+			        ISINSCOPE('Organization'[User ID]),
+			        IF(_week > _firstWeek, _result),
+			        IF(
+			            [Covered Population] >= [Privacy Floor]
+			                && _week > _firstWeek
+			                && _result >= [Privacy Floor],
+			            _result
+			        )
+			    )
+		formatString: #,##0
+		displayFolder: Cohort
+		lineageTag: 4a078541-8339-4329-885a-51ba8ff2fc23
+
+	/// People active this week, inactive last week, and active before last week.
+	measure 'Resurrected People' =
+			VAR _week = MAX('Calendar'[Week Start])
+			VAR _prior = _week - 7
+			VAR _firstWeek = CALCULATE(MIN('Calendar'[Week Start]), REMOVEFILTERS('Calendar'))
+			VAR _thisWeek = CALCULATETABLE(VALUES('Consumption Weekly'[Person ID]), 'Consumption Weekly'[Week Start] = _week, 'Consumption Weekly'[Sessions] > 0, 'Organization'[Complete Coverage] = "Yes", REMOVEFILTERS('Calendar'))
+			VAR _priorWeek = CALCULATETABLE(VALUES('Consumption Weekly'[Person ID]), 'Consumption Weekly'[Week Start] = _prior, 'Consumption Weekly'[Sessions] > 0, 'Organization'[Complete Coverage] = "Yes", REMOVEFILTERS('Calendar'))
+			VAR _beforePrior = CALCULATETABLE(VALUES('Consumption Weekly'[Person ID]), 'Consumption Weekly'[Week Start] < _prior, 'Consumption Weekly'[Sessions] > 0, 'Organization'[Complete Coverage] = "Yes", REMOVEFILTERS('Calendar'))
+			VAR _result = COUNTROWS(INTERSECT(EXCEPT(_thisWeek, _priorWeek), _beforePrior))
+			RETURN IF([Covered Population] >= [Privacy Floor] && _week > _firstWeek && _result >= [Privacy Floor], _result)
+		formatString: #,##0
+		displayFolder: Cohort
+		lineageTag: ca75f5e2-8ae8-477f-8758-f8875113b07d
+
+	/// People active in the preceding week but inactive this week.
+	measure 'Churned People' =
+			VAR _week = MAX('Calendar'[Week Start])
+			VAR _prior = _week - 7
+			VAR _firstWeek = CALCULATE(MIN('Calendar'[Week Start]), REMOVEFILTERS('Calendar'))
+			VAR _thisWeek = CALCULATETABLE(VALUES('Consumption Weekly'[Person ID]), 'Consumption Weekly'[Week Start] = _week, 'Consumption Weekly'[Sessions] > 0, 'Organization'[Complete Coverage] = "Yes", REMOVEFILTERS('Calendar'))
+			VAR _priorWeek = CALCULATETABLE(VALUES('Consumption Weekly'[Person ID]), 'Consumption Weekly'[Week Start] = _prior, 'Consumption Weekly'[Sessions] > 0, 'Organization'[Complete Coverage] = "Yes", REMOVEFILTERS('Calendar'))
+			VAR _result = COUNTROWS(EXCEPT(_priorWeek, _thisWeek))
+			RETURN IF([Covered Population] >= [Privacy Floor] && _week > _firstWeek && _result >= [Privacy Floor], _result)
+		formatString: #,##0
+		displayFolder: Cohort
+		lineageTag: 4f8b2780-47b0-444e-9ee6-cefbc1359ffd
+
+	/// Churned people expressed as a negative plotting value.
+	measure 'Churned People (Negative)' = VAR _churn = [Churned People] RETURN IF(NOT ISBLANK(_churn), -1 * _churn)
+		formatString: #,##0;#,##0;0
+		displayFolder: Cohort
+		lineageTag: 010618a1-a585-4aab-9973-c3e4d60c0dbb
+
+	/// Share of prior-week active people also active this week.
+	measure 'Weekly Return Rate' = DIVIDE([Retained People], [Prior Week Active People])
+		formatString: 0.0%
+		displayFolder: Cohort
+		lineageTag: 83d3a005-b22d-4503-93f1-181fe1747845
+
+	/// New and resurrected people minus churned people.
+	measure 'Net Weekly User Change' = IF(NOT ISBLANK([New People]), COALESCE([New People], 0) + COALESCE([Resurrected People], 0) - COALESCE([Churned People], 0))
+		formatString: +#,##0;-#,##0;0
+		displayFolder: Cohort
+		lineageTag: a1a255cc-ef24-4d76-af41-251ba409ec06
+
+	/// Average observed active weeks per Cowork active user.
+	measure 'Average Active Weeks per Person' =
+			VAR _activeRows = CALCULATE(COUNTROWS('Consumption Weekly'), 'Consumption Weekly'[Sessions] > 0)
+			RETURN DIVIDE(_activeRows, [Observed Cowork Active Users])
+		formatString: #,##0.0
+		displayFolder: Habit
+		lineageTag: 7e5725db-e3ad-43c6-b2f5-e82b7f3b0314
+
+	column 'Person ID'
+		dataType: string
+		isHidden
+		lineageTag: 1426c2b4-0767-4bb6-9c76-1d600a83b694
+		summarizeBy: none
+		sourceColumn: Person ID
+
+	column 'Week Start'
+		dataType: dateTime
+		isHidden
+		formatString: Short Date
+		lineageTag: 4c635de1-c176-42b9-9244-03cc260a4b50
+		summarizeBy: none
+		sourceColumn: Week Start
+
+	column 'Service Name'
+		dataType: string
+		isHidden
+		lineageTag: cd55696d-c342-4d08-bb70-01ccf19690e5
+		summarizeBy: none
+		sourceColumn: Service Name
+
+	column Sessions
+		dataType: int64
+		isHidden
+		lineageTag: 4eaf462f-3fe1-461a-8c0c-d7eacb4d9daf
+		summarizeBy: none
+		sourceColumn: Sessions
+
+	column 'AI Credits'
+		dataType: decimal
+		isHidden
+		lineageTag: ff033f6c-9e4f-4e6b-9ed9-cb92cb3273d4
+		summarizeBy: none
+		sourceColumn: AI Credits
+
+	column 'Spending Policy Limit'
+		dataType: decimal
+		isHidden
+		lineageTag: 3f941f16-b2f0-499c-a6fb-d856fb2db694
+		summarizeBy: none
+		sourceColumn: Spending Policy Limit
+
+	column 'User Limit'
+		dataType: decimal
+		isHidden
+		lineageTag: 0226802b-6b2d-40b7-ab50-9eed98857d45
+		summarizeBy: none
+		sourceColumn: User Limit
+
+	column 'Policy Count'
+		dataType: int64
+		isHidden
+		lineageTag: 06a1e415-4cc7-4a64-aaab-38f33533572b
+		summarizeBy: none
+		sourceColumn: Policy Count
+
+	column 'People Historical ID'
+		dataType: string
+		isHidden
+		lineageTag: 2c487f2c-d8bf-412e-8594-4eddcfa016c5
+		summarizeBy: none
+		sourceColumn: People Historical ID
+
+	column 'Source Row Present'
+		dataType: string
+		isHidden
+		lineageTag: 8493d0e5-0201-4ae5-bb41-5f5c587e33a2
+		summarizeBy: none
+		sourceColumn: Source Row Present
+
+	column 'Consumption Coverage'
+		dataType: string
+		lineageTag: 2feae256-9a72-43d9-ad8f-46ca374e2db0
+		summarizeBy: none
+		sourceColumn: Consumption Coverage
+
+	column 'User ID'
+		dataType: string
+		isHidden
+		lineageTag: e9810d52-21e3-4adf-93fc-fe40b33bd443
+		summarizeBy: none
+		sourceColumn: User ID
+
+	column Organization
+		dataType: string
+		isHidden
+		lineageTag: d9afb725-575b-4818-a71a-fe5d13138fe3
+		summarizeBy: none
+		sourceColumn: Organization
+
+	column Function
+		dataType: string
+		isHidden
+		lineageTag: c055a612-5429-423e-aef4-c4fa0e760fa5
+		summarizeBy: none
+		sourceColumn: Function
+
+	column Level
+		dataType: string
+		isHidden
+		lineageTag: a2a96dd6-6c06-4d97-ad1d-171cb6f9ba52
+		summarizeBy: none
+		sourceColumn: Level
+
+	column Manager
+		dataType: string
+		isHidden
+		lineageTag: b00c9bbe-7cd7-4022-a0ba-ad4e057cb257
+		summarizeBy: none
+		sourceColumn: Manager
+
+	column 'Is Copilot Licensed'
+		dataType: string
+		isHidden
+		lineageTag: 7bf9320e-7768-416f-8076-400786e68cdd
+		summarizeBy: none
+		sourceColumn: Is Copilot Licensed
+
+	column 'Person Sort'
+		dataType: int64
+		isHidden
+		lineageTag: d31431f8-bda7-4b43-9834-d690b5547aef
+		summarizeBy: none
+		sourceColumn: Person Sort
+
+	column 'Collaboration Hours'
+		dataType: decimal
+		isHidden
+		lineageTag: 615a7a4a-7cb2-4bea-a525-40b0a4ccac3e
+		summarizeBy: none
+		sourceColumn: Collaboration Hours
+
+	column 'Active Connected Hours'
+		dataType: decimal
+		isHidden
+		lineageTag: 5d4a5e71-1bae-4fc2-9296-42081b8cb45c
+		summarizeBy: none
+		sourceColumn: Active Connected Hours
+
+	column 'Email Hours'
+		dataType: decimal
+		isHidden
+		lineageTag: db651678-8af6-4bb6-8a09-230395c0377e
+		summarizeBy: none
+		sourceColumn: Email Hours
+
+	column 'Chat Hours'
+		dataType: decimal
+		isHidden
+		lineageTag: 5c47190e-02c8-487c-9336-92bcdb2f9e48
+		summarizeBy: none
+		sourceColumn: Chat Hours
+
+	column 'Meeting Hours'
+		dataType: decimal
+		isHidden
+		lineageTag: dfc35096-c059-4d13-b1d9-cd1819f477b9
+		summarizeBy: none
+		sourceColumn: Meeting Hours
+
+	column 'Unscheduled Call Hours'
+		dataType: decimal
+		isHidden
+		lineageTag: a4f7fe4e-e64d-4c85-ad46-e4a731b607c3
+		summarizeBy: none
+		sourceColumn: Unscheduled Call Hours
+
+	column 'After Hours Collaboration'
+		dataType: decimal
+		isHidden
+		lineageTag: 93a25ec7-2053-4ba0-a3eb-a698119501d2
+		summarizeBy: none
+		sourceColumn: After Hours Collaboration
+
+	column 'Weekend Collaboration Hours'
+		dataType: decimal
+		isHidden
+		lineageTag: 8fe39758-4a8e-48f5-9cf9-799d1f12ae39
+		summarizeBy: none
+		sourceColumn: Weekend Collaboration Hours
+
+	column 'Collaboration Span'
+		dataType: decimal
+		isHidden
+		lineageTag: c0062f03-5e50-463a-8c3b-8fbca1ce4f37
+		summarizeBy: none
+		sourceColumn: Collaboration Span
+
+	column 'Internal Network Size'
+		dataType: decimal
+		isHidden
+		lineageTag: e6a57c94-8c8c-475f-8bb1-ec873dc58670
+		summarizeBy: none
+		sourceColumn: Internal Network Size
+
+	column 'External Network Size'
+		dataType: decimal
+		isHidden
+		lineageTag: 7ee381e3-28b8-42a8-b4af-13a82f763be0
+		summarizeBy: none
+		sourceColumn: External Network Size
+
+	column 'Strong Ties'
+		dataType: decimal
+		isHidden
+		lineageTag: 1ab06db0-450a-40fb-a169-67eb84a4d25d
+		summarizeBy: none
+		sourceColumn: Strong Ties
+
+	column 'Diverse Ties'
+		dataType: decimal
+		isHidden
+		lineageTag: a684adb4-ccd0-49b8-a43c-f1d8c37a8bb7
+		summarizeBy: none
+		sourceColumn: Diverse Ties
+
+	column 'Network Outside Organization'
+		dataType: decimal
+		isHidden
+		lineageTag: df7ee3a6-45dd-4a9e-b72c-18b2cbfe1cbe
+		summarizeBy: none
+		sourceColumn: Network Outside Organization
+
+	partition 'Consumption Weekly' = m
+		mode: import
+		source =
+				let
+					Data = #"Integrated Person Week Source"
+				in
+					Data
+

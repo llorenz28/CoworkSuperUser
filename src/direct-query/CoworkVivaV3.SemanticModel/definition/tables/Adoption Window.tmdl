@@ -1,0 +1,60 @@
+/// Selectable 4-week and 12-week adoption-classification windows.
+table 'Adoption Window'
+	lineageTag: 1cc83aa7-c3d3-4e61-aff4-cecd6836a3bc
+
+	/// Selected maximum rolling classification window in covered Cowork weeks; defaults to up to four weeks.
+	measure 'Selected Adoption Window Weeks' = VALUE(SELECTEDVALUE('Adoption Window'[Window Weeks], 4))
+		formatString: 0
+		displayFolder: Window selection
+		lineageTag: 14566aa6-0c1f-4dc0-ba8d-c64fc0bbf3b6
+
+	/// Visible label for the selected available-history cap.
+	measure 'Selected Adoption Window' = SELECTEDVALUE('Adoption Window'[Window Label], "Up to 4 weeks")
+		formatString: General
+		displayFolder: Window selection
+		lineageTag: ea155cd1-3130-4cc7-b1bf-9fed2671626e
+
+	/// Dynamic Champion Identification heading for the selected available-history cap.
+	measure 'Champion Window Header' = "CHAMPION CANDIDATE EVIDENCE | " & UPPER([Selected Adoption Window])
+		formatString: General
+		displayFolder: Window selection
+		lineageTag: e6973726-d248-4733-94eb-b688632ba71a
+
+	/// Covered Cowork weeks required to compare adjacent available-history stages.
+	measure 'Movement Required Weeks' = 2
+		formatString: 0
+		displayFolder: Window selection
+		lineageTag: f0f18b3a-5a2d-450d-a3a9-f522f7804e60
+
+	column 'Window Label'
+		dataType: string
+		lineageTag: a0c3e0a8-208d-4ebe-bfe4-724dc7cbb17f
+		summarizeBy: none
+		sourceColumn: Window Label
+		sortByColumn: 'Window Sort'
+
+	column 'Window Weeks'
+		dataType: int64
+		isHidden
+		lineageTag: 7d428e1e-0a31-4c76-b4a2-7432c1671f6b
+		summarizeBy: none
+		sourceColumn: Window Weeks
+
+	column 'Window Sort'
+		dataType: int64
+		isHidden
+		lineageTag: 98eb19e7-2a43-48b2-a050-32e017f61dce
+		summarizeBy: none
+		sourceColumn: Window Sort
+
+	partition 'Adoption Window' = m
+		mode: import
+		source =
+				let
+					Data = #table({"Window Label", "Window Weeks", "Window Sort"}, {
+					        {"Up to 4 weeks", 4, 1},
+					        {"Up to 12 weeks", 12, 2}
+					    })
+				in
+					Data
+

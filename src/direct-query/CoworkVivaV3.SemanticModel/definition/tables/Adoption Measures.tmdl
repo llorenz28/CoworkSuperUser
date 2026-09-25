@@ -1,0 +1,487 @@
+/// Dedicated measure table for adoption narratives, comparisons, momentum, and transparent program actions.
+table 'Adoption Measures'
+	lineageTag: 24b72b46-d761-41de-905f-2620da5e6615
+
+	/// Covered Sunday-start Cowork consumption weeks available for analysis.
+	measure 'Observation Weeks' =
+			CALCULATE(
+			    DISTINCTCOUNT('Consumption Weekly'[Week Start]),
+			    REMOVEFILTERS('Calendar'),
+			    'Consumption Weekly'[Consumption Coverage] <> "Unknown"
+			)
+		formatString: #,##0
+		displayFolder: Source
+		lineageTag: 8d9c15e8-0cc3-4b03-9b21-eaab92d2b337
+
+	/// Dynamic source-period and feature-readiness message for limited-history datasets.
+	measure 'History Readiness Message' =
+			VAR _weeks = [Observation Weeks]
+			VAR _window = VALUE([Selected Adoption Window Weeks])
+			VAR _movementWeeks = [Movement Required Weeks]
+			VAR _period = [Source Period]
+			VAR _status =
+			    SWITCH(
+			        TRUE(),
+			        _weeks = 0,
+			            "NO COVERED COWORK WEEKS | Load at least one completed Cowork consumption week.",
+			        _weeks = 1,
+			            "EARLY SIGNAL | 1 covered Cowork week available. "
+			                & "Stages and champion candidates use available history; movement begins with week 2.",
+			        _weeks < _window,
+			            "BUILDING HISTORY | " & FORMAT(_weeks, "0") & " of up to " & FORMAT(_window, "0")
+			                & " covered Cowork weeks available. All current views use available history.",
+			        _weeks < _movementWeeks,
+			            "Current stages and champion candidates are available. "
+			                & "Habit Movement begins with the second covered Cowork week.",
+			        "The selected available-history cap is fully populated."
+			    )
+			RETURN _period & " | " & _status
+		formatString: General
+		displayFolder: Source
+		lineageTag: 31e4ee0d-2e0e-432a-a58c-dc02f6a51829
+
+	/// Explains which weekly and momentum features are available for the loaded history.
+	measure 'Weekly History Status' = [History Readiness Message]
+		formatString: General
+		displayFolder: Source
+		lineageTag: 170529c5-5b66-4fa2-bf82-23b3b8644d20
+
+	/// Readiness message for Adoption by Attributes.
+	measure 'Attribute History Status' =
+			VAR _weeks = [Observation Weeks]
+			VAR _window = VALUE([Selected Adoption Window Weeks])
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    _weeks = 0,
+			        "NO COVERED COWORK WEEKS | Attribute views need at least one completed Cowork consumption week.",
+			    _weeks < _window,
+			        "PROVISIONAL | " & FORMAT(_weeks, "0") & " of up to " & FORMAT(_window, "0")
+			            & " covered Cowork weeks available. Attribute views use available history.",
+			    [Source Period] & " | The selected available-history cap is fully populated."
+			)
+		formatString: General
+		displayFolder: Source
+		lineageTag: 79ed3792-eeed-42bc-8791-1ec6dbefe005
+
+	/// Readiness message for usage stages and champion identification.
+	measure 'Stage History Status' =
+			VAR _weeks = [Observation Weeks]
+			VAR _window = VALUE([Selected Adoption Window Weeks])
+			VAR _movementWeeks = [Movement Required Weeks]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    _weeks = 0,
+			        "NO COVERED COWORK WEEKS | Usage stages need at least one completed Cowork consumption week.",
+			    _weeks = 1,
+			        "EARLY SIGNAL | Usage stages and champion candidates use the first covered Cowork week; interpret cautiously.",
+			    _weeks < _window,
+			        "BUILDING HISTORY | " & FORMAT(_weeks, "0") & " of up to " & FORMAT(_window, "0")
+			            & " covered Cowork weeks available. Stages use available history.",
+			    _weeks < _movementWeeks,
+			        "Stages and champion candidates are available. Habit Movement begins with week 2.",
+			    "Stages, champion candidates, and Habit Movement use up to "
+			        & FORMAT(_window, "0") & " covered Cowork weeks."
+			)
+		formatString: General
+		displayFolder: Source
+		lineageTag: 9d8a4d16-65a8-4c7a-b6d8-00f416867165
+
+	/// Readiness message for champion candidate visuals.
+	measure 'Champion History Status' =
+			VAR _weeks = [Observation Weeks]
+			VAR _window = VALUE([Selected Adoption Window Weeks])
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    _weeks = 0,
+			        "NO COVERED COWORK WEEKS | Champion signals need at least one completed Cowork consumption week.",
+			    _weeks < 4,
+			        "EARLY CHAMPION SIGNALS | " & FORMAT(_weeks, "0")
+			            & " covered Cowork weeks available; rankings are provisional.",
+			    _weeks < _window,
+			        "INTERIM CHAMPION EVIDENCE | " & FORMAT(_weeks, "0") & " of up to "
+			            & FORMAT(_window, "0") & " covered Cowork weeks available.",
+			    "CHAMPION CANDIDATE EVIDENCE | UP TO " & FORMAT(_window, "0") & " COVERED WEEKS"
+			)
+		formatString: General
+		displayFolder: Source
+		lineageTag: 00e86a1e-a15d-4c2a-b9d0-ad89005db20f
+
+	/// Readiness and interpretation message for Work Pattern Context.
+	measure 'Work Pattern History Status' =
+			VAR _weeks = [Observation Weeks]
+			VAR _window = VALUE([Selected Adoption Window Weeks])
+			VAR _caveat =
+			    "Differences are descriptive associations between aggregate Cowork adoption groups. "
+			        & "They do not establish causal impact, productivity, quality, time saved, or wellbeing."
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    _weeks = 0, "NO COVERED COWORK WEEKS | Stage comparisons need at least one completed Cowork consumption week.",
+			    _weeks < _window,
+			        "PROVISIONAL | " & FORMAT(_weeks, "0") & " of up to " & FORMAT(_window, "0")
+			            & " covered Cowork weeks available. " & _caveat,
+			    _caveat
+			)
+		formatString: General
+		displayFolder: Source
+		lineageTag: 1264a172-4492-4ee5-b36e-31209f599eaf
+
+	/// Visible label for the Cowork stage filter.
+	measure 'Selected Usage Stage' =
+			IF(
+			    ISFILTERED('Usage Segment Snapshot'[Latest Segment]),
+			    SELECTEDVALUE('Usage Segment Snapshot'[Latest Segment], "Multiple stages"),
+			    "All stages"
+			)
+		formatString: General
+		displayFolder: Filter context
+		lineageTag: fd905153-6547-47aa-a1f3-4fbff0f07d94
+
+	/// Covered Cowork consumption period used by adoption windows.
+	measure 'Source Period' =
+			VAR _start =
+			    CALCULATE(
+			        MIN('Consumption Weekly'[Week Start]),
+			        REMOVEFILTERS('Calendar'),
+			        'Consumption Weekly'[Consumption Coverage] <> "Unknown"
+			    )
+			VAR _end =
+			    CALCULATE(
+			        MAX('Consumption Weekly'[Week Start]),
+			        REMOVEFILTERS('Calendar'),
+			        'Consumption Weekly'[Consumption Coverage] <> "Unknown"
+			    )
+			RETURN
+			IF(NOT ISBLANK(_start), FORMAT(_start, "dd mmm yyyy") & " - " & FORMAT(_end, "dd mmm yyyy"))
+		formatString: General
+		displayFolder: Source
+		lineageTag: 5ae54d79-9c38-4501-b795-269ef4879565
+
+	/// Average sessions per observed week required in addition to at least 75% active weeks for Cowork Power User classification.
+	measure 'Power Session Threshold' = MAX('Usage Segment Snapshot'[Power Session Threshold])
+		formatString: 0.0
+		displayFolder: Method
+		lineageTag: bdfd434d-034a-426c-b820-af924822a3da
+
+	/// Function latest-window reach minus the organization benchmark.
+	measure 'Function Observed User Gap pp' =
+			VAR _population = [Population]
+			VAR _share = [Latest Window Reach]
+			VAR _benchmark = CALCULATE([Latest Window Reach], REMOVEFILTERS('Organization'[Function]))
+			RETURN IF(_population >= [Privacy Floor] && NOT ISBLANK(_share) && NOT ISBLANK(_benchmark), 100 * (_share - _benchmark))
+		formatString: 0.0 "pp"
+		displayFolder: Function readiness
+		lineageTag: df374a6d-74c7-4b56-80e6-7ab2c8e428a4
+
+	/// Function sustained-use share minus the organization benchmark.
+	measure 'Function Sustained Gap pp' =
+			VAR _population = [Population]
+			VAR _share = [Sustained Usage Share]
+			VAR _benchmark = CALCULATE([Sustained Usage Share], REMOVEFILTERS('Organization'[Function]))
+			RETURN IF(_population >= [Privacy Floor] && NOT ISBLANK(_share) && NOT ISBLANK(_benchmark), 100 * (_share - _benchmark))
+		formatString: 0.0 "pp"
+		displayFolder: Function readiness
+		lineageTag: 43de5709-c4a5-40a9-8ea4-0de6a05d5596
+
+	/// Organization latest selected rolling-window reach benchmark, shown only for reportable function rows.
+	measure 'Company Observed Cowork User Share' =
+			VAR _population = [Population]
+			VAR _share = [Latest Window Reach]
+			VAR _benchmark = CALCULATE([Latest Window Reach], REMOVEFILTERS('Organization'[Function]))
+			RETURN IF(_population >= [Privacy Floor] && NOT ISBLANK(_share), _benchmark)
+		formatString: 0.0%
+		displayFolder: Function benchmarks
+		lineageTag: 26d72a02-0188-4765-b1d1-d8ecabe55eef
+
+	/// Organization sustained-use benchmark, shown only for reportable function rows.
+	measure 'Company Sustained Usage Share' =
+			VAR _population = [Population]
+			VAR _share = [Sustained Usage Share]
+			VAR _benchmark = CALCULATE([Sustained Usage Share], REMOVEFILTERS('Organization'[Function]))
+			RETURN IF(_population >= [Privacy Floor] && NOT ISBLANK(_share), _benchmark)
+		formatString: 0.0%
+		displayFolder: Function benchmarks
+		lineageTag: 5a18ac6c-b8fc-4aba-962d-1bcf4c623ae8
+
+	/// Organization champion-cohort benchmark.
+	measure 'Company Champion Cohort Share' = CALCULATE([Champion Cohort Share], REMOVEFILTERS('Organization'[Function]))
+		formatString: 0.0%
+		displayFolder: Function benchmarks
+		lineageTag: 56cea9b9-cfd1-44e0-a9ec-66c1e52775bb
+
+	/// Average collaboration hours for sustained Cowork users or the rest.
+	measure 'Collaboration Hours by Adoption Group' =
+			VAR _axisGroup = SELECTEDVALUE('Adoption Comparison Group'[Group])
+			VAR _selectedSustained =
+			    IF(_axisGroup = "Sustained users", "Yes", "No")
+			VAR _selectedIds =
+			    CALCULATETABLE(
+			        VALUES('Usage Segment Snapshot'[Person ID]),
+			        'Usage Segment Snapshot'[Latest Sustained] = _selectedSustained
+			    )
+			VAR _people = COUNTROWS(_selectedIds)
+			RETURN
+			IF(
+			    [Observation Weeks] > 0 && _people >= [Privacy Floor],
+			    CALCULATE(
+			        AVERAGE('Consumption Weekly'[Collaboration Hours]),
+			        TREATAS(_selectedIds, 'Consumption Weekly'[Person ID])
+			    )
+			)
+		formatString: #,##0.0
+		displayFolder: Adoption context
+		lineageTag: 76846213-7674-40fd-a738-8643d0ef6d93
+
+	/// Average meeting hours for sustained Cowork users or the rest.
+	measure 'Meeting Hours by Adoption Group' =
+			VAR _axisGroup = SELECTEDVALUE('Adoption Comparison Group'[Group])
+			VAR _selectedSustained =
+			    IF(_axisGroup = "Sustained users", "Yes", "No")
+			VAR _selectedIds =
+			    CALCULATETABLE(
+			        VALUES('Usage Segment Snapshot'[Person ID]),
+			        'Usage Segment Snapshot'[Latest Sustained] = _selectedSustained
+			    )
+			VAR _people = COUNTROWS(_selectedIds)
+			RETURN
+			IF(
+			    [Observation Weeks] > 0 && _people >= [Privacy Floor],
+			    CALCULATE(
+			        AVERAGE('Consumption Weekly'[Meeting Hours]),
+			        TREATAS(_selectedIds, 'Consumption Weekly'[Person ID])
+			    )
+			)
+		formatString: #,##0.0
+		displayFolder: Adoption context
+		lineageTag: 7d1183cc-886d-42dc-9fdd-0c64bc2fef9a
+
+	/// Average after hours collaboration for sustained Cowork users or the rest.
+	measure 'After Hours Collaboration by Adoption Group' =
+			VAR _axisGroup = SELECTEDVALUE('Adoption Comparison Group'[Group])
+			VAR _selectedSustained =
+			    IF(_axisGroup = "Sustained users", "Yes", "No")
+			VAR _selectedIds =
+			    CALCULATETABLE(
+			        VALUES('Usage Segment Snapshot'[Person ID]),
+			        'Usage Segment Snapshot'[Latest Sustained] = _selectedSustained
+			    )
+			VAR _people = COUNTROWS(_selectedIds)
+			RETURN
+			IF(
+			    [Observation Weeks] > 0 && _people >= [Privacy Floor],
+			    CALCULATE(
+			        AVERAGE('Consumption Weekly'[After Hours Collaboration]),
+			        TREATAS(_selectedIds, 'Consumption Weekly'[Person ID])
+			    )
+			)
+		formatString: #,##0.0
+		displayFolder: Adoption context
+		lineageTag: 06e2cd7f-a426-452e-941c-00bb7ef9d60e
+
+	/// Average internal network size for sustained Cowork users or the rest.
+	measure 'Internal Network Size by Adoption Group' =
+			VAR _axisGroup = SELECTEDVALUE('Adoption Comparison Group'[Group])
+			VAR _selectedSustained =
+			    IF(_axisGroup = "Sustained users", "Yes", "No")
+			VAR _selectedIds =
+			    CALCULATETABLE(
+			        VALUES('Usage Segment Snapshot'[Person ID]),
+			        'Usage Segment Snapshot'[Latest Sustained] = _selectedSustained
+			    )
+			VAR _people = COUNTROWS(_selectedIds)
+			RETURN
+			IF(
+			    [Observation Weeks] > 0 && _people >= [Privacy Floor],
+			    CALCULATE(
+			        AVERAGE('Consumption Weekly'[Internal Network Size]),
+			        TREATAS(_selectedIds, 'Consumption Weekly'[Person ID])
+			    )
+			)
+		formatString: #,##0.0
+		displayFolder: Adoption context
+		lineageTag: e6155f77-ef09-4737-9f0e-6cc998d260ef
+
+	/// Privacy-safe department enablement recommendation based on latest-window reach and sustained-use gaps versus company benchmarks.
+	measure 'Adoption Action' =
+			VAR _weeks = [Observation Weeks]
+			VAR _coverage = [Latest Window Reach]
+			VAR _coverageBenchmark = CALCULATE([Latest Window Reach], REMOVEFILTERS('Organization'[Function]))
+			VAR _sustained = [Sustained Usage Share]
+			VAR _sustainedBenchmark = CALCULATE([Sustained Usage Share], REMOVEFILTERS('Organization'[Function]))
+			RETURN
+			IF(
+			    _weeks = 0,
+			    "No covered Cowork weeks",
+			    IF(
+			        ISBLANK(_coverage) || ISBLANK(_sustained),
+			        BLANK(),
+			        SWITCH(
+			            TRUE(),
+			            _coverage < _coverageBenchmark, "Activate observed use",
+			            _sustained < _sustainedBenchmark, "Build repeat habit",
+			            "Scale champion practice"
+			        )
+			    )
+			)
+		formatString: General
+		displayFolder: Enablement priorities
+		lineageTag: f6775728-38c0-4c9a-8cfa-027c86d87667
+
+	/// Plain-language explanation of the privacy-safe department enablement recommendation.
+	measure 'Adoption Action Rationale' =
+			VAR _weeks = [Observation Weeks]
+			VAR _coverageGap = [Function Observed User Gap pp]
+			VAR _sustainedGap = [Function Sustained Gap pp]
+			VAR _powerUsers = [Power Users]
+			VAR _powerText =
+			    IF(
+			        ISBLANK(_powerUsers),
+			        "the privacy-safe Power User cohort",
+			        FORMAT(_powerUsers, "#,##0") & " Power Users"
+			    )
+			RETURN
+			IF(
+			    _weeks = 0,
+			    "Enablement priorities need at least one completed Cowork consumption week.",
+			    SWITCH(
+			        [Adoption Action],
+			        "Activate observed use", "Reach " & FORMAT(_coverageGap, "0.0") & " pp: validate access and first-use.",
+			        "Build repeat habit", "Sustained use " & FORMAT(_sustainedGap, "0.0") & " pp: reinforce recurring workflows.",
+			        "Scale champion practice", "Both meet company: mobilize " & _powerText & " as peer coaches."
+			    )
+			)
+		formatString: General
+		displayFolder: Enablement priorities
+		lineageTag: 8b196355-4a7c-4fcd-a0e5-23b9cb41321b
+
+	/// Dynamic observed breadth, sustained-use, and momentum narrative.
+	measure 'Executive Adoption Narrative' =
+			IF(
+			    [Population] < [Privacy Floor],
+			    "Results are suppressed because the selected population contains fewer than 10 people.",
+			    FORMAT([Observed Cowork Active Users], "#,##0")
+			        & " people show observed Cowork activity in the aligned period. "
+			        & FORMAT([Sustained Users], "#,##0") & " are Cowork Power or Habitual users ("
+			        & FORMAT([Sustained Usage Share], "0.0%") & " of the analytical population). "
+			        & [Stage History Status] & " "
+			        & "No Cowork eligibility roster was supplied, so this is not an adoption rate."
+			)
+		formatString: General
+		displayFolder: Narratives
+		lineageTag: 22f15f0b-82c7-4ce6-9d8d-768101c5d4c1
+
+	/// Dynamic Cowork stage-movement narrative.
+	measure 'Movement Narrative' =
+			VAR _weeks = [Observation Weeks]
+			VAR _required = [Movement Required Weeks]
+			VAR _window = VALUE([Selected Adoption Window Weeks])
+			VAR _improved = [Improved People]
+			VAR _stable = [Stable People]
+			VAR _declined = [Declined People]
+			VAR _retention = [Sustained Retention Rate]
+			VAR _hasHiddenMovement = ISBLANK(_improved) || ISBLANK(_stable) || ISBLANK(_declined)
+			VAR _movementText =
+			    IF(
+			        NOT _hasHiddenMovement,
+			        FORMAT(_improved, "#,##0") & " people improved stage, "
+			            & FORMAT(_stable, "#,##0") & " remained stable, and "
+			            & FORMAT(_declined, "#,##0") & " declined. ",
+			        IF(NOT ISBLANK(_improved), FORMAT(_improved, "#,##0") & " people improved stage. ", "")
+			            & IF(NOT ISBLANK(_stable), FORMAT(_stable, "#,##0") & " people remained stable. ", "")
+			            & IF(NOT ISBLANK(_declined), FORMAT(_declined, "#,##0") & " people declined. ", "")
+			            & "Movement counts below the privacy threshold are hidden. "
+			    )
+			VAR _retentionText =
+			    IF(
+			        ISBLANK(_retention),
+			        "Sustained-user retention is hidden below the privacy threshold. ",
+			        "Sustained-user retention is " & FORMAT(_retention, "0.0%") & ". "
+			    )
+			VAR _historyText =
+			    IF(
+			        _weeks < _window,
+			        "PROVISIONAL | Movement uses adjacent available-history windows capped at "
+			            & FORMAT(_window, "0") & " weeks. ",
+			        ""
+			    )
+			RETURN
+			IF(
+			    _weeks < _required,
+			    "BUILDING HISTORY | " & FORMAT(_weeks, "0") & " of " & FORMAT(_required, "0")
+			        & " covered Cowork weeks available. Habit Movement begins with the second covered week.",
+			    IF(
+			        [Population] < [Privacy Floor],
+			        "Movement is suppressed for the selected population.",
+			        _historyText & _movementText & _retentionText & "Movement is descriptive."
+			    )
+			)
+		formatString: General
+		displayFolder: Narratives
+		lineageTag: 54b3b66f-5e75-45ef-86e3-508813f49694
+
+	/// Dynamic privacy-safe champion-cohort interpretation.
+	measure 'Champion Narrative' =
+			VAR _weeks = [Observation Weeks]
+			VAR _ranked =
+			    TOPN(
+			        1,
+			        ADDCOLUMNS(
+			            VALUES('Organization'[Function]),
+			            "__ChampionShare", [Champion Cohort Share],
+			            "__ChampionPeople", [Champion Cohort People]
+			        ),
+			        [__ChampionShare], DESC,
+			        'Organization'[Function], ASC
+			    )
+			VAR _function = CONCATENATEX(_ranked, 'Organization'[Function], ", ")
+			VAR _share = MAXX(_ranked, [__ChampionShare])
+			VAR _people = MAXX(_ranked, [__ChampionPeople])
+			VAR _benchmark = CALCULATE([Champion Cohort Share], REMOVEFILTERS('Organization'[Function]))
+			VAR _prefix = IF(_weeks < 4, "EARLY SIGNAL | ", "")
+			RETURN
+			IF(
+			    _weeks = 0,
+			    "NO COVERED COWORK WEEKS | Champion signals need at least one completed Cowork consumption week.",
+			    IF(
+			        NOT ISBLANK(_share),
+			        _prefix & _function & " has the largest privacy-safe Cowork Power and Habitual cohort: "
+			            & FORMAT(_people, "#,##0") & " people (" & FORMAT(_share, "0.0%") & "), "
+			            & FORMAT(100 * (_share - _benchmark), "0.0") & " pp versus the selected benchmark. "
+			            & "This is an aggregate peer-learning pool, not an individual ranking."
+			    )
+			)
+		formatString: General
+		displayFolder: Narratives
+		lineageTag: e61f67bf-970e-4702-afec-e7a1bdd340f0
+
+	/// Required non-causal interpretation boundary.
+	measure 'Work Pattern Caveat' = [Work Pattern History Status]
+		formatString: General
+		displayFolder: Narratives
+		lineageTag: 416d8201-18e0-418d-af44-3a20c0def46a
+
+	column 'Measure Group'
+		dataType: string
+		lineageTag: 53540e24-b8c3-4d15-aebe-012a9f6f9e70
+		summarizeBy: none
+		sourceColumn: Measure Group
+
+	column 'Evidence Class'
+		dataType: string
+		lineageTag: 15e900fb-d849-4452-bb1e-fcb251064b55
+		summarizeBy: none
+		sourceColumn: Evidence Class
+
+	partition 'Adoption Measures' = m
+		mode: import
+		source =
+				let
+					Data = #table({"Measure Group", "Evidence Class"}, {
+					        {"Cowork adoption breadth, habit, and context", "Observed or derived"}
+					    })
+				in
+					Data
+

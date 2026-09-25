@@ -1,0 +1,47 @@
+/// Ordered data flow, preparation, classification, privacy, and action controls.
+table 'Method Rules'
+	lineageTag: f422ca63-c8de-4b2a-9159-0f49f85eb402
+
+	column Step
+		dataType: int64
+		isHidden
+		lineageTag: 5a553b80-f931-48ad-acdf-1a573918bf98
+		summarizeBy: none
+		sourceColumn: Step
+
+	column Stage
+		dataType: string
+		lineageTag: 0cd4c7ee-29c5-4560-9918-9ba62e4d6d21
+		summarizeBy: none
+		sourceColumn: Stage
+		sortByColumn: Step
+
+	column Rule
+		dataType: string
+		lineageTag: 76a5d843-ba7c-43ca-9aa4-a10c3a559367
+		summarizeBy: none
+		sourceColumn: Rule
+
+	column 'Evidence Class'
+		dataType: string
+		lineageTag: 0186c0a9-9cc9-4808-952a-eadcffb87425
+		summarizeBy: none
+		sourceColumn: Evidence Class
+
+	partition 'Method Rules' = m
+		mode: import
+		source =
+				let
+					Data = #table({"Step", "Stage", "Rule", "Evidence Class"}, {
+					        {1, "Connect required sources", "Load both the Person Query and Cowork Consumption Query through VivaInsights.Data using one shared partition identifier.", "Observed"},
+					        {2, "Filter Cowork", "Keep only rows where ServiceName is exactly Cowork.", "Observed"},
+					        {3, "Retain the base", "Keep validated Person Query rows at Person ID plus Sunday-start week as the analytical spine.", "Observed"},
+					        {4, "Aggregate and join", "Aggregate Cowork policy rows to Person ID plus week, assert uniqueness, then left join to the Person Query base.", "Derived"},
+					        {5, "Preserve coverage", "Set a missing Cowork fact to zero only when the export covers that week; otherwise retain it as unknown.", "Derived"},
+					        {6, "Classify Cowork stages", "Use available covered Cowork weeks up to the selected 4- or 12-week cap. Power and Habitual require at least 75% active weeks; Power also requires at least 6 average sessions per covered week. Developing requires 25-74% active weeks; Low is below 25% but active. Label results provisional until the selected cap is populated.", "Derived"},
+					        {7, "Protect privacy", "Suppress aggregate person-derived results below 10 people. Expose only the pseudonymous report-facing User ID for authorized champion review; keep source identifiers hidden.", "Derived"},
+					        {8, "Interpret denominator", "Use coverage-qualified Person Query rows for observed reach. IsCopilotLicensed is not Cowork eligibility, so do not label observed reach as adoption rate.", "Observed"},
+					        {9, "Interpret context", "Person Query collaboration and network differences are descriptive and non-causal.", "Observed"}
+					    })
+				in
+					Data

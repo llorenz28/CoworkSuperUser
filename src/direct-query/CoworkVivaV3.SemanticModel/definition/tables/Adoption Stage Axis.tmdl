@@ -1,0 +1,98 @@
+/// Disconnected previous/latest window and stage axis for composition reporting.
+table 'Adoption Stage Axis'
+	lineageTag: bb62d8e5-33f9-429d-a24d-057fd3a3e92d
+
+	/// Privacy-safe people in the selected window and Cowork stage.
+	measure 'Segment People' =
+			VAR _window = SELECTEDVALUE('Adoption Stage Axis'[Window])
+			VAR _segment = SELECTEDVALUE('Adoption Stage Axis'[Segment])
+			VAR _people =
+			    SWITCH(
+			        _window,
+			        "Latest window", CALCULATE(DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]), TREATAS({_segment}, 'Usage Segment Snapshot'[Latest Segment])),
+			        "Previous window", CALCULATE(DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]), TREATAS({_segment}, 'Usage Segment Snapshot'[Previous Segment]))
+			    )
+			VAR _denominator = IF(_window = "Latest window", [Latest Classified Population], [Previous Classified Population])
+			RETURN IF(_denominator >= [Privacy Floor] && _people >= [Privacy Floor], _people)
+		formatString: #,##0
+		displayFolder: Stage composition
+		lineageTag: ccac5f14-968b-4b72-ab22-87cb284dc402
+
+	/// Privacy-safe share of people in the selected Cowork stage during the previous window.
+	measure 'Previous Stage Share' =
+			VAR _segment = SELECTEDVALUE('Adoption Stage Axis'[Segment])
+			VAR _people = CALCULATE(DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]), TREATAS({_segment}, 'Usage Segment Snapshot'[Previous Segment]))
+			            RETURN IF([Previous Classified Population] >= [Privacy Floor] && _people >= [Privacy Floor], DIVIDE(_people, [Previous Classified Population]))
+		formatString: 0.0%
+		displayFolder: Stage composition
+		lineageTag: 6fd6c529-1566-47b6-85c4-ddb5f3e1d572
+
+	/// Privacy-safe share of people in the selected Cowork stage during the latest window.
+	measure 'Latest Stage Share' =
+			VAR _segment = SELECTEDVALUE('Adoption Stage Axis'[Segment])
+			VAR _people = CALCULATE(DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]), TREATAS({_segment}, 'Usage Segment Snapshot'[Latest Segment]))
+			            RETURN IF([Latest Classified Population] >= [Privacy Floor] && _people >= [Privacy Floor], DIVIDE(_people, [Latest Classified Population]))
+		formatString: 0.0%
+		displayFolder: Stage composition
+		lineageTag: 2e743338-5e39-4993-a43a-aad9a2c4fc9a
+
+	/// Percentage-point change in Cowork stage share from the previous to the latest window.
+	measure 'Stage Share Change (pp)' =
+			VAR _previous = [Previous Stage Share]
+			VAR _latest = [Latest Stage Share]
+			RETURN IF(NOT ISBLANK(_previous) && NOT ISBLANK(_latest), (_latest - _previous) * 100)
+		formatString: +0.0 "pp";-0.0 "pp";0.0 "pp"
+		displayFolder: Stage composition
+		lineageTag: def6597f-b4a0-4b18-95b2-7c9ef22a63ab
+
+	column Window
+		dataType: string
+		lineageTag: 5f28f437-e9e3-46f6-8ab1-1c5b0dec3a75
+		summarizeBy: none
+		sourceColumn: Window
+		sortByColumn: 'Window Sort'
+
+	column 'Window Sort'
+		dataType: int64
+		isHidden
+		lineageTag: 98f7b8e9-31d2-4b36-9ddd-d041afe8cd07
+		summarizeBy: none
+		sourceColumn: Window Sort
+
+	column Segment
+		dataType: string
+		lineageTag: 069cbee6-6bfc-4525-8c57-5c33ab09ee1d
+		summarizeBy: none
+		sourceColumn: Segment
+		sortByColumn: 'Segment Sort'
+
+	column 'Segment Sort'
+		dataType: int64
+		isHidden
+		lineageTag: cc49254c-5814-4b46-81d8-b00b05285ad6
+		summarizeBy: none
+		sourceColumn: Segment Sort
+
+	partition 'Adoption Stage Axis' = m
+		mode: import
+		source =
+				let
+					Data = #table({"Window", "Window Sort", "Segment", "Segment Sort"}, {
+					        {"Previous window", 1, "Cowork Power User", 1},
+					        {"Previous window", 1, "Cowork Habitual User", 2},
+					        {"Previous window", 1, "Cowork Developing User", 3},
+					        {"Previous window", 1, "Cowork Low User", 4},
+					        {"Previous window", 1, "Cowork Non-user", 5},
+					        {"Previous window", 1, "Cowork coverage unknown", 6},
+					        {"Previous window", 1, "Insufficient history", 7},
+					        {"Latest window", 2, "Cowork Power User", 1},
+					        {"Latest window", 2, "Cowork Habitual User", 2},
+					        {"Latest window", 2, "Cowork Developing User", 3},
+					        {"Latest window", 2, "Cowork Low User", 4},
+					        {"Latest window", 2, "Cowork Non-user", 5},
+					        {"Latest window", 2, "Cowork coverage unknown", 6},
+					        {"Latest window", 2, "Insufficient history", 7}
+					    })
+				in
+					Data
+

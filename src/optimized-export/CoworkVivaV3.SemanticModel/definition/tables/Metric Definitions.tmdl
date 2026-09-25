@@ -1,0 +1,137 @@
+/// Business definitions, calculations, grains, directions, and interpretation caveats.
+table 'Metric Definitions'
+	lineageTag: 5df1d5f5-183a-454c-9c2d-d0e9070f078a
+
+	column 'Metric Sort'
+		dataType: int64
+		isHidden
+		lineageTag: a8635a91-97a7-4b3d-93c3-e7ed88310bcf
+		summarizeBy: none
+		sourceColumn: Metric Sort
+
+	column Category
+		dataType: string
+		lineageTag: 2e09f842-6fcd-4166-894c-1bef1c9aa804
+		summarizeBy: none
+		sourceColumn: Category
+
+	column Metric
+		dataType: string
+		lineageTag: 7a5191e4-f687-4db1-aa29-5de305c1364b
+		summarizeBy: none
+		sourceColumn: Metric
+		sortByColumn: 'Metric Sort'
+
+	column 'Source Family'
+		dataType: string
+		lineageTag: 6075058a-c288-4b08-a2e7-6d386ee00252
+		summarizeBy: none
+		sourceColumn: Source Family
+
+	column Calculation
+		dataType: string
+		lineageTag: f15d3a03-6d7f-4637-a8aa-cd58f1502f00
+		summarizeBy: none
+		sourceColumn: Calculation
+
+	column Grain
+		dataType: string
+		lineageTag: ead7a1bb-4ebd-4b78-89b4-b5c1b8256ad7
+		summarizeBy: none
+		sourceColumn: Grain
+
+	column Direction
+		dataType: string
+		lineageTag: fce7632f-65fc-4fd9-bd3e-0cff9c992d04
+		summarizeBy: none
+		sourceColumn: Direction
+
+	column Caveat
+		dataType: string
+		lineageTag: f4d04688-6b63-43b0-ae87-4e2aeb36e1d4
+		summarizeBy: none
+		sourceColumn: Caveat
+
+	column 'Evidence Class'
+		dataType: string
+		lineageTag: 09a82002-be6b-430d-be87-7d6c7a8f1026
+		summarizeBy: none
+		sourceColumn: Evidence Class
+
+	partition 'Metric Definitions' = m
+		mode: import
+		source =
+				let
+					Data = #table({"Metric Sort", "Category", "Metric", "Source Family", "Calculation", "Grain", "Direction", "Caveat", "Evidence Class"}, {
+					        {1, "Method", "Observation Weeks", "Consumption query", "Distinct covered Sunday-start Cowork consumption weeks, ignoring report date filters.", "Report", "Informational", "Pre-Cowork Person Query weeks are excluded.", "Derived"},
+					        {2, "Method", "Source Period", "Consumption query", "Earliest through latest covered Cowork consumption week, ignoring report date filters.", "Report", "Informational", "This is the available Cowork period, not the current visual date selection.", "Derived"},
+					        {3, "Method", "Power Session Threshold", "Model setting", "Average weekly sessions threshold of 6 across available covered Cowork weeks up to the selected cap.", "Person-window", "Higher is a stricter volume threshold", "Power classification also requires activity in at least 75% of covered weeks.", "Derived"},
+					        {4, "Program action", "Adoption Action", "Person + consumption", "Compares function-level latest-window reach and sustained-use share with organization benchmarks to select one of three actions.", "Function", "Categorical recommendation", "A descriptive program prompt, not a causal or employee-performance assessment.", "Derived"},
+					        {5, "Program action", "Adoption Action Rationale", "Person + consumption", "Explains the selected adoption action with function benchmark gaps and the privacy-safe Power User count.", "Function", "Explanatory text", "The rationale inherits the same benchmark and privacy limitations as its component measures.", "Derived"},
+					        {6, "Program action", "Movement Narrative", "Person + consumption", "Summarizes improved, stable, and declined stage counts plus sustained-user retention.", "Selected population", "Explanatory text", "Counts below the privacy floor are omitted; movement is descriptive.", "Derived"},
+					        {7, "Benchmark", "Function Sustained Gap pp", "Person + consumption", "Function sustained-use share minus the organization sustained-use benchmark, in percentage points.", "Function", "Positive means above the organization benchmark", "The company benchmark removes only the Function filter and keeps other report filters.", "Derived"},
+					        {8, "Benchmark", "Function Observed User Gap pp", "Person + consumption", "Function latest-window reach minus the organization reach benchmark, in percentage points.", "Function", "Positive means above the organization benchmark", "Reach uses the analytical population, not a Cowork entitlement roster.", "Derived"},
+					        {9, "Benchmark", "Company Observed Cowork User Share", "Person + consumption", "Organization latest available-history reach among people with complete Cowork coverage, with the Function filter removed.", "Selected organization context", "Higher means broader observed reach", "This is observed reach, not an eligibility-based adoption rate.", "Derived"},
+					        {10, "Benchmark", "Company Sustained Usage Share", "Person + consumption", "Organization share in Cowork Power or Habitual stages with the Function filter removed.", "Selected organization context", "Higher means broader sustained use", "Other report filters remain applied to the benchmark.", "Derived"},
+					        {11, "Stage comparison", "Previous Stage Share", "Person + consumption", "People in the selected Cowork stage during the previous adjacent available-history window divided by population.", "Stage-window", "Higher means a larger population share", "Hidden when the selected population or stage count is below the privacy floor.", "Derived"},
+					        {12, "Stage comparison", "Latest Stage Share", "Person + consumption", "People in the selected Cowork stage during the latest available-history window divided by population.", "Stage-window", "Higher means a larger population share", "Hidden when the selected population or stage count is below the privacy floor.", "Derived"},
+					        {13, "Stage comparison", "Stage Share Change (pp)", "Person + consumption", "Latest stage share minus previous stage share, expressed in percentage points.", "Stage", "Positive means the stage gained share", "A gain is not inherently positive for every stage; interpret with the stage label.", "Derived"},
+					        {14, "Weekly adoption", "Weekly Active Rate", "Person + consumption", "Weekly active people divided by the coverage-qualified Person Query population.", "Person-week", "Higher means broader weekly observed use", "Not an eligibility-based adoption rate.", "Derived"},
+					        {15, "Weekly adoption", "Latest Weekly Active People", "Person + consumption", "Privacy-safe active people in the latest complete Person Query-aligned week.", "Latest week", "Higher means broader latest-week use", "Ignores the report date selection when locating the latest complete week.", "Derived"},
+					        {16, "Weekly adoption", "Latest Weekly Active Rate", "Person + consumption", "Latest weekly active people divided by the analytical population.", "Latest week", "Higher means broader latest-week observed use", "Not an eligibility-based adoption rate.", "Derived"},
+					        {17, "Weekly adoption", "Active Rate Momentum pp", "Person + consumption", "Recent four-week average active share minus the preceding four-week average, in percentage points.", "Selected population", "Positive means recent reach is higher", "Requires two complete four-week comparison periods.", "Derived"},
+					        {18, "Weekly adoption", "Weekly Active People (Latest 12 Weeks)", "Person + consumption", "Weekly active people returned for up to the latest 12 covered Cowork weeks in the current date selection.", "Person-week", "Higher means more weekly active people", "A display-window measure; earlier covered weeks return blank.", "Derived"},
+					        {19, "Weekly adoption", "Weekly Active Rate (Latest 12 Weeks)", "Person + consumption", "Weekly active rate returned for up to the latest 12 covered Cowork weeks in the current date selection.", "Person-week", "Higher means broader weekly observed use", "A display-window measure and not an eligibility-based adoption rate.", "Derived"},
+					        {21, "Observed activity", "Total Cowork Sessions", "Consumption query", "Cowork SessionCount summed after spending-policy rows are aggregated.", "Selected population-period", "Higher means more observed session volume", "Sessions are not tasks and do not measure output quality.", "Observed"},
+					        {22, "Observed activity", "Total Cowork Credits", "Consumption query", "TotalCopilotCreditsUsed summed after spending-policy rows are aggregated.", "Selected population-period", "Higher means more observed credit consumption", "Credits are not productivity, value, or task complexity; credit units stay separate from other services.", "Observed"},
+					        {23, "Observed activity", "Total Cowork Credits (Latest 12 Weeks)", "Consumption query", "Total Cowork credits consumed in each of up to the latest 12 covered weeks in the current date selection.", "Function-week", "Higher means more observed credit consumption in that week", "A display-window measure; credits describe consumption and do not measure productivity, value, or task complexity.", "Observed"},
+					        {24, "Observed activity", "Observed Cowork Active Users", "Consumption query", "Distinct people with at least one positive Cowork session in the selected period.", "Person", "Higher means broader observed use", "Not an adoption count unless an approved Cowork eligibility roster is supplied.", "Derived"},
+					        {25, "Observed activity", "Observed Cowork User Share", "Person + consumption", "Observed Cowork active users divided by people with known Cowork status for every selected Person Query week.", "Selected population-period", "Higher means broader observed use", "Not an eligibility-based adoption rate.", "Derived"},
+					        {26, "Observed activity", "Sessions per Active Person", "Consumption query", "Average across selected weeks of total Cowork sessions divided by weekly active people.", "Person-week", "Higher means greater observed session intensity", "Intensity does not measure task completion, quality, or value.", "Derived"},
+					        {27, "Observed activity", "Credits per Session", "Consumption query", "Observed Cowork credits divided by observed Cowork sessions.", "Selected population-period", "Higher means more credits consumed per session", "Descriptive consumption intensity only.", "Derived"},
+					        {28, "Observed activity", "Credits per Session (Latest 12 Weeks)", "Consumption query", "Credits per session returned for up to the latest 12 covered Cowork weeks in the current date selection.", "Person-week", "Higher means more credits consumed per session", "A display-window measure; descriptive consumption intensity only.", "Derived"},
+					        {29, "Weekly cohort", "New People", "Consumption query", "People active this week with no earlier positive Cowork session in the observed source period.", "Person-week", "Higher means more first-observed users", "A truncated source history can classify earlier users as new; the first source week is blank.", "Derived"},
+					        {30, "Weekly cohort", "Weekly Return Rate", "Consumption query", "People active in both the current and prior week divided by prior-week active people.", "Person-week", "Higher means more repeat weekly participation", "Blank for the first week and hidden below the privacy floor.", "Derived"},
+					        {31, "Weekly cohort", "Weekly Return Rate (Latest 12 Weeks)", "Consumption query", "Weekly return rate returned for up to the latest 12 covered Cowork weeks in the current date selection.", "Person-week", "Higher means more repeat weekly participation", "A display-window measure; the underlying rate remains privacy suppressed.", "Derived"},
+					        {32, "Weekly cohort", "New People (Latest 12 Weeks)", "Consumption query", "New people returned for up to the latest 12 covered Cowork weeks in the current date selection.", "Person-week", "Higher means more first-observed users", "A display-window measure with the same source-history limitation as New People.", "Derived"},
+					        {33, "Weekly cohort", "Retained People (Latest 12 Weeks)", "Consumption query", "People active in both the current and prior week, shown for up to the latest 12 covered Cowork weeks.", "Person-week", "Higher means more retained weekly users", "Counts below the privacy floor are hidden.", "Derived"},
+					        {34, "Weekly cohort", "Resurrected People (Latest 12 Weeks)", "Consumption query", "People active this week, inactive last week, and active in an earlier observed week, shown for up to the latest 12 covered Cowork weeks.", "Person-week", "Higher means more returning users", "Depends on the available source history and is hidden below the privacy floor.", "Derived"},
+					        {35, "Weekly cohort", "Churned People (Negative, Latest 12 Weeks)", "Consumption query", "Prior-week active people who are inactive this week, multiplied by -1 for diverging-chart display.", "Person-week", "A more negative value means more weekly churn", "The negative sign is a plotting convention, not a negative person count.", "Derived"},
+					        {36, "Population", "Population", "Person + consumption", "Distinct people in the current organization and report filter context.", "Person", "Informational denominator", "Analytical population is not the same as confirmed Cowork eligibility.", "Derived"},
+					        {37, "Population", "Privacy Floor", "Model setting", "Minimum distinct-person denominator required for reportable person-derived results.", "Report", "Fixed threshold", "Currently set to 10 people.", "Derived"},
+					        {38, "Population", "Reportable Population", "Person + consumption", "Population returned only when it meets or exceeds the privacy floor.", "Person", "Informational denominator", "Returns blank for selections below the privacy floor.", "Derived"},
+					        {39, "Work pattern context", "Selected Metric Overall Average", "Person query", "Average selected Person Query metric for the current population; defaults to Collaboration Hours.", "Person", "Descriptive only", "Hidden below the privacy floor and does not establish causal Cowork impact.", "Context"},
+					        {40, "Work pattern context", "Selected Metric Sustained Average", "Person + consumption", "Average selected Person Query metric for Cowork Habitual and Power users.", "Person", "Descriptive only", "Stage membership comes from consumption; hidden below the privacy floor and non-causal.", "Context"},
+					        {41, "Work pattern context", "Selected Metric Other Average", "Person + consumption", "Average selected Person Query metric for Cowork Non-user, Low, and Novice users.", "Person", "Descriptive only", "Stage membership comes from consumption; hidden below the privacy floor and non-causal.", "Context"},
+					        {42, "Work pattern context", "Selected Metric Stage Difference vs Non-user", "Person + consumption", "Selected stage average minus the Cowork Non-user average, divided by the Non-user average.", "Stage", "Positive means above the Non-user average", "Both groups must meet the privacy floor; differences are descriptive and non-causal.", "Context"},
+					        {43, "Usage stage", "Latest Segment Share", "Person + consumption", "People in the selected latest available-history Cowork stage divided by people with complete latest-window coverage.", "Stage-window", "Higher means a larger population share", "Interpret direction with the selected stage; stage counts are privacy suppressed.", "Derived"},
+					        {44, "Usage stage", "Power Users", "Person + consumption", "People in the latest Cowork Power User stage.", "Person-window", "Higher means more sustained high-use people", "Requires activity in at least 75% of covered weeks plus the configured average-session threshold; privacy suppressed.", "Derived"},
+					        {45, "Usage stage", "Sustained Users", "Person + consumption", "People in the latest Cowork Power or Habitual stage.", "Person-window", "Higher means more sustained users", "Uses available covered Cowork weeks up to the selected cap and is hidden below the privacy floor.", "Derived"},
+					        {46, "Usage stage", "Sustained Usage Share", "Person + consumption", "Cowork Power and Habitual users divided by the analytical population.", "Person-window", "Higher means broader sustained use", "Not an eligibility-based adoption rate.", "Derived"},
+					        {47, "Usage stage", "Latest Window Reach", "Person + consumption", "People with any positive Cowork session divided by people with complete latest-window Cowork coverage.", "Person-window", "Higher means broader observed reach", "Not an eligibility-based adoption rate.", "Derived"},
+					        {48, "Usage stage", "Average Sessions per Person", "Person + consumption", "Average weekly Cowork sessions for people in the selected latest stage.", "Person-window", "Higher means greater observed session intensity", "Hidden below the privacy floor and does not measure task quality or value.", "Derived"},
+					        {49, "Stage movement", "Movement People", "Person + consumption", "People in the selected stage-movement class.", "Person-window comparison", "Interpret with Improved, Stable, or Declined", "Hidden when the selected movement count is below the privacy floor.", "Derived"},
+					        {50, "Stage movement", "Improved People", "Person + consumption", "People whose Cowork stage improved from the previous to the latest adjacent available-history window.", "Person-window comparison", "Higher means more people moved to a stronger stage", "Descriptive movement and hidden below the privacy floor.", "Derived"},
+					        {51, "Stage movement", "Stable People", "Person + consumption", "People whose Cowork stage remained unchanged across adjacent available-history windows.", "Person-window comparison", "Higher means more stable classifications", "Stability can occur at any stage and is hidden below the privacy floor.", "Derived"},
+					        {52, "Stage movement", "Declined People", "Person + consumption", "People whose Cowork stage declined from the previous to the latest adjacent available-history window.", "Person-window comparison", "Higher means more people moved to a weaker stage", "Descriptive movement and hidden below the privacy floor.", "Derived"},
+					        {53, "Stage movement", "Transition People", "Person + consumption", "People in the selected previous-stage to latest-stage transition.", "Person-window comparison", "Interpret with the selected transition", "Hidden when the transition count is below the privacy floor.", "Derived"},
+					        {54, "Stage movement", "Sustained Retention Rate", "Person + consumption", "Previously sustained users who remain sustained divided by all previously sustained users.", "Person-window comparison", "Higher means more sustained users were retained", "Both the prior sustained cohort and retained count must meet the privacy floor.", "Derived"},
+					        {55, "Champion identification", "Champion Candidate Count", "Person + consumption", "Count of the fixed top 10% of sustained users in the latest available-history window.", "Person-window", "Higher means more potential peer champions", "Rankings before four covered weeks are explicitly provisional.", "Derived"},
+					        {56, "Champion identification", "Champion Candidate Average Active Weeks", "Person + consumption", "Average latest-window active weeks among potential champions.", "Person-window", "Higher means more consistent weekly activity", "Applies only to the fixed potential-champion cohort.", "Derived"},
+					        {57, "Champion identification", "Champion Candidate Average Weekly Sessions", "Person + consumption", "Average weekly Cowork sessions among potential champions in the latest available-history window.", "Person-window", "Higher means greater observed session intensity", "Session intensity does not measure output quality or value.", "Derived"},
+					        {58, "Champion identification", "Champion Department Coverage", "Person + consumption", "Visible departments with at least one potential champion divided by visible departments with a supplied name.", "Department", "Higher means broader champion distribution", "Excludes departments labeled Not provided.", "Derived"},
+					        {59, "Champion identification", "Champion Rank", "Person + consumption", "Global candidate order by active weeks, then average weekly sessions, with Person ID as a deterministic tie-breaker.", "Person-window", "Lower rank means higher placement", "Organization filters narrow the displayed list but do not rerank candidates.", "Derived"},
+					        {60, "Champion identification", "Champion Sessions in Window", "Person + consumption", "Latest average weekly sessions multiplied by the actual classification-window length and rounded for potential champions.", "Person-window", "Higher means more estimated sessions in the classification window", "An estimate based on the classification average, not a separate source total.", "Derived"},
+					        {61, "Champion identification", "Champion Last Active Week", "Person + consumption", "Most recent reporting week with a positive Cowork session for a potential champion.", "Person", "More recent means more recent observed activity", "Returns a value only for potential champions.", "Derived"},
+					        {62, "Weekly stage", "Weekly Segment People", "Person + consumption", "People in the available-history Cowork stage at each covered analysis week.", "Person-week-window", "Higher means more people in the selected stage", "Hidden when the stage count is below the privacy floor.", "Derived"},
+					        {63, "Weekly stage", "Weekly Segment Share", "Person + consumption", "Weekly segment people divided by people with complete coverage in the available-history classification window.", "Person-week-window", "Higher means a larger stage share", "Interpret direction with the selected stage; privacy suppression applies.", "Derived"},
+					        {64, "History readiness", "History Readiness Message", "Consumption query", "Reports the covered Cowork source period and whether the selected available-history cap is still building.", "Report", "Informational", "Availability does not override privacy or coverage requirements.", "Derived"},
+					        {65, "History readiness", "Weekly History Status", "Person query", "Displays the history-readiness message on weekly adoption pages.", "Report", "Informational", "Weekly activity is available with one week; comparisons require more history.", "Derived"},
+					        {66, "History readiness", "Attribute History Status", "Consumption query", "Explains when attribute views use provisional available history below the selected cap.", "Report", "Informational", "Views are available from the first covered Cowork week.", "Derived"},
+					        {67, "History readiness", "Stage History Status", "Consumption query", "Reports how many covered Cowork weeks feed stages and adjacent movement comparisons.", "Report", "Informational", "Stages begin at week 1; movement begins at week 2.", "Derived"},
+					        {68, "History readiness", "Champion History Status", "Consumption query", "Reports whether champion evidence is early, interim, or fully populated for the selected cap.", "Report", "Informational", "Champion rankings before four covered weeks are provisional.", "Derived"},
+					        {69, "History readiness", "Work Pattern History Status", "Consumption query", "Explains when stage-based work-pattern comparisons and program actions use provisional available history.", "Report", "Informational", "Views are available from the first covered Cowork week and remain descriptive.", "Derived"}
+					    })
+				in
+					Data
+

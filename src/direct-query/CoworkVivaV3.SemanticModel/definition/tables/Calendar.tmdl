@@ -1,0 +1,47 @@
+/// Sunday-start reporting weeks available for chronological trend axes.
+table Calendar
+	lineageTag: e5974d34-b50c-4d38-98d5-bfd88e5129b2
+
+	column 'Week Start'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: dc4cc4ef-d111-4c79-9c24-a3262d83aa0f
+		summarizeBy: none
+		sourceColumn: [Week Start]
+
+	column 'Week Label'
+		dataType: string
+		lineageTag: 4d7b2a5b-2ea0-4db2-9444-bbb893858b03
+		summarizeBy: none
+		sourceColumn: [Week Label]
+		sortByColumn: 'Week Sort'
+
+	column 'Week Sort'
+		dataType: int64
+		isHidden
+		lineageTag: 6815710e-b7b4-4e0c-bdd2-e86a9815e030
+		summarizeBy: none
+		sourceColumn: [Week Sort]
+
+	partition Calendar = calculated
+		mode: import
+		source =
+				VAR _weeks =
+				    DISTINCT(
+				        SELECTCOLUMNS(
+				            'Consumption Weekly',
+				            "Week Start",
+				                DATE(
+				                    YEAR('Consumption Weekly'[Week Start]),
+				                    MONTH('Consumption Weekly'[Week Start]),
+				                    DAY('Consumption Weekly'[Week Start])
+				                )
+				        )
+				    )
+				RETURN
+				    ADDCOLUMNS(
+				        _weeks,
+				        "Week Label", FORMAT([Week Start], "MMM d"),
+				        "Week Sort", RANKX(_weeks, [Week Start],, ASC, Dense)
+				    )
+

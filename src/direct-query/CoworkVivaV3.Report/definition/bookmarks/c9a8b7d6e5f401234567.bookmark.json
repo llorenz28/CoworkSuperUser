@@ -1,0 +1,349 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Weekly Adoption - User mix",
+  "name": "c9a8b7d6e5f401234567",
+  "options": {
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [
+      "1180451db0e5b1af0518",
+      "viva_active_people_note",
+      "viva_credits_per_session_heatmap",
+      "viva_credits_per_session_note",
+      "viva_total_credits_heatmap",
+      "viva_total_credits_note",
+      "viva_weekly_active_rate_heatmap",
+      "viva_weekly_active_rate_note",
+      "00d44a5099c5b4d9fb3a",
+      "viva_return_rate_note",
+      "weekly_users_chart",
+      "weekly_users_note",
+      "33be68f7cfe5dc0d25c5",
+      "weekly_sessions_active_note",
+      "d5d7856fe747421bb9db",
+      "weekly_total_sessions_note",
+      "ed05a1bdce257261daef",
+      "weekly_function_detail_note",
+      "weekly_view_active_people_button",
+      "weekly_view_active_people_button_selected",
+      "weekly_view_credits_button",
+      "weekly_view_credits_button_selected",
+      "weekly_view_total_credits_button",
+      "weekly_view_total_credits_button_selected",
+      "weekly_view_active_rate_button",
+      "weekly_view_active_rate_button_selected",
+      "weekly_view_return_rate_button",
+      "weekly_view_return_rate_button_selected",
+      "weekly_view_user_mix_button",
+      "weekly_view_user_mix_button_selected",
+      "weekly_view_sessions_active_button",
+      "weekly_view_sessions_active_button_selected",
+      "weekly_view_total_sessions_button",
+      "weekly_view_total_sessions_button_selected",
+      "weekly_view_function_detail_button",
+      "weekly_view_function_detail_button_selected"
+    ],
+    "suppressActiveSection": true,
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.0",
+    "activeSection": "c2e315038d903964e507",
+    "sections": {
+      "c2e315038d903964e507": {
+        "visualContainers": {
+          "1180451db0e5b1af0518": {
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "viva_active_people_note": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "viva_credits_per_session_heatmap": {
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "viva_credits_per_session_note": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "viva_total_credits_heatmap": {
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "viva_total_credits_note": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "viva_weekly_active_rate_heatmap": {
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "viva_weekly_active_rate_note": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "00d44a5099c5b4d9fb3a": {
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "viva_return_rate_note": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "weekly_users_chart": {
+            "singleVisual": {
+              "visualType": "columnChart",
+              "objects": {}
+            }
+          },
+          "weekly_users_note": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "33be68f7cfe5dc0d25c5": {
+            "singleVisual": {
+              "visualType": "lineStackedColumnComboChart",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "weekly_sessions_active_note": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "d5d7856fe747421bb9db": {
+            "singleVisual": {
+              "visualType": "lineStackedColumnComboChart",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "weekly_total_sessions_note": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "ed05a1bdce257261daef": {
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "weekly_function_detail_note": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "weekly_view_active_people_button": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "weekly_view_active_people_button_selected": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "weekly_view_credits_button": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "weekly_view_credits_button_selected": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "weekly_view_total_credits_button": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "weekly_view_total_credits_button_selected": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "weekly_view_active_rate_button": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "weekly_view_active_rate_button_selected": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "weekly_view_return_rate_button": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "weekly_view_return_rate_button_selected": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "weekly_view_user_mix_button": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "weekly_view_user_mix_button_selected": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "weekly_view_sessions_active_button": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "weekly_view_sessions_active_button_selected": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "weekly_view_total_sessions_button": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "weekly_view_total_sessions_button_selected": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "weekly_view_function_detail_button": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "weekly_view_function_detail_button_selected": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

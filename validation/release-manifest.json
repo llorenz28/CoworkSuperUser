@@ -1,0 +1,68 @@
+{
+  "releaseDate": "2026-09-24",
+  "version": "1.0.0",
+  "classification": "Public",
+  "pbitPurviewLabelRetained": false,
+  "pbitLabelNote": "Power BI sensitivity labels apply to PBIX files and are not retained in PBIT exports.",
+  "report": {
+    "pages": 9,
+    "bookmarks": 39,
+    "measures": 117,
+    "activePage": "Start Here",
+    "headerAlignment": "Passed for all 9 pages"
+  },
+  "validation": {
+    "optimizedExportLoadSeconds": 65.1,
+    "directQueryLoadSeconds": 113.7,
+    "fabricatedImagePopulation": 1200,
+    "fabricatedImageWeeks": 26,
+    "fabricatedRefreshSeconds": 33.4,
+    "populatedModelHealth": "Passed",
+    "privacyScan": "Passed",
+    "pbirValidation": "Passed with 4 remote-schema availability warnings",
+    "storyboardSlides": 24,
+    "storyboardValidation": "Passed",
+    "walkthroughSeconds": 222.5,
+    "walkthroughResolution": "1920x1080",
+    "walkthroughFramesPerSecond": 30,
+    "walkthroughIntegratedLoudness": "-18.18 LUFS",
+    "walkthroughVisualReview": "Passed"
+  },
+  "artifacts": [
+    {
+      "path": "CoworkSuperUser - Direct Query.pbit",
+      "bytes": 606089,
+      "sha256": "A23DA172AAC48C2606CF00A94A5ECFD6CF67129472CDF03DA36CA040DD9EFE95"
+    },
+    {
+      "path": "CoworkSuperUser - Optimized Export.pbit",
+      "bytes": 602385,
+      "sha256": "10E91E6FCD7C6D7D1DCD93A1F2B1F27C9ADFE8309AC1AFFBE920B02B96BF8A90"
+    },
+    {
+      "path": "CoworkSuperUser Interpretation Storyboard.pptx",
+      "bytes": 1933414,
+      "sha256": "275E5362123FAF34D4DF833D88DB77550B9948C6650F70DFCD60A56433CEAF8F"
+    },
+    {
+      "path": "media/CoworkSuperUser-Walkthrough.mp4",
+      "bytes": 12008842,
+      "sha256": "FE7A214FBC53820C6A694C73A9BDF3BC1A9822BAE69B42603DF2707FC74E98E2"
+    },
+    {
+      "path": "media/CoworkSuperUser-Walkthrough.srt",
+      "bytes": 4998,
+      "sha256": "66F6AAC991B8A0C7275E19C65447D960B32EBF99582C15F82F522F1D726CB519"
+    },
+    {
+      "path": "media/CoworkSuperUser-Walkthrough-transcript.md",
+      "bytes": 3910,
+      "sha256": "C1F9D543C9EE84A810F3B2178FE2C75630EFA5D8B789B6E86A3A5A24AB534554"
+    },
+    {
+      "path": "images/CoworkSuperUser.gif",
+      "bytes": 863547,
+      "sha256": "E2EE2688E3A336D60B51D235D833A5D04D1EDCEDDCD7DBCA77A78A02556DF8E0"
+    }
+  ]
+}

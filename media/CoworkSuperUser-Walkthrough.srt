@@ -1,0 +1,171 @@
+1
+00:00:00,100 --> 00:00:08,302
+Meet CoworkSuperUser: a public, data-free Power BI template that turns approved Viva Insights results into a clear adoption story.
+
+2
+00:00:08,303 --> 00:00:17,871
+It connects observed reach, repeat use, habit movement, consumption, potential champions, and work-pattern context without turning usage into a performance score.
+
+3
+00:00:18,780 --> 00:00:21,958
+Start Here routes program owners to the right question.
+
+4
+00:00:21,959 --> 00:00:23,730
+Is adoption building momentum?
+
+5
+00:00:23,731 --> 00:00:24,991
+Who is returning?
+
+6
+00:00:24,992 --> 00:00:26,694
+Where is usage sustained?
+
+7
+00:00:26,695 --> 00:00:28,313
+How do work patterns differ?
+
+8
+00:00:28,314 --> 00:00:33,099
+Begin with the decision, then open the page carrying the right evidence and boundary.
+
+9
+00:00:34,013 --> 00:00:37,715
+Executive Adoption summarizes the selected population.
+
+10
+00:00:37,716 --> 00:00:39,998
+Active users show observed reach.
+
+11
+00:00:39,999 --> 00:00:43,153
+Power and Habitual stages show sustained use.
+
+12
+00:00:43,154 --> 00:00:50,593
+Latest weekly active rate shows the newest aligned week, while function comparisons show where enablement may need local attention.
+
+13
+00:00:51,493 --> 00:00:56,052
+Weekly Adoption and Usage separates reach from recurrence and intensity.
+
+14
+00:00:56,053 --> 00:01:03,693
+Switch views without clearing filters, then compare active rate, return rate, cohorts, sessions, and credits.
+
+15
+00:01:03,694 --> 00:01:10,169
+Use exact values before relative color, and check rollout timing and coverage before calling a trend.
+
+16
+00:01:11,093 --> 00:01:17,783
+Adoption by Attributes compares observed reach and sustained-use share across function, organization, or level.
+
+17
+00:01:17,784 --> 00:01:22,983
+Check population and privacy first, then compare the group with the company benchmark.
+
+18
+00:01:22,984 --> 00:01:27,947
+Treat the result as a program signal, never an employee-performance comparison.
+
+19
+00:01:28,861 --> 00:01:33,289
+Habit Movement compares previous and latest available-history stages.
+
+20
+00:01:33,290 --> 00:01:38,072
+Read improved, stable, declined, and sustained retention together.
+
+21
+00:01:38,073 --> 00:01:43,263
+Interpret every change with its stage, then use department views to locate differences.
+
+22
+00:01:43,264 --> 00:01:47,608
+New history or organizational change can also move classifications.
+
+23
+00:01:48,528 --> 00:01:53,337
+Champion Identification finds an outreach starting point among sustained users.
+
+24
+00:01:53,338 --> 00:01:57,299
+Global order uses active weeks, then average weekly sessions.
+
+25
+00:01:57,300 --> 00:01:59,608
+Department coverage reveals gaps.
+
+26
+00:01:59,609 --> 00:02:06,799
+These are potential peer-enablement partners, not experts, top performers, or automatic candidates for personnel action.
+
+27
+00:02:07,728 --> 00:02:12,370
+Sessions and Credits keeps frequency and resource consumption explicit.
+
+28
+00:02:12,371 --> 00:02:18,475
+Read total sessions, total credits, sessions per active person, and credits per session.
+
+29
+00:02:18,476 --> 00:02:24,308
+Switch between Overall and By department, and expand to pseudonymous IDs only when authorized.
+
+30
+00:02:24,309 --> 00:02:26,237
+Neither measure proves value.
+
+31
+00:02:27,161 --> 00:02:32,851
+Work Pattern Context compares supplied Viva Insights patterns across Cowork stages and time.
+
+32
+00:02:32,852 --> 00:02:36,515
+Network and beyond-hours metrics appear only when supplied.
+
+33
+00:02:36,516 --> 00:02:40,456
+The Non-user group is a descriptive reference, not a control group.
+
+34
+00:02:40,457 --> 00:02:43,932
+Cowork use can coexist with a difference without causing it.
+
+35
+00:02:44,833 --> 00:02:53,535
+Methods and Metric Guide defines each measure's source, calculation, grain, direction, caveat, and evidence class.
+
+36
+00:02:53,536 --> 00:02:56,283
+Use it before quoting results or thresholds.
+
+37
+00:02:56,284 --> 00:03:03,283
+A correct calculation can still be unsuitable when its denominator, privacy state, or evidence class is omitted.
+
+38
+00:03:04,200 --> 00:03:08,830
+Setup starts with two completed Viva Insights analyses in one partition.
+
+39
+00:03:08,831 --> 00:03:13,340
+Build a weekly Person Query with organization and work-pattern fields.
+
+40
+00:03:13,341 --> 00:03:18,459
+Build a Cowork consumption query with sessions, credits, and policy context.
+
+41
+00:03:18,460 --> 00:03:22,864
+Choose connector-only or faster export-assisted setup, then validate.
+
+42
+00:03:23,768 --> 00:03:33,768
+That is CoworkSuperUser: one public report experience for reach, return, stages, consumption, potential champions, and work-pattern context.
+
+43
+00:03:33,769 --> 00:03:41,694
+Choose the connection option that fits, build the two approved queries, review the guide, and turn evidence into an owned enablement action.

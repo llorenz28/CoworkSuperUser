@@ -1,0 +1,59 @@
+/// Source lineage, grain, keys, date-window coverage, origin, and schema-validation status.
+table 'Data Sources'
+	lineageTag: 4f75f882-ee75-4b96-bfbe-0ef25e25990a
+
+	column Source
+		dataType: string
+		lineageTag: 0b0df2b4-3ad3-43af-88f7-e7890fc6e668
+		summarizeBy: none
+		sourceColumn: Source
+		sortByColumn: 'Source Sort'
+
+	column Grain
+		dataType: string
+		lineageTag: 3d2ebc6e-0657-4fc6-b3df-d0bbd17ca290
+		summarizeBy: none
+		sourceColumn: Grain
+
+	column Key
+		dataType: string
+		lineageTag: b6965db4-c350-413d-9544-aede8798ab7b
+		summarizeBy: none
+		sourceColumn: Key
+
+	column 'Date Window'
+		dataType: string
+		lineageTag: c288989e-ec04-4c5f-96d1-ac4cfe893bd0
+		summarizeBy: none
+		sourceColumn: Date Window
+
+	column 'Data Origin'
+		dataType: string
+		lineageTag: 7fa7ebe1-5447-4f12-8094-3ecaeeb7c9b1
+		summarizeBy: none
+		sourceColumn: Data Origin
+
+	column 'Validation Status'
+		dataType: string
+		lineageTag: f1cb70c5-eda1-45dc-8cb8-ff200c427261
+		summarizeBy: none
+		sourceColumn: Validation Status
+
+	column 'Source Sort'
+		dataType: int64
+		isHidden
+		lineageTag: ea8b810a-473e-44ec-a9ae-1ee864cdbaa0
+		summarizeBy: none
+		sourceColumn: Source Sort
+
+	partition 'Data Sources' = m
+		mode: import
+		source =
+				let
+					Data = #table({"Source", "Grain", "Key", "Date Window", "Data Origin", "Validation Status", "Source Sort"}, {
+					        {"Viva Insights Person Query", "Person-week base", "Person ID + Sunday-start week", "Configured Person Query period", "VivaInsights.Data connector", "Required source; unique base key validated; descriptive only", 1},
+					        {"Viva Insights Consumption Query", "Raw person-service-policy-period", "Person ID + Service Name + Spending Policy ID + Metric Date", "Configured Consumption Query period", "VivaInsights.Data connector", "Required source; schema and weekly coverage validated after filtering to Cowork", 2},
+					        {"Cowork adoption derivations", "Person-week and person-window", "Person ID + Sunday-start week", "Available source overlap", "Derived from Person Query and Cowork consumption", "Base rows preserved; joins and coverage reconciled", 3}
+					    })
+				in
+					Data

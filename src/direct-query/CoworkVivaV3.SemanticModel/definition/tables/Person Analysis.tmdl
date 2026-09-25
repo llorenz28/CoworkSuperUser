@@ -1,0 +1,157 @@
+/// One full-window row per person with Cowork session and credit summaries.
+table 'Person Analysis'
+	lineageTag: f012ba57-c27d-4652-b3ba-522a71bad9b9
+
+	column 'Person ID'
+		dataType: string
+		isHidden
+		lineageTag: 01e25eb9-0f0a-4fec-aad1-f670c34720f9
+		summarizeBy: none
+		sourceColumn: [Person ID]
+
+	column 'Base Weeks'
+		dataType: int64
+		isHidden
+		lineageTag: 21284b05-eb2d-474a-83bb-5c3579044af2
+		summarizeBy: none
+		sourceColumn: [Base Weeks]
+
+	column 'Observed Weeks'
+		dataType: int64
+		isHidden
+		lineageTag: 26865114-529e-4567-bf47-3615c583d316
+		summarizeBy: none
+		sourceColumn: [Observed Weeks]
+
+	column 'Known Weeks'
+		dataType: int64
+		isHidden
+		lineageTag: 2fec5dfb-181f-4aaf-8c8c-b936e0d46b0e
+		summarizeBy: none
+		sourceColumn: [Known Weeks]
+
+	column 'Unknown Weeks'
+		dataType: int64
+		isHidden
+		lineageTag: 3da094b9-be6e-4ea0-b661-d5d33f8a7dc4
+		summarizeBy: none
+		sourceColumn: [Unknown Weeks]
+
+	column 'Active Weeks'
+		dataType: int64
+		isHidden
+		lineageTag: 6ab83406-8e93-43a6-b910-a3aaa5da6fd8
+		summarizeBy: none
+		sourceColumn: [Active Weeks]
+
+	column 'Average Weekly Sessions'
+		dataType: decimal
+		isHidden
+		lineageTag: d7670f11-0474-4515-a41b-cb1232e5d2dd
+		summarizeBy: none
+		sourceColumn: [Average Weekly Sessions]
+
+	column 'Average Weekly Credits'
+		dataType: decimal
+		isHidden
+		lineageTag: 79669466-a49e-4b86-8ff9-be8fc054aa13
+		summarizeBy: none
+		sourceColumn: [Average Weekly Credits]
+
+	column 'Total Sessions'
+		dataType: decimal
+		isHidden
+		lineageTag: 266272d6-cd55-4c65-99ba-7ceacfa741ff
+		summarizeBy: none
+		sourceColumn: [Total Sessions]
+
+	column 'Total Credits'
+		dataType: decimal
+		isHidden
+		lineageTag: 6c5662e2-2d13-4bde-aad7-b4ed5e6d6416
+		summarizeBy: none
+		sourceColumn: [Total Credits]
+
+	column 'Complete Coverage'
+		dataType: string
+		isHidden
+		lineageTag: cd461b60-bef6-4091-89f8-0af132ac85f5
+		summarizeBy: none
+		sourceColumn: [Complete Coverage]
+
+	column 'Coverage Rate'
+		dataType: decimal
+		isHidden
+		lineageTag: e59b9d2a-1dbd-4e87-8230-01e36932871b
+		summarizeBy: none
+		sourceColumn: [Coverage Rate]
+
+	column 'Credits per Session'
+		dataType: decimal
+		isHidden
+		lineageTag: 904daf5c-c76f-4f9e-9123-64f5cf6454b1
+		summarizeBy: none
+		sourceColumn: [Credits per Session]
+
+	column 'Credit Group'
+		dataType: string
+		isHidden
+		lineageTag: a3372b69-eab1-4fca-a98f-5244cef8699d
+		summarizeBy: none
+		sourceColumn: [Credit Group]
+
+	column 'Credit Group Sort'
+		dataType: int64
+		isHidden
+		lineageTag: 96d92a79-e065-41b7-93c8-890f745432f6
+		summarizeBy: none
+		sourceColumn: [Credit Group Sort]
+
+	partition 'Person Analysis' = calculated
+		mode: import
+		source =
+				VAR _people =
+				    DISTINCT(
+				        SELECTCOLUMNS(
+				            'Consumption Weekly',
+				            "Person ID", 'Consumption Weekly'[Person ID] & ""
+				        )
+				    )
+				VAR _weekCount =
+				    CALCULATE(
+				        DISTINCTCOUNT('Consumption Weekly'[Week Start]),
+				        REMOVEFILTERS('Consumption Weekly')
+				    )
+				VAR _summary =
+				    ADDCOLUMNS(
+				        _people,
+				        "Base Weeks", CALCULATE(DISTINCTCOUNT('Consumption Weekly'[Week Start])),
+				        "Observed Weeks", CALCULATE(COUNTROWS('Consumption Weekly'), 'Consumption Weekly'[Source Row Present] = "Yes"),
+				        "Known Weeks", CALCULATE(COUNTROWS('Consumption Weekly'), 'Consumption Weekly'[Consumption Coverage] <> "Unknown"),
+				        "Unknown Weeks", CALCULATE(COUNTROWS('Consumption Weekly'), 'Consumption Weekly'[Consumption Coverage] = "Unknown"),
+				        "Active Weeks", CALCULATE(DISTINCTCOUNT('Consumption Weekly'[Week Start]), 'Consumption Weekly'[Sessions] > 0),
+				        "Average Weekly Sessions", CALCULATE(AVERAGE('Consumption Weekly'[Sessions])),
+				        "Average Weekly Credits", CALCULATE(AVERAGE('Consumption Weekly'[AI Credits])),
+				        "Total Sessions", CALCULATE(SUM('Consumption Weekly'[Sessions])),
+				        "Total Credits", CALCULATE(SUM('Consumption Weekly'[AI Credits]))
+				    )
+				RETURN
+				    ADDCOLUMNS(
+				        _summary,
+				        "Complete Coverage", IF([Known Weeks] = _weekCount, "Yes", "No"),
+				        "Coverage Rate", DIVIDE([Known Weeks], [Base Weeks]),
+				        "Credits per Session", DIVIDE([Total Credits], [Total Sessions]),
+				        "Credit Group",
+				            IF(
+				                [Known Weeks] <> _weekCount,
+				                "Coverage unknown",
+				                IF([Total Credits] > 0, "Observed credits", "No observed credits")
+				            ),
+				        "Credit Group Sort",
+				            IF(
+				                [Known Weeks] <> _weekCount,
+				                1,
+				                IF([Total Credits] > 0, 3, 2)
+				            )
+				    )
+

@@ -1,0 +1,155 @@
+param(
+    [string]$RepositoryRoot = (Resolve-Path (Join-Path $PSScriptRoot ".."))
+)
+
+$ErrorActionPreference = "Stop"
+$projects = @(
+    "src\optimized-export\CoworkVivaV3.pbip",
+    "src\direct-query\CoworkVivaV3.pbip"
+)
+
+$headerContracts = @{
+    "00_start_here" = @{ Visual = "sh_title"; X = 59; Right = 1307 }
+    "06_adoption_over_time" = @{ Visual = "dce6b71b3a9ac25423ca"; X = 59; Right = 1307 }
+    "c2e315038d903964e507" = @{ Visual = "eec514d7908e94e59f05"; X = 59; Right = 1307 }
+    "102_adoption_attributes" = @{ Visual = "title_header_102attributes"; X = 16; Right = 1264 }
+    "92d_action_maturity" = @{ Visual = "am_title"; X = 16; Right = 1264 }
+    "92e_cowork_champions" = @{ Visual = "9ddc19013bfcf0627dd5"; X = 16; Right = 1264 }
+    "92_activity_value" = @{ Visual = "av_title"; X = 16; Right = 1264 }
+    "92_actions_hub" = @{ Visual = "mv_ax_ax_title"; X = 16; Right = 1264 }
+    "100_glossary" = @{ Visual = "glossary_title"; X = 59; Right = 1307 }
+}
+
+foreach ($relativePath in $projects) {
+    $project = Join-Path $RepositoryRoot $relativePath
+    & powerbi-report-author validate $project | Out-Host
+    if ($LASTEXITCODE -ne 0) {
+        throw "PBIR validation failed for $relativePath"
+    }
+
+    $projectRoot = Split-Path $project
+    $pagesPath = Join-Path $projectRoot "CoworkVivaV3.Report\definition\pages\pages.json"
+    $pages = Get-Content $pagesPath -Raw | ConvertFrom-Json
+    if ($pages.activePageName -ne "00_start_here") {
+        throw "Start Here is not the active page in $relativePath"
+    }
+
+    $subtitlePath = Join-Path $projectRoot "CoworkVivaV3.Report\definition\pages\00_start_here\visuals\sh_subtitle\visual.json"
+    $subtitle = Get-Content $subtitlePath -Raw
+    if ($subtitle -notmatch "Optimized Export" -or $subtitle -notmatch "Direct Query") {
+        throw "Start Here does not describe both connection paths in $relativePath"
+    }
+
+    foreach ($pageId in $headerContracts.Keys) {
+        $contract = $headerContracts[$pageId]
+        $headerPath = Join-Path $projectRoot "CoworkVivaV3.Report\definition\pages\$pageId\visuals\$($contract.Visual)\visual.json"
+        $header = Get-Content $headerPath -Raw | ConvertFrom-Json
+        $right = $header.position.x + $header.position.width
+        if ($header.position.x -ne $contract.X -or $right -ne $contract.Right) {
+            throw "Header alignment failed for $pageId in $relativePath"
+        }
+    }
+}
+
+$sensitivePatterns = @(
+    "C:\\PBIQA",
+    "qa-real-"
+)
+
+$sourceFiles = Get-ChildItem (Join-Path $RepositoryRoot "src") -Recurse -File
+foreach ($pattern in $sensitivePatterns) {
+    $match = $sourceFiles | Select-String -SimpleMatch $pattern
+    if ($match) {
+        throw "Sensitive source value found: $pattern"
+    }
+}
+
+$optimizedExpressions = Get-Content (Join-Path $RepositoryRoot "src\optimized-export\CoworkVivaV3.SemanticModel\definition\expressions.tmdl") -Raw
+$directExpressions = Get-Content (Join-Path $RepositoryRoot "src\direct-query\CoworkVivaV3.SemanticModel\definition\expressions.tmdl") -Raw
+if ($optimizedExpressions -notmatch "Viva Export Folder Path" -or $optimizedExpressions -match "Consumption Query Identifier") {
+    throw "Optimized Export source contract is incorrect."
+}
+if ($directExpressions -notmatch "Consumption Query Identifier" -or $directExpressions -match "Viva Export Folder Path") {
+    throw "Direct Query source contract is incorrect."
+}
+foreach ($expressions in @($optimizedExpressions, $directExpressions)) {
+    $populatedParameter = [regex]::Match(
+        $expressions,
+        "expression '(Partition Identifier|Person Query Identifier|Consumption Query Identifier|Viva Export Folder Path)' = ""[^""]+"""
+    )
+    if ($populatedParameter.Success) {
+        throw "A customer parameter contains a persisted value."
+    }
+}
+
+$manifestPath = Join-Path $RepositoryRoot "validation\release-manifest.json"
+$manifest = Get-Content $manifestPath -Raw | ConvertFrom-Json
+Add-Type -AssemblyName System.IO.Compression.FileSystem
+foreach ($artifact in $manifest.artifacts) {
+    $path = Join-Path $RepositoryRoot ([string]$artifact.path)
+    if (-not (Test-Path $path)) {
+        throw "Release artifact is missing: $($artifact.path)"
+    }
+    $hash = (Get-FileHash $path -Algorithm SHA256).Hash
+    if ($hash -ne $artifact.sha256) {
+        throw "Release hash mismatch: $($artifact.path)"
+    }
+
+    if ([IO.Path]::GetExtension($path) -ne ".pbit") {
+        continue
+    }
+    $archive = [System.IO.Compression.ZipFile]::OpenRead($path)
+    try {
+        $schemaEntry = $archive.GetEntry("DataModelSchema")
+        if (-not $schemaEntry) {
+            throw "DataModelSchema is missing from $($artifact.path)"
+        }
+        $schemaStream = $schemaEntry.Open()
+        try {
+            $reader = [IO.StreamReader]::new($schemaStream, [Text.Encoding]::Unicode)
+            $schema = $reader.ReadToEnd() | ConvertFrom-Json -Depth 100
+        }
+        finally {
+            $reader.Dispose()
+        }
+        foreach ($expression in $schema.model.expressions) {
+            if (
+                $expression.name -in @(
+                    "Partition Identifier",
+                    "Person Query Identifier",
+                    "Consumption Query Identifier",
+                    "Viva Export Folder Path"
+                ) -and
+                $expression.expression -notmatch "^null meta "
+            ) {
+                throw "A PBIT customer parameter is populated: $($expression.name)"
+            }
+        }
+
+        foreach ($entry in $archive.Entries) {
+            if ($entry.Length -gt 5MB) {
+                continue
+            }
+            $stream = $entry.Open()
+            try {
+                $memory = [System.IO.MemoryStream]::new()
+                $stream.CopyTo($memory)
+                $bytes = $memory.ToArray()
+            }
+            finally {
+                $stream.Dispose()
+            }
+            $text = [Text.Encoding]::UTF8.GetString($bytes) + [Text.Encoding]::Unicode.GetString($bytes)
+            foreach ($pattern in $sensitivePatterns) {
+                if ($text.Contains($pattern, [StringComparison]::OrdinalIgnoreCase)) {
+                    throw "Sensitive value found in $($artifact.path): $pattern"
+                }
+            }
+        }
+    }
+    finally {
+        $archive.Dispose()
+    }
+}
+
+Write-Host "CoworkSuperUser validation passed."

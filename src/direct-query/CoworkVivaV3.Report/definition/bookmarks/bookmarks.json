@@ -1,0 +1,122 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmarksMetadata/1.0.0/schema.json",
+  "items": [
+    {
+      "name": "a1b2c3d4e5f600009201"
+    },
+    {
+      "name": "a1b2c3d4e5f600009202"
+    },
+    {
+      "name": "7a4f50c8e31d924ab610"
+    },
+    {
+      "name": "8b5e61d9f42ea35bc721"
+    },
+    {
+      "name": "a1b2c3d4e5f6000092f4"
+    },
+    {
+      "name": "a1b2c3d4e5f6000092f3"
+    },
+    {
+      "name": "a1b2c3d4e5f6000092a1"
+    },
+    {
+      "name": "a1b2c3d4e5f6000092a2"
+    },
+    {
+      "name": "4ac3ed5702e1a43e9aa6"
+    },
+    {
+      "name": "6ca335a7e750be51480a"
+    },
+    {
+      "name": "a1646625e20cfd4cc0d8"
+    },
+    {
+      "name": "64b29790011214fd1c70"
+    },
+    {
+      "name": "d4e6f81023456789abcd"
+    },
+    {
+      "name": "b3d5f709123456789abc"
+    },
+    {
+      "name": "461d7865986ec4d17423"
+    },
+    {
+      "name": "012e3b880091cc36a794"
+    },
+    {
+      "name": "083246451e7757d4b5bb"
+    },
+    {
+      "name": "ce09e0cf08a7f8498a89"
+    },
+    {
+      "name": "c9a8b7d6e5f401234567"
+    },
+    {
+      "name": "bb159ce43c6aa226f151"
+    },
+    {
+      "name": "f8b3e0f0e32991143889"
+    },
+    {
+      "name": "a10f0101010101010101"
+    },
+    {
+      "name": "a10f0202020202020202"
+    },
+    {
+      "name": "a10f0303030303030303"
+    },
+    {
+      "name": "a10f0404040404040404"
+    },
+    {
+      "name": "a10f0505050505050505"
+    },
+    {
+      "name": "c7d4e19a6b0f42d38e91"
+    },
+    {
+      "name": "877a16d67727a491e0f8"
+    },
+    {
+      "name": "80eda836274bc8b24ff2"
+    },
+    {
+      "name": "a3b4c5d6e7f8091a2b3c"
+    },
+    {
+      "name": "b4c5d6e7f8091a2b3c4d"
+    },
+    {
+      "name": "c5d6e7f8091a2b3c4d5e"
+    },
+    {
+      "name": "d6e7f8091a2b3c4d5e6f"
+    },
+    {
+      "name": "a1b2c3d4e5f600010201"
+    },
+    {
+      "name": "a1b2c3d4e5f600010202"
+    },
+    {
+      "name": "5a329d6f32cc878370de"
+    },
+    {
+      "name": "4ea3e3a4f1b2fc543049"
+    },
+    {
+      "name": "5298f9fcc05d40c898fe"
+    },
+    {
+      "name": "be446573f4a9ff23249d"
+    }
+  ]
+}

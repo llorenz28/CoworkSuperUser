@@ -1,0 +1,29 @@
+relationship 'Consumption to Organization'
+	fromColumn: 'Consumption Weekly'.'Person ID'
+	toColumn: Organization.'Person ID'
+
+relationship 'Consumption to Calendar'
+	fromColumn: 'Consumption Weekly'.'Week Start'
+	toColumn: Calendar.'Week Start'
+
+relationship 'Person Analysis to Organization'
+	fromColumn: 'Person Analysis'.'Person ID'
+	toColumn: Organization.'Person ID'
+
+relationship 'Usage Weekly to Organization'
+	fromColumn: 'Usage Segments Weekly'.'Person ID'
+	toColumn: Organization.'Person ID'
+
+relationship 'Usage Weekly to Calendar'
+	fromColumn: 'Usage Segments Weekly'.'Analysis Week'
+	toColumn: Calendar.'Week Start'
+
+relationship 'Usage Snapshot to Organization'
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Usage Segment Snapshot'.'Person ID'
+	toColumn: Organization.'Person ID'
+
+relationship 'Adoption Window to Snapshot'
+	fromColumn: 'Usage Segment Snapshot'.'Window Weeks'
+	toColumn: 'Adoption Window'.'Window Weeks'
+

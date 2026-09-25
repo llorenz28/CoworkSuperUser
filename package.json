@@ -1,0 +1,11 @@
+{
+  "name": "cowork-super-user-release-tools",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build:storyboard": "node tools/build_interpretation_storyboard.js"
+  },
+  "devDependencies": {
+    "pptxgenjs": "^4.0.1"
+  }
+}

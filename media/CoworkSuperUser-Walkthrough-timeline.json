@@ -1,0 +1,98 @@
+[
+  {
+    "id": "introduction",
+    "title": "CoworkSuperUser",
+    "startSeconds": 0.0,
+    "endSeconds": 18.68,
+    "narrationSeconds": 17.88,
+    "gapSeconds": 0.8
+  },
+  {
+    "id": "start-here",
+    "title": "Start Here",
+    "startSeconds": 18.68,
+    "endSeconds": 33.913,
+    "narrationSeconds": 14.424,
+    "gapSeconds": 0.8
+  },
+  {
+    "id": "executive-adoption",
+    "title": "Executive Adoption",
+    "startSeconds": 33.913,
+    "endSeconds": 51.393,
+    "narrationSeconds": 16.68,
+    "gapSeconds": 0.8
+  },
+  {
+    "id": "weekly-adoption",
+    "title": "Weekly Adoption & Usage",
+    "startSeconds": 51.393,
+    "endSeconds": 70.993,
+    "narrationSeconds": 18.792,
+    "gapSeconds": 0.8
+  },
+  {
+    "id": "attributes",
+    "title": "Adoption by Attributes",
+    "startSeconds": 70.993,
+    "endSeconds": 88.761,
+    "narrationSeconds": 16.968,
+    "gapSeconds": 0.8
+  },
+  {
+    "id": "movement",
+    "title": "Habit Movement",
+    "startSeconds": 88.761,
+    "endSeconds": 108.428,
+    "narrationSeconds": 18.864,
+    "gapSeconds": 0.8
+  },
+  {
+    "id": "champions",
+    "title": "Champion Identification",
+    "startSeconds": 108.428,
+    "endSeconds": 127.628,
+    "narrationSeconds": 18.384,
+    "gapSeconds": 0.8
+  },
+  {
+    "id": "sessions-credits",
+    "title": "Sessions and Credits",
+    "startSeconds": 127.628,
+    "endSeconds": 147.061,
+    "narrationSeconds": 18.624,
+    "gapSeconds": 0.8
+  },
+  {
+    "id": "work-patterns",
+    "title": "Work Pattern Context",
+    "startSeconds": 147.061,
+    "endSeconds": 164.733,
+    "narrationSeconds": 16.872,
+    "gapSeconds": 0.8
+  },
+  {
+    "id": "methods",
+    "title": "Methods and Metric Guide",
+    "startSeconds": 164.733,
+    "endSeconds": 184.1,
+    "narrationSeconds": 18.552,
+    "gapSeconds": 0.8
+  },
+  {
+    "id": "setup",
+    "title": "Two completed queries. Two setup paths.",
+    "startSeconds": 184.1,
+    "endSeconds": 203.668,
+    "narrationSeconds": 18.768,
+    "gapSeconds": 0.8
+  },
+  {
+    "id": "closing",
+    "title": "One report. A clearer Cowork adoption story.",
+    "startSeconds": 203.668,
+    "endSeconds": 222.501,
+    "narrationSeconds": 18.024,
+    "gapSeconds": 0.8
+  }
+]

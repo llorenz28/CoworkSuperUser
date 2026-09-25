@@ -1,0 +1,30 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: en-US
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["TMDL-Extension","DevMode"]
+
+ref table 'Consumption Weekly'
+ref table Calendar
+ref table 'Usage Segments Weekly'
+ref table 'Usage Segment Snapshot'
+ref table Organization
+ref table 'Person Analysis'
+ref table 'Person Metrics'
+ref table 'Adoption Movement'
+ref table 'Adoption Window'
+ref table 'Adoption Stage Axis'
+ref table 'Adoption Comparison Group'
+ref table 'Adoption Actions'
+ref table 'Data Profile'
+ref table 'Method Rules'
+ref table 'Metric Definitions'
+ref table 'Data Sources'
+ref table 'Adoption Measures'
+
+ref cultureInfo en-US
+

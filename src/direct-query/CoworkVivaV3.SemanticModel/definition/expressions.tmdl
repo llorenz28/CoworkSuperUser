@@ -1,0 +1,465 @@
+/// Shared partition identifier copied from Analysis results.
+expression 'Partition Identifier' = "" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 522e8607-4c68-4c7e-9ee1-73c562040868
+
+/// Person Query identifier copied from Analysis results.
+expression 'Person Query Identifier' = "" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 3246db93-1ac4-476e-8206-f118c9e09b20
+
+/// Cowork Consumption Query identifier copied from Analysis results.
+expression 'Consumption Query Identifier' = "" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: f4a58da3-08ac-489e-ac0a-b370a9eca544
+
+/// Average weekly sessions required for Cowork Power User classification in the selected window.
+expression 'Power User Session Threshold' = 6
+	lineageTag: 6fdf547c-efee-4d64-bdb2-8b1f0dea3b42
+
+expression 'Integrated Person Week Source' =
+		let
+		    fnEnsure = (input as table, columns as list) as table =>
+		        let
+		            Names = Table.ColumnNames(input),
+		            Missing = List.Select(columns, each not List.Contains(Names, _))
+		        in
+		            List.Accumulate(
+		                Missing,
+		                input,
+		                (state as table, columnName as text) =>
+		                    Table.AddColumn(state, columnName, each null)
+		            ),
+		    fnRename = (input as table, aliases as list) as table =>
+		        let
+		            Names = Table.ColumnNames(input),
+		            RenamePairs = List.RemoveNulls(
+		                List.Transform(
+		                    aliases,
+		                    (item as list) =>
+		                        let
+		                            Target = item{0},
+		                            Candidates = List.Skip(item),
+		                            Source = List.First(
+		                                List.Select(Candidates, each List.Contains(Names, _)),
+		                                null
+		                            )
+		                        in
+		                            if List.Contains(Names, Target) or Source = null
+		                            then null
+		                            else {Source, Target}
+		                )
+		            )
+		        in
+		            Table.RenameColumns(input, RenamePairs, MissingField.Ignore),
+		    fnSunday = (value as date) as date =>
+		        Date.StartOfWeek(value, Day.Sunday),
+		    ResultType = type table [
+		        #"Person ID" = nullable text,
+		        #"Week Start" = nullable date,
+		        #"Service Name" = nullable text,
+		        #"Sessions" = Int64.Type,
+		        #"AI Credits" = nullable number,
+		        #"Spending Policy Limit" = nullable number,
+		        #"User Limit" = nullable number,
+		        #"Policy Count" = Int64.Type,
+		        #"People Historical ID" = nullable text,
+		        #"Source Row Present" = nullable text,
+		        #"Consumption Coverage" = nullable text,
+		        #"User ID" = nullable text,
+		        #"Organization" = nullable text,
+		        #"Function" = nullable text,
+		        #"Level" = nullable text,
+		        #"Manager" = nullable text,
+		        #"Is Copilot Licensed" = nullable text,
+		        #"Person Sort" = Int64.Type,
+		        #"Collaboration Hours" = nullable number,
+		        #"Active Connected Hours" = nullable number,
+		        #"Email Hours" = nullable number,
+		        #"Chat Hours" = nullable number,
+		        #"Meeting Hours" = nullable number,
+		        #"Unscheduled Call Hours" = nullable number,
+		        #"After Hours Collaboration" = nullable number,
+		        #"Weekend Collaboration Hours" = nullable number,
+		        #"Collaboration Span" = nullable number,
+		        #"Internal Network Size" = nullable number,
+		        #"External Network Size" = nullable number,
+		        #"Strong Ties" = nullable number,
+		        #"Diverse Ties" = nullable number,
+		        #"Network Outside Organization" = nullable number
+		    ],
+		    PersonRaw = VivaInsights.Data(
+		        #"Partition Identifier",
+		        "",
+		        #"Person Query Identifier",
+		        [SchemaType = "Pivoted", APIType = "Row-level data"]
+		    ),
+		    PersonRenamed = fnRename(
+		        PersonRaw,
+		        {
+		            {"Person ID", "PersonId"},
+		            {"Metric Date", "MetricDate"},
+		            {"Organization", "OrganizationName"},
+		            {"Function", "FunctionType", "Function Type"},
+		            {"Level", "Layer", "LevelDesignation", "Level Designation"},
+		            {"Manager Source", "SupervisorIndicator", "IsManager"},
+		            {"Collaboration Hours", "Collaboration hours", "Collaboration_hours"},
+		            {"Active Connected Hours", "Active_connected_hours"},
+		            {"Email Hours", "Email_hours"},
+		            {"Chat Hours", "Chat_hours"},
+		            {"Meeting Hours", "Meeting hours", "Meeting_hours"},
+		            {"Unscheduled Call Hours", "Unscheduled_call_hours"},
+		            {"After Hours Collaboration", "After-hours collaboration hours", "After_hours_collaboration_hours"},
+		            {"Weekend Collaboration Hours", "Weekend_collaboration_hours"},
+		            {"Collaboration Span", "Collaboration_span"},
+		            {"Internal Network Size", "Internal network size", "Internal_network_size"},
+		            {"External Network Size", "External_network_size"},
+		            {"Strong Ties", "Strong_ties"},
+		            {"Diverse Ties", "Diverse_ties"},
+		            {"Network Outside Organization", "Network_outside_organization"}
+		        }
+		    ),
+		    Metrics = {
+		        "Collaboration Hours",
+		        "Active Connected Hours",
+		        "Email Hours",
+		        "Chat Hours",
+		        "Meeting Hours",
+		        "Unscheduled Call Hours",
+		        "After Hours Collaboration",
+		        "Weekend Collaboration Hours",
+		        "Collaboration Span",
+		        "Internal Network Size",
+		        "External Network Size",
+		        "Strong Ties",
+		        "Diverse Ties",
+		        "Network Outside Organization"
+		    },
+		    PersonEnsured = fnEnsure(
+		        PersonRenamed,
+		        List.Combine({
+		            {"Organization", "Function", "Level", "Manager Source"},
+		            Metrics
+		        })
+		    ),
+		    PersonSelected = Table.SelectColumns(
+		        PersonEnsured,
+		        List.Combine({
+		            {
+		                "Person ID",
+		                "Metric Date",
+		                "Organization",
+		                "Function",
+		                "Level",
+		                "Manager Source"
+		            },
+		            Metrics
+		        })
+		    ),
+		    PersonTyped = Table.TransformColumnTypes(
+		        PersonSelected,
+		        List.Combine({
+		            {
+		                {"Person ID", type text},
+		                {"Metric Date", type date},
+		                {"Organization", type text},
+		                {"Function", type text},
+		                {"Level", type text},
+		                {"Manager Source", type text}
+		            },
+		            List.Transform(Metrics, each {_, type number})
+		        }),
+		        "en-US"
+		    ),
+		    PersonWeek = Table.Buffer(
+		        Table.AddColumn(
+		            PersonTyped,
+		            "Week Start",
+		            each fnSunday([Metric Date]),
+		            type date
+		        )
+		    ),
+		    PersonRowCount = Table.RowCount(PersonWeek),
+		    PersonDistinctKeyCount = Table.RowCount(
+		        Table.Distinct(
+		            Table.SelectColumns(
+		                PersonWeek,
+		                {"Person ID", "Week Start"}
+		            )
+		        )
+		    ),
+		    PersonWeekChecked =
+		        if PersonRowCount <> PersonDistinctKeyCount
+		        then error Error.Record(
+		            "Duplicate person-week rows",
+		            "Person Query must be unique at person-week grain.",
+		            [
+		                Rows = PersonRowCount,
+		                DistinctKeys = PersonDistinctKeyCount
+		            ]
+		        )
+		        else PersonWeek,
+		    PersonHorizon = List.Max(PersonWeekChecked[Week Start]),
+		    CurrentSunday = fnSunday(Date.From(DateTime.FixedLocalNow())),
+		    LatestCompleteWeek = Date.AddDays(CurrentSunday, -7),
+		    AnalysisHorizon = List.Min({PersonHorizon, LatestCompleteWeek}),
+		    PersonAligned = Table.SelectRows(
+		        PersonWeekChecked,
+		        each [Week Start] <= AnalysisHorizon
+		    ),
+		    People = Table.Sort(
+		        Table.Distinct(Table.SelectColumns(PersonAligned, {"Person ID"})),
+		        {{"Person ID", Order.Ascending}}
+		    ),
+		    PeopleRanked = Table.AddIndexColumn(
+		        People,
+		        "Person Sort",
+		        1,
+		        1,
+		        Int64.Type
+		    ),
+		    PersonRankedJoin = Table.NestedJoin(
+		        PersonAligned,
+		        {"Person ID"},
+		        PeopleRanked,
+		        {"Person ID"},
+		        "Person Rank",
+		        JoinKind.LeftOuter
+		    ),
+		    PersonRanked = Table.ExpandTableColumn(
+		        PersonRankedJoin,
+		        "Person Rank",
+		        {"Person Sort"},
+		        {"Person Sort"}
+		    ),
+		
+		    ConsumptionRaw = VivaInsights.Data(
+		        #"Partition Identifier",
+		        "",
+		        #"Consumption Query Identifier",
+		        [SchemaType = "Pivoted", APIType = "Row-level data"]
+		    ),
+		    ConsumptionNonFolded = Table.StopFolding(ConsumptionRaw),
+		    ConsumptionCoworkRaw = Table.SelectRows(
+		        ConsumptionNonFolded,
+		        each [ServiceName] = "Cowork"
+		    ),
+		    ConsumptionRenamed = fnRename(
+		        ConsumptionCoworkRaw,
+		        {
+		            {"Person ID", "PersonId"},
+		            {"Service Name", "ServiceName"},
+		            {"Spending Policy ID", "SpendingPolicyId"},
+		            {"Metric Date", "MetricDate"},
+		            {"Session Count", "Session count", "SessionCount"},
+		            {"Spending Policy Limit", "Spending policy limit", "SpendingPolicyLimit"},
+		            {"AI Credits", "Total Copilot Credits used", "TotalCopilotCreditsUsed"},
+		            {"User Limit", "User limit", "UserLimit"},
+		            {"People Historical ID", "PeopleHistoricalId"}
+		        }
+		    ),
+		    ConsumptionEnsured = fnEnsure(
+		        ConsumptionRenamed,
+		        {
+		            "Spending Policy ID",
+		            "Spending Policy Limit",
+		            "User Limit",
+		            "People Historical ID"
+		        }
+		    ),
+		    ConsumptionSelected = Table.SelectColumns(
+		        ConsumptionEnsured,
+		        {"Person ID", "Service Name", "Spending Policy ID", "Metric Date", "Session Count", "Spending Policy Limit", "AI Credits", "User Limit", "People Historical ID"}
+		    ),
+		    ConsumptionTyped = Table.TransformColumnTypes(
+		        ConsumptionSelected,
+		        {
+		            {"Person ID", type text},
+		            {"Service Name", type text},
+		            {"Spending Policy ID", type text},
+		            {"Metric Date", type date},
+		            {"Session Count", Int64.Type},
+		            {"Spending Policy Limit", type number},
+		            {"AI Credits", type number},
+		            {"User Limit", type number},
+		            {"People Historical ID", type text}
+		        },
+		        "en-US"
+		    ),
+		    ConsumptionWeek = Table.AddColumn(
+		        ConsumptionTyped,
+		        "Week Start",
+		        each fnSunday([Metric Date]),
+		        type date
+		    ),
+		    ConsumptionWithinHorizon = Table.SelectRows(
+		        ConsumptionWeek,
+		        each [Week Start] <= AnalysisHorizon
+		    ),
+		    ConsumptionAligned = Table.Buffer(
+		        Table.Group(
+		            ConsumptionWithinHorizon,
+		            {"Person ID", "Week Start"},
+		            {
+		                {"Sessions", each List.Sum([Session Count]), Int64.Type},
+		                {"AI Credits", each List.Sum([AI Credits]), type number},
+		                {"Spending Policy Limit", each List.Max(List.RemoveNulls([Spending Policy Limit]), null), type nullable number},
+		                {"User Limit", each List.Max(List.RemoveNulls([User Limit]), null), type nullable number},
+		                {"Policy Count", each List.Count(List.Distinct(List.RemoveNulls([Spending Policy ID]))), Int64.Type},
+		                {"People Historical ID", each List.Last(List.RemoveNulls([People Historical ID]), null), type nullable text}
+		            }
+		        )
+		    ),
+		    ConsumptionMarked = Table.AddColumn(
+		        ConsumptionAligned,
+		        "Source Row Present",
+		        each "Yes",
+		        type text
+		    ),
+		    CoveredWeeks = List.Buffer(List.Distinct(ConsumptionAligned[Week Start])),
+		    Joined = Table.NestedJoin(
+		        PersonRanked,
+		        {"Person ID", "Week Start"},
+		        ConsumptionMarked,
+		        {"Person ID", "Week Start"},
+		        "Consumption",
+		        JoinKind.LeftOuter
+		    ),
+		    Expanded = Table.ExpandTableColumn(
+		        Joined,
+		        "Consumption",
+		        {
+		            "Sessions",
+		            "AI Credits",
+		            "Spending Policy Limit",
+		            "User Limit",
+		            "Policy Count",
+		            "People Historical ID",
+		            "Source Row Present"
+		        },
+		        {
+		            "Sessions Source",
+		            "AI Credits Source",
+		            "Spending Policy Limit",
+		            "User Limit",
+		            "Policy Count Source",
+		            "People Historical ID",
+		            "Source Row Present"
+		        }
+		    ),
+		    WithSource = Table.ReplaceValue(
+		        Expanded,
+		        null,
+		        "No",
+		        Replacer.ReplaceValue,
+		        {"Source Row Present"}
+		    ),
+		    WithCoverage = Table.AddColumn(
+		        WithSource,
+		        "Consumption Coverage",
+		        each
+		            if [Source Row Present] = "Yes" then "Observed activity row"
+		            else if List.Contains(CoveredWeeks, [Week Start]) then "Covered zero"
+		            else "Unknown",
+		        type text
+		    ),
+		    WithSessions = Table.AddColumn(
+		        WithCoverage,
+		        "Sessions",
+		        each
+		            if [Consumption Coverage] = "Covered zero" then 0
+		            else [Sessions Source],
+		        Int64.Type
+		    ),
+		    WithCredits = Table.AddColumn(
+		        WithSessions,
+		        "AI Credits",
+		        each
+		            if [Consumption Coverage] = "Covered zero" then 0
+		            else [AI Credits Source],
+		        type nullable number
+		    ),
+		    WithPolicies = Table.AddColumn(
+		        WithCredits,
+		        "Policy Count",
+		        each
+		            if [Consumption Coverage] = "Covered zero" then 0
+		            else [Policy Count Source],
+		        Int64.Type
+		    ),
+		    WithService = Table.AddColumn(
+		        WithPolicies,
+		        "Service Name",
+		        each "Cowork",
+		        type text
+		    ),
+		    WithUserId = Table.AddColumn(
+		        WithService,
+		        "User ID",
+		        each [Person ID],
+		        type text
+		    ),
+		    WithManager = Table.AddColumn(
+		        WithUserId,
+		        "Manager",
+		        each
+		            if List.Contains({"yes", "true", "1", "manager"}, Text.Lower(Text.From([Manager Source]))) then "Manager"
+		            else if List.Contains({"no", "false", "0", "individual contributor"}, Text.Lower(Text.From([Manager Source]))) then "Individual contributor"
+		            else "Not provided",
+		        type text
+		    ),
+		    WithLicense = Table.AddColumn(
+		        WithManager,
+		        "Is Copilot Licensed",
+		        each "Not supplied",
+		        type text
+		    ),
+		    Removed = Table.RemoveColumns(
+		        WithLicense,
+		        {
+		            "Metric Date",
+		            "Manager Source",
+		            "Sessions Source",
+		            "AI Credits Source",
+		            "Policy Count Source"
+		        },
+		        MissingField.Ignore
+		    ),
+		    Result = Table.SelectColumns(
+		        Removed,
+		        {
+		            "Person ID",
+		            "Week Start",
+		            "Service Name",
+		            "Sessions",
+		            "AI Credits",
+		            "Spending Policy Limit",
+		            "User Limit",
+		            "Policy Count",
+		            "People Historical ID",
+		            "Source Row Present",
+		            "Consumption Coverage",
+		            "User ID",
+		            "Organization",
+		            "Function",
+		            "Level",
+		            "Manager",
+		            "Is Copilot Licensed",
+		            "Person Sort",
+		            "Collaboration Hours",
+		            "Active Connected Hours",
+		            "Email Hours",
+		            "Chat Hours",
+		            "Meeting Hours",
+		            "Unscheduled Call Hours",
+		            "After Hours Collaboration",
+		            "Weekend Collaboration Hours",
+		            "Collaboration Span",
+		            "Internal Network Size",
+		            "External Network Size",
+		            "Strong Ties",
+		            "Diverse Ties",
+		            "Network Outside Organization"
+		        }
+		    ),
+		    TypedResult = Value.ReplaceType(Result, ResultType)
+		in
+		    TypedResult
+	lineageTag: 86749f29-927a-4b7c-a1e1-d492b71c2383

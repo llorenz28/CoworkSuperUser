@@ -1,0 +1,136 @@
+[
+  {
+    "id": "introduction",
+    "kind": "dark",
+    "image": "media/composed/01-introduction.png",
+    "eyebrow": "COWORKSUPERUSER | VIVA INSIGHTS + POWER BI",
+    "kicker": "ONE ADOPTION STORY",
+    "title": "CoworkSuperUser",
+    "subtitle": "Reach, return, usage stages, consumption, potential champions, and descriptive work-pattern context.",
+    "text": "Meet CoworkSuperUser: a public, data-free Power BI template that turns approved Viva Insights results into a clear adoption story. It connects observed reach, repeat use, habit movement, consumption, potential champions, and work-pattern context without turning usage into a performance score."
+  },
+  {
+    "id": "start-here",
+    "kind": "dashboard",
+    "source": "images/report-pages/01-start-here.png",
+    "image": "media/composed/02-start-here.png",
+    "eyebrow": "OVERVIEW | START WITH THE DECISION",
+    "title": "Start Here",
+    "subtitle": "Nine pages, two connection options, one evidence path",
+    "caption": "Begin with the business question, then follow the right evidence.",
+    "text": "Start Here routes program owners to the right question. Is adoption building momentum? Who is returning? Where is usage sustained? How do work patterns differ? Begin with the decision, then open the page carrying the right evidence and boundary."
+  },
+  {
+    "id": "executive-adoption",
+    "kind": "dashboard",
+    "source": "images/report-pages/02-executive-adoption.png",
+    "image": "media/composed/03-executive-adoption.png",
+    "eyebrow": "EXECUTIVE VIEW | ADOPTION AT A GLANCE",
+    "title": "Executive Adoption",
+    "subtitle": "Observed reach, sustained use, latest weekly activity, and function context",
+    "caption": "Read reach and sustained habit together before choosing an action.",
+    "text": "Executive Adoption summarizes the selected population. Active users show observed reach. Power and Habitual stages show sustained use. Latest weekly active rate shows the newest aligned week, while function comparisons show where enablement may need local attention."
+  },
+  {
+    "id": "weekly-adoption",
+    "kind": "dashboard",
+    "source": "images/report-pages/03-weekly-adoption.png",
+    "image": "media/composed/04-weekly-adoption.png",
+    "eyebrow": "MOMENTUM | SEE WHETHER USE RETURNS",
+    "title": "Weekly Adoption & Usage",
+    "subtitle": "Reach, return, cohorts, sessions, and credits across the latest weeks",
+    "caption": "Compare the same period and population before calling a trend.",
+    "text": "Weekly Adoption and Usage separates reach from recurrence and intensity. Switch views without clearing filters, then compare active rate, return rate, cohorts, sessions, and credits. Use exact values before relative color, and check rollout timing and coverage before calling a trend."
+  },
+  {
+    "id": "attributes",
+    "kind": "dashboard",
+    "source": "images/report-pages/04-adoption-by-attributes.png",
+    "image": "media/composed/05-attributes.png",
+    "eyebrow": "ORGANIZATION | WHERE ADOPTION DIFFERS",
+    "title": "Adoption by Attributes",
+    "subtitle": "Observed reach and sustained habit by organization context",
+    "caption": "Population, role mix, and rollout timing belong in every comparison.",
+    "text": "Adoption by Attributes compares observed reach and sustained-use share across function, organization, or level. Check population and privacy first, then compare the group with the company benchmark. Treat the result as a program signal, never an employee-performance comparison."
+  },
+  {
+    "id": "movement",
+    "kind": "dashboard",
+    "source": "images/report-pages/05-habit-movement.png",
+    "image": "media/composed/06-movement.png",
+    "eyebrow": "HABIT | HOW USAGE STAGES MOVE",
+    "title": "Habit Movement",
+    "subtitle": "Previous and latest adjacent windows with privacy-safe transitions",
+    "caption": "Improved, stable, and declined always need the starting stage.",
+    "text": "Habit Movement compares previous and latest available-history stages. Read improved, stable, declined, and sustained retention together. Interpret every change with its stage, then use department views to locate differences. New history or organizational change can also move classifications."
+  },
+  {
+    "id": "champions",
+    "kind": "dashboard",
+    "source": "images/report-pages/06-champion-identification.png",
+    "image": "media/composed/07-champions.png",
+    "eyebrow": "CHAMPIONS | ENABLEMENT EVIDENCE, NOT A RATING",
+    "title": "Champion Identification",
+    "subtitle": "Consistent sustained use and department coverage",
+    "caption": "Confirm role fit, willingness, manager support, and appropriate data use.",
+    "text": "Champion Identification finds an outreach starting point among sustained users. Global order uses active weeks, then average weekly sessions. Department coverage reveals gaps. These are potential peer-enablement partners, not experts, top performers, or automatic candidates for personnel action."
+  },
+  {
+    "id": "sessions-credits",
+    "kind": "dashboard",
+    "source": "images/report-pages/07-sessions-and-credits.png",
+    "image": "media/composed/08-sessions-credits.png",
+    "eyebrow": "CONSUMPTION | KEEP USAGE AND VALUE SEPARATE",
+    "title": "Sessions and Credits",
+    "subtitle": "Observed frequency, credit volume, intensity, and department context",
+    "caption": "Sessions and credits describe consumption, not productivity or value.",
+    "text": "Sessions and Credits keeps frequency and resource consumption explicit. Read total sessions, total credits, sessions per active person, and credits per session. Switch between Overall and By department, and expand to pseudonymous IDs only when authorized. Neither measure proves value."
+  },
+  {
+    "id": "work-patterns",
+    "kind": "dashboard",
+    "source": "images/report-pages/08-work-pattern-context.png",
+    "image": "media/composed/09-work-patterns.png",
+    "eyebrow": "CONTEXT | ASK BETTER NON-CAUSAL QUESTIONS",
+    "title": "Work Pattern Context",
+    "subtitle": "Collaboration network and beyond-hours patterns by Cowork stage",
+    "caption": "Describe the difference, then investigate it locally.",
+    "text": "Work Pattern Context compares supplied Viva Insights patterns across Cowork stages and time. Network and beyond-hours metrics appear only when supplied. The Non-user group is a descriptive reference, not a control group. Cowork use can coexist with a difference without causing it."
+  },
+  {
+    "id": "methods",
+    "kind": "dashboard",
+    "source": "images/report-pages/09-methods-and-metric-guide.png",
+    "image": "media/composed/10-methods.png",
+    "eyebrow": "EVIDENCE | DEFINITIONS BEFORE DECISIONS",
+    "title": "Methods and Metric Guide",
+    "subtitle": "Sources, calculations, grains, directions, and caveats",
+    "caption": "Missing evidence means unavailable, not zero.",
+    "text": "Methods and Metric Guide defines each measure's source, calculation, grain, direction, caveat, and evidence class. Use it before quoting results or thresholds. A correct calculation can still be unsuitable when its denominator, privacy state, or evidence class is omitted."
+  },
+  {
+    "id": "setup",
+    "kind": "summary",
+    "image": "media/composed/11-setup.png",
+    "eyebrow": "GET CONNECTED",
+    "title": "Two completed queries. Two setup paths.",
+    "bullets": [
+      "Build a weekly Person Query with organization attributes and the complete work-pattern metric set.",
+      "Build a Cowork consumption query with sessions, credits, policy context, and Service Name filtered to Cowork.",
+      "Use Direct Query for a script-free connector experience, or Optimized Export for the fastest validated refresh.",
+      "Validate population, weeks, sessions, organization coverage, work-pattern availability, and privacy before publishing."
+    ],
+    "footer": "Full query instructions: docs/QUERY_SETUP.md",
+    "text": "Setup starts with two completed Viva Insights analyses in one partition. Build a weekly Person Query with organization and work-pattern fields. Build a Cowork consumption query with sessions, credits, and policy context. Choose connector-only or faster export-assisted setup, then validate."
+  },
+  {
+    "id": "closing",
+    "kind": "dark",
+    "image": "media/composed/12-closing.png",
+    "eyebrow": "GET STARTED",
+    "kicker": "FROM ACTIVITY TO ENABLEMENT",
+    "title": "One report. A clearer Cowork adoption story.",
+    "subtitle": "Download a template, build the two queries, review the interpretation guide, and connect approved data when ready.",
+    "text": "That is CoworkSuperUser: one public report experience for reach, return, stages, consumption, potential champions, and work-pattern context. Choose the connection option that fits, build the two approved queries, review the guide, and turn evidence into an owned enablement action."
+  }
+]

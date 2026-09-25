@@ -1,0 +1,2158 @@
+cultureInfo en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "adoption_measures.history_readiness_message": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Measures",
+			          "ConceptualProperty": "History Readiness Message"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "History status": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "adoption_measures.company_sustained_usage_share": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Measures",
+			          "ConceptualProperty": "Company Sustained Usage Share"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Company benchmark": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Company repeat habit": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Company sustained-use benchmark": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "adoption_measures.weekly_history_status": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Measures",
+			          "ConceptualProperty": "Weekly History Status"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "History status": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "adoption_measures.function_observed_user_gap_pp": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Measures",
+			          "ConceptualProperty": "Function Observed User Gap pp"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Reach gap": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "adoption_measures.function_sustained_gap_pp": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Measures",
+			          "ConceptualProperty": "Function Sustained Gap pp"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sustained-use gap": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "adoption_measures.adoption_action": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Measures",
+			          "ConceptualProperty": "Adoption Action"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Program action": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Recommended enablement": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "adoption_measures.company_observed_cowork_user_share": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Measures",
+			          "ConceptualProperty": "Company Observed Cowork User Share"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Company reach": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Company reach benchmark": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "adoption_measures.adoption_action_rationale": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Measures",
+			          "ConceptualProperty": "Adoption Action Rationale"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Recommended focus": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "adoption_measures.attribute_history_status": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Measures",
+			          "ConceptualProperty": "Attribute History Status"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "History status": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "adoption_measures.movement_narrative": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Measures",
+			          "ConceptualProperty": "Movement Narrative"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Movement Narrative": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Movement interpretation": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "adoption_measures.observation_weeks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Measures",
+			          "ConceptualProperty": "Observation Weeks"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "adoption_measures.power_session_threshold": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Measures",
+			          "ConceptualProperty": "Power Session Threshold"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "adoption_measures.stage_history_status": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Measures",
+			          "ConceptualProperty": "Stage History Status"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "adoption_measures.source_period": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Measures",
+			          "ConceptualProperty": "Source Period"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "adoption_window.window_label": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Window",
+			          "ConceptualProperty": "Window Label"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Window": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "adoption_window.champion_window_header": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Window",
+			          "ConceptualProperty": "Champion Window Header"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Champion candidate evidence window": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "organization.function": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Organization",
+			          "ConceptualProperty": "Function"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Department": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Function": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "organization.population": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Organization",
+			          "ConceptualProperty": "Population"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Population": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Total users": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "organization.organization": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Organization",
+			          "ConceptualProperty": "Organization"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Organization": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "organization.complete_coverage": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Organization",
+			          "ConceptualProperty": "Complete Coverage"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "All weeks in source": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "organization.level": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Organization",
+			          "ConceptualProperty": "Level"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Level": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "organization.reportable_population": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Organization",
+			          "ConceptualProperty": "Reportable Population"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Reportable population": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Selected total users": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Total users": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "People": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "organization.user_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Organization",
+			          "ConceptualProperty": "User ID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "User ID": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "organization.privacy_floor": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Organization",
+			          "ConceptualProperty": "Privacy Floor"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "consumption_weekly.observed_cowork_active_users": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Consumption Weekly",
+			          "ConceptualProperty": "Observed Cowork Active Users"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Observed active users": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "consumption_weekly.latest_weekly_active_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Consumption Weekly",
+			          "ConceptualProperty": "Latest Weekly Active Rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Latest weekly active rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Latest active rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Active rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Latest rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "consumption_weekly.weekly_active_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Consumption Weekly",
+			          "ConceptualProperty": "Weekly Active Rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Weekly active rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "consumption_weekly.weekly_return_rate_latest_12_weeks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Consumption Weekly",
+			          "ConceptualProperty": "Weekly Return Rate (Latest 12 Weeks)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Return rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "consumption_weekly.weekly_active_people_latest_12_weeks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Consumption Weekly",
+			          "ConceptualProperty": "Weekly Active People (Latest 12 Weeks)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Weekly active people": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "consumption_weekly.total_cowork_sessions": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Consumption Weekly",
+			          "ConceptualProperty": "Total Cowork Sessions"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sessions": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Cowork sessions": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "consumption_weekly.sessions_per_active_person": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Consumption Weekly",
+			          "ConceptualProperty": "Sessions per Active Person"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sessions per active person": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Sessions per active": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Sessions / active person": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Sessions / active": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Cowork sessions / active person": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "consumption_weekly.latest_weekly_active_people": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Consumption Weekly",
+			          "ConceptualProperty": "Latest Weekly Active People"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Latest active people": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "consumption_weekly.weekly_return_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Consumption Weekly",
+			          "ConceptualProperty": "Weekly Return Rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Weekly return rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Return rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Latest return rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "consumption_weekly.total_cowork_credits": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Consumption Weekly",
+			          "ConceptualProperty": "Total Cowork Credits"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Credits": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Cowork credits": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "consumption_weekly.new_people": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Consumption Weekly",
+			          "ConceptualProperty": "New People"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "New people": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "consumption_weekly.active_rate_momentum_pp": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Consumption Weekly",
+			          "ConceptualProperty": "Active Rate Momentum pp"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "4-week change": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "consumption_weekly.credits_per_session_latest_12_weeks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Consumption Weekly",
+			          "ConceptualProperty": "Credits per Session (Latest 12 Weeks)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Credits per session within week": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "consumption_weekly.total_cowork_credits_latest_12_weeks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Consumption Weekly",
+			          "ConceptualProperty": "Total Cowork Credits (Latest 12 Weeks)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Total credits consumed": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "consumption_weekly.weekly_active_rate_latest_12_weeks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Consumption Weekly",
+			          "ConceptualProperty": "Weekly Active Rate (Latest 12 Weeks)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Weekly active rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "consumption_weekly.new_people_latest_12_weeks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Consumption Weekly",
+			          "ConceptualProperty": "New People (Latest 12 Weeks)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "New": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "consumption_weekly.retained_people_latest_12_weeks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Consumption Weekly",
+			          "ConceptualProperty": "Retained People (Latest 12 Weeks)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Retained": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "consumption_weekly.resurrected_people_latest_12_weeks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Consumption Weekly",
+			          "ConceptualProperty": "Resurrected People (Latest 12 Weeks)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Resurrected": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "consumption_weekly.churned_people_negative_latest_12_weeks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Consumption Weekly",
+			          "ConceptualProperty": "Churned People (Negative, Latest 12 Weeks)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Churned": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "consumption_weekly.credits_per_session": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Consumption Weekly",
+			          "ConceptualProperty": "Credits per Session"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Credits / session": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.sustained_usage_share": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Sustained Usage Share"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Function sustained-use share": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Sustained-use share": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Repeat habit": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.latest_segment": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Latest Segment"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Usage Stage": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Latest stage": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Cowork stage": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.latest_window_reach": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Latest Window Reach"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Reach share": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Reach": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Latest-window active share": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.power_users": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Power Users"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Selected Power users": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Power users": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.declined_people": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Declined People"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Declined": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.stable_people": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Stable People"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Stable": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.improved_people": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Improved People"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Improved": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.previous_segment": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Previous Segment"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Previous stage": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.transition_people": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Transition People"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "People": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.sustained_users": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Sustained Users"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sustained users": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.sustained_retention_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Sustained Retention Rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sustained retention": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.movement_people": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Movement People"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "People": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.transition_previous_stage": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Transition Previous Stage"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Previous stage": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.transition_latest_stage": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Transition Latest Stage"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Latest stage": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Cowork stage": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.champion_candidate_count": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Champion Candidate Count"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Potential champions": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.champion_department_coverage": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Champion Department Coverage"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Department coverage": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.champion_candidate_average_active_weeks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Champion Candidate Average Active Weeks"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Average active weeks": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Active weeks": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.champion_rank": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Champion Rank"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rank": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.champion_sessions_in_window": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Champion Sessions in Window"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sessions in window": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.champion_candidate_average_weekly_sessions": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Champion Candidate Average Weekly Sessions"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Avg sessions / week": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Average sessions / week": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.champion_last_active_week": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Champion Last Active Week"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Last active week": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.average_sessions_per_person": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Average Sessions per Person"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Average weekly sessions": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Cowork sessions / person": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segment_snapshot.latest_segment_share": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segment Snapshot",
+			          "ConceptualProperty": "Latest Segment Share"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "calendar.week_start": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "ConceptualProperty": "Week Start"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Week Start": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Week": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Week starting": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "calendar.week_label": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "ConceptualProperty": "Week Label"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Week": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segments_weekly.analysis_week": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segments Weekly",
+			          "ConceptualProperty": "Analysis Week"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Analysis week": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segments_weekly.usage_segment": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segments Weekly",
+			          "ConceptualProperty": "Usage Segment"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Usage stage": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segments_weekly.weekly_segment_people": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segments Weekly",
+			          "ConceptualProperty": "Weekly Segment People"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "People": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "usage_segments_weekly.weekly_segment_share": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Usage Segments Weekly",
+			          "ConceptualProperty": "Weekly Segment Share"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Stage share": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "adoption_stage_axis.segment": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Stage Axis",
+			          "ConceptualProperty": "Segment"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Usage stage": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "adoption_stage_axis.previous_stage_share": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Stage Axis",
+			          "ConceptualProperty": "Previous Stage Share"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Previous share": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "adoption_stage_axis.latest_stage_share": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Stage Axis",
+			          "ConceptualProperty": "Latest Stage Share"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Latest share": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "adoption_stage_axis.stage_share_change_pp": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Stage Axis",
+			          "ConceptualProperty": "Stage Share Change (pp)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Change (pp)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "adoption_movement.movement": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Adoption Movement",
+			          "ConceptualProperty": "Movement"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Movement": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "person_metrics.selected_metric_sustained_average": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Person Metrics",
+			          "ConceptualProperty": "Selected Metric Sustained Average"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sustained users": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "person_metrics.selected_metric_overall_average": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Person Metrics",
+			          "ConceptualProperty": "Selected Metric Overall Average"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Overall average": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Selected work pattern": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "person_metrics.selected_metric_other_average": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Person Metrics",
+			          "ConceptualProperty": "Selected Metric Other Average"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Other users": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "person_metrics.metric": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Person Metrics",
+			          "ConceptualProperty": "Metric"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Choose a pattern": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "person_metrics.selected_metric_stage_average": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Person Metrics",
+			          "ConceptualProperty": "Selected Metric Stage Average"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Selected work pattern": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metric_definitions.category": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metric Definitions",
+			          "ConceptualProperty": "Category"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Category": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metric_definitions.source_family": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metric Definitions",
+			          "ConceptualProperty": "Source Family"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Source family": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metric_definitions.metric": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metric Definitions",
+			          "ConceptualProperty": "Metric"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Metric": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metric_definitions.calculation": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metric Definitions",
+			          "ConceptualProperty": "Calculation"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Calculation": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metric_definitions.grain": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metric Definitions",
+			          "ConceptualProperty": "Grain"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Grain": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "metric_definitions.caveat": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Metric Definitions",
+			          "ConceptualProperty": "Caveat"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Caveat": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

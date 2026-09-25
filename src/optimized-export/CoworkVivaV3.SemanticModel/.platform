@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Cowork Adoption Intelligence - Viva Insights V3 - Query Connector"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "10e71aea-3b7b-53fc-99b4-2cbed06f1cc0"
+  }
+}

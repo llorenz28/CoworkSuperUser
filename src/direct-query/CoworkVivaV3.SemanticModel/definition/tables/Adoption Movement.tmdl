@@ -1,0 +1,38 @@
+/// Disconnected ordered movement axis for Improved, Stable, and Declined.
+table 'Adoption Movement'
+	lineageTag: acdf39f2-ea5f-4968-9911-b58f99e40766
+
+	column Movement
+		dataType: string
+		lineageTag: f840f46f-124d-4e81-a1de-d77e2beba91a
+		summarizeBy: none
+		sourceColumn: Movement
+		sortByColumn: 'Movement Sort'
+
+	column 'Movement Sort'
+		dataType: int64
+		isHidden
+		lineageTag: 82eeccee-5420-4590-807d-2881f3516f27
+		summarizeBy: none
+		sourceColumn: Movement Sort
+
+	column Interpretation
+		dataType: string
+		lineageTag: 7d81aecf-96e9-4e24-ae2b-fffb6485f3c3
+		summarizeBy: none
+		sourceColumn: Interpretation
+
+	partition 'Adoption Movement' = m
+		mode: import
+		source =
+				let
+					Data = #table({"Movement", "Movement Sort", "Interpretation"}, {
+					        {"Improved", 1, "Moved to a stronger Cowork usage stage in the selected rolling window."},
+					        {"Stable", 2, "Stayed in the same Cowork usage stage in the selected rolling window."},
+					        {"Declined", 3, "Moved to a weaker Cowork usage stage in the selected rolling window."},
+					        {"Coverage incomplete", 4, "One or both selected windows lack enough known Cowork coverage for comparison."},
+					        {"Insufficient history", 5, "Habit Movement needs at least two covered Cowork weeks."}
+					    })
+				in
+					Data
+

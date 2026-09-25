@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "91267fc40cfe875e72ce",
+  "position": {
+    "x": 59,
+    "y": 596,
+    "z": 22000,
+    "height": 76,
+    "width": 820,
+    "tabOrder": 6900
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Power and Habitual users are sustained adopters. Improved, Stable, and Declined compare each person's latest stage with the prior selected window.",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "color": "#1B1F27"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "isHidden": true
+}

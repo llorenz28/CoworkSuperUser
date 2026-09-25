@@ -1,0 +1,320 @@
+/// Rolling 4-week and 12-week person classifications at each analysis week.
+table 'Usage Segments Weekly'
+	lineageTag: 0ef7fb9a-8e47-4c11-a965-c919bcec6852
+
+	/// People with known Cowork weeks in the selected window in the current rolling classification window.
+	measure 'Weekly Classified Population' =
+			CALCULATE(
+			    DISTINCTCOUNT('Usage Segments Weekly'[Person ID]),
+			    REMOVEFILTERS('Usage Segments Weekly'[Usage Segment]),
+			    REMOVEFILTERS('Usage Segments Weekly'[Segment Sort]),
+			    TREATAS({[Selected Adoption Window Weeks]}, 'Usage Segments Weekly'[Window Weeks]),
+			    'Usage Segments Weekly'[Coverage Status] = "Complete"
+			)
+		formatString: #,##0
+		isHidden
+		displayFolder: Coverage
+		lineageTag: a5782cb0-06ac-4a98-99a7-5f2161e4fe43
+
+	/// People in the current selected rolling-window Cowork stage when privacy-safe.
+	measure 'Weekly Segment People' =
+			VAR _people =
+			    CALCULATE(
+			        DISTINCTCOUNT('Usage Segments Weekly'[Person ID]),
+			        TREATAS({[Selected Adoption Window Weeks]}, 'Usage Segments Weekly'[Window Weeks])
+			    )
+			RETURN IF([Weekly Classified Population] >= [Privacy Floor] && _people >= [Privacy Floor], _people)
+		formatString: #,##0
+		displayFolder: Weekly stages
+		lineageTag: 9b76670d-a916-4f2d-8dbe-cac7b336424f
+
+	/// Privacy-safe Cowork stage share.
+	measure 'Weekly Segment Share' = DIVIDE([Weekly Segment People], [Weekly Classified Population])
+		formatString: 0.0%
+		displayFolder: Weekly stages
+		lineageTag: 8d0afd24-5e52-4246-b42a-d6395064c5b6
+
+	column 'Person ID'
+		dataType: string
+		isHidden
+		lineageTag: e3a07d13-8dd9-43c5-b567-e97ed3b3a467
+		summarizeBy: none
+		sourceColumn: [Person ID]
+
+	column 'Person Sort'
+		dataType: int64
+		isHidden
+		lineageTag: d4eda556-9283-434a-b1bc-093a90eb35fa
+		summarizeBy: none
+		sourceColumn: [Person Sort]
+
+	column 'Analysis Week'
+		dataType: dateTime
+		isHidden
+		formatString: Short Date
+		lineageTag: 53c0b0b3-eddf-44bd-8b6e-1ee1c742c6dd
+		summarizeBy: none
+		sourceColumn: [Analysis Week]
+
+	column 'Window Weeks'
+		dataType: int64
+		isHidden
+		lineageTag: e1ae77aa-a6fd-4cb0-8d84-e15fb14b29ee
+		summarizeBy: none
+		sourceColumn: [Window Weeks]
+
+	column 'Window Label'
+		dataType: string
+		isHidden
+		lineageTag: df74c68c-7811-4dd8-85f1-cd2989a9b38b
+		summarizeBy: none
+		sourceColumn: [Window Label]
+
+	column 'Window Start'
+		dataType: dateTime
+		isHidden
+		formatString: Short Date
+		lineageTag: 9afe1a67-69b2-4c34-ae6f-4b3665305787
+		summarizeBy: none
+		sourceColumn: [Window Start]
+
+	column 'Window End'
+		dataType: dateTime
+		isHidden
+		formatString: Short Date
+		lineageTag: d2e2070f-de42-4945-9200-b32504bcb168
+		summarizeBy: none
+		sourceColumn: [Window End]
+
+	column 'Base Weeks'
+		dataType: int64
+		isHidden
+		lineageTag: 5d4ff3ad-47f1-4abe-b68e-821ef15bcae7
+		summarizeBy: none
+		sourceColumn: [Base Weeks]
+
+	column 'Observed Weeks'
+		dataType: int64
+		isHidden
+		lineageTag: 96cc7870-f808-4646-81da-e621701e41dd
+		summarizeBy: none
+		sourceColumn: [Observed Weeks]
+
+	column 'Coverage Status'
+		dataType: string
+		isHidden
+		lineageTag: 15ed2e44-aa61-4e80-b50f-2eb1fa7c101b
+		summarizeBy: none
+		sourceColumn: [Coverage Status]
+
+	column 'Classification Status'
+		dataType: string
+		isHidden
+		lineageTag: 6a235fc3-388f-4669-8fc3-0ba035efbd6f
+		summarizeBy: none
+		sourceColumn: [Classification Status]
+
+	column 'Active Weeks'
+		dataType: int64
+		isHidden
+		lineageTag: aeb3ac49-e316-4a2f-b3f1-7dacb65f7810
+		summarizeBy: none
+		sourceColumn: [Active Weeks]
+
+	column 'Active Week Rate'
+		dataType: decimal
+		isHidden
+		lineageTag: 84eecc68-96bb-4925-9f9b-aa3a680069f4
+		summarizeBy: none
+		sourceColumn: [Active Week Rate]
+
+	column 'Average Weekly Sessions'
+		dataType: decimal
+		isHidden
+		lineageTag: 61e90a5f-a320-48f7-a500-7efd8d00f1c0
+		summarizeBy: none
+		sourceColumn: [Average Weekly Sessions]
+
+	column 'Average Weekly Credits'
+		dataType: decimal
+		isHidden
+		lineageTag: c481acaf-1e8c-4dc9-89bd-fcd4985e2c6b
+		summarizeBy: none
+		sourceColumn: [Average Weekly Credits]
+
+	column 'Usage Segment'
+		dataType: string
+		lineageTag: d72522a1-6332-4af8-99f4-4851b0fe58bb
+		summarizeBy: none
+		sourceColumn: [Usage Segment]
+		sortByColumn: 'Segment Sort'
+
+	column 'Segment Sort'
+		dataType: int64
+		isHidden
+		lineageTag: 2dcdbe49-6287-4b86-a7c2-a9b63be521d1
+		summarizeBy: none
+		sourceColumn: [Segment Sort]
+
+	column 'Power Session Threshold'
+		dataType: decimal
+		isHidden
+		lineageTag: 3f38674b-20e1-48a1-b0bf-4a318afb2d8d
+		summarizeBy: none
+		sourceColumn: [Power Session Threshold]
+
+	partition 'Usage Segments Weekly' = calculated
+		mode: import
+		source =
+				VAR _allWeeks =
+				    CALCULATETABLE(
+				        VALUES('Consumption Weekly'[Week Start]),
+				        'Consumption Weekly'[Consumption Coverage] <> "Unknown"
+				    )
+				VAR _weeks =
+				    SELECTCOLUMNS(
+				        _allWeeks,
+				        "Analysis Week", 'Consumption Weekly'[Week Start]
+				    )
+				VAR _windows =
+				    DATATABLE(
+				        "Window Weeks",
+				        INTEGER,
+				        {
+				            {4},
+				            {12}
+				        }
+				    )
+				VAR _threshold = 6.0
+				RETURN
+				    GENERATE(
+				        _weeks,
+				        VAR _endWeek = [Analysis Week]
+				        VAR _eligibleWeeks =
+				            FILTER(
+				                _allWeeks,
+				                'Consumption Weekly'[Week Start] <= _endWeek
+				            )
+				        RETURN
+				        GENERATE(
+				            _windows,
+				            VAR _windowLength = [Window Weeks]
+				            VAR _windowWeeks =
+				                TOPN(
+				                    _windowLength,
+				                    _eligibleWeeks,
+				                    'Consumption Weekly'[Week Start],
+				                    DESC
+				                )
+				            VAR _baseWeeks = COUNTROWS(_windowWeeks)
+				            VAR _windowStart = MINX(_windowWeeks, 'Consumption Weekly'[Week Start])
+				            VAR _rollup =
+				                CALCULATETABLE(
+				                    SUMMARIZECOLUMNS(
+				                        'Consumption Weekly'[Person ID],
+				                        'Consumption Weekly'[Person Sort],
+				                        "Observed Weeks",
+				                            CALCULATE(
+				                                DISTINCTCOUNT('Consumption Weekly'[Week Start]),
+				                                'Consumption Weekly'[Consumption Coverage] <> "Unknown"
+				                            ),
+				                        "Active Weeks",
+				                            CALCULATE(
+				                                DISTINCTCOUNT('Consumption Weekly'[Week Start]),
+				                                'Consumption Weekly'[Sessions] > 0
+				                            ),
+				                        "Session Total",
+				                            CALCULATE(SUM('Consumption Weekly'[Sessions])),
+				                        "Credit Total",
+				                            CALCULATE(SUM('Consumption Weekly'[AI Credits]))
+				                    ),
+				                    TREATAS(_windowWeeks, 'Consumption Weekly'[Week Start])
+				                )
+				            VAR _metrics =
+				                ADDCOLUMNS(
+				                    _rollup,
+				                    "Window Label", "Up to " & FORMAT(_windowLength, "0") & " weeks",
+				                    "Window Start", _windowStart,
+				                    "Window End", _endWeek,
+				                    "Base Weeks", _baseWeeks,
+				                    "Coverage Status",
+				                        IF(
+				                            _baseWeeks > 0 && [Observed Weeks] = _baseWeeks,
+				                            "Complete",
+				                            "Incomplete"
+				                        ),
+				                    "Active Week Rate",
+				                        DIVIDE([Active Weeks], [Observed Weeks], 0),
+				                    "Average Weekly Sessions",
+				                        IF(
+				                            _baseWeeks > 0 && [Observed Weeks] = _baseWeeks,
+				                            DIVIDE([Session Total], _baseWeeks)
+				                        ),
+				                    "Average Weekly Credits",
+				                        IF(
+				                            _baseWeeks > 0 && [Observed Weeks] = _baseWeeks,
+				                            DIVIDE([Credit Total], _baseWeeks)
+				                        ),
+				                    "Power Session Threshold", _threshold
+				                )
+				            VAR _classified =
+				                ADDCOLUMNS(
+				                    _metrics,
+				                    "Classification Status",
+				                        SWITCH(
+				                            TRUE(),
+				                            [Coverage Status] <> "Complete", "Coverage incomplete",
+				                            _baseWeeks < _windowLength,
+				                                "Provisional - " & FORMAT(_baseWeeks, "0")
+				                                    & " of up to " & FORMAT(_windowLength, "0") & " covered weeks",
+				                            "Complete"
+				                        ),
+				                    "Usage Segment",
+				                        SWITCH(
+				                            TRUE(),
+				                            [Coverage Status] <> "Complete", "Cowork coverage unknown",
+				                            [Active Week Rate] >= 0.75
+				                                && [Average Weekly Sessions] >= _threshold, "Cowork Power User",
+				                            [Active Week Rate] >= 0.75, "Cowork Habitual User",
+				                            [Active Week Rate] >= 0.25, "Cowork Developing User",
+				                            [Active Weeks] > 0, "Cowork Low User",
+				                            "Cowork Non-user"
+				                        )
+				                )
+				            VAR _result =
+				                ADDCOLUMNS(
+				                    _classified,
+				                    "Segment Sort",
+				                        SWITCH(
+				                            [Usage Segment],
+				                            "Cowork Power User", 1,
+				                            "Cowork Habitual User", 2,
+				                            "Cowork Developing User", 3,
+				                            "Cowork Low User", 4,
+				                            "Cowork Non-user", 5,
+				                            6
+				                        )
+				                )
+				            RETURN
+				                SELECTCOLUMNS(
+				                    _result,
+				                    "Person ID", 'Consumption Weekly'[Person ID] & "",
+				                    "Person Sort", INT('Consumption Weekly'[Person Sort]),
+				                    "Window Label", [Window Label],
+				                    "Window Start", [Window Start],
+				                    "Window End", [Window End],
+				                    "Base Weeks", [Base Weeks],
+				                    "Observed Weeks", [Observed Weeks],
+				                    "Coverage Status", [Coverage Status],
+				                    "Classification Status", [Classification Status],
+				                    "Active Weeks", [Active Weeks],
+				                    "Active Week Rate", [Active Week Rate],
+				                    "Average Weekly Sessions", [Average Weekly Sessions],
+				                    "Average Weekly Credits", [Average Weekly Credits],
+				                    "Usage Segment", [Usage Segment],
+				                    "Segment Sort", [Segment Sort],
+				                    "Power Session Threshold", [Power Session Threshold]
+				                )
+				        )
+				    )
+
