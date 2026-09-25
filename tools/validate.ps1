@@ -139,6 +139,67 @@ foreach ($term in $legacyTerms) {
     }
 }
 
+$setupDocuments = @(
+    (Join-Path $RepositoryRoot "README.md"),
+    (Join-Path $RepositoryRoot "SETUP.md"),
+    (Join-Path $RepositoryRoot "docs\QUERY_SETUP.md")
+)
+$setupText = ($setupDocuments | ForEach-Object {
+    Get-Content $_ -Raw
+}) -join "`n"
+$requiredSetupInstructions = @(
+    "Person Query",
+    "Group by",
+    "Week",
+    "Person ID",
+    "Organization",
+    "Function",
+    "Level",
+    "manager",
+    "Collaboration hours",
+    "Active connected hours",
+    "Email hours",
+    "Chat hours",
+    "Meeting hours",
+    "Unscheduled call hours",
+    "After-hours collaboration",
+    "Weekend collaboration hours",
+    "Collaboration span",
+    "Internal network size",
+    "External network size",
+    "Strong ties",
+    "Diverse ties",
+    "Network outside organization",
+    "Service Name equals Cowork",
+    "Session count",
+    "Total Copilot Credits used",
+    "Spending policy limit",
+    "User limit",
+    "Partition Identifier",
+    "Person Query Identifier",
+    "Consumption Query Identifier",
+    "PersonM365CreditsMetrics.csv",
+    "Organizational account",
+    "OAuth2",
+    "Data source settings",
+    "privacy",
+    "gateway"
+)
+foreach ($instruction in $requiredSetupInstructions) {
+    if (-not $setupText.Contains($instruction, [StringComparison]::OrdinalIgnoreCase)) {
+        throw "Public setup documentation is incomplete: $instruction"
+    }
+}
+if ($setupText -match "(?i)(last\s+6\s+months|rolling\s+last\s+6|six\s+months)") {
+    throw "Public setup documentation still requests a fixed six-month period."
+}
+$publicReadme = Get-Content (Join-Path $RepositoryRoot "README.md") -Raw
+foreach ($privateValidationCount in @("43,440", "3,620", "81,798")) {
+    if ($publicReadme.Contains($privateValidationCount, [StringComparison]::Ordinal)) {
+        throw "Tenant-derived validation count remains in README: $privateValidationCount"
+    }
+}
+
 $manifestPath = Join-Path $RepositoryRoot "validation\release-manifest.json"
 $manifest = Get-Content $manifestPath -Raw | ConvertFrom-Json
 Add-Type -AssemblyName System.IO.Compression.FileSystem
