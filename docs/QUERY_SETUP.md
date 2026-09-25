@@ -76,17 +76,23 @@ and completed results.
 
 ### Required Person Query metrics
 
-Include all metrics for the complete report experience:
+In the **Metrics** pane, expand these metric groups and select the listed
+metrics:
 
-| Metric family | Required metrics |
-| --- | --- |
-| Collaboration | Collaboration hours; Active connected hours |
-| Communication | Email hours; Chat hours |
-| Meetings and calls | Meeting hours; Unscheduled call hours |
-| Beyond-hours work | After-hours collaboration; Weekend collaboration hours |
-| Workday context | Collaboration span |
-| Network | Internal network size; External network size; Network outside organization |
-| Connection quality | Strong ties; Diverse ties |
+| Metric group | Select | Metric group | Select |
+| --- | --- | --- | --- |
+| **After-hours collaboration** | After-hours collaboration hours | **Collaboration activity** | Active connected hours<br>Collaboration hours<br>Collaboration span<br>Email hours<br>Chat hours<br>Meeting hours<br>Unscheduled call hours |
+| **Collaboration network** | Diverse ties<br>External network size<br>Internal network size<br>Network outside organization<br>Strong ties | **Collaboration by day of the week** | Weekend collaboration hours |
+
+If the tenant only presents **Select all** at metric-group level, selecting all
+metrics for these four groups is supported; the report uses only the fields
+listed above. Selecting only the listed metrics keeps the result smaller.
+
+The Person Query does **not** need the **Microsoft 365 Copilot** metric group
+solely for CoworkSuperUser. Cowork sessions, credits, and policy data come from
+the separate Cowork consumption analysis.
+
+Reference: [Viva Insights advanced analysis metric descriptions](https://learn.microsoft.com/viva/insights/advanced/reference/metrics).
 
 The template accepts common Viva export variations such as spaces, underscores,
 and selected legacy labels. Missing optional context metrics do not stop the

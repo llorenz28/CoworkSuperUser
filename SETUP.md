@@ -16,8 +16,15 @@ overlapping dates:
    - Use the approved population.
    - Include Person ID, Metric Date, Organization, Function, Level, and manager
      indicator.
-   - Include collaboration, communication, meetings/calls, beyond-hours, and
-     network metrics listed in the full guide.
+   - From **After-hours collaboration**, select After-hours collaboration
+     hours.
+   - From **Collaboration activity**, select Active connected hours,
+     Collaboration hours, Collaboration span, Email hours, Chat hours, Meeting
+     hours, and Unscheduled call hours.
+   - From **Collaboration network**, select Diverse ties, External network size,
+     Internal network size, Network outside organization, and Strong ties.
+   - From **Collaboration by day of the week**, select Weekend collaboration
+     hours.
 2. **Cowork consumption analysis**
    - Group by Day.
    - Include Person and Service.

@@ -157,15 +157,29 @@ interpret them as zero.
 5. Include every field below.
 6. Run the analysis and wait for **Completed** or **Success**.
 
-| Type | Required fields |
+**Attributes**
+
+| Attribute group | Select |
 | --- | --- |
-| Identity and date | Person ID; Metric Date |
-| Organization | Organization; Function type; Layer or level; Supervisor or manager indicator |
-| Collaboration | Collaboration hours; Active connected hours |
-| Communication | Email hours; Chat hours |
-| Meetings and calls | Meeting hours; Unscheduled call hours |
-| Beyond-hours | After-hours collaboration; Weekend collaboration hours; Collaboration span |
-| Network | Internal network size; External network size; Strong ties; Diverse ties; Network outside organization |
+| Person and date | Person ID; Metric Date |
+| Organizational data | Organization; Function type; Layer or level; Supervisor or manager indicator |
+
+**Metrics**
+
+| Metric group | Select | Metric group | Select |
+| --- | --- | --- | --- |
+| **After-hours collaboration** | After-hours collaboration hours | **Collaboration activity** | Active connected hours<br>Collaboration hours<br>Collaboration span<br>Email hours<br>Chat hours<br>Meeting hours<br>Unscheduled call hours |
+| **Collaboration network** | Diverse ties<br>External network size<br>Internal network size<br>Network outside organization<br>Strong ties | **Collaboration by day of the week** | Weekend collaboration hours |
+
+If the tenant only offers **Select all** at metric-group level, selecting all
+metrics for these four groups is supported. CoworkSuperUser uses only the fields
+listed above.
+
+Do not select Microsoft 365 Copilot metrics for this Person Query solely for
+CoworkSuperUser. Cowork sessions and credits come from the separate consumption
+analysis.
+
+Reference: [Viva Insights advanced analysis metric descriptions](https://learn.microsoft.com/viva/insights/advanced/reference/metrics).
 
 The result must remain unique at one row per person per week. Do not filter this
 query to Cowork users; it defines the full approved analytical population.
