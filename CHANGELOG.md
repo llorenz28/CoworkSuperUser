@@ -17,6 +17,8 @@
   cost showback without treating modeled cost as ROI.
 - Expanded and synchronized the glossary to all 137 current measures.
 - Re-exported and validated both Public, data-free PBIT connection editions.
+- Removed stale dated template copies so the two root-level PBIT files are the
+  only customer download choices.
 
 ## 1.0.1 - 2026-09-25
 

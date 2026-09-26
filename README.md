@@ -260,7 +260,6 @@ SETUP.md
 docs/
 images/report-pages/
 media/
-release/
 src/
 tools/
 validation/
