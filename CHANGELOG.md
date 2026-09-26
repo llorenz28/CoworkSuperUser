@@ -5,10 +5,14 @@
 - Documented all 117 current semantic-model measures, including hidden helpers and bookmark-only report states.
 - Removed stale glossary entries and legacy Novice terminology in favor of Developing.
 - Reworked the Methods and Metric Guide into a readable four-column layout.
-- Enforced the complete Person Query field contract and exact `Service Name = "Cowork"` consumption filter.
+- Documented Person ID and Metric Date as load-critical, organization fields as
+	recommended, and work-pattern metrics as optional report enrichment.
 - Replaced the fixed six-month request with all available Cowork history from the first available week, targeting at least 12 covered weeks when available.
 - Added the inline narrated walkthrough and reorganized the public README around quick start, connection paths, query setup, release assets, security, and interpretation.
-- Published a complete DecodingSuperUsage-style two-analysis setup runbook covering query creation, identifiers, both connection paths, authentication, validation, publishing, refresh, and troubleshooting.
+- Published a role-specific setup runbook covering one Person Query plus either
+	a Consumption Dashboard export or an advanced saved Consumption query.
+- Consolidated duplicated setup instructions into one authoritative runbook, a
+	Power BI connection checklist, and focused troubleshooting guidance.
 - Made the Consumption Dashboard daily export the recommended customer path and added direct support for its official `PersonServiceCreditsMetrics.csv` filename and `TotalCreditsUsed` column.
 - Re-exported both data-free PBIT connection editions and refreshed the interpretation storyboard.
 - Replaced the IRM-encrypted storyboard artifact with an unprotected Open XML PPTX that opens in PowerPoint for the web and customer tenants.

@@ -1,263 +1,292 @@
-# Connect CoworkSuperUser to Viva Insights
+# Set up CoworkSuperUser
 
-CoworkSuperUser combines:
+This is the authoritative setup guide for both CoworkSuperUser templates. It
+separates the fields required to load the report from optional fields that add
+breakdowns or work-pattern context.
 
-1. A **Person Query** for the approved employee population, organization
-   attributes, and work-pattern context.
-2. **Cowork consumption data** for sessions, credits, and spending-policy
-   context.
+CoworkSuperUser always combines:
 
-## Choose the correct customer path
+1. A weekly **Person Query** that defines the approved employee population.
+2. Daily **Cowork consumption data** for sessions and credits.
 
-| Path | Consumption source | Who can use it | Template |
-| --- | --- | --- | --- |
-| **Recommended customer path** | **Consumption Dashboard > Export by day** | A Microsoft 365 Global Administrator or an Insights Analyst with global-partition access | `CoworkSuperUser - Optimized Export.pbit` |
-| **Advanced connected path** | **Create analysis > Create custom query > Consumption query** | An Insights Analyst assigned to the global partition | `CoworkSuperUser - Direct Query.pbit` |
+After both inputs are ready, use the shorter [Power BI connection
+checklist](../SETUP.md) while you load the template.
+
+## Choose a connection path
+
+Choose the path before creating the consumption input. You do not need both.
+
+| | Recommended: Optimized Export | Advanced: Direct Query |
+| --- | --- | --- |
+| Consumption input | **Consumption Dashboard > Download > Export by day** | A saved custom **Consumption query** |
+| Template | `CoworkSuperUser - Optimized Export.pbit` | `CoworkSuperUser - Direct Query.pbit` |
+| Who can obtain the input | Microsoft 365 Global Administrator or Insights Analyst with global-partition access | Insights Analyst with global-partition access |
+| Power BI parameters | Partition ID, Person Query ID, export folder | Partition ID, Person Query ID, Consumption Query ID |
+| Gateway after publishing | Required for scheduled refresh from a local or network folder | Not required |
+
+The recommended path avoids creating a custom consumption query. The advanced
+path is useful when the saved query should refresh without replacing a local
+CSV. Despite its name, the Direct Query template imports saved-query results
+during refresh; it does not use Power BI DirectQuery storage mode.
 
 > [!IMPORTANT]
-> A Global Administrator can view and export the Consumption Dashboard but
-> cannot run a custom consumption query solely because they are Global
-> Administrator. The Direct Query path requires the **Insights Analyst** role
-> plus **global-partition access**.
+> Microsoft 365 Global Administrator access is sufficient to export from the
+> Consumption Dashboard, but it does not grant permission to create a custom
+> Consumption query. That requires the **Insights Analyst** role and access to
+> the **global partition**.
 
-Both paths require a completed Person Query.
+## What you need
 
-## Prerequisites
-
-- Current [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
-- Access to the
-  [Viva Insights web app](https://analysis.insights.cloud.microsoft/).
-- An **Insights Analyst** who can create the Person Query.
-- An approved purpose for using individual-level data.
-- For the recommended path, access to the Consumption Dashboard.
-- For the advanced path, Insights Analyst access to the global partition.
-
-## Step 1: Create the Person Query
-
-1. Open the Viva Insights web app.
-2. Select **Analysis results**.
-3. Select **Create analysis**.
-4. Select **Person query**, then **Set up analysis**.
-5. Name the query `CoworkSuperUser - Person Week`.
-6. Use all available Cowork history beginning with the first week Cowork data
-   exists.
-7. Aim for at least 12 covered weeks when available.
-8. Set **Group by** to **Week**.
-9. Select the approved employee population. If appropriate, filter to active
-   employees.
-10. Add the attributes and metrics below.
-11. Select **Run** or **Save and run**.
-12. Wait for **Success**.
-
-Do not filter the Person Query to Cowork users. It defines the approved
-population, including covered employees with no Cowork activity.
-
-### Person Query attributes
-
-| Attribute group | Select |
+| Requirement | Why it is needed |
 | --- | --- |
-| Person and date | Person ID; Metric Date |
-| Organizational data | Organization; Function type; Layer or level; Supervisor or manager indicator |
+| Current [Power BI Desktop](https://powerbi.microsoft.com/desktop/) | Opens and loads the PBIT |
+| An approved purpose and protected storage location | Both inputs contain person-level data |
+| Insights Analyst access to the Person Query partition | Creates the Person Query and authenticates the Viva Insights connector |
+| Consumption Dashboard export access | Recommended path only; currently available to a Microsoft 365 Global Administrator or a global-partition Insights Analyst |
+| Insights Analyst access to the global partition | Advanced path only; required to create and connect to the Consumption query |
 
-### Person Query metrics
+The Consumption Dashboard export is a preview feature and must be available in
+the tenant. Different people can create the Person Query, export the dashboard
+data, and load Power BI, provided each person has the access required for their
+step.
 
-In the **Metrics** pane, expand these groups:
+## Part 1: Create the Person Query
 
-| Metric group | Select | Metric group | Select |
-| --- | --- | --- | --- |
-| **After-hours collaboration** | After-hours collaboration hours | **Collaboration activity** | Active connected hours<br>Collaboration hours<br>Collaboration span<br>Email hours<br>Chat hours<br>Meeting hours<br>Unscheduled call hours |
-| **Collaboration network** | Diverse ties<br>External network size<br>Internal network size<br>Network outside organization<br>Strong ties | **Collaboration by day of the week** | Weekend collaboration hours |
+Both connection paths use the same Person Query.
 
-If Viva Insights only offers **Select all** for a group, selecting all metrics
-for these four groups is supported.
+### 1. Configure the query
 
-The Person Query does not need Microsoft 365 Copilot metrics solely for this
-report. Cowork sessions and credits come from the consumption source.
+1. Open the [Viva Insights web app](https://analysis.insights.cloud.microsoft/)
+   and switch to the partition that contains the approved population. For the
+   advanced path, use the global partition so both query IDs share one
+   Partition ID.
+2. Select **Create analysis > Create custom query > Person query**.
+3. Give the query a recognizable name, such as
+   `CoworkSuperUser - Person Week`.
+4. Choose a time period that covers the Cowork analysis period. At least 12
+   complete weeks enables the report's 12-week comparisons, but shorter
+   histories load and are labeled provisional or unavailable where needed.
+5. Under **More settings**, set **Group by** to **Week**.
+6. Apply only population filters required by the approved analysis scope.
+   Do not filter to Cowork users, because people with zero observed Cowork use
+   must remain in the denominator.
 
-### Validate the Person Query
+The **Is Active** filter is not a CoworkSuperUser requirement. Use it only when
+the approved population definition calls for active collaborators; it changes
+who is included in the report.
 
-Confirm:
+### 2. Select fields
 
-- Status is **Success**.
-- Group by is **Week**.
-- Person ID and Metric Date are populated.
-- Organization, Function, Level, and manager status are present.
-- There is one row per person per week.
-- The period starts no earlier than actual Cowork availability.
+The template handles missing enrichment fields without failing. Use these
+three levels to avoid requesting data that the report does not use.
 
-## Path A: Recommended — Consumption Dashboard export
+#### Required to load
 
-Use this path when the customer can open **Consumption Dashboard** in the Viva
-Insights left navigation.
+The query result must contain **Person ID** and **Metric Date**, with one row
+per person per week. In the field picker these may appear as `PersonId` and
+`MetricDate`.
 
-### A1. Export the consumption data
+#### Recommended for the full adoption views
 
-1. Select **Consumption Dashboard**.
+Select the organizational attributes available in your tenant:
+
+| Report field | Common Viva Insights label |
+| --- | --- |
+| Organization | Organization |
+| Function | Function type |
+| Level | Layer, level, or level designation |
+| Manager status | Supervisor or manager indicator |
+
+The report still loads if one is unavailable. The related slicer or breakdown
+will be blank or show **Not provided**.
+
+#### Optional: Work Pattern Context
+
+Select only the metrics for the work-pattern views you intend to use. If a
+metric is omitted or entirely blank, its report control is hidden.
+
+| Metric group | Select |
+| --- | --- |
+| **After-hours collaboration** | After-hours collaboration hours |
+| **Collaboration activity** | Active connected hours; Collaboration hours; Collaboration span; Email hours; Chat hours; Meeting hours; Unscheduled call hours |
+| **Collaboration network** | Diverse ties; External network size; Internal network size; Network outside organization; Strong ties |
+| **Collaboration by day of the week** | Weekend collaboration hours |
+
+If the tenant only offers **Select all** at metric-group level, selecting all
+metrics in these four groups is supported; unused columns are ignored.
+
+> [!NOTE]
+> Do not select **Microsoft 365 Copilot** metrics solely for this template.
+> Cowork sessions and credits come from the separate consumption input. The
+> metric selections shown in DecodingSuperUsage apply to that report, not to
+> CoworkSuperUser.
+
+### 3. Run and verify
+
+1. Select **Run**.
+2. In **Analysis results**, wait for the green **Success** status.
+3. Confirm **Group by = Week**, Person ID and Metric Date are populated, and
+   each person appears once per week.
+4. Select **Copy link** for the result. The link contains the Partition ID and
+   Person Query ID separated by a slash. Keep the link in an approved secure
+   location; do not email exported person-level data.
+
+## Part 2A: Recommended - use the dashboard export
+
+Use this path when an eligible user can open **Consumption Dashboard**.
+
+### 1. Export and extract the file
+
+1. In Viva Insights, select **Consumption Dashboard**.
 2. Select the **download** button in the upper-right corner.
 3. Select **Export by day**.
-4. Wait for the ZIP file to download.
-5. Extract the ZIP to a protected folder.
+4. Extract the downloaded ZIP into a protected, dedicated folder.
 
-The ZIP contains:
+The ZIP contains `PersonServiceCreditsMetrics.csv` and
+`PeopleMetaData.csv`. CoworkSuperUser reads only
+`PersonServiceCreditsMetrics.csv`; `PeopleMetaData.csv` can remain in the same
+folder. Do not rename or edit the consumption file.
 
-- `PersonServiceCreditsMetrics.csv`
-- `PeopleMetaData.csv`
+The template searches the selected folder and its subfolders. Keep only one
+`PersonServiceCreditsMetrics.csv` beneath that folder. A legacy filename,
+`PersonM365CreditsMetrics.csv`, is also accepted, but only one supported file
+may be present.
 
-CoworkSuperUser reads `PersonServiceCreditsMetrics.csv` directly. **Do not
-rename it.**
+> [!NOTE]
+> The dashboard controls how much history is included in a daily export. If it
+> contains fewer than 12 complete weeks, the report still loads and marks
+> longer comparisons as provisional or unavailable. Do not append artificial
+> zero-use weeks.
 
-The daily export contains one row per person, service, and date. It includes the
-service name, session count, credits, spending-policy limit, user limit, and
-join identifiers.
+### 2. Load the Optimized Export template
 
-### A2. Prepare the folder
+1. Download and open
+   [`CoworkSuperUser - Optimized Export.pbit`](../CoworkSuperUser%20-%20Optimized%20Export.pbit).
+2. Enter the two raw GUIDs from the Person Query link and the export folder:
 
-1. Create a dedicated folder for the current export.
-2. Place the extracted `PersonServiceCreditsMetrics.csv` in that folder.
-3. Keep only one file with that name beneath the folder.
-4. Close the CSV if it is open in Excel.
-5. Do not modify its headers.
+   | Template parameter | Enter |
+   | --- | --- |
+   | Partition Identifier | Person Query Partition ID |
+   | Person Query Identifier | Person Query ID |
+   | Viva Export Folder Path | Folder path, not the CSV file path |
 
-`PeopleMetaData.csv` may remain in the folder, but the template does not require
-it because organization attributes come from the Person Query.
+3. Select **Load**.
+4. When prompted for the Viva Insights source, select **Organizational
+   account** and sign in with an account that can read the Person Query and its
+   partition.
+5. If prompted for a privacy level, use the level required by your
+   organization; **Organizational** is commonly appropriate.
+6. Wait for refresh to finish, then continue to [Part 3](#part-3-validate-the-loaded-report).
 
-### A3. Open the Optimized Export template
+You do not need a custom Consumption query or a Consumption Query ID for this
+path.
 
-1. Download and open `CoworkSuperUser - Optimized Export.pbit`.
-2. Enter:
-   - **Partition Identifier**
-   - **Person Query Identifier**
-   - **Viva Export Folder Path**
-3. For the folder parameter, enter the folder path—not the CSV file path.
-4. Select **Load**.
-5. For the Viva Insights source, sign in with an **Organizational account**
-   that can read the Person Query and partition.
-6. If Power BI requests a privacy level, use the organization-approved level;
-   **Organizational** is normally appropriate.
-7. Wait for the refresh to complete.
+## Part 2B: Advanced - use a saved Consumption query
 
-### A4. Find the Person Query identifiers
+Use this path only when the analyst can work in the **global partition**.
 
-1. Return to **Analysis results**.
-2. Find the successful Person Query.
-3. Select its **Copy link** icon.
-4. The link contains the Partition Identifier and Person Query Identifier,
-   separated by a slash.
-5. Enter only the raw GUID values in the template.
+### 1. Confirm access if the query type is missing
 
-## Path B: Advanced — Connected consumption query
+If **Consumption query** is not available, verify both assignments:
 
-Use this path only when the operator is an **Insights Analyst assigned to the
-global partition**.
+1. A Microsoft 365 Global Administrator or Privileged Role Administrator has
+   assigned the user the **Insights Analyst** role.
+2. An Insights Administrator has opened **Settings > Partitions > Global
+   partition** and added that analyst.
 
-### B1. If Consumption query is missing
+These are access-remediation steps, not part of the normal flow when the query
+type is already visible.
 
-An Insights Administrator must:
+### 2. Create the Consumption query
 
-1. Open the Viva Insights admin experience.
-2. Go to **Settings > Partitions**.
-3. Select **Global partition**.
-4. Add the user under analysts with access.
-5. Save or finish the change.
-
-A Global Administrator can assign the Viva role:
-
-1. Open the [Microsoft 365 admin center](https://admin.microsoft.com/).
-2. Go to **Settings > Viva > Viva Insights**.
-3. Under **Add-on Plan**, select **Insights Analyst**.
-4. Add the user.
-
-Then the user signs out, closes the browser, signs back in, and selects the
-global partition.
-
-### B2. Create the custom consumption query
-
-1. Select **Create analysis**.
-2. Select the **Custom query** tab.
-3. Select **Create custom query**.
-4. Select **Consumption query**.
-5. Name it `CoworkSuperUser - Cowork Consumption`.
-6. Use a period overlapping the Person Query.
-7. Under **More settings**, set **Group by** to **Day**.
-8. Keep the preselected metrics:
+1. In the global partition, select
+   **Create analysis > Create custom query > Consumption query**.
+2. Give it a recognizable name, such as
+   `CoworkSuperUser - Cowork Consumption`.
+3. Choose a time period that overlaps the Person Query.
+4. Under **More settings**, set **Group by** to **Day**.
+5. Leave the four preselected metrics in place:
    - Total Copilot Credits used
    - Session count
    - User limit
    - Spending policy limit
-9. Add the condition:
+6. Add the condition `ServiceName = Cowork`.
+7. Do not add HR attributes solely for CoworkSuperUser; organization fields
+   come from the Person Query.
+8. Select **Run** and wait for **Success** in **Analysis results**.
+9. Select **Copy link** for the result and record its raw Consumption Query ID.
 
-   ```text
-   ServiceName = Cowork
-   ```
+The Person Query and Consumption query links must contain the same Partition
+ID. If they do not, recreate the Person Query in the global partition.
 
-10. Optionally select Organization, Function, and Level as HR attributes.
-11. Select **Run**.
-12. Wait for **Success**.
+### 3. Load the Direct Query template
 
-### B3. Connect the Direct Query template
+1. Download and open
+   [`CoworkSuperUser - Direct Query.pbit`](../CoworkSuperUser%20-%20Direct%20Query.pbit).
+2. Enter:
 
-1. In **Analysis results**, copy the link for the Person Query.
-2. Copy the link for the successful Consumption query.
-3. Record:
-   - Shared Partition Identifier
-   - Person Query Identifier
-   - Consumption Query Identifier
-4. Open `CoworkSuperUser - Direct Query.pbit`.
-5. Enter the three raw GUIDs.
-6. Select **Load**.
-7. Sign in with the Insights Analyst organizational account.
-8. Wait for refresh to complete.
+   | Template parameter | Enter |
+   | --- | --- |
+   | Partition Identifier | Shared Partition ID |
+   | Person Query Identifier | Person Query ID |
+   | Consumption Query Identifier | Consumption Query ID |
 
-The Direct Query name describes the setup experience. Power BI imports the
-saved-query results during refresh; it is not Tabular DirectQuery storage mode.
+3. Select **Load**.
+4. Select **Organizational account** and sign in with the Insights Analyst
+   account that can read both successful results.
+5. Wait for refresh to finish, then continue to Part 3.
 
-## Validate the loaded report
+## Part 3: Validate the loaded report
 
-Before publishing, confirm:
+Before sharing the report, confirm:
 
-- Start Here opens first.
-- Population matches the Person Query scope.
-- Expected completed weeks appear.
-- Organization, Function, Level, and manager fields populate.
-- Sessions and credits reconcile with the dashboard export or consumption
-  query.
-- Covered people without Cowork sessions remain zero/non-users.
-- Work Pattern Context enables the supplied metrics.
-- The history card correctly reports coverage.
-- Aggregate person-derived results below 10 people are suppressed.
-- Methods and Metric Guide contains 117 definitions.
-- No page or alternate view displays an error.
+- **Start Here** opens first and no visual displays an error.
+- Population and completed weeks match the Person Query.
+- Sessions and credits reconcile to the Cowork rows in the dashboard export or
+  Consumption query over the same complete period.
+- People in the Person Query with no Cowork row remain covered zero-users for
+  weeks present in the consumption input.
+- Organization, Function, Level, and Manager populate when selected.
+- **Work Pattern Context** shows a control for each supplied metric and hides
+  metrics that were not supplied.
+- The history message reflects the available coverage.
+- Aggregate person-derived results are suppressed below 10 people.
 
-## Save, label, and publish
+Review the [Interpretation Guide](../INTERPRETATION_GUIDE.md) before presenting
+results. In particular, sessions are not tasks, credits are not productivity,
+and potential champions are not employee-performance scores.
 
-1. Save the loaded report as PBIX.
-2. Apply the customer's required sensitivity label.
-3. Publish to an approved Power BI or Fabric workspace.
-4. Configure Viva Insights OAuth2 credentials.
-5. For Optimized Export, configure an on-premises data gateway with access to
-   the export folder.
-6. Schedule refresh after Viva Insights data is available.
-7. Test an on-demand refresh before sharing.
+## Optional: publish and schedule refresh
 
-For Optimized Export, each update requires a newly downloaded daily export to
-replace `PersonServiceCreditsMetrics.csv` in the configured folder.
+Publishing is not required to use the report in Power BI Desktop.
+
+1. Save the loaded report as PBIX and apply the sensitivity label required by
+   the customer's information-protection policy.
+2. Publish to an approved Power BI or Fabric workspace.
+3. In semantic model settings, configure the Viva Insights source with OAuth2
+   credentials.
+4. If using Optimized Export, configure an on-premises data gateway that can
+   read the export folder. Replace the CSV with a new dashboard export before
+   each scheduled refresh.
+5. If using Direct Query, turn on **Auto-Refresh** for both saved Viva Insights
+   queries when recurring updates are needed.
+6. Schedule the Power BI refresh after the Viva Insights inputs normally
+   finish, then run one on-demand refresh and verify the newest complete week.
+
+For audience-specific access, follow [Security and row-level security
+guidance](../SECURITY.md).
 
 ## Troubleshooting
 
-| Symptom | Resolution |
-| --- | --- |
-| Consumption Dashboard is visible but Consumption query is missing | Use Path A, or assign Insights Analyst plus global-partition access for Path B |
-| Access to the resource is forbidden | In Power BI, clear Viva Insights permissions under **File > Options and settings > Data source settings**, exit Desktop, reopen, and sign in again |
-| Export file not found | Confirm the folder contains exactly one `PersonServiceCreditsMetrics.csv` |
-| Duplicate export files | Remove duplicate copies beneath the configured folder |
-| Sessions are zero | Confirm the export includes `ServiceName = Cowork` and overlaps the Person Query dates |
-| Work-pattern button is missing | Add the corresponding Person Query metric, rerun, and refresh |
-| History is provisional | Continue refreshing; do not add pre-Cowork zero weeks |
+Use [Troubleshooting](TROUBLESHOOTING.md) for authentication, missing fields,
+duplicate export files, zero sessions, and refresh issues.
 
 ## Official references
 
-- [Create a custom consumption query](https://learn.microsoft.com/viva/insights/advanced/analyst/ai-cost-query)
-- [Export AI cost metrics from the Consumption Dashboard](https://learn.microsoft.com/viva/insights/org-team-insights/export-ai-cost-metrics)
+- [Create a custom Person Query](https://learn.microsoft.com/viva/insights/advanced/analyst/person-query)
+- [Access query results and copy connector IDs](https://learn.microsoft.com/viva/insights/advanced/analyst/query-results)
+- [Create a custom Consumption query](https://learn.microsoft.com/viva/insights/advanced/analyst/ai-cost-query)
+- [Export Consumption Dashboard metrics](https://learn.microsoft.com/viva/insights/org-team-insights/export-ai-cost-metrics)
 - [Consumption Dashboard access requirements](https://learn.microsoft.com/viva/insights/org-team-insights/ai-cost-dashboard)
 - [Assign Viva Insights roles](https://learn.microsoft.com/viva/insights/advanced/setup-maint/assign-user-roles)
 - [Manage Viva Insights partitions](https://learn.microsoft.com/viva/insights/advanced/admin/partitions)

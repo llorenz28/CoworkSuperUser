@@ -1,94 +1,92 @@
-# CoworkSuperUser setup
+# Connect the Power BI template
 
-This page is the Power BI connection checklist. For the complete Viva Insights
-analysis-building procedure, required fields, validation, and troubleshooting,
-start with:
+Use this checklist after the Viva Insights inputs show **Success**. If the
+inputs have not been created, start with the detailed [CoworkSuperUser setup
+runbook](docs/QUERY_SETUP.md).
 
-**[Build and connect the Viva Insights analyses](docs/QUERY_SETUP.md)**
+## Choose the matching file
 
-## Recommended customer path
+| Available consumption input | Open |
+| --- | --- |
+| Consumption Dashboard **Export by day** folder | [`CoworkSuperUser - Optimized Export.pbit`](CoworkSuperUser%20-%20Optimized%20Export.pbit) |
+| Successful custom Consumption query | [`CoworkSuperUser - Direct Query.pbit`](CoworkSuperUser%20-%20Direct%20Query.pbit) |
 
-Use a completed Person Query plus the Consumption Dashboard daily export.
+Do not configure both paths. Both files produce the same report pages and use
+Power BI Import storage.
 
-1. Create the **Person Query**:
-   - Group by Week.
-   - Use the approved population.
-   - Include Person ID, Metric Date, Organization, Function, Level, and manager
-     indicator.
-   - From **After-hours collaboration**, select After-hours collaboration
-     hours.
-   - From **Collaboration activity**, select Active connected hours,
-     Collaboration hours, Collaboration span, Email hours, Chat hours, Meeting
-     hours, and Unscheduled call hours.
-   - From **Collaboration network**, select Diverse ties, External network size,
-     Internal network size, Network outside organization, and Strong ties.
-   - From **Collaboration by day of the week**, select Weekend collaboration
-     hours.
-2. Open **Consumption Dashboard**.
-3. Select **Download > Export by day**.
-4. Extract the ZIP to a protected folder.
-5. Keep `PersonServiceCreditsMetrics.csv` unchanged in that folder.
-6. Open `CoworkSuperUser - Optimized Export.pbit`.
-7. Enter the Person Query's Partition ID, Person Query ID, and the export
-   folder path.
-8. Select **Load**.
+## Optimized Export
 
-Use all available Cowork history from the first available week and aim for at
-least 12 covered weeks when available. Do not add pre-Cowork zero weeks.
+Before opening the template, confirm that:
 
-Wait until the Person Query shows **Success** before loading the template.
+- The Person Query shows **Success** and you have its copied result link.
+- The dashboard ZIP is extracted to a protected folder.
+- Exactly one supported consumption file exists beneath that folder: the
+  current `PersonServiceCreditsMetrics.csv` or legacy
+  `PersonM365CreditsMetrics.csv`. `PeopleMetaData.csv` may remain beside it.
 
-## Parameters
-
-### Advanced Direct Query
-
-This path requires an Insights Analyst assigned to the global partition. Create
-a custom **Consumption query**, group by Day, retain the four preselected
-consumption metrics, and filter `ServiceName = Cowork`.
-
-Then open `CoworkSuperUser - Direct Query.pbit` and enter:
-
-1. Partition Identifier
-2. Person Query Identifier
-3. Consumption Query Identifier
-
-Use raw GUIDs only. Select **Load**, then authenticate with an organizational
-account that can read the selected partition and completed results.
-
-### Optimized Export parameters
+Then:
 
 1. Open `CoworkSuperUser - Optimized Export.pbit`.
 2. Enter:
-   - Partition Identifier
-   - Person Query Identifier
-   - The folder containing `PersonServiceCreditsMetrics.csv`
-3. Select **Load** and authenticate to Viva Insights for the Person Query.
 
-Keep only one matching CSV beneath the configured folder.
+  | Parameter | Value |
+  | --- | --- |
+  | Partition Identifier | Partition ID from the Person Query link |
+  | Person Query Identifier | Query ID from the Person Query link |
+  | Viva Export Folder Path | Folder path, not the CSV file path |
 
-## Post-load validation
+3. Select **Load**.
+4. Select **Organizational account** and sign in with an account that can read
+  the Person Query partition.
+5. If prompted for a privacy level, use the level approved by your
+  organization; **Organizational** is commonly appropriate.
 
-- Start Here is the opening page.
-- Population and latest completed week are present.
-- Expected covered weeks appear.
-- Organization, Function, Level, and manager fields populate.
-- Sessions and credits reconcile with the completed consumption result.
-- Covered people without Cowork sessions remain zero/non-users.
-- Work Pattern Context enables the supplied Person Query metrics.
-- Privacy suppression applies below 10 people.
-- Methods and Metric Guide contains 117 current definitions.
-- No visual displays an error.
+## Direct Query
 
-## Publish
+Before opening the template, confirm that both queries show **Success**, both
+links contain the same Partition ID, and the account loading Power BI can read
+both results.
 
-1. Save as PBIX.
+Then:
+
+1. Open `CoworkSuperUser - Direct Query.pbit`.
+2. Enter the raw GUIDs only:
+
+  | Parameter | Value |
+  | --- | --- |
+  | Partition Identifier | Shared Partition ID |
+  | Person Query Identifier | Person Query ID |
+  | Consumption Query Identifier | Consumption Query ID |
+
+3. Select **Load**.
+4. Select **Organizational account** and sign in with the Insights Analyst
+  account that can read both results.
+
+## Validate the result
+
+Before sharing the report, confirm:
+
+- **Start Here** opens first and no visual displays an error.
+- Population and completed weeks match the Person Query.
+- Sessions and credits reconcile to Cowork consumption over the same period.
+- Organization fields populate when they were selected.
+- **Work Pattern Context** exposes each supplied metric and hides metrics that
+  were not supplied.
+- The history message reflects the available complete weeks.
+- Aggregate person-derived results are suppressed below 10 people.
+
+## Optional: publish and refresh
+
+1. Save the loaded report as PBIX.
 2. Apply the customer's required sensitivity label.
 3. Publish to an approved Power BI or Fabric workspace.
-4. Configure Viva Insights OAuth2 credentials.
+4. Configure the Viva Insights data source with OAuth2 credentials.
 5. For Optimized Export, configure an on-premises data gateway with access to
-   the CSV folder.
-6. Schedule refresh after the Viva Insights analyses complete.
-7. Test an on-demand refresh and confirm the newest complete week appears.
+  the export folder and replace the CSV before each refresh.
+6. For Direct Query, enable Auto-Refresh on both saved Viva Insights queries if
+  recurring updates are needed.
+7. Schedule Power BI refresh after the inputs update, run one on-demand
+  refresh, and verify the newest complete week.
 
-See [Troubleshooting](docs/TROUBLESHOOTING.md) and the
-[Interpretation Guide](INTERPRETATION_GUIDE.md).
+See [Troubleshooting](docs/TROUBLESHOOTING.md) if a check fails. Review the
+[Interpretation Guide](INTERPRETATION_GUIDE.md) before presenting results.
