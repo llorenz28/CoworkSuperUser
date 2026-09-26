@@ -32,7 +32,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Each cell divides weekly active people by the analytical population for that function. Darker cells indicate broader weekly reach. This is an observed-use rate, not an eligibility-based adoption rate.",
+                    "value": "Each cell divides weekly active users by the analytical population for that function. Darker cells indicate broader weekly reach. This is an observed-use rate, not an eligibility-based adoption rate.",
                     "textStyle": {
                       "fontSize": "9pt",
                       "color": "#1B1F27",

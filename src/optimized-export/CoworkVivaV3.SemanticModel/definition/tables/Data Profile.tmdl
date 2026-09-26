@@ -41,7 +41,7 @@ table 'Data Profile'
 					        {"Data Freshness", "81 days", "Review", "Days since the latest complete aligned week. The packaged demonstration data is intentionally static; replace it with current customer Viva Insights exports for live analysis."},
 					        {"Excluded Partial Consumption Weeks", "0", "Pass", "Consumption weeks later than the Person Query horizon are excluded from blended analysis."},
 					        {"Policy Duplicate Rows", "1752", "Pass", "Policy rows are aggregated to person-week before analytical joins."},
-					        {"Power Session Threshold", "6", "Pass", "Average sessions per observed week required in addition to the 75% active-week rule."},
+					        {"Super User Session Threshold", "6", "Pass", "Average sessions per observed week required in addition to the 75% active-week rule."},
 					        {"History Readiness", "26 covered weeks", "Pass", "Stages begin with the first covered Cowork week; movement begins with the second. Results remain provisional until the selected cap is populated."},
 					        {"Cowork Eligibility Denominator", "Not supplied", "Review", "IsCopilotLicensed is generic and is not used as Cowork access eligibility."},
 					        {"Global Partition Access", "Required", "Review", "Consumption metrics cannot be queried by analysts limited to a non-global partition."}

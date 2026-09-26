@@ -23,12 +23,12 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "Total Cowork Sessions"
+                  "Property": "Fastest Adoption Department"
                 }
               },
-              "queryRef": "Consumption Weekly.Total Cowork Sessions",
-              "nativeQueryRef": "Cowork sessions",
-              "displayName": "Cowork sessions"
+              "queryRef": "Consumption Weekly.Fastest Adoption Department",
+              "nativeQueryRef": "Fastest adoption",
+              "displayName": "Fastest adoption"
             }
           ]
         }
@@ -48,14 +48,14 @@
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'Consolas'"
+                  "Value": "'Segoe UI Semibold'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "22D"
+                  "Value": "12D"
                 }
               }
             },
@@ -90,6 +90,13 @@
                   "Value": "'Suppressed'"
                 }
               }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
             }
           },
           "selector": {
@@ -110,7 +117,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Cowork sessions'"
+                  "Value": "'Fastest adoption'"
                 }
               }
             },

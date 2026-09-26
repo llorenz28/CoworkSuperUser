@@ -170,7 +170,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Low User'"
+                  "Value": "'occasional user'"
                 }
               }
             },
@@ -258,7 +258,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Switch to Low User.'"
+                  "Value": "'Switch to occasional user.'"
                 }
               }
             }

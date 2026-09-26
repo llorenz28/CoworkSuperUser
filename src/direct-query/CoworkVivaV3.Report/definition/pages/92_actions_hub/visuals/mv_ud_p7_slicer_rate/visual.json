@@ -83,7 +83,7 @@
                     }
                   },
                   {
-                    "value": "Active share meets the benchmark, but sustained-use share is below it. Reinforce recurring workflows.",
+                    "value": "Active share meets the benchmark, but active in most weeks is below it. Reinforce recurring workflows.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "8pt",
@@ -104,7 +104,7 @@
                     }
                   },
                   {
-                    "value": "Both shares meet or exceed their benchmarks. Use privacy-safe Power and Habitual cohorts for peer coaching.",
+                    "value": "Both rates meet or exceed their benchmarks. Use privacy-safe Cowork super user and steady user cohorts for peer coaching.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "8pt",

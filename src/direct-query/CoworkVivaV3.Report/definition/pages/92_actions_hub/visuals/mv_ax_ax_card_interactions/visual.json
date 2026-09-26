@@ -5,8 +5,8 @@
     "x": 848,
     "y": 96,
     "z": 15000,
-    "height": 82,
-    "width": 416,
+    "height": 80,
+    "width": 192,
     "tabOrder": 2400
   },
   "visual": {
@@ -23,12 +23,12 @@
                       "Entity": "Person Metrics"
                     }
                   },
-                  "Property": "Selected Metric Other Average"
+                  "Property": "Selected Metric Super vs Occasional Difference"
                 }
               },
-              "queryRef": "Person Metrics.Selected Metric Other Average",
-              "nativeQueryRef": "Selected Metric Other Average",
-              "displayName": "Other users"
+              "queryRef": "Person Metrics.Selected Metric Super vs Occasional Difference",
+              "nativeQueryRef": "High vs low difference",
+              "displayName": "High vs low difference"
             }
           ]
         }
@@ -97,6 +97,13 @@
                   "Value": "'Suppressed'"
                 }
               }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
             }
           },
           "selector": {
@@ -117,7 +124,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Other users'"
+                  "Value": "'High vs low difference'"
                 }
               }
             },
@@ -356,5 +363,5 @@
       ]
     }
   },
-  "isHidden": true
+  "isHidden": false
 }

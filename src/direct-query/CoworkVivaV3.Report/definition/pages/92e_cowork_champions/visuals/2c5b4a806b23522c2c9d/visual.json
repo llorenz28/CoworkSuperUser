@@ -442,7 +442,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Potential champion count by department. Candidates are the fixed top 10 percent of sustained users in the latest selected usage-stage window.'"
+                  "Value": "'Potential champion count by department. Candidates are the fixed top 10 percent of users active most weeks in the latest selected usage-stage window.'"
                 }
               }
             }
@@ -509,7 +509,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Potential champions by department'"
+                  "Value": "'Potential peer enablers by department'"
                 }
               }
             },

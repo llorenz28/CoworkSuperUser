@@ -23,12 +23,12 @@
                       "Entity": "Usage Segment Snapshot"
                     }
                   },
-                  "Property": "Sustained Usage Share"
+                  "Property": "Active-Most-Weeks Rate"
                 }
               },
-              "queryRef": "Usage Segment Snapshot.Sustained Usage Share",
-              "nativeQueryRef": "Sustained Usage Share",
-              "displayName": "Sustained-use share"
+              "queryRef": "Usage Segment Snapshot.Active-Most-Weeks Rate",
+              "nativeQueryRef": "Active in most weeks",
+              "displayName": "active in most weeks"
             }
           ]
         }
@@ -117,7 +117,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sustained-use share'"
+                  "Value": "'active in most weeks'"
                 }
               }
             },
@@ -300,7 +300,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sustained-use share. Updates with the selected metric and report filters. Blank values are suppressed below the privacy threshold.'"
+                  "Value": "'active in most weeks. Updates with the selected metric and report filters. Blank values are suppressed below the privacy threshold.'"
                 }
               }
             }

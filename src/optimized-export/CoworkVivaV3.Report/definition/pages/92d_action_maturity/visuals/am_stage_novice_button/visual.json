@@ -170,7 +170,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Developing User'"
+                  "Value": "'emerging user'"
                 }
               }
             },
@@ -258,7 +258,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Switch to Developing User.'"
+                  "Value": "'Switch to emerging user.'"
                 }
               }
             }

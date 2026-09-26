@@ -5,9 +5,9 @@
     "x": 16,
     "y": 100,
     "z": 9000,
-    "height": 64,
+    "height": 40,
     "width": 1248,
-    "tabOrder": 2500
+    "tabOrder": 600
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,10 +23,10 @@
                       "Entity": "Adoption Measures"
                     }
                   },
-                  "Property": "Movement Narrative"
+                  "Property": "What changed"
                 }
               },
-              "queryRef": "Adoption Measures.Movement Narrative",
+              "queryRef": "Adoption Measures.What changed",
               "nativeQueryRef": "Movement interpretation",
               "displayName": "Movement interpretation"
             }

@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "How to read this view",
+                    "value": "WHAT THIS MEANS",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "12pt",
@@ -32,20 +32,12 @@
               {
                 "textRuns": [
                   {
-                    "value": "Dimensions  ",
+                    "value": "Compare network and beyond-hours patterns across usage groups.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "9pt",
-                      "color": "#172033",
+                      "fontSize": "12pt",
+                      "color": "#311F5E",
                       "fontWeight": "semibold"
-                    }
-                  },
-                  {
-                    "value": "Collaboration network includes internal network size, external network size, and network outside the organization. Beyond-hours work includes after-hours collaboration, weekend collaboration, and collaboration span.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
-                      "color": "#4F5B6B"
                     }
                   }
                 ]
@@ -53,20 +45,12 @@
               {
                 "textRuns": [
                   {
-                    "value": "Charts  ",
+                    "value": "",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "9pt",
-                      "color": "#172033",
+                      "fontSize": "12pt",
+                      "color": "#311F5E",
                       "fontWeight": "semibold"
-                    }
-                  },
-                  {
-                    "value": "Columns use the selected pattern's native unit. The dashed line uses a separate axis for Cowork session intensity. Usage stages run from Non-user to Power User.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
-                      "color": "#4F5B6B"
                     }
                   }
                 ]
@@ -74,20 +58,12 @@
               {
                 "textRuns": [
                   {
-                    "value": "Privacy  ",
+                    "value": "HOW TO READ",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "9pt",
-                      "color": "#172033",
+                      "fontSize": "12pt",
+                      "color": "#311F5E",
                       "fontWeight": "semibold"
-                    }
-                  },
-                  {
-                    "value": "A stage or selected population is hidden when it contains fewer than 10 people. Only patterns supplied by the loaded Viva export appear as selectable buttons.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
-                      "color": "#4F5B6B"
                     }
                   }
                 ]
@@ -95,20 +71,51 @@
               {
                 "textRuns": [
                   {
-                    "value": "Interpretation  ",
+                    "value": "Choose one metric; compare groups on the same unit.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "9pt",
-                      "color": "#172033",
+                      "fontSize": "12pt",
+                      "color": "#311F5E",
                       "fontWeight": "semibold"
                     }
-                  },
+                  }
+                ]
+              },
+              {
+                "textRuns": [
                   {
-                    "value": "These are descriptive associations. They do not show that Cowork caused a work-pattern difference or business impact. Department and organization filters are under Open filters.",
+                    "value": "",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
-                      "color": "#4F5B6B"
+                      "fontSize": "12pt",
+                      "color": "#311F5E",
+                      "fontWeight": "semibold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "BOUNDARY",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "12pt",
+                      "color": "#311F5E",
+                      "fontWeight": "semibold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Descriptive only—not causal or performance evidence.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "12pt",
+                      "color": "#311F5E",
+                      "fontWeight": "semibold"
                     }
                   }
                 ]
@@ -249,5 +256,6 @@
         }
       ]
     }
-  }
+  },
+  "isHidden": true
 }

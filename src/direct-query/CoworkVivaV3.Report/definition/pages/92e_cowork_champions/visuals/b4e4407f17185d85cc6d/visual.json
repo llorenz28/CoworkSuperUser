@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "POWER USER VS POTENTIAL CHAMPION",
+                    "value": "COWORK SUPER USER VS POTENTIAL PEER ENABLER",
                     "textStyle": {
                       "fontFamily": "Segoe UI Semibold",
                       "fontSize": "9pt",
@@ -31,23 +31,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "Power User = active in at least 75% of available weeks and averages at least 6 sessions per available week.",
+                    "value": "Cowork super user = active in at least 75% of available weeks and averages at least 6 sessions per available week.",
                     "textStyle": {
                       "fontFamily": "Segoe UI Semibold",
-                      "fontSize": "10pt",
-                      "color": "#172033"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Potential champion = top 10% of sustained users (Power + Habitual) in the selected usage-stage window, ranked by active weeks, then average weekly sessions.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
                       "fontSize": "9pt",
-                      "color": "#172033"
+                      "color": "#0067B8"
                     }
                   }
                 ]
@@ -55,11 +43,23 @@
               {
                 "textRuns": [
                   {
-                    "value": "The current synchronized cap is shown above; default is up to 4 weeks. Organization filters narrow the displayed list but do not rerank it.",
+                    "value": "Potential peer enabler = a top-ranked user who is active in most weeks, based on active weeks and average weekly sessions.",
                     "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
-                      "color": "#4F5B6B"
+                      "fontFamily": "Segoe UI Semibold",
+                      "fontSize": "9pt",
+                      "color": "#0067B8"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Usage is only the starting signal. Confirm willingness, communication fit, manager support, and consent before outreach.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI Semibold",
+                      "fontSize": "9pt",
+                      "color": "#0067B8"
                     }
                   }
                 ]
@@ -145,7 +145,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'POWER USER VS POTENTIAL CHAMPION Power User = active in at least 75% of available weeks and averages at least 6 sessions per available week. Potential champion = top 10% of sustained users (Power + Habitual) in the selected usage-stage window, ranked by active weeks, then average weekly sessions. The current synchronized cap is shown above; default is up to 4 weeks. Organization filters narrow the displayed list but do not rerank it.'"
+                  "Value": "'Cowork super user VS POTENTIAL CHAMPION Cowork super user = active in at least 75% of available weeks and averages at least 6 sessions per available week. Potential champion = top 10% of Cowork super users and steady users in the available-history window, ranked by active weeks, then average weekly sessions. The current synchronized cap is shown above; default is up to 12 weeks. Organization filters narrow the displayed list but do not rerank it.'"
                 }
               }
             }

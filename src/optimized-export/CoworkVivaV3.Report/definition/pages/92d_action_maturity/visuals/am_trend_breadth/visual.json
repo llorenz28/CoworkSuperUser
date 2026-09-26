@@ -43,12 +43,12 @@
                       "Entity": "Usage Segment Snapshot"
                     }
                   },
-                  "Property": "Movement People"
+                  "Property": "Movement Users"
                 }
               },
-              "queryRef": "Usage Segment Snapshot.Movement People",
-              "nativeQueryRef": "People",
-              "displayName": "People"
+              "queryRef": "Usage Segment Snapshot.Movement Users",
+              "nativeQueryRef": "users",
+              "displayName": "users"
             }
           ]
         }
@@ -546,7 +546,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Horizontal bars show privacy-safe counts of people whose Cowork stage improved, stayed stable, or declined.'"
+                  "Value": "'Horizontal bars show privacy-safe counts of users whose Cowork stage improved, stayed stable, or declined.'"
                 }
               }
             }

@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "How much Cowork is being used?",
+                    "value": "Which departments need attention?",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "14pt",

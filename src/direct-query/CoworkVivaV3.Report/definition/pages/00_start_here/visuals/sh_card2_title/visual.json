@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Who is joining, returning, or lapsing?",
+                    "value": "Are users coming back?",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "14pt",

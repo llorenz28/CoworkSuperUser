@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "How usage stage is calculated",
+                    "value": "GROUP DEFINITIONS | Cowork super user: active in at least 75% of weeks and at least 6 sessions/week. Steady: active in at least 75% and under 6 sessions/week. Emerging: active in 25–74%. Occasional: active in under 25%. No observed use: no sessions.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "11pt",
@@ -32,113 +32,12 @@
               {
                 "textRuns": [
                   {
-                    "value": "Power User  ",
+                    "value": "Use all reliable history available, up to 12 weeks. These groups support enablement planning—not performance evaluation.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
+                      "fontSize": "11pt",
                       "color": "#172033",
                       "fontWeight": "semibold"
-                    }
-                  },
-                  {
-                    "value": "Active in at least 75% of available covered weeks and averages at least 6 sessions per available week.   ",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
-                      "color": "#4F5B6B"
-                    }
-                  },
-                  {
-                    "value": "Habitual User  ",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
-                      "color": "#172033",
-                      "fontWeight": "semibold"
-                    }
-                  },
-                  {
-                    "value": "Active in at least 75% of available covered weeks and averages fewer than 6 sessions per available week.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
-                      "color": "#4F5B6B"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Developing User  ",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
-                      "color": "#172033",
-                      "fontWeight": "semibold"
-                    }
-                  },
-                  {
-                    "value": "Active in at least 25% but fewer than 75% of available covered weeks.   ",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
-                      "color": "#4F5B6B"
-                    }
-                  },
-                  {
-                    "value": "Low User  ",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
-                      "color": "#172033",
-                      "fontWeight": "semibold"
-                    }
-                  },
-                  {
-                    "value": "Active at least once but in fewer than 25% of available covered weeks.   ",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
-                      "color": "#4F5B6B"
-                    }
-                  },
-                  {
-                    "value": "Non-user  ",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
-                      "color": "#172033",
-                      "fontWeight": "semibold"
-                    }
-                  },
-                  {
-                    "value": "No activity in any available covered week.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
-                      "color": "#4F5B6B"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Method  ",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
-                      "color": "#172033",
-                      "fontWeight": "semibold"
-                    }
-                  },
-                  {
-                    "value": "Active-week rate = active weeks divided by available covered weeks. Average weekly sessions = total sessions divided by available covered weeks, including zero-activity weeks. Uses all available Sunday-start Cowork weeks up to the selected 4- or 12-week cap; shorter history is provisional, movement begins with week 2, and groups below 10 people are hidden. A 4-week cap cannot produce Low User because one active week equals 25%; use the 12-week cap with at least 5 available weeks. Stages describe usage—not skill or performance.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "8pt",
-                      "color": "#4F5B6B"
                     }
                   }
                 ]
@@ -224,7 +123,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Usage-stage calculation guide. Power users are active in at least 75 percent of available covered weeks and average at least 6 sessions per available week. Stages use up to the selected 4- or 12-week cap, include zero-activity weeks, and hide groups below 10 people.'"
+                  "Value": "'Usage-stage calculation guide. Cowork super users are active in at least 75 percent of available covered weeks and average at least 6 sessions per available week. Stages use up to the selected 4- or 12-week cap, include zero-activity weeks, and hide groups below 10 users.'"
                 }
               }
             }

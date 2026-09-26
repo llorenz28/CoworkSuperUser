@@ -40,6 +40,9 @@ Then:
   the Person Query partition.
 5. If prompted for a privacy level, use the level approved by your
   organization; **Organizational** is commonly appropriate.
+6. If Power BI reused the wrong account, open **File > Options and settings >
+  Data source settings**, clear the saved Viva Insights permission, and sign
+  in again with the intended organizational account.
 
 ## Direct Query
 
@@ -73,7 +76,12 @@ Before sharing the report, confirm:
 - **Work Pattern Context** exposes each supplied metric and hides metrics that
   were not supplied.
 - The history message reflects the available complete weeks.
-- Aggregate person-derived results are suppressed below 10 people.
+- Aggregate user-derived results are suppressed below 10 users.
+- On **Where is adoption lagging while credits are high?**, set **Customer cost
+  per credit** to the customer's contracted or planning rate. The default is
+  `0.0100`.
+- Estimated cost reconciles to total Cowork credits multiplied by the selected
+  customer rate.
 
 ## Optional: publish and refresh
 

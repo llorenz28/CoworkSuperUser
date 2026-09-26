@@ -62,12 +62,12 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "Sessions per Active Person"
+                  "Property": "Sessions per Active User"
                 }
               },
-              "queryRef": "Consumption Weekly.Sessions per Active Person",
-              "nativeQueryRef": "Sessions per active person",
-              "displayName": "Sessions per active person"
+              "queryRef": "Consumption Weekly.Sessions per Active User",
+              "nativeQueryRef": "Sessions per active user",
+              "displayName": "Sessions per active user"
             }
           ]
         }
@@ -428,7 +428,7 @@
             }
           },
           "selector": {
-            "metadata": "Consumption Weekly.Sessions per Active Person"
+            "metadata": "Consumption Weekly.Sessions per Active User"
           }
         }
       ]
@@ -509,7 +509,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Observed weekly Cowork sessions as columns and sessions per active person as a secondary-axis line.'"
+                  "Value": "'Observed weekly Cowork sessions as columns and sessions per active user as a secondary-axis line.'"
                 }
               }
             }
@@ -576,7 +576,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Weekly sessions and sessions per active person'"
+                  "Value": "'Weekly sessions and sessions per active user'"
                 }
               }
             },

@@ -2,7 +2,7 @@
 expression 'Partition Identifier' = "" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
 	lineageTag: 522e8607-4c68-4c7e-9ee1-73c562040868
 
-/// Person Query identifier copied from Analysis results.
+/// user Query identifier copied from Analysis results.
 expression 'Person Query Identifier' = "" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
 	lineageTag: 3246db93-1ac4-476e-8206-f118c9e09b20
 
@@ -65,8 +65,8 @@ expression fnLoadVivaExportCsv =
 			fn
 	lineageTag: 8a91eaf2-9397-49b2-80b2-307cb65f9ccf
 
-/// Average weekly sessions required for Cowork Power User classification in the selected window.
-expression 'Power User Session Threshold' = 6
+/// Average weekly sessions required for Cowork super user classification in the selected window.
+expression 'Super User Session Threshold' = 6
 	lineageTag: 6fdf547c-efee-4d64-bdb2-8b1f0dea3b42
 
 expression 'Integrated Person Week Source' =

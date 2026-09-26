@@ -23,10 +23,10 @@
                       "Entity": "Usage Segment Snapshot"
                     }
                   },
-                  "Property": "Stable People"
+                  "Property": "Stable Users"
                 }
               },
-              "queryRef": "Usage Segment Snapshot.Stable People",
+              "queryRef": "Usage Segment Snapshot.Stable Users",
               "nativeQueryRef": "Stable",
               "displayName": "Stable"
             }

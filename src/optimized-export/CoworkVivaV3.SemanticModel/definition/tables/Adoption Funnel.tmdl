@@ -1,0 +1,45 @@
+/// Executive adoption journey from the analyzed population to high-frequency recurring users.
+table 'Adoption Funnel'
+	lineageTag: 6a305b2e-8e3b-4d5c-9f16-0f6f0f3e63ae
+
+	/// Privacy-safe number of users at the selected adoption-funnel stage.
+	measure 'Funnel Users' =
+			VAR _stage = SELECTEDVALUE('Adoption Funnel'[Stage])
+			RETURN
+			SWITCH(
+			    _stage,
+			    "Total population", [Reportable Population],
+			    "Active users", [Observed Cowork Active Users],
+			    "Active in most weeks", [Users Active Most Weeks],
+			    "Cowork super users", [Cowork Super Users]
+			)
+		formatString: #,##0
+		displayFolder: Adoption funnel
+		lineageTag: f2d01898-7fc8-49f8-ad30-4fbd42ef7770
+
+	column Stage
+		dataType: string
+		lineageTag: 7ce74128-1f69-43ff-a7cb-98cb668db213
+		summarizeBy: none
+		sourceColumn: Stage
+		sortByColumn: 'Stage Sort'
+
+	column 'Stage Sort'
+		dataType: int64
+		isHidden
+		lineageTag: 7f16e56a-827f-4695-889c-0ba17141c733
+		summarizeBy: none
+		sourceColumn: Stage Sort
+
+	partition 'Adoption Funnel' = m
+		mode: import
+		source =
+				let
+					Data = #table({"Stage", "Stage Sort"}, {
+					        {"Total population", 1},
+					        {"Active users", 2},
+					        {"Active in most weeks", 3},
+					        {"Cowork super users", 4}
+					    })
+				in
+					Data

@@ -39,9 +39,9 @@ table 'Adoption Actions'
 		source =
 				let
 					Data = #table({"Action", "Action Sort", "Trigger", "Interpretation", "Evidence Class"}, {
-					        {"Activate observed use", 1, "Observed Cowork user share trails the organization benchmark.", "Prioritize access validation, awareness, and role-relevant first-use support.", "Derived"},
-					        {"Build repeat habit", 2, "Observed use is established but sustained-use share trails the benchmark.", "Prioritize repeatable scenarios, manager reinforcement, and follow-up learning.", "Derived"},
-					        {"Scale champion practice", 3, "Observed use and sustained-use share meet or exceed benchmarks.", "Use aggregate Cowork Power and Habitual cohorts for peer learning without exposing individuals.", "Derived"}
+					        {"Expand reach", 1, "Observed Cowork user share trails the organization benchmark.", "Prioritize access validation, awareness, and role-relevant first-use support.", "Derived"},
+					        {"Increase repeat use", 2, "Observed use is established but share active in most weeks trails the benchmark.", "Prioritize repeatable scenarios, manager reinforcement, and follow-up learning.", "Derived"},
+					        {"Scale successful practices", 3, "Observed use and share active in most weeks meet or exceed benchmarks.", "Use aggregate users active most weekss for peer learning without exposing individuals.", "Derived"}
 					    })
 				in
 					Data

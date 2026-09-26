@@ -545,7 +545,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Expandable Department to pseudonymous User ID hierarchy for the selected Cowork Habitual User population.'"
+                  "Value": "'Expandable Department to pseudonymous User ID hierarchy for the selected Steady user population.'"
                 }
               }
             }
@@ -612,7 +612,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Habitual User: department and users'"
+                  "Value": "'steady user: department and users'"
                 }
               }
             },
@@ -749,7 +749,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Cowork Habitual User'"
+                          "Value": "'Steady user'"
                         }
                       }
                     ]

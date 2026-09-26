@@ -41,7 +41,7 @@
                     }
                   },
                   {
-                    "value": "Latest-window active share is people with complete coverage who used Cowork at least once in the selected 4- or 12-week window. Sustained-use share is the Power + Habitual share.",
+                    "value": "Latest-window active rate is users with complete coverage who used Cowork at least once in the available-history window. Active in most weeks is the rate classified as Cowork super users or steady users.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "9.5pt",
@@ -83,7 +83,7 @@
                     }
                   },
                   {
-                    "value": "Results below 10 people are suppressed. Recommendations are relative to company benchmarks. They are not maturity scores, not individual performance evaluations, and not proof that Cowork caused an outcome.",
+                    "value": "Results below 10 users are suppressed. Recommendations are relative to company benchmarks. They are not maturity scores, not individual performance evaluations, and not proof that Cowork caused an outcome.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "9.5pt",

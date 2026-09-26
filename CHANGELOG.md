@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.1.0 - 2026-09-26
+
+- Rebuilt the report as a decision-led storyline with question-based page titles
+  and plain-language user terminology.
+- Added the adoption funnel: total population, active users, users active in
+  most weeks, and Cowork super users.
+- Replaced bookmark-selector-heavy default pages with visible user journey,
+  enablement, department showback, and work-pattern findings.
+- Added dynamic Cowork-super-user versus occasional-user work-pattern
+  comparisons and recent four-week trend findings.
+- Added department adoption and consumption portfolio analysis, including
+  fastest adoption, lower-reach/higher-credit outliers, concentration, and
+  credit intensity.
+- Added a customer-controlled cost-per-credit input and estimated department
+  cost showback without treating modeled cost as ROI.
+- Expanded and synchronized the glossary to all 137 current measures.
+- Re-exported and validated both Public, data-free PBIT connection editions.
+
 ## 1.0.1 - 2026-09-25
 
 - Documented all 117 current semantic-model measures, including hidden helpers and bookmark-only report states.

@@ -43,12 +43,12 @@
                       "Entity": "Usage Segment Snapshot"
                     }
                   },
-                  "Property": "Sustained Usage Share"
+                  "Property": "Active-Most-Weeks Rate"
                 }
               },
-              "queryRef": "Usage Segment Snapshot.Sustained Usage Share",
-              "nativeQueryRef": "Sustained-use share",
-              "displayName": "Sustained-use share"
+              "queryRef": "Usage Segment Snapshot.Active-Most-Weeks Rate",
+              "nativeQueryRef": "active in most weeks",
+              "displayName": "active in most weeks"
             },
             {
               "field": {
@@ -58,12 +58,12 @@
                       "Entity": "Usage Segment Snapshot"
                     }
                   },
-                  "Property": "Sustained Retention Rate"
+                  "Property": "Most-Weeks User Retention"
                 }
               },
-              "queryRef": "Usage Segment Snapshot.Sustained Retention Rate",
-              "nativeQueryRef": "Sustained retention",
-              "displayName": "Sustained retention"
+              "queryRef": "Usage Segment Snapshot.Most-Weeks User Retention",
+              "nativeQueryRef": "regular retention",
+              "displayName": "regular retention"
             }
           ]
         }
@@ -78,7 +78,7 @@
                     "Entity": "Usage Segment Snapshot"
                   }
                 },
-                "Property": "Sustained Usage Share"
+                "Property": "Active-Most-Weeks Rate"
               }
             },
             "direction": "Descending"
@@ -234,7 +234,7 @@
             "titleText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Share of people'"
+                  "Value": "'percentage of users'"
                 }
               }
             },
@@ -425,7 +425,7 @@
             }
           },
           "selector": {
-            "metadata": "Usage Segment Snapshot.Sustained Usage Share"
+            "metadata": "Usage Segment Snapshot.Active-Most-Weeks Rate"
           }
         },
         {
@@ -443,7 +443,7 @@
             }
           },
           "selector": {
-            "metadata": "Usage Segment Snapshot.Sustained Retention Rate"
+            "metadata": "Usage Segment Snapshot.Most-Weeks User Retention"
           }
         }
       ],
@@ -544,7 +544,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Clustered horizontal bars compare each department''s sustained-use share with sustained-user retention. Both measures are privacy-safe.'"
+                  "Value": "'Clustered horizontal bars compare each department''s active in most weeks with regular-user retention. Both measures are privacy-safe.'"
                 }
               }
             }
@@ -611,7 +611,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sustained-use share and retention by department'"
+                  "Value": "'active in most weeks and retention by department'"
                 }
               }
             },

@@ -709,7 +709,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Potential champion activity table. Active weeks, sessions in window, and average sessions per week use independent light-to-dark heatmap scales; darker cells indicate higher activity within that metric.'"
+                  "Value": "'Potential peer-enabler evidence table. Active weeks, sessions in window, and average sessions per week use independent light-to-dark heatmap scales; darker cells indicate higher activity within that metric.'"
                 }
               }
             }
@@ -776,7 +776,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Potential champion activity | Darker cells = higher activity'"
+                  "Value": "'Potential peer-enabler evidence | Darker cells = higher activity'"
                 }
               }
             },

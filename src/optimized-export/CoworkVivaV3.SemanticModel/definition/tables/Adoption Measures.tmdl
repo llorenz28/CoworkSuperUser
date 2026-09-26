@@ -32,7 +32,7 @@ table 'Adoption Measures'
 			                & " covered Cowork weeks available. All current views use available history.",
 			        _weeks < _movementWeeks,
 			            "Current stages and champion candidates are available. "
-			                & "Habit Movement begins with the second covered Cowork week.",
+			                & "User progression begins with the second covered Cowork week.",
 			        "The selected available-history cap is fully populated."
 			    )
 			RETURN _period & " | " & _status
@@ -80,7 +80,7 @@ table 'Adoption Measures'
 			        "BUILDING HISTORY | " & FORMAT(_weeks, "0") & " of up to " & FORMAT(_window, "0")
 			            & " covered Cowork weeks available. Stages use available history.",
 			    _weeks < _movementWeeks,
-			        "Stages and champion candidates are available. Habit Movement begins with week 2.",
+			        "Stages and champion candidates are available. User progression begins with week 2.",
 			    "Stages, champion candidates, and Habit Movement use up to "
 			        & FORMAT(_window, "0") & " covered Cowork weeks."
 			)
@@ -103,7 +103,7 @@ table 'Adoption Measures'
 			    _weeks < _window,
 			        "INTERIM CHAMPION EVIDENCE | " & FORMAT(_weeks, "0") & " of up to "
 			            & FORMAT(_window, "0") & " covered Cowork weeks available.",
-			    "CHAMPION CANDIDATE EVIDENCE | UP TO " & FORMAT(_window, "0") & " COVERED WEEKS"
+			    "PEER-ENABLEMENT EVIDENCE | UP TO " & FORMAT(_window, "0") & " COVERED WEEKS"
 			)
 		formatString: General
 		displayFolder: Source
@@ -160,8 +160,8 @@ table 'Adoption Measures'
 		displayFolder: Source
 		lineageTag: 5ae54d79-9c38-4501-b795-269ef4879565
 
-	/// Average sessions per observed week required in addition to at least 75% active weeks for Cowork Power User classification.
-	measure 'Power Session Threshold' = MAX('Usage Segment Snapshot'[Power Session Threshold])
+	/// Average sessions per observed week required in addition to at least 75% active weeks for Cowork super user classification.
+	measure 'Super User Session Threshold' = MAX('Usage Segment Snapshot'[Super User Session Threshold])
 		formatString: 0.0
 		displayFolder: Method
 		lineageTag: bdfd434d-034a-426c-b820-af924822a3da
@@ -176,11 +176,11 @@ table 'Adoption Measures'
 		displayFolder: Function readiness
 		lineageTag: df374a6d-74c7-4b56-80e6-7ab2c8e428a4
 
-	/// Function sustained-use share minus the organization benchmark.
-	measure 'Function Sustained Gap pp' =
+	/// Function share active in most weeks minus the organization benchmark.
+	measure 'Function Active-Most-Weeks Gap pp' =
 			VAR _population = [Population]
-			VAR _share = [Sustained Usage Share]
-			VAR _benchmark = CALCULATE([Sustained Usage Share], REMOVEFILTERS('Organization'[Function]))
+			VAR _share = [Active-Most-Weeks Rate]
+			VAR _benchmark = CALCULATE([Active-Most-Weeks Rate], REMOVEFILTERS('Organization'[Function]))
 			RETURN IF(_population >= [Privacy Floor] && NOT ISBLANK(_share) && NOT ISBLANK(_benchmark), 100 * (_share - _benchmark))
 		formatString: 0.0 "pp"
 		displayFolder: Function readiness
@@ -196,11 +196,11 @@ table 'Adoption Measures'
 		displayFolder: Function benchmarks
 		lineageTag: 26d72a02-0188-4765-b1d1-d8ecabe55eef
 
-	/// Organization sustained-use benchmark, shown only for reportable function rows.
-	measure 'Company Sustained Usage Share' =
+	/// Organization active most weeks benchmark, shown only for reportable function rows.
+	measure 'Company Active-Most-Weeks Rate' =
 			VAR _population = [Population]
-			VAR _share = [Sustained Usage Share]
-			VAR _benchmark = CALCULATE([Sustained Usage Share], REMOVEFILTERS('Organization'[Function]))
+			VAR _share = [Active-Most-Weeks Rate]
+			VAR _benchmark = CALCULATE([Active-Most-Weeks Rate], REMOVEFILTERS('Organization'[Function]))
 			RETURN IF(_population >= [Privacy Floor] && NOT ISBLANK(_share), _benchmark)
 		formatString: 0.0%
 		displayFolder: Function benchmarks
@@ -212,11 +212,11 @@ table 'Adoption Measures'
 		displayFolder: Function benchmarks
 		lineageTag: 56cea9b9-cfd1-44e0-a9ec-66c1e52775bb
 
-	/// Average collaboration hours for sustained Cowork users or the rest.
+	/// Average collaboration hours for regular Cowork users or the rest.
 	measure 'Collaboration Hours by Adoption Group' =
 			VAR _axisGroup = SELECTEDVALUE('Adoption Comparison Group'[Group])
 			VAR _selectedSustained =
-			    IF(_axisGroup = "Sustained users", "Yes", "No")
+			    IF(_axisGroup = "Users active most weeks", "Yes", "No")
 			VAR _selectedIds =
 			    CALCULATETABLE(
 			        VALUES('Usage Segment Snapshot'[Person ID]),
@@ -235,11 +235,11 @@ table 'Adoption Measures'
 		displayFolder: Adoption context
 		lineageTag: 76846213-7674-40fd-a738-8643d0ef6d93
 
-	/// Average meeting hours for sustained Cowork users or the rest.
+	/// Average meeting hours for regular Cowork users or the rest.
 	measure 'Meeting Hours by Adoption Group' =
 			VAR _axisGroup = SELECTEDVALUE('Adoption Comparison Group'[Group])
 			VAR _selectedSustained =
-			    IF(_axisGroup = "Sustained users", "Yes", "No")
+			    IF(_axisGroup = "Users active most weeks", "Yes", "No")
 			VAR _selectedIds =
 			    CALCULATETABLE(
 			        VALUES('Usage Segment Snapshot'[Person ID]),
@@ -258,11 +258,11 @@ table 'Adoption Measures'
 		displayFolder: Adoption context
 		lineageTag: 7d1183cc-886d-42dc-9fdd-0c64bc2fef9a
 
-	/// Average after hours collaboration for sustained Cowork users or the rest.
+	/// Average after hours collaboration for regular Cowork users or the rest.
 	measure 'After Hours Collaboration by Adoption Group' =
 			VAR _axisGroup = SELECTEDVALUE('Adoption Comparison Group'[Group])
 			VAR _selectedSustained =
-			    IF(_axisGroup = "Sustained users", "Yes", "No")
+			    IF(_axisGroup = "Users active most weeks", "Yes", "No")
 			VAR _selectedIds =
 			    CALCULATETABLE(
 			        VALUES('Usage Segment Snapshot'[Person ID]),
@@ -281,11 +281,11 @@ table 'Adoption Measures'
 		displayFolder: Adoption context
 		lineageTag: 06e2cd7f-a426-452e-941c-00bb7ef9d60e
 
-	/// Average internal network size for sustained Cowork users or the rest.
+	/// Average internal network size for regular Cowork users or the rest.
 	measure 'Internal Network Size by Adoption Group' =
 			VAR _axisGroup = SELECTEDVALUE('Adoption Comparison Group'[Group])
 			VAR _selectedSustained =
-			    IF(_axisGroup = "Sustained users", "Yes", "No")
+			    IF(_axisGroup = "Users active most weeks", "Yes", "No")
 			VAR _selectedIds =
 			    CALCULATETABLE(
 			        VALUES('Usage Segment Snapshot'[Person ID]),
@@ -304,13 +304,13 @@ table 'Adoption Measures'
 		displayFolder: Adoption context
 		lineageTag: e6155f77-ef09-4737-9f0e-6cc998d260ef
 
-	/// Privacy-safe department enablement recommendation based on latest-window reach and sustained-use gaps versus company benchmarks.
+	/// Privacy-safe department enablement recommendation based on latest-window reach and active most weeks gaps versus company benchmarks.
 	measure 'Adoption Action' =
 			VAR _weeks = [Observation Weeks]
 			VAR _coverage = [Latest Window Reach]
 			VAR _coverageBenchmark = CALCULATE([Latest Window Reach], REMOVEFILTERS('Organization'[Function]))
-			VAR _sustained = [Sustained Usage Share]
-			VAR _sustainedBenchmark = CALCULATE([Sustained Usage Share], REMOVEFILTERS('Organization'[Function]))
+			VAR _sustained = [Active-Most-Weeks Rate]
+			VAR _sustainedBenchmark = CALCULATE([Active-Most-Weeks Rate], REMOVEFILTERS('Organization'[Function]))
 			RETURN
 			IF(
 			    _weeks = 0,
@@ -320,9 +320,9 @@ table 'Adoption Measures'
 			        BLANK(),
 			        SWITCH(
 			            TRUE(),
-			            _coverage < _coverageBenchmark, "Activate observed use",
-			            _sustained < _sustainedBenchmark, "Build repeat habit",
-			            "Scale champion practice"
+			            _coverage < _coverageBenchmark, "Expand reach",
+			            _sustained < _sustainedBenchmark, "Increase repeat use",
+			            "Scale successful practices"
 			        )
 			    )
 			)
@@ -334,13 +334,13 @@ table 'Adoption Measures'
 	measure 'Adoption Action Rationale' =
 			VAR _weeks = [Observation Weeks]
 			VAR _coverageGap = [Function Observed User Gap pp]
-			VAR _sustainedGap = [Function Sustained Gap pp]
-			VAR _powerUsers = [Power Users]
+			VAR _sustainedGap = [Function Active-Most-Weeks Gap pp]
+			VAR _powerUsers = [Cowork Super Users]
 			VAR _powerText =
 			    IF(
 			        ISBLANK(_powerUsers),
-			        "the privacy-safe Power User cohort",
-			        FORMAT(_powerUsers, "#,##0") & " Power Users"
+			        "the privacy-safe Cowork super-user cohort",
+			        FORMAT(_powerUsers, "#,##0") & " Cowork Super Users"
 			    )
 			RETURN
 			IF(
@@ -348,24 +348,24 @@ table 'Adoption Measures'
 			    "Enablement priorities need at least one completed Cowork consumption week.",
 			    SWITCH(
 			        [Adoption Action],
-			        "Activate observed use", "Reach " & FORMAT(_coverageGap, "0.0") & " pp: validate access and first-use.",
-			        "Build repeat habit", "Sustained use " & FORMAT(_sustainedGap, "0.0") & " pp: reinforce recurring workflows.",
-			        "Scale champion practice", "Both meet company: mobilize " & _powerText & " as peer coaches."
+			        "Expand reach", "Reach " & FORMAT(_coverageGap, "0.0") & " pp: validate access and first-use.",
+			        "Increase repeat use", "Active in most weeks " & FORMAT(_sustainedGap, "0.0") & " pp: reinforce recurring workflows.",
+			        "Scale successful practices", "Both meet company: mobilize " & _powerText & " as peer coaches."
 			    )
 			)
 		formatString: General
 		displayFolder: Enablement priorities
 		lineageTag: 8b196355-4a7c-4fcd-a0e5-23b9cb41321b
 
-	/// Dynamic observed breadth, sustained-use, and momentum narrative.
+	/// Dynamic observed breadth, active most weeks, and momentum narrative.
 	measure 'Executive Adoption Narrative' =
 			IF(
 			    [Population] < [Privacy Floor],
-			    "Results are suppressed because the selected population contains fewer than 10 people.",
+			    "Results are suppressed because the selected population contains fewer than 10 users.",
 			    FORMAT([Observed Cowork Active Users], "#,##0")
-			        & " people show observed Cowork activity in the aligned period. "
-			        & FORMAT([Sustained Users], "#,##0") & " are Cowork Power or Habitual users ("
-			        & FORMAT([Sustained Usage Share], "0.0%") & " of the analytical population). "
+			        & " users show observed Cowork activity in the aligned period. "
+			        & FORMAT([Users Active Most Weeks], "#,##0") & " are users active most weeks ("
+			        & FORMAT([Active-Most-Weeks Rate], "0.0%") & " of the analytical population). "
 			        & [Stage History Status] & " "
 			        & "No Cowork eligibility roster was supplied, so this is not an adoption rate."
 			)
@@ -378,27 +378,27 @@ table 'Adoption Measures'
 			VAR _weeks = [Observation Weeks]
 			VAR _required = [Movement Required Weeks]
 			VAR _window = VALUE([Selected Adoption Window Weeks])
-			VAR _improved = [Improved People]
-			VAR _stable = [Stable People]
-			VAR _declined = [Declined People]
-			VAR _retention = [Sustained Retention Rate]
+			VAR _improved = [Improved Users]
+			VAR _stable = [Stable Users]
+			VAR _declined = [Declined Users]
+			VAR _retention = [Most-Weeks User Retention]
 			VAR _hasHiddenMovement = ISBLANK(_improved) || ISBLANK(_stable) || ISBLANK(_declined)
 			VAR _movementText =
 			    IF(
 			        NOT _hasHiddenMovement,
-			        FORMAT(_improved, "#,##0") & " people improved stage, "
+			        FORMAT(_improved, "#,##0") & " users moved to a higher-use pattern, "
 			            & FORMAT(_stable, "#,##0") & " remained stable, and "
 			            & FORMAT(_declined, "#,##0") & " declined. ",
-			        IF(NOT ISBLANK(_improved), FORMAT(_improved, "#,##0") & " people improved stage. ", "")
-			            & IF(NOT ISBLANK(_stable), FORMAT(_stable, "#,##0") & " people remained stable. ", "")
-			            & IF(NOT ISBLANK(_declined), FORMAT(_declined, "#,##0") & " people declined. ", "")
+			        IF(NOT ISBLANK(_improved), FORMAT(_improved, "#,##0") & " users moved to a higher-use pattern. ", "")
+			            & IF(NOT ISBLANK(_stable), FORMAT(_stable, "#,##0") & " users remained in the same pattern. ", "")
+			            & IF(NOT ISBLANK(_declined), FORMAT(_declined, "#,##0") & " users moved to a lower-use pattern. ", "")
 			            & "Movement counts below the privacy threshold are hidden. "
 			    )
 			VAR _retentionText =
 			    IF(
 			        ISBLANK(_retention),
-			        "Sustained-user retention is hidden below the privacy threshold. ",
-			        "Sustained-user retention is " & FORMAT(_retention, "0.0%") & ". "
+			        "Most-weeks retention is hidden below the privacy threshold. ",
+			        "Most-weeks retention is " & FORMAT(_retention, "0.0%") & ". "
 			    )
 			VAR _historyText =
 			    IF(
@@ -411,7 +411,7 @@ table 'Adoption Measures'
 			IF(
 			    _weeks < _required,
 			    "BUILDING HISTORY | " & FORMAT(_weeks, "0") & " of " & FORMAT(_required, "0")
-			        & " covered Cowork weeks available. Habit Movement begins with the second covered week.",
+			        & " covered Cowork weeks available. User progression begins with the second covered week.",
 			    IF(
 			        [Population] < [Privacy Floor],
 			        "Movement is suppressed for the selected population.",
@@ -431,7 +431,7 @@ table 'Adoption Measures'
 			        ADDCOLUMNS(
 			            VALUES('Organization'[Function]),
 			            "__ChampionShare", [Champion Cohort Share],
-			            "__ChampionPeople", [Champion Cohort People]
+			            "__ChampionPeople", [Champion Cohort Users]
 			        ),
 			        [__ChampionShare], DESC,
 			        'Organization'[Function], ASC
@@ -447,8 +447,8 @@ table 'Adoption Measures'
 			    "NO COVERED COWORK WEEKS | Champion signals need at least one completed Cowork consumption week.",
 			    IF(
 			        NOT ISBLANK(_share),
-			        _prefix & _function & " has the largest privacy-safe Cowork Power and Habitual cohort: "
-			            & FORMAT(_people, "#,##0") & " people (" & FORMAT(_share, "0.0%") & "), "
+			        _prefix & _function & " has the largest privacy-safe users active most weeks: "
+			            & FORMAT(_people, "#,##0") & " users (" & FORMAT(_share, "0.0%") & "), "
 			            & FORMAT(100 * (_share - _benchmark), "0.0") & " pp versus the selected benchmark. "
 			            & "This is an aggregate peer-learning pool, not an individual ranking."
 			    )

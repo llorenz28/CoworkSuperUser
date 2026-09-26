@@ -545,7 +545,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Expandable Department to pseudonymous User ID hierarchy for the selected Power User population.'"
+                  "Value": "'Expandable Department to pseudonymous User ID hierarchy for the selected Cowork super user population.'"
                 }
               }
             }
@@ -612,7 +612,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Power User: department and users'"
+                  "Value": "'Cowork super user: department and users'"
                 }
               }
             },
@@ -749,7 +749,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Cowork Power User'"
+                          "Value": "'Cowork super user'"
                         }
                       }
                     ]

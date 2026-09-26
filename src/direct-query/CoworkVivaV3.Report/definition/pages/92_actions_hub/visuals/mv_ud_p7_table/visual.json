@@ -55,12 +55,12 @@
                       "Entity": "Usage Segment Snapshot"
                     }
                   },
-                  "Property": "Sustained Usage Share"
+                  "Property": "Active-Most-Weeks Rate"
                 }
               },
-              "queryRef": "Usage Segment Snapshot.Sustained Usage Share",
-              "nativeQueryRef": "Sustained-use share",
-              "displayName": "Sustained-use share",
+              "queryRef": "Usage Segment Snapshot.Active-Most-Weeks Rate",
+              "nativeQueryRef": "active in most weeks",
+              "displayName": "active in most weeks",
               "active": true
             },
             {
@@ -347,7 +347,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Department-level table showing latest-window Cowork active share, sustained-use share, and the benchmark-based enablement recommendation. Results below 10 people are suppressed.'"
+                  "Value": "'Department-level table showing latest-window Cowork active share, active in most weeks, and the benchmark-based enablement recommendation. Results below 10 users are suppressed.'"
                 }
               }
             }

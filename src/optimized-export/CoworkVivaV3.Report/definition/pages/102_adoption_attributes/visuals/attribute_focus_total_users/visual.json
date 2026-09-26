@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "attribute_focus_total_users",
   "position": {
-    "x": 634,
-    "y": 160,
+    "x": 59,
+    "y": 152,
     "z": 8312,
-    "height": 78,
-    "width": 193,
-    "tabOrder": 1700
+    "height": 84,
+    "width": 296,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -356,5 +356,5 @@
       ]
     }
   },
-  "isHidden": true
+  "isHidden": false
 }

@@ -1,4 +1,4 @@
-/// One full-window row per person with Cowork session and credit summaries.
+/// One full-window row per user with Cowork session and credit summaries.
 table 'Person Analysis'
 	lineageTag: f012ba57-c27d-4652-b3ba-522a71bad9b9
 
@@ -144,7 +144,7 @@ table 'Person Analysis'
 				        "Credit Group",
 				            IF(
 				                [Known Weeks] <> _weekCount,
-				                "Coverage unknown",
+				                "Coverage unavailable",
 				                IF([Total Credits] > 0, "Observed credits", "No observed credits")
 				            ),
 				        "Credit Group Sort",

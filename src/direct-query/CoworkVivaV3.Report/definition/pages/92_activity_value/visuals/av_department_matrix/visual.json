@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "av_department_matrix",
   "position": {
-    "x": 16,
+    "x": 640,
     "y": 232,
     "z": 9000,
     "height": 384,
-    "width": 720,
+    "width": 624,
     "tabOrder": 1800
   },
   "visual": {
@@ -59,12 +59,27 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "Total Cowork Sessions"
+                  "Property": "Latest Weekly Active Rate"
                 }
               },
-              "queryRef": "Consumption Weekly.Total Cowork Sessions",
-              "nativeQueryRef": "Sessions",
-              "displayName": "Sessions"
+              "queryRef": "Consumption Weekly.Latest Weekly Active Rate",
+              "nativeQueryRef": "Active rate",
+              "displayName": "Active rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Consumption Weekly"
+                    }
+                  },
+                  "Property": "Active Rate Momentum pp"
+                }
+              },
+              "queryRef": "Consumption Weekly.Active Rate Momentum pp",
+              "nativeQueryRef": "4-week change",
+              "displayName": "4-week change"
             },
             {
               "field": {
@@ -78,8 +93,8 @@
                 }
               },
               "queryRef": "Consumption Weekly.Total Cowork Credits",
-              "nativeQueryRef": "Credits",
-              "displayName": "Credits"
+              "nativeQueryRef": "Total credits",
+              "displayName": "Total credits"
             },
             {
               "field": {
@@ -89,12 +104,27 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "Sessions per Active Person"
+                  "Property": "Credits per Active User"
                 }
               },
-              "queryRef": "Consumption Weekly.Sessions per Active Person",
-              "nativeQueryRef": "Sessions / active",
-              "displayName": "Sessions / active"
+              "queryRef": "Consumption Weekly.Credits per Active User",
+              "nativeQueryRef": "Credits per active user",
+              "displayName": "Credits per active user"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cost per Credit"
+                    }
+                  },
+                  "Property": "Estimated Cost"
+                }
+              },
+              "queryRef": "Cost per Credit.Estimated Cost",
+              "nativeQueryRef": "Estimated cost",
+              "displayName": "Estimated cost"
             },
             {
               "field": {
@@ -104,12 +134,12 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "Credits per Session"
+                  "Property": "Top 10 Percent User Credit Share"
                 }
               },
-              "queryRef": "Consumption Weekly.Credits per Session",
-              "nativeQueryRef": "Credits / session",
-              "displayName": "Credits / session"
+              "queryRef": "Consumption Weekly.Top 10 Percent User Credit Share",
+              "nativeQueryRef": "Top 10% credit share",
+              "displayName": "Top 10% credit share"
             }
           ]
         }
@@ -124,7 +154,7 @@
                     "Entity": "Consumption Weekly"
                   }
                 },
-                "Property": "Total Cowork Sessions"
+                "Property": "Total Cowork Credits"
               }
             },
             "direction": "Descending"
@@ -382,7 +412,7 @@
                     "FillRule": {
                       "Input": {
                         "SelectRef": {
-                          "ExpressionName": "Consumption Weekly.Sessions per Active Person"
+                          "ExpressionName": "Consumption Weekly.Sessions per Active User"
                         }
                       },
                       "FillRule": {
@@ -431,7 +461,7 @@
                 }
               }
             ],
-            "metadata": "Consumption Weekly.Sessions per Active Person"
+            "metadata": "Consumption Weekly.Sessions per Active User"
           }
         },
         {
@@ -695,7 +725,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "168D"
+                  "Value": "140D"
                 }
               }
             }
@@ -709,13 +739,13 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "86D"
+                  "Value": "70D"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "Consumption Weekly.Total Cowork Sessions"
+            "metadata": "Consumption Weekly.Latest Weekly Active Rate"
           }
         },
         {
@@ -723,7 +753,21 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "108D"
+                  "Value": "70D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Consumption Weekly.Active Rate Momentum pp"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "80D"
                 }
               }
             }
@@ -737,13 +781,13 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "112D"
+                  "Value": "90D"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "Consumption Weekly.Sessions per Active Person"
+            "metadata": "Consumption Weekly.Credits per Active User"
           }
         },
         {
@@ -751,13 +795,27 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "112D"
+                  "Value": "90D"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "Consumption Weekly.Credits per Session"
+            "metadata": "Cost per Credit.Estimated Cost"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "80D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Consumption Weekly.Top 10 Percent User Credit Share"
           }
         }
       ],
@@ -952,7 +1010,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Department comparison table with sessions, credits, sessions per active person, and credits per session. Expand a department to view pseudonymous User IDs; employee values are visible only at User ID scope. Cell shading is relative within each metric.'"
+                  "Value": "'Consumption by organization and user table with sessions, credits, sessions per active user, and credits per session. Expand a department to view pseudonymous User IDs; employee values are visible only at User ID scope. Cell shading is relative within each metric.'"
                 }
               }
             }
@@ -1019,7 +1077,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Department comparison'"
+                  "Value": "'Department adoption and consumption detail'"
                 }
               }
             },

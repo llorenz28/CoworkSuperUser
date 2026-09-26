@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Compare collaboration, meetings, after-hours work, and internal network context for sustained users versus the rest.",
+                    "value": "Compare collaboration and network context by usage pattern. Results are descriptive, not causal.",
                     "textStyle": {
                       "fontSize": "10pt",
                       "color": "#1B1F27"

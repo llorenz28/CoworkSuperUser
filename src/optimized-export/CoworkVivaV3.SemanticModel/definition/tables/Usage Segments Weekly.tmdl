@@ -1,8 +1,8 @@
-/// Rolling 4-week and 12-week person classifications at each analysis week.
+/// Rolling 4-week and 12-week user classifications at each analysis week.
 table 'Usage Segments Weekly'
 	lineageTag: 0ef7fb9a-8e47-4c11-a965-c919bcec6852
 
-	/// People with known Cowork weeks in the selected window in the current rolling classification window.
+	/// users with known Cowork weeks in the selected window in the current rolling classification window.
 	measure 'Weekly Classified Population' =
 			CALCULATE(
 			    DISTINCTCOUNT('Usage Segments Weekly'[Person ID]),
@@ -16,8 +16,8 @@ table 'Usage Segments Weekly'
 		displayFolder: Coverage
 		lineageTag: a5782cb0-06ac-4a98-99a7-5f2161e4fe43
 
-	/// People in the current selected rolling-window Cowork stage when privacy-safe.
-	measure 'Weekly Segment People' =
+	/// users in the current selected rolling-window Cowork stage when privacy-safe.
+	measure 'Weekly Segment Users' =
 			VAR _people =
 			    CALCULATE(
 			        DISTINCTCOUNT('Usage Segments Weekly'[Person ID]),
@@ -29,7 +29,7 @@ table 'Usage Segments Weekly'
 		lineageTag: 9b76670d-a916-4f2d-8dbe-cac7b336424f
 
 	/// Privacy-safe Cowork stage share.
-	measure 'Weekly Segment Share' = DIVIDE([Weekly Segment People], [Weekly Classified Population])
+	measure 'Weekly Segment Share' = DIVIDE([Weekly Segment Users], [Weekly Classified Population])
 		formatString: 0.0%
 		displayFolder: Weekly stages
 		lineageTag: 8d0afd24-5e52-4246-b42a-d6395064c5b6
@@ -156,12 +156,12 @@ table 'Usage Segments Weekly'
 		summarizeBy: none
 		sourceColumn: [Segment Sort]
 
-	column 'Power Session Threshold'
+	column 'Super User Session Threshold'
 		dataType: decimal
 		isHidden
 		lineageTag: 3f38674b-20e1-48a1-b0bf-4a318afb2d8d
 		summarizeBy: none
-		sourceColumn: [Power Session Threshold]
+		sourceColumn: [Super User Session Threshold]
 
 	partition 'Usage Segments Weekly' = calculated
 		mode: import
@@ -255,7 +255,7 @@ table 'Usage Segments Weekly'
 				                            _baseWeeks > 0 && [Observed Weeks] = _baseWeeks,
 				                            DIVIDE([Credit Total], _baseWeeks)
 				                        ),
-				                    "Power Session Threshold", _threshold
+				                    "Super User Session Threshold", _threshold
 				                )
 				            VAR _classified =
 				                ADDCOLUMNS(
@@ -272,13 +272,13 @@ table 'Usage Segments Weekly'
 				                    "Usage Segment",
 				                        SWITCH(
 				                            TRUE(),
-				                            [Coverage Status] <> "Complete", "Cowork coverage unknown",
+				                            [Coverage Status] <> "Complete", "Coverage unavailable",
 				                            [Active Week Rate] >= 0.75
-				                                && [Average Weekly Sessions] >= _threshold, "Cowork Power User",
-				                            [Active Week Rate] >= 0.75, "Cowork Habitual User",
-				                            [Active Week Rate] >= 0.25, "Cowork Developing User",
-				                            [Active Weeks] > 0, "Cowork Low User",
-				                            "Cowork Non-user"
+				                                && [Average Weekly Sessions] >= _threshold, "Cowork super user",
+				                            [Active Week Rate] >= 0.75, "Steady user",
+				                            [Active Week Rate] >= 0.25, "Emerging user",
+				                            [Active Weeks] > 0, "Occasional user",
+				                            "No observed use"
 				                        )
 				                )
 				            VAR _result =
@@ -287,11 +287,11 @@ table 'Usage Segments Weekly'
 				                    "Segment Sort",
 				                        SWITCH(
 				                            [Usage Segment],
-				                            "Cowork Power User", 1,
-				                            "Cowork Habitual User", 2,
-				                            "Cowork Developing User", 3,
-				                            "Cowork Low User", 4,
-				                            "Cowork Non-user", 5,
+				                            "Cowork super user", 1,
+				                            "Steady user", 2,
+				                            "Emerging user", 3,
+				                            "Occasional user", 4,
+				                            "No observed use", 5,
 				                            6
 				                        )
 				                )
@@ -313,7 +313,7 @@ table 'Usage Segments Weekly'
 				                    "Average Weekly Credits", [Average Weekly Credits],
 				                    "Usage Segment", [Usage Segment],
 				                    "Segment Sort", [Segment Sort],
-				                    "Power Session Threshold", [Power Session Threshold]
+				                    "Super User Session Threshold", [Super User Session Threshold]
 				                )
 				        )
 				    )

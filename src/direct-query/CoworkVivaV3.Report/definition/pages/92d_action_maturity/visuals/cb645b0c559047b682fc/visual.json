@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Current stage mix and how the distribution changes across the selected rolling windows.",
+                    "value": "Usage patterns summarize consistency and frequency across all available covered weeks, up to 12.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "9pt",

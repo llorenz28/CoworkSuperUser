@@ -23,12 +23,12 @@
                       "Entity": "Adoption Measures"
                     }
                   },
-                  "Property": "Company Sustained Usage Share"
+                  "Property": "Company Active-Most-Weeks Rate"
                 }
               },
-              "queryRef": "Adoption Measures.Company Sustained Usage Share",
-              "nativeQueryRef": "Company Sustained Usage Share",
-              "displayName": "Company sustained-use benchmark"
+              "queryRef": "Adoption Measures.Company Active-Most-Weeks Rate",
+              "nativeQueryRef": "Company Active in most weeks",
+              "displayName": "Company active most weeks benchmark"
             }
           ]
         }
@@ -117,7 +117,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Company sustained-use benchmark'"
+                  "Value": "'Company active most weeks benchmark'"
                 }
               }
             },
@@ -300,7 +300,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Company sustained-use benchmark. Updates with the current report selection.'"
+                  "Value": "'Company active most weeks benchmark. Updates with the current report selection.'"
                 }
               }
             }

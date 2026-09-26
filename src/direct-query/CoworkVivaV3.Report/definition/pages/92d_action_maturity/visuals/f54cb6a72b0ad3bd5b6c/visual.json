@@ -23,12 +23,12 @@
                       "Entity": "Usage Segment Snapshot"
                     }
                   },
-                  "Property": "Sustained Retention Rate"
+                  "Property": "Most-Weeks User Retention"
                 }
               },
-              "queryRef": "Usage Segment Snapshot.Sustained Retention Rate",
-              "nativeQueryRef": "Sustained retention",
-              "displayName": "Sustained retention"
+              "queryRef": "Usage Segment Snapshot.Most-Weeks User Retention",
+              "nativeQueryRef": "regular retention",
+              "displayName": "regular retention"
             }
           ]
         }
@@ -110,7 +110,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sustained retention'"
+                  "Value": "'regular retention'"
                 }
               }
             },
@@ -286,7 +286,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Derived evidence. Sustained retention. Updates with current report filters.'"
+                  "Value": "'Derived evidence. regular retention. Updates with current report filters.'"
                 }
               }
             }

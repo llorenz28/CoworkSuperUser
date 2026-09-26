@@ -10,7 +10,7 @@
     "tabOrder": 1700
   },
   "visual": {
-    "visualType": "lineStackedColumnComboChart",
+    "visualType": "scatterChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,16 +20,35 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Calendar"
+                      "Entity": "Organization"
                     }
                   },
-                  "Property": "Week Start"
+                  "Property": "Function"
                 }
               },
-              "queryRef": "Calendar.Week Start",
-              "nativeQueryRef": "Week",
-              "active": true,
-              "displayName": "Week"
+              "queryRef": "Organization.Function",
+              "nativeQueryRef": "Department",
+              "displayName": "Department",
+              "active": true
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Consumption Weekly"
+                    }
+                  },
+                  "Property": "Latest Weekly Active Rate"
+                }
+              },
+              "queryRef": "Consumption Weekly.Latest Weekly Active Rate",
+              "nativeQueryRef": "Latest active-user rate",
+              "displayName": "Latest active-user rate"
             }
           ]
         },
@@ -43,16 +62,16 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "Total Cowork Sessions"
+                  "Property": "Credits per Active User"
                 }
               },
-              "queryRef": "Consumption Weekly.Total Cowork Sessions",
-              "nativeQueryRef": "Sessions",
-              "displayName": "Sessions"
+              "queryRef": "Consumption Weekly.Credits per Active User",
+              "nativeQueryRef": "Credits per active user",
+              "displayName": "Credits per active user"
             }
           ]
         },
-        "Y2": {
+        "Size": {
           "projections": [
             {
               "field": {
@@ -66,14 +85,152 @@
                 }
               },
               "queryRef": "Consumption Weekly.Total Cowork Credits",
-              "nativeQueryRef": "Credits",
-              "displayName": "Credits"
+              "nativeQueryRef": "Total credits",
+              "displayName": "Total credits"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Consumption Weekly"
+                    }
+                  },
+                  "Property": "Active Rate Momentum pp"
+                }
+              },
+              "queryRef": "Consumption Weekly.Active Rate Momentum pp",
+              "nativeQueryRef": "4-week adoption change",
+              "displayName": "4-week adoption change"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Consumption Weekly"
+                    }
+                  },
+                  "Property": "Weekly Return Rate"
+                }
+              },
+              "queryRef": "Consumption Weekly.Weekly Return Rate",
+              "nativeQueryRef": "Weekly return rate",
+              "displayName": "Weekly return rate"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Consumption Weekly"
+                    }
+                  },
+                  "Property": "Credits per Session"
+                }
+              },
+              "queryRef": "Consumption Weekly.Credits per Session",
+              "nativeQueryRef": "Credits per session",
+              "displayName": "Credits per session"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Consumption Weekly"
+                    }
+                  },
+                  "Property": "Top 10 Percent User Credit Share"
+                }
+              },
+              "queryRef": "Consumption Weekly.Top 10 Percent User Credit Share",
+              "nativeQueryRef": "Credits from top 10% of users",
+              "displayName": "Credits from top 10% of users"
             }
           ]
         }
       }
     },
     "objects": {
+      "bubbles": [
+        {
+          "properties": {
+            "preventOverflow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "defaultColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#4B2D83'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1B1F27'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
       "categoryAxis": [
         {
           "properties": {
@@ -89,30 +246,27 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#4F5B6B'"
+                      "Value": "'#5A6472'"
                     }
                   }
                 }
               }
             },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "9D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Segoe UI'"
+            "gridlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D8DEE9'"
+                    }
+                  }
                 }
               }
             },
             "showAxisTitle": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             }
@@ -134,30 +288,9 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#4F5B6B'"
+                      "Value": "'#5A6472'"
                     }
                   }
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Segoe UI'"
-                }
-              }
-            },
-            "gridlineShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
                 }
               }
             },
@@ -172,263 +305,13 @@
                 }
               }
             },
-            "gridlineStyle": {
-              "expr": {
-                "Literal": {
-                  "Value": "'dotted'"
-                }
-              }
-            },
             "showAxisTitle": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "secShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "alignZeros": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "start": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "legend": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "position": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Top'"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Segoe UI'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
-            "labelColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#4F5B6B'"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      ],
-      "labels": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Segoe UI'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#172033'"
-                    }
-                  }
-                }
-              }
-            },
-            "showByDefault": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "labelPosition": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Auto'"
-                }
-              }
-            },
-            "labelDensity": {
-              "expr": {
-                "Literal": {
-                  "Value": "50D"
-                }
-              }
-            },
-            "optimizeLabelDisplay": {
-              "expr": {
-                "Literal": {
                   "Value": "true"
                 }
               }
             }
-          }
-        }
-      ],
-      "lineStyles": [
-        {
-          "properties": {
-            "strokeShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "strokeWidth": {
-              "expr": {
-                "Literal": {
-                  "Value": "3D"
-                }
-              }
-            },
-            "lineStyle": {
-              "expr": {
-                "Literal": {
-                  "Value": "'solid'"
-                }
-              }
-            },
-            "showMarker": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "markerShape": {
-              "expr": {
-                "Literal": {
-                  "Value": "'circle'"
-                }
-              }
-            },
-            "markerSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "4D"
-                }
-              }
-            },
-            "markerColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#0067B8'"
-                    }
-                  }
-                }
-              }
-            },
-            "lineChartType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'linear'"
-                }
-              }
-            },
-            "areaShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "dataPoint": [
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#5B5FC7'"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Consumption Weekly.Total Cowork Sessions"
-          }
-        },
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#0067B8'"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Consumption Weekly.Total Cowork Credits"
           }
         }
       ]
@@ -509,7 +392,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Observed weekly Cowork sessions as columns and credits as a secondary-axis line. Credits describe consumption volume, not task complexity or value.'"
+                  "Value": "'Department portfolio plotting latest active-user rate against credits per active user. Bubble size represents total Cowork credits.'"
                 }
               }
             }
@@ -576,7 +459,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Weekly sessions and credits'"
+                  "Value": "'Adoption breadth versus credit exposure'"
                 }
               }
             },
@@ -593,29 +476,11 @@
                   "Value": "11D"
                 }
               }
-            },
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#172033'"
-                    }
-                  }
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
             }
           }
         }
       ]
     }
   },
-  "isHidden": true
+  "isHidden": false
 }

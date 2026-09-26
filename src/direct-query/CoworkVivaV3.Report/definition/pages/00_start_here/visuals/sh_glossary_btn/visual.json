@@ -170,7 +170,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Methods guide ->'"
+                  "Value": "'Definitions and limits ->'"
                 }
               }
             },
@@ -258,7 +258,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Open the Methods and Metric Guide.'"
+                  "Value": "'Open definitions, sources, and limits.'"
                 }
               }
             }

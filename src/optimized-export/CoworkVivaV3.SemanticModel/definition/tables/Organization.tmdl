@@ -1,20 +1,20 @@
-/// One row per person with hidden source identifiers, a report-facing pseudonymous User ID, and organization attributes.
+/// One row per user with hidden source identifiers, a report-facing pseudonymous User ID, and organization attributes.
 table Organization
 	lineageTag: 2aa40079-28e5-4bd5-aaab-c78678876785
 
-	/// Distinct people in the current organization and report filter context.
+	/// Distinct users in the current organization and report filter context.
 	measure Population = DISTINCTCOUNT('Organization'[Person ID])
 		formatString: #,##0
 		displayFolder: Population
 		lineageTag: 023427d5-7d48-4b36-bfae-2e1abb629a45
 
-	/// Minimum distinct-person denominator for reportable results.
+	/// Minimum distinct-user denominator for reportable results.
 	measure 'Privacy Floor' = 10
 		formatString: #,##0
 		displayFolder: Population
 		lineageTag: ce079bc2-e332-4aa1-af23-a383a05fd3ef
 
-	/// Distinct people returned only when the privacy floor is met.
+	/// Distinct users returned only when the privacy floor is met.
 	measure 'Reportable Population' =
 			IF(
 			    ISINSCOPE('Organization'[User ID]),
@@ -182,12 +182,12 @@ table Organization
 				            RETURN
 				                SWITCH(
 				                    TRUE(),
-				                    _known < _baseWeeks, "Cowork coverage unknown",
-				                    _activeRate >= 0.75 && _averageSessions >= 6, "Cowork Power User",
-				                    _activeRate >= 0.75, "Cowork Habitual User",
-				                    _activeRate >= 0.25, "Cowork Developing User",
-				                    _active > 0, "Cowork Low User",
-				                    "Cowork Non-user"
+				                    _known < _baseWeeks, "Coverage unavailable",
+				                    _activeRate >= 0.75 && _averageSessions >= 6, "Cowork super user",
+				                    _activeRate >= 0.75, "Steady user",
+				                    _activeRate >= 0.25, "Emerging user",
+				                    _active > 0, "Occasional user",
+				                    "No observed use"
 				                )
 				    )
 				VAR _withSort =
@@ -196,12 +196,12 @@ table Organization
 				        "Usage Stage Sort",
 				            SWITCH(
 				                [Usage Stage],
-				                "Cowork Power User", 1,
-				                "Cowork Habitual User", 2,
-				                "Cowork Developing User", 3,
-				                "Cowork Low User", 4,
-				                "Cowork Non-user", 5,
-				                "Cowork coverage unknown", 6,
+				                "Cowork super user", 1,
+				                "Steady user", 2,
+				                "Emerging user", 3,
+				                "Occasional user", 4,
+				                "No observed use", 5,
+				                "Coverage unavailable", 6,
 				                7
 				            )
 				    )

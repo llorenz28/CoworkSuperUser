@@ -442,7 +442,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Privacy-safe distinct people with at least one observed Cowork session in the selected period, grouped by department. This is observed use, not confirmed license eligibility.'"
+                  "Value": "'Privacy-safe distinct users with at least one observed Cowork session in the selected period, grouped by department. This is observed use, not confirmed license eligibility.'"
                 }
               }
             }
@@ -509,7 +509,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Observed Cowork active users by department'"
+                  "Value": "'Where active Cowork use is concentrated'"
                 }
               }
             },

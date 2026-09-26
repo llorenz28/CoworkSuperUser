@@ -23,12 +23,12 @@
                       "Entity": "Usage Segment Snapshot"
                     }
                   },
-                  "Property": "Sustained Usage Share"
+                  "Property": "Users Active Most Weeks"
                 }
               },
-              "queryRef": "Usage Segment Snapshot.Sustained Usage Share",
-              "nativeQueryRef": "Sustained-use share",
-              "displayName": "Sustained-use share"
+              "queryRef": "Usage Segment Snapshot.Users Active Most Weeks",
+              "nativeQueryRef": "Active in most weeks",
+              "displayName": "Active in most weeks"
             }
           ]
         }
@@ -90,6 +90,13 @@
                   "Value": "'Unavailable'"
                 }
               }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
             }
           },
           "selector": {
@@ -110,7 +117,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sustained-use share'"
+                  "Value": "'Active in most weeks'"
                 }
               }
             },
@@ -286,7 +293,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Derived evidence. Sustained-use share. Updates with current report filters.'"
+                  "Value": "'Derived evidence. active in most weeks. Updates with current report filters.'"
                 }
               }
             }

@@ -582,7 +582,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Share of prior-week active people also active in the current week by function. Darker cells indicate a higher return rate.'"
+                  "Value": "'Share of prior-week active users also active in the current week by function. Darker cells indicate a higher return rate.'"
                 }
               }
             }

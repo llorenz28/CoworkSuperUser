@@ -32,7 +32,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Each cell counts distinct people with at least one Cowork session in that week. Darker cells indicate more active people within a function. Values show the latest 12 selected weeks and are blank when the cohort does not meet the privacy threshold.",
+                    "value": "Each cell counts distinct users with at least one Cowork session in that week. Darker cells indicate more active users within a function. Values show the latest 12 selected weeks and are blank when the cohort does not meet the privacy threshold.",
                     "textStyle": {
                       "fontSize": "9pt",
                       "color": "#1B1F27",

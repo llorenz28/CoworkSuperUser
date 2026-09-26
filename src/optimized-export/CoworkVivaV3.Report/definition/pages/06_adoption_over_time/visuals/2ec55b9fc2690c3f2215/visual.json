@@ -27,8 +27,8 @@
                 }
               },
               "queryRef": "Consumption Weekly.Observed Cowork Active Users",
-              "nativeQueryRef": "Observed active users",
-              "displayName": "Observed active users"
+              "nativeQueryRef": "Active users",
+              "displayName": "Active users"
             }
           ]
         }
@@ -90,6 +90,13 @@
                   "Value": "'Suppressed'"
                 }
               }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
             }
           },
           "selector": {
@@ -110,7 +117,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Observed active users'"
+                  "Value": "'Active users'"
                 }
               }
             },

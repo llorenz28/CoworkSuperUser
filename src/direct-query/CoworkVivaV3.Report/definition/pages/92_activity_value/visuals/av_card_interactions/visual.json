@@ -23,12 +23,12 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "Total Cowork Credits"
+                  "Property": "High Credit Low Reach Department"
                 }
               },
-              "queryRef": "Consumption Weekly.Total Cowork Credits",
-              "nativeQueryRef": "Cowork credits",
-              "displayName": "Cowork credits"
+              "queryRef": "Consumption Weekly.High Credit Low Reach Department",
+              "nativeQueryRef": "Low reach + high credits",
+              "displayName": "Low reach + high credits"
             }
           ]
         }
@@ -48,14 +48,14 @@
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'Consolas'"
+                  "Value": "'Segoe UI Semibold'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "22D"
+                  "Value": "10D"
                 }
               }
             },
@@ -90,6 +90,13 @@
                   "Value": "'Suppressed'"
                 }
               }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
             }
           },
           "selector": {
@@ -110,7 +117,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Cowork credits'"
+                  "Value": "'Low reach + high credits'"
                 }
               }
             },

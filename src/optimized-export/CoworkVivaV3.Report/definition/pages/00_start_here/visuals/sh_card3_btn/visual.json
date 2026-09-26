@@ -170,7 +170,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'View habit movement ->'"
+                  "Value": "'View user progress ->'"
                 }
               }
             },

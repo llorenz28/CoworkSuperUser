@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "102_adoption_attributes",
-  "displayName": "Adoption by Attributes",
+  "displayName": "Where should we focus enablement?",
   "displayOption": "FitToPage",
   "height": 768,
   "width": 1366,
@@ -16,5 +16,31 @@
       "target": "attribute_weekly_rate_company_trend",
       "type": "NoFilter"
     }
-  ]
+  ],
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F6F7FB'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
 }

@@ -1,0 +1,42 @@
+/// Customer-selected cost assumption for credit-priced consumption showback.
+table 'Cost per Credit'
+	lineageTag: 5cd80ca2-20c4-4210-a06c-bef2f5ca782e
+
+	/// Customer-selected cost per credit; defaults to 0.010 in the customer's currency.
+	measure 'Selected Cost per Credit' =
+			SELECTEDVALUE('Cost per Credit'[Cost per Credit], 0.010)
+		formatString: #,##0.0000
+		displayFolder: Customer cost input
+		lineageTag: 52bff6bd-010c-473f-8f55-724f4c81ffad
+
+	/// Estimated consumption cost in the selected report context using the customer-selected rate.
+	measure 'Estimated Cost' =
+			[Total Cowork Credits] * [Selected Cost per Credit]
+		formatString: #,##0.00
+		displayFolder: Customer cost input
+		lineageTag: d98619f4-faa4-40f5-93f9-1527156351a3
+
+	/// Estimated selected-period consumption cost divided by privacy-safe active users.
+	measure 'Estimated Cost per Active User' =
+			DIVIDE([Estimated Cost], [Observed Cowork Active Users])
+		formatString: #,##0.00
+		displayFolder: Customer cost input
+		lineageTag: d23b83f2-d2f7-4527-ad23-9723515217c5
+
+	/// Estimated selected-period consumption cost divided by observed Cowork sessions.
+	measure 'Estimated Cost per Session' =
+			DIVIDE([Estimated Cost], [Total Cowork Sessions])
+		formatString: #,##0.00
+		displayFolder: Customer cost input
+		lineageTag: e4914112-2608-46c6-bdb5-c17ba3736efe
+
+	column 'Cost per Credit'
+		dataType: decimal
+		formatString: #,##0.0000
+		lineageTag: fff2cadd-12bb-4656-8d5b-2d1792d399e2
+		summarizeBy: none
+		sourceColumn: [Value]
+
+	partition 'Cost per Credit' = calculated
+		mode: import
+		source = GENERATESERIES(0.001, 0.050, 0.0005)

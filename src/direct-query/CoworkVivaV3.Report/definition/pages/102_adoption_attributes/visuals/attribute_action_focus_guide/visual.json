@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "attribute_action_focus_guide",
   "position": {
-    "x": 232,
-    "y": 494,
+    "x": 835,
+    "y": 248,
     "z": 8302,
-    "height": 194,
-    "width": 796,
-    "tabOrder": 4000
+    "height": 424,
+    "width": 472,
+    "tabOrder": 2100
   },
   "visual": {
     "visualType": "textbox",
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "How to use Recommended focus",
+                    "value": "HOW TO ACT",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "12pt",
@@ -32,20 +32,12 @@
               {
                 "textRuns": [
                   {
-                    "value": "Start with context  ",
+                    "value": "Expand reach",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "9pt",
-                      "color": "#172033",
+                      "fontSize": "12pt",
+                      "color": "#311F5E",
                       "fontWeight": "semibold"
-                    }
-                  },
-                  {
-                    "value": "Company reach and repeat-habit cards are benchmarks. Selected total users and Power users update with the current filters and table selection.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "9pt",
-                      "color": "#4F5B6B"
                     }
                   }
                 ]
@@ -53,20 +45,12 @@
               {
                 "textRuns": [
                   {
-                    "value": "Decision rule  ",
+                    "value": "Active-user share is below the company benchmark. Validate access, awareness, and first-use support.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "9pt",
-                      "color": "#172033",
+                      "fontSize": "12pt",
+                      "color": "#311F5E",
                       "fontWeight": "semibold"
-                    }
-                  },
-                  {
-                    "value": "Reach is checked first. Below company → Expand reach. Otherwise, repeat habit below company → Build habit. If both meet company → Scale champions.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "9pt",
-                      "color": "#4F5B6B"
                     }
                   }
                 ]
@@ -74,20 +58,12 @@
               {
                 "textRuns": [
                   {
-                    "value": "Action playbook  ",
+                    "value": "",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "9pt",
-                      "color": "#172033",
+                      "fontSize": "12pt",
+                      "color": "#311F5E",
                       "fontWeight": "semibold"
-                    }
-                  },
-                  {
-                    "value": "Expand reach: validate access and first-use. Build habit: reinforce recurring workflows. Scale champions: use Power Users as peer coaches.",
-                    "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "9pt",
-                      "color": "#4F5B6B"
                     }
                   }
                 ]
@@ -95,20 +71,103 @@
               {
                 "textRuns": [
                   {
-                    "value": "Boundary  ",
+                    "value": "Increase repeat use",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "9pt",
-                      "color": "#172033",
+                      "fontSize": "12pt",
+                      "color": "#311F5E",
                       "fontWeight": "semibold"
                     }
-                  },
+                  }
+                ]
+              },
+              {
+                "textRuns": [
                   {
-                    "value": "Groups under 10 are hidden. Recommendations guide aggregate enablement; they do not evaluate employee performance.",
+                    "value": "Reach meets the benchmark, but fewer users are active in most weeks. Reinforce repeatable Cowork workflows.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "9pt",
-                      "color": "#4F5B6B"
+                      "fontSize": "12pt",
+                      "color": "#311F5E",
+                      "fontWeight": "semibold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "12pt",
+                      "color": "#311F5E",
+                      "fontWeight": "semibold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Scale successful practices",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "12pt",
+                      "color": "#311F5E",
+                      "fontWeight": "semibold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Both measures meet or exceed the benchmark. Use willing Cowork super users for peer learning.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "12pt",
+                      "color": "#311F5E",
+                      "fontWeight": "semibold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "12pt",
+                      "color": "#311F5E",
+                      "fontWeight": "semibold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Investigate decline",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "12pt",
+                      "color": "#311F5E",
+                      "fontWeight": "semibold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Review organizations with weakening active-user or return trends before expanding.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "12pt",
+                      "color": "#311F5E",
+                      "fontWeight": "semibold"
                     }
                   }
                 ]
@@ -250,5 +309,5 @@
       ]
     }
   },
-  "isHidden": true
+  "isHidden": false
 }

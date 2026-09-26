@@ -23,10 +23,10 @@
                       "Entity": "Usage Segment Snapshot"
                     }
                   },
-                  "Property": "Declined People"
+                  "Property": "Declined Users"
                 }
               },
-              "queryRef": "Usage Segment Snapshot.Declined People",
+              "queryRef": "Usage Segment Snapshot.Declined Users",
               "nativeQueryRef": "Declined",
               "displayName": "Declined"
             }

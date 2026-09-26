@@ -89,12 +89,12 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "New People"
+                  "Property": "New Users"
                 }
               },
-              "queryRef": "Consumption Weekly.New People",
-              "nativeQueryRef": "New people",
-              "displayName": "New people"
+              "queryRef": "Consumption Weekly.New Users",
+              "nativeQueryRef": "New users",
+              "displayName": "New users"
             },
             {
               "field": {
@@ -104,10 +104,10 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "Sessions per Active Person"
+                  "Property": "Sessions per Active User"
                 }
               },
-              "queryRef": "Consumption Weekly.Sessions per Active Person",
+              "queryRef": "Consumption Weekly.Sessions per Active User",
               "nativeQueryRef": "Sessions per active",
               "displayName": "Sessions per active"
             }
@@ -364,7 +364,7 @@
                     "FillRule": {
                       "Input": {
                         "SelectRef": {
-                          "ExpressionName": "Consumption Weekly.New People"
+                          "ExpressionName": "Consumption Weekly.New Users"
                         }
                       },
                       "FillRule": {
@@ -413,7 +413,7 @@
                 }
               }
             ],
-            "metadata": "Consumption Weekly.New People"
+            "metadata": "Consumption Weekly.New Users"
           }
         },
         {
@@ -425,7 +425,7 @@
                     "FillRule": {
                       "Input": {
                         "SelectRef": {
-                          "ExpressionName": "Consumption Weekly.Sessions per Active Person"
+                          "ExpressionName": "Consumption Weekly.Sessions per Active User"
                         }
                       },
                       "FillRule": {
@@ -474,7 +474,7 @@
                 }
               }
             ],
-            "metadata": "Consumption Weekly.Sessions per Active Person"
+            "metadata": "Consumption Weekly.Sessions per Active User"
           }
         }
       ],
@@ -893,5 +893,6 @@
         }
       ]
     }
-  }
+  },
+  "isHidden": true
 }

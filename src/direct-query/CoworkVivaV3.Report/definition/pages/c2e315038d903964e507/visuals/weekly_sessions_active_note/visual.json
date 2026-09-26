@@ -32,7 +32,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Columns show observed weekly Cowork sessions. The line divides sessions by weekly active people to show average sessions per active person. Read them together to distinguish changes in total activity from changes in per-person intensity.",
+                    "value": "Columns show observed weekly Cowork sessions. The line divides sessions by weekly active users to show average sessions per active user. Read them together to distinguish changes in total activity from changes in per-user intensity.",
                     "textStyle": {
                       "fontSize": "9pt",
                       "color": "#1B1F27",

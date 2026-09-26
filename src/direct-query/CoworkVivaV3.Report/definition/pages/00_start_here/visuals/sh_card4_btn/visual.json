@@ -170,7 +170,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'View work-pattern context ->'"
+                  "Value": "'View work context ->'"
                 }
               }
             },

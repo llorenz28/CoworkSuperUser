@@ -32,7 +32,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Power: at least 75% active weeks and at least 6 sessions/available week | Habitual: at least 75% and under 6 | Developing: 25% to under 75% | Low: above 0% to under 25% | Non-user: 0 active weeks.",
+                    "value": "Cowork super user: at least 75% active weeks and at least 6 sessions/available week | Steady user: at least 75% and under 6 | Emerging user: 25% to under 75% | Occasional user: above 0% to under 25% | No observed use: 0 active weeks.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "8pt",
@@ -44,7 +44,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Active-week rate = active weeks / available covered weeks. Session average = total sessions / available covered weeks, including zeros. Uses up to the selected 4/12-week cap; movement starts with week 2; groups below 10 people are hidden.",
+                    "value": "Active-week rate = active weeks / available covered weeks. Session average = total sessions / available covered weeks, including zeros. Uses up to the selected 4/12-week cap; movement starts with week 2; groups below 10 users are hidden.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "8pt",
@@ -56,7 +56,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "4-week limitation: one active week equals 25%, so Low User cannot occur. Use the 12-week cap with at least 5 available weeks to distinguish Low from Developing.",
+                    "value": "4-week limitation: one active week equals 25%, so occasional user cannot occur. Use the 12-week cap with at least 5 available weeks to distinguish Low from Developing.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "8pt",
@@ -150,7 +150,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Usage-stage definitions and calculation. Power users are active in at least 75 percent of available covered weeks and average at least 6 sessions per available week. With a 4-week cap, Low User cannot occur because one active week equals 25 percent. Results for groups below 10 people are hidden.'"
+                  "Value": "'Usage-stage definitions and calculation. Cowork super users are active in at least 75 percent of available covered weeks and average at least 6 sessions per available week. With a 4-week cap, occasional user cannot occur because one active week equals 25 percent. Results for groups below 10 users are hidden.'"
                 }
               }
             }

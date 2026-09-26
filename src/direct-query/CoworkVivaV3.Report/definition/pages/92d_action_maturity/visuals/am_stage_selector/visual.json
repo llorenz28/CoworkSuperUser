@@ -44,7 +44,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Low User requires Up to 12 weeks and at least 5 covered weeks; use Filters. Other blanks mean no cohort or privacy suppression.",
+                    "value": "occasional user requires Up to 12 weeks and at least 5 covered weeks; use Filters. Other blanks mean no cohort or privacy suppression.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "8pt",

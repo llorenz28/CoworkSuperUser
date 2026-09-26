@@ -43,12 +43,12 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "Total Cowork Credits"
+                  "Property": "Credits per Session"
                 }
               },
-              "queryRef": "Consumption Weekly.Total Cowork Credits",
-              "nativeQueryRef": "Credits",
-              "displayName": "Credits"
+              "queryRef": "Consumption Weekly.Credits per Session",
+              "nativeQueryRef": "Credits per session",
+              "displayName": "Credits per session"
             }
           ]
         }
@@ -63,7 +63,7 @@
                     "Entity": "Consumption Weekly"
                   }
                 },
-                "Property": "Total Cowork Credits"
+                "Property": "Credits per Session"
               }
             },
             "direction": "Descending"
@@ -456,7 +456,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Credits by department'"
+                  "Value": "'Credits per session by organization'"
                 }
               }
             },
@@ -496,5 +496,6 @@
         }
       ]
     }
-  }
+  },
+  "isHidden": true
 }

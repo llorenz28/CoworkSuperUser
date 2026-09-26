@@ -43,12 +43,12 @@
                       "Entity": "Usage Segment Snapshot"
                     }
                   },
-                  "Property": "Sustained Retention Rate"
+                  "Property": "Most-Weeks User Retention"
                 }
               },
-              "queryRef": "Usage Segment Snapshot.Sustained Retention Rate",
-              "nativeQueryRef": "Sustained retention",
-              "displayName": "Sustained retention"
+              "queryRef": "Usage Segment Snapshot.Most-Weeks User Retention",
+              "nativeQueryRef": "regular retention",
+              "displayName": "regular retention"
             }
           ]
         }
@@ -63,7 +63,7 @@
                     "Entity": "Usage Segment Snapshot"
                   }
                 },
-                "Property": "Sustained Retention Rate"
+                "Property": "Most-Weeks User Retention"
               }
             },
             "direction": "Descending"
@@ -219,7 +219,7 @@
             "titleText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Share of people'"
+                  "Value": "'percentage of users'"
                 }
               }
             },
@@ -469,7 +469,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Horizontal bar chart ranking departments by sustained-user retention rate.'"
+                  "Value": "'Horizontal bar chart ranking departments by regular-user retention rate.'"
                 }
               }
             }
@@ -536,7 +536,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sustained retention by department'"
+                  "Value": "'regular retention by department'"
                 }
               }
             },

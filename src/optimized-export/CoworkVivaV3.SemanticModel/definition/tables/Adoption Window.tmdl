@@ -3,19 +3,19 @@ table 'Adoption Window'
 	lineageTag: 1cc83aa7-c3d3-4e61-aff4-cecd6836a3bc
 
 	/// Selected maximum rolling classification window in covered Cowork weeks; defaults to up to four weeks.
-	measure 'Selected Adoption Window Weeks' = VALUE(SELECTEDVALUE('Adoption Window'[Window Weeks], 4))
+	measure 'Selected Adoption Window Weeks' = VALUE(SELECTEDVALUE('Adoption Window'[Window Weeks], 12))
 		formatString: 0
 		displayFolder: Window selection
 		lineageTag: 14566aa6-0c1f-4dc0-ba8d-c64fc0bbf3b6
 
 	/// Visible label for the selected available-history cap.
-	measure 'Selected Adoption Window' = SELECTEDVALUE('Adoption Window'[Window Label], "Up to 4 weeks")
+	measure 'Selected Adoption Window' = SELECTEDVALUE('Adoption Window'[Window Label], "Up to 12 weeks")
 		formatString: General
 		displayFolder: Window selection
 		lineageTag: ea155cd1-3130-4cc7-b1bf-9fed2671626e
 
 	/// Dynamic Champion Identification heading for the selected available-history cap.
-	measure 'Champion Window Header' = "CHAMPION CANDIDATE EVIDENCE | " & UPPER([Selected Adoption Window])
+	measure 'Champion Window Header' = "PEER-ENABLEMENT EVIDENCE | " & UPPER([Selected Adoption Window])
 		formatString: General
 		displayFolder: Window selection
 		lineageTag: e6973726-d248-4733-94eb-b688632ba71a

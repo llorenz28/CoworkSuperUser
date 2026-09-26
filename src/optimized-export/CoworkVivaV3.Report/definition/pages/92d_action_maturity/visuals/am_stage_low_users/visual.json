@@ -545,7 +545,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Expandable Department to pseudonymous User ID hierarchy for the selected Cowork Low User population.'"
+                  "Value": "'Expandable Department to pseudonymous User ID hierarchy for the selected Occasional user population.'"
                 }
               }
             }
@@ -612,7 +612,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Low User (12-week view): department and users'"
+                  "Value": "'occasional user (12-week view): department and users'"
                 }
               }
             },
@@ -749,7 +749,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Cowork Low User'"
+                          "Value": "'Occasional user'"
                         }
                       }
                     ]

@@ -170,7 +170,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'View sessions and credits ->'"
+                  "Value": "'View consumption ->'"
                 }
               }
             },

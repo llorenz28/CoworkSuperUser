@@ -1,4 +1,4 @@
-/// Long-form person-week Person Query context metrics used for date-aware adoption-group comparisons.
+/// Long-form user-week user Query context metrics used for date-aware adoption-group comparisons.
 table 'Person Metrics'
 	lineageTag: 561f65ec-f207-4e74-a841-440c90f6436b
 
@@ -27,7 +27,7 @@ table 'Person Metrics'
 		displayFolder: Adoption context
 		lineageTag: bb110c86-f633-4d2d-a047-b1aeb783a0b0
 
-	/// Standardized mean difference between sustained Cowork users and the rest; descriptive and non-causal.
+	/// Standardized mean difference between regular Cowork users and the rest; descriptive and non-causal.
 	measure 'Standardized Difference' =
 			VAR _metric = [Selected Work Pattern Metric]
 			VAR _sustainedIds = CALCULATETABLE(VALUES('Usage Segment Snapshot'[Person ID]), 'Usage Segment Snapshot'[Latest Sustained] = "Yes")
@@ -52,8 +52,8 @@ table 'Person Metrics'
 		displayFolder: Adoption context
 		lineageTag: f59755c0-f7ca-47bd-b366-2a7001f04362
 
-	/// Privacy-safe selected-metric average for Cowork Habitual and Power users.
-	measure 'Selected Metric Sustained Average' =
+	/// Privacy-safe selected-metric average for steady and Cowork super users.
+	measure 'Selected Metric Active-Most-Weeks Average' =
 			VAR _metric =
 			    SELECTEDVALUE('Person Metrics'[Metric], "Internal Network Size")
 			VAR _ids = CALCULATETABLE(VALUES('Usage Segment Snapshot'[Person ID]), 'Usage Segment Snapshot'[Latest Sustained] = "Yes")
@@ -62,7 +62,7 @@ table 'Person Metrics'
 		displayFolder: Adoption context
 		lineageTag: cddb1288-bef7-4f1c-abbb-6ca139486310
 
-	/// Privacy-safe selected-metric average for Cowork Non-user, Low, and Developing users.
+	/// Privacy-safe selected-metric average for no-observed-use, occasional, and emerging users.
 	measure 'Selected Metric Other Average' =
 			VAR _metric =
 			    SELECTEDVALUE('Person Metrics'[Metric], "Internal Network Size")
@@ -72,12 +72,12 @@ table 'Person Metrics'
 		displayFolder: Adoption context
 		lineageTag: cfee43bf-0114-4cc8-9e2e-847b856a6dd2
 
-	/// Privacy-safe percent difference between each Cowork stage and the Cowork Non-user baseline for the selected metric.
-	measure 'Selected Metric Stage Difference vs Non-user' =
+	/// Privacy-safe percent difference between each Cowork stage and the No observed use baseline for the selected metric.
+	measure 'Selected Metric Stage Difference vs No Observed Use' =
 			VAR _metric =
 			    SELECTEDVALUE('Person Metrics'[Metric], "Internal Network Size")
 			VAR _currentIds = VALUES('Usage Segment Snapshot'[Person ID])
-			VAR _baselineIds = CALCULATETABLE(VALUES('Usage Segment Snapshot'[Person ID]), REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment], 'Usage Segment Snapshot'[Latest Segment Sort]), 'Usage Segment Snapshot'[Latest Segment] = "Cowork Non-user")
+			VAR _baselineIds = CALCULATETABLE(VALUES('Usage Segment Snapshot'[Person ID]), REMOVEFILTERS('Usage Segment Snapshot'[Latest Segment], 'Usage Segment Snapshot'[Latest Segment Sort]), 'Usage Segment Snapshot'[Latest Segment] = "No observed use")
 			VAR _current = CALCULATE(SWITCH(_metric, "Collaboration Hours", AVERAGE('Consumption Weekly'[Collaboration Hours]), "Active Connected Hours", AVERAGE('Consumption Weekly'[Active Connected Hours]), "Email Hours", AVERAGE('Consumption Weekly'[Email Hours]), "Chat Hours", AVERAGE('Consumption Weekly'[Chat Hours]), "Meeting Hours", AVERAGE('Consumption Weekly'[Meeting Hours]), "Unscheduled Call Hours", AVERAGE('Consumption Weekly'[Unscheduled Call Hours]), "After Hours Collaboration", AVERAGE('Consumption Weekly'[After Hours Collaboration]), "Weekend Collaboration Hours", AVERAGE('Consumption Weekly'[Weekend Collaboration Hours]), "Collaboration Span", AVERAGE('Consumption Weekly'[Collaboration Span]), "Internal Network Size", AVERAGE('Consumption Weekly'[Internal Network Size]), "External Network Size", AVERAGE('Consumption Weekly'[External Network Size]), "Strong Ties", AVERAGE('Consumption Weekly'[Strong Ties]), "Diverse Ties", AVERAGE('Consumption Weekly'[Diverse Ties]), "Network Outside Organization", AVERAGE('Consumption Weekly'[Network Outside Organization])), TREATAS(_currentIds, 'Consumption Weekly'[Person ID]))
 			VAR _baseline = CALCULATE(SWITCH(_metric, "Collaboration Hours", AVERAGE('Consumption Weekly'[Collaboration Hours]), "Active Connected Hours", AVERAGE('Consumption Weekly'[Active Connected Hours]), "Email Hours", AVERAGE('Consumption Weekly'[Email Hours]), "Chat Hours", AVERAGE('Consumption Weekly'[Chat Hours]), "Meeting Hours", AVERAGE('Consumption Weekly'[Meeting Hours]), "Unscheduled Call Hours", AVERAGE('Consumption Weekly'[Unscheduled Call Hours]), "After Hours Collaboration", AVERAGE('Consumption Weekly'[After Hours Collaboration]), "Weekend Collaboration Hours", AVERAGE('Consumption Weekly'[Weekend Collaboration Hours]), "Collaboration Span", AVERAGE('Consumption Weekly'[Collaboration Span]), "Internal Network Size", AVERAGE('Consumption Weekly'[Internal Network Size]), "External Network Size", AVERAGE('Consumption Weekly'[External Network Size]), "Strong Ties", AVERAGE('Consumption Weekly'[Strong Ties]), "Diverse Ties", AVERAGE('Consumption Weekly'[Diverse Ties]), "Network Outside Organization", AVERAGE('Consumption Weekly'[Network Outside Organization])), TREATAS(_baselineIds, 'Consumption Weekly'[Person ID]))
 			RETURN IF([Observation Weeks] > 0 && COUNTROWS(_currentIds) >= [Privacy Floor] && COUNTROWS(_baselineIds) >= [Privacy Floor], DIVIDE(_current - _baseline, _baseline))
@@ -96,6 +96,297 @@ table 'Person Metrics'
 		formatString: #,##0.0
 		displayFolder: Adoption context
 		lineageTag: 5e2057b1-14a1-421d-b6ad-f7be9220fbd4
+
+	/// Percentage difference between the highest and lowest privacy-safe usage-group averages for the selected metric.
+	measure 'Selected Metric Highest-Lowest Gap' =
+			VAR _groups = FILTER(
+			        ADDCOLUMNS(
+			            CALCULATETABLE(
+			                VALUES('Usage Segment Snapshot'[Latest Segment]),
+			                REMOVEFILTERS(
+			                    'Usage Segment Snapshot'[Latest Segment],
+			                    'Usage Segment Snapshot'[Latest Segment Sort]
+			                )
+			            ),
+			            "__Value", CALCULATE([Selected Metric Stage Average])
+			        ),
+			        NOT ISBLANK([__Value])
+			    )
+			VAR _highest = MAXX(_groups, [__Value])
+			VAR _lowest = MINX(_groups, [__Value])
+			VAR _gap = DIVIDE(_highest - _lowest, ABS(_lowest))
+			RETURN
+			IF(
+			    NOT ISBLANK(_highest) && NOT ISBLANK(_lowest),
+			    IF(ABS(_gap) < 0.0005, 0, _gap)
+			)
+		formatString: 0.0%
+		displayFolder: Adoption context
+		lineageTag: 221071ef-8b17-49fd-89e0-b5e60508e716
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/// Dynamic comparison of Cowork super users versus occasional users plus recent work-pattern direction.
+	measure 'Selected Metric Finding' =
+			VAR _metric = [Selected Work Pattern Metric]
+			VAR _high = [Selected Metric Super User Average]
+			VAR _low = [Selected Metric Occasional User Average]
+			VAR _gap = [Selected Metric Super vs Occasional Difference]
+			VAR _recentChange = [Selected Metric Recent 4 Week Change]
+			VAR _gapText =
+			    SWITCH(
+			        TRUE(),
+			        ABS(_gap) < 0.05, "There is no meaningful high-versus-low gap under the current filters.",
+			        _gap > 0, "Cowork super users are " & FORMAT(_gap, "0.0%") & " higher than occasional users.",
+			        "Cowork super users are " & FORMAT(ABS(_gap), "0.0%") & " lower than occasional users."
+			    )
+			VAR _trendText =
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(_recentChange), "Eight weeks of data are needed for the recent trend comparison.",
+			        ABS(_recentChange) < 0.05, "The recent four-week average is essentially flat versus the prior four weeks.",
+			        _recentChange > 0, "The recent four-week average increased " & FORMAT(_recentChange, "0.0%") & ".",
+			        "The recent four-week average decreased " & FORMAT(ABS(_recentChange), "0.0%") & "."
+			    )
+			RETURN
+			IF(
+			    ISBLANK(_high) || ISBLANK(_low),
+			    "Not enough privacy-safe data is available to compare Cowork super users with occasional users.",
+			    _metric & " | Super users average " & FORMAT(_high, "#,##0.0")
+			        & " versus " & FORMAT(_low, "#,##0.0") & " for occasional users. "
+			        & _gapText & " " & _trendText
+			        & " This is an association, not evidence that Cowork caused the work-pattern difference."
+			)
+		formatString: General
+		displayFolder: Narratives
+		lineageTag: 74ec6197-3c55-499e-b667-d3b74d0871fb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/// Usage group with the highest privacy-safe average for the selected work-context metric.
+	measure 'Selected Metric Highest Group' =
+			VAR _groups = FILTER(
+			        ADDCOLUMNS(
+			            CALCULATETABLE(
+			                VALUES('Usage Segment Snapshot'[Latest Segment]),
+			                REMOVEFILTERS(
+			                    'Usage Segment Snapshot'[Latest Segment],
+			                    'Usage Segment Snapshot'[Latest Segment Sort]
+			                )
+			            ),
+			            "__Value", CALCULATE([Selected Metric Stage Average])
+			        ),
+			        NOT ISBLANK([__Value])
+			    )
+			VAR _highest =
+			    TOPN(
+			        1,
+			        _groups,
+			        [__Value], DESC,
+			        'Usage Segment Snapshot'[Latest Segment], ASC
+			    )
+			RETURN
+			CONCATENATEX(
+			    _highest,
+			    SWITCH(
+			        'Usage Segment Snapshot'[Latest Segment],
+			        "Cowork super user", "Super user",
+			        "Steady user", "Steady",
+			        "Emerging user", "Emerging",
+			        "Occasional user", "Occasional",
+			        'Usage Segment Snapshot'[Latest Segment]
+			    ) & " | " & FORMAT([__Value], "#,##0.0")
+			)
+		formatString: General
+		displayFolder: Adoption context
+		lineageTag: fdd94b55-55c7-4868-a265-dc70b0ee91a7
+
+	/// Usage group with the lowest privacy-safe average for the selected work-context metric.
+	measure 'Selected Metric Lowest Group' =
+			VAR _groups = FILTER(
+			        ADDCOLUMNS(
+			            CALCULATETABLE(
+			                VALUES('Usage Segment Snapshot'[Latest Segment]),
+			                REMOVEFILTERS(
+			                    'Usage Segment Snapshot'[Latest Segment],
+			                    'Usage Segment Snapshot'[Latest Segment Sort]
+			                )
+			            ),
+			            "__Value", CALCULATE([Selected Metric Stage Average])
+			        ),
+			        NOT ISBLANK([__Value])
+			    )
+			VAR _lowest =
+			    TOPN(
+			        1,
+			        _groups,
+			        [__Value], ASC,
+			        'Usage Segment Snapshot'[Latest Segment], ASC
+			    )
+			RETURN
+			CONCATENATEX(
+			    _lowest,
+			    SWITCH(
+			        'Usage Segment Snapshot'[Latest Segment],
+			        "Cowork super user", "Super user",
+			        "Steady user", "Steady",
+			        "Emerging user", "Emerging",
+			        "Occasional user", "Occasional",
+			        'Usage Segment Snapshot'[Latest Segment]
+			    ) & " | " & FORMAT([__Value], "#,##0.0")
+			)
+		formatString: General
+		displayFolder: Adoption context
+		lineageTag: 1cc4a04f-910b-4a16-84e0-ab3275257f52
+
+	/// Percentage change in the selected work-context metric from the prior visible week to the latest visible week.
+	measure 'Selected Metric Latest Week Change' =
+			VAR _weeks =
+			    CALCULATETABLE(
+			        VALUES('Calendar'[Week Start]),
+			        ALLSELECTED('Calendar'[Week Start])
+			    )
+			VAR _latestWeek = MAXX(_weeks, 'Calendar'[Week Start])
+			VAR _priorWeek =
+			    MAXX(
+			        FILTER(_weeks, 'Calendar'[Week Start] < _latestWeek),
+			        'Calendar'[Week Start]
+			    )
+			VAR _latestValue =
+			    CALCULATE(
+			        [Selected Metric Overall Average],
+			        REMOVEFILTERS('Calendar'[Week Start]),
+			        'Calendar'[Week Start] = _latestWeek
+			    )
+			VAR _priorValue =
+			    CALCULATE(
+			        [Selected Metric Overall Average],
+			        REMOVEFILTERS('Calendar'[Week Start]),
+			        'Calendar'[Week Start] = _priorWeek
+			    )
+			VAR _change = DIVIDE(_latestValue - _priorValue, ABS(_priorValue))
+			RETURN
+			IF(
+			    NOT ISBLANK(_latestValue) && NOT ISBLANK(_priorValue),
+			    IF(ABS(_change) < 0.0005, 0, _change)
+			)
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Adoption context
+		lineageTag: d00e005f-dccb-47ba-a081-17cb96bb78ce
+
+	/// Privacy-safe average selected work-context metric for Cowork super users.
+	measure 'Selected Metric Super User Average' =
+			CALCULATE(
+			    [Selected Metric Stage Average],
+			    REMOVEFILTERS(
+			        'Usage Segment Snapshot'[Latest Segment],
+			        'Usage Segment Snapshot'[Latest Segment Sort]
+			    ),
+			    'Usage Segment Snapshot'[Latest Segment] = "Cowork super user"
+			)
+		formatString: #,##0.0
+		displayFolder: Adoption context
+		lineageTag: eac3146d-c2ba-4409-8afc-e20cc38f0892
+
+	/// Privacy-safe average selected work-context metric for occasional Cowork users.
+	measure 'Selected Metric Occasional User Average' =
+			CALCULATE(
+			    [Selected Metric Stage Average],
+			    REMOVEFILTERS(
+			        'Usage Segment Snapshot'[Latest Segment],
+			        'Usage Segment Snapshot'[Latest Segment Sort]
+			    ),
+			    'Usage Segment Snapshot'[Latest Segment] = "Occasional user"
+			)
+		formatString: #,##0.0
+		displayFolder: Adoption context
+		lineageTag: a7a16a02-da25-429b-829e-381f2d9b0c02
+
+	/// Percentage difference between Cowork super-user and occasional-user averages for the selected metric.
+	measure 'Selected Metric Super vs Occasional Difference' =
+			VAR _high = [Selected Metric Super User Average]
+			VAR _low = [Selected Metric Occasional User Average]
+			VAR _difference = DIVIDE(_high - _low, ABS(_low))
+			RETURN
+			IF(
+			    NOT ISBLANK(_high) && NOT ISBLANK(_low),
+			    IF(ABS(_difference) < 0.0005, 0, _difference)
+			)
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Adoption context
+		lineageTag: 7f04631a-fc12-4ed9-81b9-8334b9af48dd
+
+	/// Change in the selected metric's latest four-week average versus the preceding four weeks.
+	measure 'Selected Metric Recent 4 Week Change' =
+			VAR _weeks =
+			    CALCULATETABLE(
+			        VALUES('Calendar'[Week Start]),
+			        ALLSELECTED('Calendar'[Week Start])
+			    )
+			VAR _recentWeeks = TOPN(4, _weeks, 'Calendar'[Week Start], DESC)
+			VAR _earlierWeeks =
+			    EXCEPT(
+			        TOPN(8, _weeks, 'Calendar'[Week Start], DESC),
+			        _recentWeeks
+			    )
+			VAR _recent =
+			    AVERAGEX(
+			        _recentWeeks,
+			        CALCULATE([Selected Metric Overall Average])
+			    )
+			VAR _earlier =
+			    AVERAGEX(
+			        _earlierWeeks,
+			        CALCULATE([Selected Metric Overall Average])
+			    )
+			VAR _change = DIVIDE(_recent - _earlier, ABS(_earlier))
+			RETURN
+			IF(
+			    COUNTROWS(_recentWeeks) = 4
+			        && COUNTROWS(_earlierWeeks) = 4
+			        && NOT ISBLANK(_recent)
+			        && NOT ISBLANK(_earlier),
+			    IF(ABS(_change) < 0.0005, 0, _change)
+			)
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Adoption context
+		lineageTag: e623da7e-51b2-4775-bf33-397a7f1393ec
 
 	column Bucket
 		dataType: string

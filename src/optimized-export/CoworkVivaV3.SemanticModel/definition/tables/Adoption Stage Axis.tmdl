@@ -2,8 +2,8 @@
 table 'Adoption Stage Axis'
 	lineageTag: bb62d8e5-33f9-429d-a24d-057fd3a3e92d
 
-	/// Privacy-safe people in the selected window and Cowork stage.
-	measure 'Segment People' =
+	/// Privacy-safe users in the selected window and Cowork stage.
+	measure 'Segment Users' =
 			VAR _window = SELECTEDVALUE('Adoption Stage Axis'[Window])
 			VAR _segment = SELECTEDVALUE('Adoption Stage Axis'[Segment])
 			VAR _people =
@@ -18,7 +18,7 @@ table 'Adoption Stage Axis'
 		displayFolder: Stage composition
 		lineageTag: ccac5f14-968b-4b72-ab22-87cb284dc402
 
-	/// Privacy-safe share of people in the selected Cowork stage during the previous window.
+	/// Privacy-safe percentage of users in the selected Cowork stage during the previous window.
 	measure 'Previous Stage Share' =
 			VAR _segment = SELECTEDVALUE('Adoption Stage Axis'[Segment])
 			VAR _people = CALCULATE(DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]), TREATAS({_segment}, 'Usage Segment Snapshot'[Previous Segment]))
@@ -27,7 +27,7 @@ table 'Adoption Stage Axis'
 		displayFolder: Stage composition
 		lineageTag: 6fd6c529-1566-47b6-85c4-ddb5f3e1d572
 
-	/// Privacy-safe share of people in the selected Cowork stage during the latest window.
+	/// Privacy-safe percentage of users in the selected Cowork stage during the latest window.
 	measure 'Latest Stage Share' =
 			VAR _segment = SELECTEDVALUE('Adoption Stage Axis'[Segment])
 			VAR _people = CALCULATE(DISTINCTCOUNT('Usage Segment Snapshot'[Person ID]), TREATAS({_segment}, 'Usage Segment Snapshot'[Latest Segment]))
@@ -78,19 +78,19 @@ table 'Adoption Stage Axis'
 		source =
 				let
 					Data = #table({"Window", "Window Sort", "Segment", "Segment Sort"}, {
-					        {"Previous window", 1, "Cowork Power User", 1},
-					        {"Previous window", 1, "Cowork Habitual User", 2},
-					        {"Previous window", 1, "Cowork Developing User", 3},
-					        {"Previous window", 1, "Cowork Low User", 4},
-					        {"Previous window", 1, "Cowork Non-user", 5},
-					        {"Previous window", 1, "Cowork coverage unknown", 6},
+					        {"Previous window", 1, "Cowork super user", 1},
+					        {"Previous window", 1, "Steady user", 2},
+					        {"Previous window", 1, "Emerging user", 3},
+					        {"Previous window", 1, "Occasional user", 4},
+					        {"Previous window", 1, "No observed use", 5},
+					        {"Previous window", 1, "Coverage unavailable", 6},
 					        {"Previous window", 1, "Insufficient history", 7},
-					        {"Latest window", 2, "Cowork Power User", 1},
-					        {"Latest window", 2, "Cowork Habitual User", 2},
-					        {"Latest window", 2, "Cowork Developing User", 3},
-					        {"Latest window", 2, "Cowork Low User", 4},
-					        {"Latest window", 2, "Cowork Non-user", 5},
-					        {"Latest window", 2, "Cowork coverage unknown", 6},
+					        {"Latest window", 2, "Cowork super user", 1},
+					        {"Latest window", 2, "Steady user", 2},
+					        {"Latest window", 2, "Emerging user", 3},
+					        {"Latest window", 2, "Occasional user", 4},
+					        {"Latest window", 2, "No observed use", 5},
+					        {"Latest window", 2, "Coverage unavailable", 6},
 					        {"Latest window", 2, "Insufficient history", 7}
 					    })
 				in

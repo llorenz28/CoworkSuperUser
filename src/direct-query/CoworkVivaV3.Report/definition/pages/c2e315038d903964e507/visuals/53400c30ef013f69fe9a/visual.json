@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "53400c30ef013f69fe9a",
   "position": {
-    "x": 401,
+    "x": 59,
     "y": 128,
     "z": 2000,
     "height": 88,
-    "width": 155,
-    "tabOrder": 1700
+    "width": 296,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,12 +23,12 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "Latest Weekly Active People"
+                  "Property": "Latest Weekly Active Users"
                 }
               },
-              "queryRef": "Consumption Weekly.Latest Weekly Active People",
-              "nativeQueryRef": "Latest active people",
-              "displayName": "Latest active people"
+              "queryRef": "Consumption Weekly.Latest Weekly Active Users",
+              "nativeQueryRef": "Latest active users",
+              "displayName": "Latest active users"
             }
           ]
         }
@@ -110,7 +110,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Latest active people'"
+                  "Value": "'Latest active users'"
                 }
               }
             },
@@ -286,7 +286,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Latest weekly active people for the current report filters.'"
+                  "Value": "'Latest weekly active users for the current report filters.'"
                 }
               }
             }

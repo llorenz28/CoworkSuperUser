@@ -32,7 +32,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Each cell shows the share of people active in the prior week who were also active in the displayed week. Darker cells indicate stronger week-to-week return. Blank cells reflect privacy suppression or insufficient prior-week history.",
+                    "value": "Each cell shows the percentage of users active in the prior week who were also active in the displayed week. Darker cells indicate stronger week-to-week return. Blank cells reflect privacy suppression or insufficient prior-week history.",
                     "textStyle": {
                       "fontSize": "9pt",
                       "color": "#1B1F27",

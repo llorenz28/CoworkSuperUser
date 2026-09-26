@@ -30,7 +30,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Adoption Measures",
-			          "ConceptualProperty": "Company Sustained Usage Share"
+			          "ConceptualProperty": "Company Active-Most-Weeks Rate"
 			        }
 			      },
 			      "State": "Generated",
@@ -56,7 +56,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Company sustained-use benchmark": {
+			          "Company regular-use benchmark": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -113,13 +113,13 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Adoption Measures",
-			          "ConceptualProperty": "Function Sustained Gap pp"
+			          "ConceptualProperty": "Function Active-Most-Weeks Gap pp"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Sustained-use gap": {
+			          "Regular-use gap": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -278,7 +278,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Adoption Measures",
-			          "ConceptualProperty": "Power Session Threshold"
+			          "ConceptualProperty": "Super User Session Threshold"
 			        }
 			      },
 			      "State": "Generated"
@@ -667,7 +667,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Consumption Weekly",
-			          "ConceptualProperty": "Weekly Active People (Latest 12 Weeks)"
+			          "ConceptualProperty": "Weekly Active Users (Latest 12 Weeks)"
 			        }
 			      },
 			      "State": "Generated",
@@ -719,7 +719,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Consumption Weekly",
-			          "ConceptualProperty": "Sessions per Active Person"
+			          "ConceptualProperty": "Sessions per Active User"
 			        }
 			      },
 			      "State": "Generated",
@@ -780,7 +780,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Consumption Weekly",
-			          "ConceptualProperty": "Latest Weekly Active People"
+			          "ConceptualProperty": "Latest Weekly Active Users"
 			        }
 			      },
 			      "State": "Generated",
@@ -873,7 +873,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Consumption Weekly",
-			          "ConceptualProperty": "New People"
+			          "ConceptualProperty": "New Users"
 			        }
 			      },
 			      "State": "Generated",
@@ -978,7 +978,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Consumption Weekly",
-			          "ConceptualProperty": "New People (Latest 12 Weeks)"
+			          "ConceptualProperty": "New Users (Latest 12 Weeks)"
 			        }
 			      },
 			      "State": "Generated",
@@ -999,7 +999,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Consumption Weekly",
-			          "ConceptualProperty": "Retained People (Latest 12 Weeks)"
+			          "ConceptualProperty": "Retained Users (Latest 12 Weeks)"
 			        }
 			      },
 			      "State": "Generated",
@@ -1020,7 +1020,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Consumption Weekly",
-			          "ConceptualProperty": "Resurrected People (Latest 12 Weeks)"
+			          "ConceptualProperty": "Returned Users (Latest 12 Weeks)"
 			        }
 			      },
 			      "State": "Generated",
@@ -1041,7 +1041,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Consumption Weekly",
-			          "ConceptualProperty": "Churned People (Negative, Latest 12 Weeks)"
+			          "ConceptualProperty": "Lapsed Users (Negative, Latest 12 Weeks)"
 			        }
 			      },
 			      "State": "Generated",
@@ -1083,13 +1083,13 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Usage Segment Snapshot",
-			          "ConceptualProperty": "Sustained Usage Share"
+			          "ConceptualProperty": "Active-Most-Weeks Rate"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Function sustained-use share": {
+			          "Function share active in most weeks": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -1099,7 +1099,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Sustained-use share": {
+			          "Share active in most weeks": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -1206,13 +1206,13 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Usage Segment Snapshot",
-			          "ConceptualProperty": "Power Users"
+			          "ConceptualProperty": "Cowork Super Users"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Selected Power users": {
+			          "Selected Cowork super users": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -1222,7 +1222,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Power users": {
+			          "Cowork super users": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -1237,7 +1237,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Usage Segment Snapshot",
-			          "ConceptualProperty": "Declined People"
+			          "ConceptualProperty": "Declined Users"
 			        }
 			      },
 			      "State": "Generated",
@@ -1258,7 +1258,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Usage Segment Snapshot",
-			          "ConceptualProperty": "Stable People"
+			          "ConceptualProperty": "Stable Users"
 			        }
 			      },
 			      "State": "Generated",
@@ -1279,7 +1279,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Usage Segment Snapshot",
-			          "ConceptualProperty": "Improved People"
+			          "ConceptualProperty": "Improved Users"
 			        }
 			      },
 			      "State": "Generated",
@@ -1321,7 +1321,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Usage Segment Snapshot",
-			          "ConceptualProperty": "Transition People"
+			          "ConceptualProperty": "Transition Users"
 			        }
 			      },
 			      "State": "Generated",
@@ -1342,13 +1342,13 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Usage Segment Snapshot",
-			          "ConceptualProperty": "Sustained Users"
+			          "ConceptualProperty": "Users Active Most Weeks"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Sustained users": {
+			          "Users active most weeks": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -1363,7 +1363,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Usage Segment Snapshot",
-			          "ConceptualProperty": "Sustained Retention Rate"
+			          "ConceptualProperty": "Most-Weeks User Retention"
 			        }
 			      },
 			      "State": "Generated",
@@ -1384,7 +1384,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Usage Segment Snapshot",
-			          "ConceptualProperty": "Movement People"
+			          "ConceptualProperty": "Movement Users"
 			        }
 			      },
 			      "State": "Generated",
@@ -1624,7 +1624,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Usage Segment Snapshot",
-			          "ConceptualProperty": "Average Sessions per Person"
+			          "ConceptualProperty": "Average Sessions per User"
 			        }
 			      },
 			      "State": "Generated",
@@ -1768,7 +1768,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Usage Segments Weekly",
-			          "ConceptualProperty": "Weekly Segment People"
+			          "ConceptualProperty": "Weekly Segment Users"
 			        }
 			      },
 			      "State": "Generated",
@@ -1915,13 +1915,13 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Person Metrics",
-			          "ConceptualProperty": "Selected Metric Sustained Average"
+			          "ConceptualProperty": "Selected Metric Active-Most-Weeks Average"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Sustained users": {
+			          "Users active most weeks": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -2155,4 +2155,3 @@ cultureInfo en-US
 			  }
 			}
 		contentType: json
-

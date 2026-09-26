@@ -170,7 +170,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sustained-use share'"
+                  "Value": "'active in most weeks'"
                 }
               }
             },
@@ -258,7 +258,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Switch to Sustained-use share.'"
+                  "Value": "'Switch to active in most weeks.'"
                 }
               }
             }

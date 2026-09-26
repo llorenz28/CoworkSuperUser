@@ -63,12 +63,12 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "Weekly Active People (Latest 12 Weeks)"
+                  "Property": "Weekly Active Users (Latest 12 Weeks)"
                 }
               },
-              "queryRef": "Consumption Weekly.Weekly Active People (Latest 12 Weeks)",
-              "nativeQueryRef": "Weekly active people",
-              "displayName": "Weekly active people"
+              "queryRef": "Consumption Weekly.Weekly Active Users (Latest 12 Weeks)",
+              "nativeQueryRef": "Weekly active users",
+              "displayName": "Weekly active users"
             }
           ]
         }
@@ -171,7 +171,7 @@
                     "FillRule": {
                       "Input": {
                         "SelectRef": {
-                          "ExpressionName": "Consumption Weekly.Weekly Active People (Latest 12 Weeks)"
+                          "ExpressionName": "Consumption Weekly.Weekly Active Users (Latest 12 Weeks)"
                         }
                       },
                       "FillRule": {
@@ -220,7 +220,7 @@
                 }
               }
             ],
-            "metadata": "Consumption Weekly.Weekly Active People (Latest 12 Weeks)"
+            "metadata": "Consumption Weekly.Weekly Active Users (Latest 12 Weeks)"
           }
         }
       ],
@@ -418,7 +418,7 @@
             }
           },
           "selector": {
-            "metadata": "Consumption Weekly.Weekly Active People (Latest 12 Weeks)"
+            "metadata": "Consumption Weekly.Weekly Active Users (Latest 12 Weeks)"
           }
         }
       ],
@@ -582,7 +582,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Privacy-safe weekly active people by function for the latest 12 weeks in the current date selection. Darker cells indicate more active people.'"
+                  "Value": "'Privacy-safe weekly active users by function for the latest 12 weeks in the current date selection. Darker cells indicate more active users.'"
                 }
               }
             }
@@ -649,7 +649,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Weekly active people by function - latest 12 weeks'"
+                  "Value": "'Weekly active users by function - latest 12 weeks'"
                 }
               }
             },

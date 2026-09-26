@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Prioritize sustained Cowork users for peer enablement, then review department coverage and activity evidence.",
+                    "value": "Review consistently active users, then confirm willingness, communication fit, manager support, and consent.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "9pt",
@@ -109,7 +109,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Prioritize sustained Cowork users for peer enablement, then review department coverage and activity evidence.'"
+                  "Value": "'Prioritize regular Cowork users for peer enablement, then review department coverage and activity evidence.'"
                 }
               }
             }

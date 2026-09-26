@@ -63,8 +63,8 @@
                 }
               },
               "queryRef": "Organization.Reportable Population",
-              "nativeQueryRef": "People",
-              "displayName": "People"
+              "nativeQueryRef": "users",
+              "displayName": "users"
             },
             {
               "field": {
@@ -760,5 +760,6 @@
         }
       ]
     }
-  }
+  },
+  "isHidden": true
 }

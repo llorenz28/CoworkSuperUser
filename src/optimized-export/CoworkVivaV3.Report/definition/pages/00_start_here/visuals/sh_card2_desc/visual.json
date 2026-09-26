@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Track new, retained, resurrected, and churned people alongside weekly active rate, return behavior, and sessions.",
+                    "value": "Track new, retained, returned, and lapsed users alongside weekly return rate and session intensity.",
                     "textStyle": {
                       "fontSize": "10pt",
                       "color": "#1B1F27"

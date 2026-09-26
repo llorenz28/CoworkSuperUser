@@ -27,8 +27,8 @@
                 }
               },
               "queryRef": "Adoption Stage Axis.Segment",
-              "nativeQueryRef": "Usage stage",
-              "displayName": "Usage stage",
+              "nativeQueryRef": "Usage pattern",
+              "displayName": "Usage pattern",
               "active": true
             }
           ]
@@ -618,7 +618,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Stage share: previous vs latest'"
+                  "Value": "'Previous versus latest user mix'"
                 }
               }
             },

@@ -170,7 +170,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Habitual User'"
+                  "Value": "'steady user'"
                 }
               }
             },
@@ -258,7 +258,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Switch to Habitual User.'"
+                  "Value": "'Switch to steady user.'"
                 }
               }
             }

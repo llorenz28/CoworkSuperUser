@@ -170,7 +170,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'View executive adoption ->'"
+                  "Value": "'View executive summary ->'"
                 }
               }
             },

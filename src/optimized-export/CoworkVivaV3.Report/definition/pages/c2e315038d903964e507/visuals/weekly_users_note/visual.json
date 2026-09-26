@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "weekly_users_note",
   "position": {
-    "x": 232,
-    "y": 572,
+    "x": 59,
+    "y": 592,
     "z": 19000,
-    "height": 92,
-    "width": 860,
-    "tabOrder": 7200
+    "height": 88,
+    "width": 1248,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "HOW TO READ THIS VIEW",
+                    "value": "WHAT THIS MEANS | New users expand reach; retained and returned users show repeat use; lapsed users need follow-up.",
                     "textStyle": {
                       "fontWeight": "semibold",
                       "fontSize": "9pt",
@@ -32,10 +32,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "Bars classify active people as new (no earlier observed session), retained (active this week and last week), resurrected (returned after an inactive week), or churned (active last week but not this week). Churn is plotted below zero, and small cohorts are suppressed.",
+                    "value": "NEXT STEP | Prioritize organizations with falling return rates or rising lapsed-user counts.",
                     "textStyle": {
+                      "fontWeight": "semibold",
                       "fontSize": "9pt",
-                      "color": "#1B1F27",
+                      "color": "#311F5E",
                       "fontFamily": "Segoe UI"
                     }
                   }
@@ -165,5 +166,5 @@
       ]
     }
   },
-  "isHidden": true
+  "isHidden": false
 }

@@ -582,7 +582,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Weekly active people divided by the analytical population by function for the latest 12 weeks. Darker cells indicate higher reach.'"
+                  "Value": "'Weekly active users divided by the analytical population by function for the latest 12 weeks. Darker cells indicate higher reach.'"
                 }
               }
             }

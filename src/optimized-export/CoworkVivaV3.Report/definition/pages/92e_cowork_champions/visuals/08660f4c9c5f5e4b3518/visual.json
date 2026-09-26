@@ -27,8 +27,8 @@
                 }
               },
               "queryRef": "Usage Segment Snapshot.Champion Candidate Count",
-              "nativeQueryRef": "Potential champions",
-              "displayName": "Potential champions"
+              "nativeQueryRef": "Potential peer enablers",
+              "displayName": "Potential peer enablers"
             }
           ]
         }
@@ -110,7 +110,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Potential champions'"
+                  "Value": "'Potential peer enablers'"
                 }
               }
             },
@@ -286,7 +286,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Derived evidence. Potential champions. Updates with current report filters.'"
+                  "Value": "'Derived evidence. Potential peer enablers. Updates with current report filters.'"
                 }
               }
             }

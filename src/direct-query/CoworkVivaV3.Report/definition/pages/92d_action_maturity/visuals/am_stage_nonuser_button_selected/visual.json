@@ -170,7 +170,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Non-user'"
+                  "Value": "'no observed use'"
                 }
               }
             },
@@ -258,7 +258,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Switch to Non-user.'"
+                  "Value": "'Switch to no observed use.'"
                 }
               }
             }

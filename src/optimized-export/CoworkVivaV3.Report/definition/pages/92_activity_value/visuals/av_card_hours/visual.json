@@ -23,12 +23,12 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "Sessions per Active Person"
+                  "Property": "Most Concentrated Department"
                 }
               },
-              "queryRef": "Consumption Weekly.Sessions per Active Person",
-              "nativeQueryRef": "Sessions / active person",
-              "displayName": "Sessions / active person"
+              "queryRef": "Consumption Weekly.Most Concentrated Department",
+              "nativeQueryRef": "Most concentrated",
+              "displayName": "Most concentrated"
             }
           ]
         }
@@ -48,14 +48,14 @@
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'Consolas'"
+                  "Value": "'Segoe UI Semibold'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "22D"
+                  "Value": "12D"
                 }
               }
             },
@@ -90,6 +90,13 @@
                   "Value": "'Suppressed'"
                 }
               }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
             }
           },
           "selector": {
@@ -110,7 +117,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sessions / active person'"
+                  "Value": "'Most concentrated'"
                 }
               }
             },
@@ -286,7 +293,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Derived evidence. Sessions / active person. Updates with current report filters.'"
+                  "Value": "'Derived evidence. Sessions / active user. Updates with current report filters.'"
                 }
               }
             }

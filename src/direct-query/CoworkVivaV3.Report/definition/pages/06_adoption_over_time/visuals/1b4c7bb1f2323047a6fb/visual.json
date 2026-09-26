@@ -10,7 +10,7 @@
     "tabOrder": 2100
   },
   "visual": {
-    "visualType": "lineStackedColumnComboChart",
+    "visualType": "funnel",
     "query": {
       "queryState": {
         "Category": {
@@ -20,16 +20,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Organization"
+                      "Entity": "Adoption Funnel"
                     }
                   },
-                  "Property": "Function"
+                  "Property": "Stage"
                 }
               },
-              "queryRef": "Organization.Function",
-              "nativeQueryRef": "Function",
-              "active": true,
-              "displayName": "Function"
+              "queryRef": "Adoption Funnel.Stage",
+              "nativeQueryRef": "Adoption journey",
+              "displayName": "Adoption journey",
+              "active": true
             }
           ]
         },
@@ -40,55 +40,18 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Usage Segment Snapshot"
+                      "Entity": "Adoption Funnel"
                     }
                   },
-                  "Property": "Sustained Usage Share"
+                  "Property": "Funnel Users"
                 }
               },
-              "queryRef": "Usage Segment Snapshot.Sustained Usage Share",
-              "nativeQueryRef": "Function sustained-use share",
-              "displayName": "Function sustained-use share"
-            }
-          ]
-        },
-        "Y2": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Adoption Measures"
-                    }
-                  },
-                  "Property": "Company Sustained Usage Share"
-                }
-              },
-              "queryRef": "Adoption Measures.Company Sustained Usage Share",
-              "nativeQueryRef": "Company benchmark",
-              "displayName": "Company benchmark"
+              "queryRef": "Adoption Funnel.Funnel Users",
+              "nativeQueryRef": "Users",
+              "displayName": "Users"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Usage Segment Snapshot"
-                  }
-                },
-                "Property": "Sustained Usage Share"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
     "objects": {
@@ -102,24 +65,6 @@
                 }
               }
             },
-            "labelColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#4F5B6B'"
-                    }
-                  }
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "7D"
-                }
-              }
-            },
             "fontFamily": {
               "expr": {
                 "Literal": {
@@ -127,172 +72,36 @@
                 }
               }
             },
-            "showAxisTitle": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "9D"
                 }
               }
             },
-            "axisType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Categorical'"
-                }
-              }
-            },
-            "preferredCategoryWidth": {
-              "expr": {
-                "Literal": {
-                  "Value": "70D"
-                }
-              }
-            },
-            "maxMarginFactor": {
-              "expr": {
-                "Literal": {
-                  "Value": "45D"
-                }
-              }
-            },
-            "innerPadding": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1B1F27'"
+                    }
+                  }
                 }
               }
             }
           }
         }
       ],
-      "valueAxis": [
+      "dataPoint": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "start": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "labelColor": {
+            "defaultColor": {
               "solid": {
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#4F5B6B'"
-                    }
-                  }
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Segoe UI'"
-                }
-              }
-            },
-            "gridlineShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "gridlineColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#D8DEE9'"
-                    }
-                  }
-                }
-              }
-            },
-            "gridlineStyle": {
-              "expr": {
-                "Literal": {
-                  "Value": "'dotted'"
-                }
-              }
-            },
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "secShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "alignZeros": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "legend": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "position": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Top'"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Segoe UI'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
-            "labelColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#4F5B6B'"
+                      "Value": "'#4B2D83'"
                     }
                   }
                 }
@@ -311,31 +120,6 @@
                 }
               }
             },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Segoe UI'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#172033'"
-                    }
-                  }
-                }
-              }
-            },
             "labelPosition": {
               "expr": {
                 "Literal": {
@@ -343,70 +127,31 @@
                 }
               }
             },
-            "labelPrecision": {
+            "labelDisplayUnits": {
               "expr": {
                 "Literal": {
                   "Value": "1D"
                 }
               }
             },
-            "showByDefault": {
+            "labelPrecision": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "0L"
                 }
               }
             },
-            "labelDensity": {
+            "percentageLabelPrecision": {
               "expr": {
                 "Literal": {
-                  "Value": "50D"
+                  "Value": "0L"
                 }
               }
             },
-            "optimizeLabelDisplay": {
+            "funnelLabelStyle": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        },
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showByDefault": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "labelPosition": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Auto'"
-                }
-              }
-            },
-            "labelDensity": {
-              "expr": {
-                "Literal": {
-                  "Value": "50D"
-                }
-              }
-            },
-            "optimizeLabelDisplay": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                  "Value": "'Data, percent of first'"
                 }
               }
             },
@@ -420,7 +165,14 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "9D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             },
@@ -429,141 +181,25 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#172033'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
               }
             }
-          },
-          "selector": {
-            "metadata": "Adoption Measures.Company Sustained Usage Share"
           }
         }
       ],
-      "lineStyles": [
+      "percentBarLabel": [
         {
           "properties": {
-            "strokeShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "strokeWidth": {
-              "expr": {
-                "Literal": {
-                  "Value": "3D"
-                }
-              }
-            },
-            "lineStyle": {
-              "expr": {
-                "Literal": {
-                  "Value": "'dashed'"
-                }
-              }
-            },
-            "showMarker": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "markerShape": {
-              "expr": {
-                "Literal": {
-                  "Value": "'diamond'"
-                }
-              }
-            },
-            "markerSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "5D"
-                }
-              }
-            },
-            "markerColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#5A6472'"
-                    }
-                  }
-                }
-              }
-            },
-            "lineChartType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'linear'"
-                }
-              }
-            },
-            "areaShow": {
+            "show": {
               "expr": {
                 "Literal": {
                   "Value": "false"
                 }
               }
             }
-          }
-        }
-      ],
-      "dataPoint": [
-        {
-          "properties": {
-            "defaultColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#779B99'"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#007C91'"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Usage Segment Snapshot.Sustained Usage Share"
-          }
-        },
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#5A6472'"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Adoption Measures.Company Sustained Usage Share"
           }
         }
       ]
@@ -644,7 +280,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'The eight largest functions by population. Columns show each function sustained-use share; the dashed line shows the company benchmark. Small or suppressed function rows are excluded.'"
+                  "Value": "'Adoption funnel from total population to active users, users active in most weeks, and Cowork super users.'"
                 }
               }
             }
@@ -711,7 +347,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Largest functions: sustained-use share vs company benchmark'"
+                  "Value": "'From total population to Cowork super users'"
                 }
               }
             },
@@ -726,24 +362,6 @@
               "expr": {
                 "Literal": {
                   "Value": "11D"
-                }
-              }
-            },
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#172033'"
-                    }
-                  }
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
                 }
               }
             }

@@ -23,12 +23,12 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "Latest Weekly Active People"
+                  "Property": "Latest Weekly Active Users"
                 }
               },
-              "queryRef": "Consumption Weekly.Latest Weekly Active People",
-              "nativeQueryRef": "Latest Weekly Active People",
-              "displayName": "Latest active people"
+              "queryRef": "Consumption Weekly.Latest Weekly Active Users",
+              "nativeQueryRef": "Latest Weekly Active Users",
+              "displayName": "Latest active users"
             }
           ]
         }
@@ -117,7 +117,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Latest active people'"
+                  "Value": "'Latest active users'"
                 }
               }
             },
@@ -300,7 +300,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Latest active people. Updates with the current report and department selection.'"
+                  "Value": "'Latest active users. Updates with the current report and department selection.'"
                 }
               }
             }
@@ -355,5 +355,6 @@
         }
       ]
     }
-  }
+  },
+  "isHidden": true
 }

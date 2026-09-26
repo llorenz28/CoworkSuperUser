@@ -32,7 +32,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Compare departments across active rate, return rate, new people, and sessions per active person. Expand a department to view pseudonymous User IDs. Cell shading shows relative magnitude; blank values are suppressed or unavailable.",
+                    "value": "Compare departments across active rate, return rate, new users, and sessions per active user. Expand a department to view pseudonymous User IDs. Cell shading shows relative magnitude; blank values are suppressed or unavailable.",
                     "textStyle": {
                       "fontSize": "9pt",
                       "color": "#1B1F27",
@@ -164,5 +164,6 @@
         }
       ]
     }
-  }
+  },
+  "isHidden": true
 }

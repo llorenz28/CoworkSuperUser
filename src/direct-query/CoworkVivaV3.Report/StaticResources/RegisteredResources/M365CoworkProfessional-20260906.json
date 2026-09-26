@@ -3,10 +3,9 @@
   "dataColors": [
     "#4B2D83",
     "#003087",
-    "#8A2BE2",
     "#167A7A",
-    "#2EA44F",
     "#D67213",
+    "#2EA44F",
     "#B02A2A",
     "#5A6472",
     "#0099BC"
@@ -22,8 +21,8 @@
   "secondLevelElements": "#5A6472",
   "thirdLevelElements": "#E3E6EC",
   "fourthLevelElements": "#87909C",
-  "background": "#FFFFFF",
-  "secondaryBackground": "#F6F7FB",
+  "background": "#F6F7FB",
+  "secondaryBackground": "#FFFFFF",
   "tableAccent": "#4B2D83",
   "textClasses": {
     "label": {

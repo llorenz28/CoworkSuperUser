@@ -63,12 +63,12 @@
                       "Entity": "Usage Segment Snapshot"
                     }
                   },
-                  "Property": "Transition People"
+                  "Property": "Transition Users"
                 }
               },
-              "queryRef": "Usage Segment Snapshot.Transition People",
-              "nativeQueryRef": "People",
-              "displayName": "People"
+              "queryRef": "Usage Segment Snapshot.Transition Users",
+              "nativeQueryRef": "users",
+              "displayName": "users"
             }
           ]
         }
@@ -301,7 +301,7 @@
                     "FillRule": {
                       "Input": {
                         "SelectRef": {
-                          "ExpressionName": "Usage Segment Snapshot.Transition People"
+                          "ExpressionName": "Usage Segment Snapshot.Transition Users"
                         }
                       },
                       "FillRule": {
@@ -365,7 +365,7 @@
                 }
               }
             ],
-            "metadata": "Usage Segment Snapshot.Transition People"
+            "metadata": "Usage Segment Snapshot.Transition Users"
           }
         }
       ],
@@ -554,7 +554,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Privacy-safe transition matrix ordered from Non-user to Power User. Rows are previous stages, columns are latest stages, and cells show people. Diagonal cells stayed in the same stage; cells right of the diagonal improved; cells left declined.'"
+                  "Value": "'Privacy-safe transition matrix ordered from no observed use to Cowork super user. Rows are previous stages, columns are latest stages, and cells show users. Diagonal cells stayed in the same stage; cells right of the diagonal improved; cells left declined.'"
                 }
               }
             }

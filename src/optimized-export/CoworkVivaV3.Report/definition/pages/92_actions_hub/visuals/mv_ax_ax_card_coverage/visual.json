@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "mv_ax_ax_card_coverage",
   "position": {
-    "x": 16,
+    "x": 432,
     "y": 96,
     "z": 11000,
-    "height": 82,
-    "width": 400,
+    "height": 80,
+    "width": 192,
     "tabOrder": 1600
   },
   "visual": {
@@ -23,12 +23,12 @@
                       "Entity": "Person Metrics"
                     }
                   },
-                  "Property": "Selected Metric Overall Average"
+                  "Property": "Selected Metric Super User Average"
                 }
               },
-              "queryRef": "Person Metrics.Selected Metric Overall Average",
-              "nativeQueryRef": "Selected Metric Overall Average",
-              "displayName": "Overall average"
+              "queryRef": "Person Metrics.Selected Metric Super User Average",
+              "nativeQueryRef": "Cowork super users",
+              "displayName": "Cowork super users"
             }
           ]
         }
@@ -55,7 +55,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "24D"
+                  "Value": "12D"
                 }
               }
             },
@@ -97,6 +97,13 @@
                   "Value": "'Suppressed'"
                 }
               }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
             }
           },
           "selector": {
@@ -117,7 +124,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Overall average'"
+                  "Value": "'Cowork super users'"
                 }
               }
             },
@@ -356,5 +363,5 @@
       ]
     }
   },
-  "isHidden": true
+  "isHidden": false
 }

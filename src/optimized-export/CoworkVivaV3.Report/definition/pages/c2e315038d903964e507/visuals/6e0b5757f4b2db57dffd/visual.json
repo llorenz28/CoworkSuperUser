@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "6e0b5757f4b2db57dffd",
   "position": {
-    "x": 914,
+    "x": 995,
     "y": 128,
     "z": 14000,
     "height": 88,
-    "width": 155,
-    "tabOrder": 2000
+    "width": 296,
+    "tabOrder": 1300
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,12 +23,12 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "Sessions per Active Person"
+                  "Property": "Sessions per Active User"
                 }
               },
-              "queryRef": "Consumption Weekly.Sessions per Active Person",
-              "nativeQueryRef": "Sessions per active person",
-              "displayName": "Sessions per active person"
+              "queryRef": "Consumption Weekly.Sessions per Active User",
+              "nativeQueryRef": "Sessions per active user",
+              "displayName": "Sessions per active user"
             }
           ]
         }
@@ -110,7 +110,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sessions per active person'"
+                  "Value": "'Sessions per active user'"
                 }
               }
             },
@@ -286,7 +286,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Average weekly Cowork sessions per active person for the current report filters.'"
+                  "Value": "'Average weekly Cowork sessions per active user for the current report filters.'"
                 }
               }
             }

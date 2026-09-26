@@ -63,12 +63,12 @@
                       "Entity": "Usage Segments Weekly"
                     }
                   },
-                  "Property": "Weekly Segment People"
+                  "Property": "Weekly Segment Users"
                 }
               },
-              "queryRef": "Usage Segments Weekly.Weekly Segment People",
-              "nativeQueryRef": "People",
-              "displayName": "People"
+              "queryRef": "Usage Segments Weekly.Weekly Segment Users",
+              "nativeQueryRef": "users",
+              "displayName": "users"
             }
           ]
         }
@@ -380,7 +380,7 @@
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Cowork Power User'"
+                        "Value": "'Cowork super user'"
                       }
                     }
                   }
@@ -421,7 +421,7 @@
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Cowork Habitual User'"
+                        "Value": "'Steady user'"
                       }
                     }
                   }
@@ -462,7 +462,7 @@
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Cowork Developing User'"
+                        "Value": "'Emerging user'"
                       }
                     }
                   }
@@ -503,7 +503,7 @@
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Cowork Low User'"
+                        "Value": "'Occasional user'"
                       }
                     }
                   }
@@ -544,7 +544,7 @@
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Cowork Non-user'"
+                        "Value": "'No observed use'"
                       }
                     }
                   }
@@ -749,7 +749,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Small-multiple line charts show privacy-safe people in each Cowork stage by rolling 12-week analysis week.'"
+                  "Value": "'Small-multiple line charts show privacy-safe users in each Cowork stage by rolling 12-week analysis week.'"
                 }
               }
             }

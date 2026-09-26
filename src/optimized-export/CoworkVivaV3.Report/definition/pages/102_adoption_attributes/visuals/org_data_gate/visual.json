@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "org_data_gate",
   "position": {
-    "x": 16,
-    "y": 120,
+    "x": 59,
+    "y": 104,
     "z": 70000,
     "height": 32,
     "width": 1248,

@@ -23,10 +23,10 @@
                       "Entity": "Usage Segment Snapshot"
                     }
                   },
-                  "Property": "Improved People"
+                  "Property": "Improved Users"
                 }
               },
-              "queryRef": "Usage Segment Snapshot.Improved People",
+              "queryRef": "Usage Segment Snapshot.Improved Users",
               "nativeQueryRef": "Improved",
               "displayName": "Improved"
             }

@@ -170,7 +170,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'View champion identification ->'"
+                  "Value": "'View users who can help ->'"
                 }
               }
             },
@@ -258,7 +258,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Open Champion Identification.'"
+                  "Value": "'Open users who can help scale adoption.'"
                 }
               }
             }

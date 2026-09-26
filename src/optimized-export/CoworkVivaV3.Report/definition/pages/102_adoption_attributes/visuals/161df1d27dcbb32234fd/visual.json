@@ -43,12 +43,12 @@
                       "Entity": "Usage Segment Snapshot"
                     }
                   },
-                  "Property": "Sustained Usage Share"
+                  "Property": "Active-Most-Weeks Rate"
                 }
               },
-              "queryRef": "Usage Segment Snapshot.Sustained Usage Share",
-              "nativeQueryRef": "Function sustained-use share",
-              "displayName": "Function sustained-use share"
+              "queryRef": "Usage Segment Snapshot.Active-Most-Weeks Rate",
+              "nativeQueryRef": "Function active in most weeks",
+              "displayName": "Function active in most weeks"
             }
           ]
         },
@@ -62,10 +62,10 @@
                       "Entity": "Adoption Measures"
                     }
                   },
-                  "Property": "Company Sustained Usage Share"
+                  "Property": "Company Active-Most-Weeks Rate"
                 }
               },
-              "queryRef": "Adoption Measures.Company Sustained Usage Share",
+              "queryRef": "Adoption Measures.Company Active-Most-Weeks Rate",
               "nativeQueryRef": "Company benchmark",
               "displayName": "Company benchmark"
             }
@@ -82,7 +82,7 @@
                     "Entity": "Usage Segment Snapshot"
                   }
                 },
-                "Property": "Sustained Usage Share"
+                "Property": "Active-Most-Weeks Rate"
               }
             },
             "direction": "Descending"
@@ -409,7 +409,7 @@
             }
           },
           "selector": {
-            "metadata": "Adoption Measures.Company Sustained Usage Share"
+            "metadata": "Adoption Measures.Company Active-Most-Weeks Rate"
           }
         }
       ],
@@ -502,7 +502,7 @@
             }
           },
           "selector": {
-            "metadata": "Usage Segment Snapshot.Sustained Usage Share"
+            "metadata": "Usage Segment Snapshot.Active-Most-Weeks Rate"
           }
         },
         {
@@ -520,7 +520,7 @@
             }
           },
           "selector": {
-            "metadata": "Adoption Measures.Company Sustained Usage Share"
+            "metadata": "Adoption Measures.Company Active-Most-Weeks Rate"
           }
         }
       ]
@@ -601,7 +601,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'The eight largest functions by population. Columns show each function sustained-use share; the dashed line shows the company benchmark. Small or suppressed function rows are excluded.'"
+                  "Value": "'The eight largest functions by population. Columns show each function active in most weeks; the dashed line shows the company benchmark. Small or suppressed function rows are excluded.'"
                 }
               }
             }
@@ -668,7 +668,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Largest functions: sustained-use share vs company benchmark'"
+                  "Value": "'Largest functions: active in most weeks vs company benchmark'"
                 }
               }
             },

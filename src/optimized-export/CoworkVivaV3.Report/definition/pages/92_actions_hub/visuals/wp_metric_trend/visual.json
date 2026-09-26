@@ -62,12 +62,12 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "Sessions per Active Person"
+                  "Property": "Sessions per Active User"
                 }
               },
-              "queryRef": "Consumption Weekly.Sessions per Active Person",
-              "nativeQueryRef": "Cowork sessions / active person",
-              "displayName": "Cowork sessions / active person"
+              "queryRef": "Consumption Weekly.Sessions per Active User",
+              "nativeQueryRef": "Cowork sessions / active user",
+              "displayName": "Cowork sessions / active user"
             }
           ]
         }
@@ -399,7 +399,7 @@
             "secTitleText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Cowork sessions / active person'"
+                  "Value": "'Cowork sessions / active user'"
                 }
               }
             },
@@ -692,7 +692,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Weekly selected work-pattern average with Cowork sessions per active person on the separate line axis. The chart is descriptive and does not establish impact.'"
+                  "Value": "'Weekly selected work-pattern average with Cowork sessions per active user on the separate line axis. The chart is descriptive and does not establish impact.'"
                 }
               }
             }
@@ -759,7 +759,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Work pattern and Cowork session intensity over time'"
+                  "Value": "'Selected work-context metric over time'"
                 }
               }
             },

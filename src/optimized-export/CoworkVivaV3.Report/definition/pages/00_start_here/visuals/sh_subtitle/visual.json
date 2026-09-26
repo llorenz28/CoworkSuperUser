@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "This file: Optimized Export (fastest refresh). Alternate: Direct Query (no local scripts). Both releases use this same Start Here page and report experience.",
+                    "value": "Same report in both editions: Optimized Export (recommended) or Direct Query (advanced).",
                     "textStyle": {
                       "fontSize": "12pt",
                       "color": "#5A6472"

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "mv_ax_ax_card_actions",
   "position": {
-    "x": 432,
+    "x": 640,
     "y": 96,
     "z": 13000,
-    "height": 82,
-    "width": 400,
+    "height": 80,
+    "width": 192,
     "tabOrder": 2000
   },
   "visual": {
@@ -23,12 +23,12 @@
                       "Entity": "Person Metrics"
                     }
                   },
-                  "Property": "Selected Metric Sustained Average"
+                  "Property": "Selected Metric Occasional User Average"
                 }
               },
-              "queryRef": "Person Metrics.Selected Metric Sustained Average",
-              "nativeQueryRef": "Selected Metric Sustained Average",
-              "displayName": "Sustained users"
+              "queryRef": "Person Metrics.Selected Metric Occasional User Average",
+              "nativeQueryRef": "Occasional users",
+              "displayName": "Occasional users"
             }
           ]
         }
@@ -55,7 +55,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "24D"
+                  "Value": "12D"
                 }
               }
             },
@@ -97,6 +97,13 @@
                   "Value": "'Suppressed'"
                 }
               }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
             }
           },
           "selector": {
@@ -117,7 +124,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sustained users'"
+                  "Value": "'Occasional users'"
                 }
               }
             },
@@ -300,7 +307,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sustained users. Updates with the selected metric and report filters. Blank values are suppressed below the privacy threshold.'"
+                  "Value": "'users active most weeks. Updates with the selected metric and report filters. Blank values are suppressed below the privacy threshold.'"
                 }
               }
             }
@@ -356,5 +363,5 @@
       ]
     }
   },
-  "isHidden": true
+  "isHidden": false
 }

@@ -170,7 +170,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Power User'"
+                  "Value": "'Cowork super user'"
                 }
               }
             },
@@ -258,7 +258,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Switch to Power User.'"
+                  "Value": "'Switch to Cowork super user.'"
                 }
               }
             }

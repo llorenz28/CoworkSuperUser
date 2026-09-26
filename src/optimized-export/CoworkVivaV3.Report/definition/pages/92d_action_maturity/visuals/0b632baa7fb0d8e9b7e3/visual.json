@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Stage change compares each person's previous and latest selected rolling Cowork stage. Results for groups below 10 people are hidden.",
+                    "value": "Stage change compares each user's previous and latest selected rolling Cowork stage. Results for groups below 10 users are hidden.",
                     "textStyle": {
                       "fontSize": "9pt",
                       "color": "#5A6472",

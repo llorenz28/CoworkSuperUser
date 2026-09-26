@@ -63,12 +63,12 @@
                       "Entity": "Usage Segments Weekly"
                     }
                   },
-                  "Property": "Weekly Segment People"
+                  "Property": "Weekly Segment Users"
                 }
               },
-              "queryRef": "Usage Segments Weekly.Weekly Segment People",
-              "nativeQueryRef": "People",
-              "displayName": "People"
+              "queryRef": "Usage Segments Weekly.Weekly Segment Users",
+              "nativeQueryRef": "users",
+              "displayName": "users"
             }
           ]
         },
@@ -237,7 +237,7 @@
             "titleText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Share of people'"
+                  "Value": "'percentage of users'"
                 }
               }
             },
@@ -452,7 +452,7 @@
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Cowork Non-user'"
+                        "Value": "'No observed use'"
                       }
                     }
                   }
@@ -500,7 +500,7 @@
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Cowork Low User'"
+                        "Value": "'Occasional user'"
                       }
                     }
                   }
@@ -548,7 +548,7 @@
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Cowork Developing User'"
+                        "Value": "'Emerging user'"
                       }
                     }
                   }
@@ -596,7 +596,7 @@
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Cowork Habitual User'"
+                        "Value": "'Steady user'"
                       }
                     }
                   }
@@ -644,7 +644,7 @@
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Cowork Power User'"
+                        "Value": "'Cowork super user'"
                       }
                     }
                   }
@@ -751,7 +751,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'One 100% stacked column per analysis week. Colors show the privacy-safe share of people in each available-history Cowork usage stage. Stage groups below 10 people are suppressed.'"
+                  "Value": "'One 100% stacked column per analysis week. Colors show the privacy-safe percentage of users in each available-history Cowork usage stage. Stage groups below 10 users are suppressed.'"
                 }
               }
             }
@@ -818,7 +818,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Usage stage mix over time'"
+                  "Value": "'How the user mix is changing'"
                 }
               }
             },
@@ -870,7 +870,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Each column uses the selected available-history window; read left to right to see the mix shift toward or away from sustained use.'"
+                  "Value": "'Each column uses the selected available-history window; read left to right to see the mix shift toward or away from active in most weeks.'"
                 }
               }
             },

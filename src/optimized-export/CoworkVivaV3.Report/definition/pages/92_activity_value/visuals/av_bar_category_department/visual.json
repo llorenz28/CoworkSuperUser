@@ -43,10 +43,10 @@
                       "Entity": "Usage Segment Snapshot"
                     }
                   },
-                  "Property": "Average Sessions per Person"
+                  "Property": "Average Sessions per User"
                 }
               },
-              "queryRef": "Usage Segment Snapshot.Average Sessions per Person",
+              "queryRef": "Usage Segment Snapshot.Average Sessions per User",
               "nativeQueryRef": "Average weekly sessions",
               "displayName": "Average weekly sessions"
             }

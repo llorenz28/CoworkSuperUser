@@ -31,11 +31,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "A potential champion is not a separate usage stage.",
+                    "value": "A potential peer enabler is not a separate usage group.",
                     "textStyle": {
                       "fontFamily": "Segoe UI Semibold",
-                      "fontSize": "11pt",
-                      "color": "#172033"
+                      "fontSize": "9pt",
+                      "color": "#007C91"
                     }
                   }
                 ]
@@ -43,11 +43,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "Use the signal to identify possible peer enablers, then confirm willingness, communication fit, manager support, and employee consent before outreach.",
+                    "value": "Confirm willingness, communication fit, manager support, and employee consent before outreach.",
                     "textStyle": {
-                      "fontFamily": "Segoe UI",
+                      "fontFamily": "Segoe UI Semibold",
                       "fontSize": "9pt",
-                      "color": "#4F5B6B"
+                      "color": "#007C91"
                     }
                   }
                 ]

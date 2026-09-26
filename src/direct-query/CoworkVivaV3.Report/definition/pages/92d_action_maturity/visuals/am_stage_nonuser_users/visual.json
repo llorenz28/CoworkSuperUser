@@ -545,7 +545,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Expandable Department to pseudonymous User ID hierarchy for the selected Cowork Non-user population.'"
+                  "Value": "'Expandable Department to pseudonymous User ID hierarchy for the selected No observed use population.'"
                 }
               }
             }
@@ -612,7 +612,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Non-user: department and users'"
+                  "Value": "'no observed use: department and users'"
                 }
               }
             },
@@ -749,7 +749,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Cowork Non-user'"
+                          "Value": "'No observed use'"
                         }
                       }
                     ]

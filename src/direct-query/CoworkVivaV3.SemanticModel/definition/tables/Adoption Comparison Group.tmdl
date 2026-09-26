@@ -1,4 +1,4 @@
-/// Disconnected Sustained users and Rest of population comparison axis.
+/// Disconnected Users active most weeks and Rest of population comparison axis.
 table 'Adoption Comparison Group'
 	lineageTag: b365d6b7-6f2e-4bb7-b8a1-3eef6d41508b
 
@@ -21,7 +21,7 @@ table 'Adoption Comparison Group'
 		source =
 				let
 					Data = #table({"Group", "Group Sort"}, {
-					        {"Sustained users", 1},
+					        {"Users active most weeks", 1},
 					        {"Rest of population", 2}
 					    })
 				in

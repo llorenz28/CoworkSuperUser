@@ -19,7 +19,19 @@
               {
                 "textRuns": [
                   {
-                    "value": "Sessions show observed Cowork frequency; credits show consumption volume. Neither measures task volume, complexity, productivity, quality, time saved, or business value.",
+                    "value": "HOW TO READ | Each bubble is a department. Right = broader latest-week adoption. Up = more credits per active user. Bubble size = total credits.",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "13pt",
+                      "color": "#4B2D83"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "COST | Estimated cost uses the customer-selected cost per credit. It supports showback; it is not ROI or realized business value.",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "13pt",

@@ -27,8 +27,8 @@
                 }
               },
               "queryRef": "Organization.Population",
-              "nativeQueryRef": "Population",
-              "displayName": "Population"
+              "nativeQueryRef": "Total population",
+              "displayName": "Total population"
             }
           ]
         }
@@ -90,6 +90,13 @@
                   "Value": "'Suppressed'"
                 }
               }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
             }
           },
           "selector": {
@@ -110,7 +117,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Population'"
+                  "Value": "'Total population'"
                 }
               }
             },
@@ -286,7 +293,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Observed evidence. Population. Updates with current report filters.'"
+                  "Value": "'Observed evidence. Users included. Updates with current report filters.'"
                 }
               }
             }

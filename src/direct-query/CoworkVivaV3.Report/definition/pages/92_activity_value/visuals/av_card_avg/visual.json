@@ -20,15 +20,15 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Consumption Weekly"
+                      "Entity": "Cost per Credit"
                     }
                   },
-                  "Property": "Credits per Session"
+                  "Property": "Estimated Cost"
                 }
               },
-              "queryRef": "Consumption Weekly.Credits per Session",
-              "nativeQueryRef": "Credits / session",
-              "displayName": "Credits / session"
+              "queryRef": "Cost per Credit.Estimated Cost",
+              "nativeQueryRef": "Estimated cost",
+              "displayName": "Estimated cost"
             }
           ]
         }
@@ -48,14 +48,14 @@
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'Consolas'"
+                  "Value": "'Segoe UI Semibold'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "22D"
+                  "Value": "12D"
                 }
               }
             },
@@ -90,6 +90,13 @@
                   "Value": "'Suppressed'"
                 }
               }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
             }
           },
           "selector": {
@@ -110,7 +117,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Credits / session'"
+                  "Value": "'Estimated cost'"
                 }
               }
             },

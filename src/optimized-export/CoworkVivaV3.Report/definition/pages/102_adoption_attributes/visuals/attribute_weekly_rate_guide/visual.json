@@ -62,7 +62,7 @@
                     }
                   },
                   {
-                    "value": "Weekly active rate is people with at least one session that week divided by the population. Change compares the latest four-week average with the prior four weeks. Groups below 10 people are hidden.",
+                    "value": "Weekly active rate is users with at least one session that week divided by the population. Change compares the latest four-week average with the prior four weeks. Groups below 10 users are hidden.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "8pt",
@@ -152,7 +152,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'How to use the weekly active-rate view. Select a department to update the current-selection metrics and compare its weekly active rate with the company benchmark. Results below 10 people are suppressed.'"
+                  "Value": "'How to use the weekly active-rate view. Select a department to update the current-selection metrics and compare its weekly active rate with the company benchmark. Results below 10 users are suppressed.'"
                 }
               }
             }
@@ -207,5 +207,6 @@
         }
       ]
     }
-  }
+  },
+  "isHidden": true
 }

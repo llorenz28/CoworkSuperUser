@@ -585,7 +585,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Privacy-safe weekly heatmap of the Cowork Habitual User share by department.'"
+                  "Value": "'Privacy-safe weekly heatmap of the Steady user share by department.'"
                 }
               }
             }
@@ -652,7 +652,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Habitual User: weekly share by department'"
+                  "Value": "'steady user: weekly share by department'"
                 }
               }
             },
@@ -789,7 +789,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Cowork Habitual User'"
+                          "Value": "'Steady user'"
                         }
                       }
                     ]

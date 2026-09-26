@@ -59,10 +59,10 @@
                       "Entity": "Usage Segment Snapshot"
                     }
                   },
-                  "Property": "Stable People"
+                  "Property": "Stable Users"
                 }
               },
-              "queryRef": "Usage Segment Snapshot.Stable People",
+              "queryRef": "Usage Segment Snapshot.Stable Users",
               "nativeQueryRef": "Stable",
               "displayName": "Stable"
             },
@@ -74,12 +74,12 @@
                       "Entity": "Usage Segment Snapshot"
                     }
                   },
-                  "Property": "Sustained Users"
+                  "Property": "Users Active Most Weeks"
                 }
               },
-              "queryRef": "Usage Segment Snapshot.Sustained Users",
-              "nativeQueryRef": "Sustained users",
-              "displayName": "Sustained users"
+              "queryRef": "Usage Segment Snapshot.Users Active Most Weeks",
+              "nativeQueryRef": "users active most weeks",
+              "displayName": "users active most weeks"
             },
             {
               "field": {
@@ -89,12 +89,12 @@
                       "Entity": "Usage Segment Snapshot"
                     }
                   },
-                  "Property": "Sustained Usage Share"
+                  "Property": "Active-Most-Weeks Rate"
                 }
               },
-              "queryRef": "Usage Segment Snapshot.Sustained Usage Share",
-              "nativeQueryRef": "Sustained-use share",
-              "displayName": "Sustained-use share"
+              "queryRef": "Usage Segment Snapshot.Active-Most-Weeks Rate",
+              "nativeQueryRef": "active in most weeks",
+              "displayName": "active in most weeks"
             },
             {
               "field": {
@@ -104,12 +104,12 @@
                       "Entity": "Usage Segment Snapshot"
                     }
                   },
-                  "Property": "Sustained Retention Rate"
+                  "Property": "Most-Weeks User Retention"
                 }
               },
-              "queryRef": "Usage Segment Snapshot.Sustained Retention Rate",
-              "nativeQueryRef": "Sustained retention",
-              "displayName": "Sustained retention"
+              "queryRef": "Usage Segment Snapshot.Most-Weeks User Retention",
+              "nativeQueryRef": "regular retention",
+              "displayName": "regular retention"
             }
           ]
         }
@@ -124,7 +124,7 @@
                     "Entity": "Usage Segment Snapshot"
                   }
                 },
-                "Property": "Sustained Usage Share"
+                "Property": "Active-Most-Weeks Rate"
               }
             },
             "direction": "Descending"
@@ -260,7 +260,7 @@
                     "FillRule": {
                       "Input": {
                         "SelectRef": {
-                          "ExpressionName": "Usage Segment Snapshot.Stable People"
+                          "ExpressionName": "Usage Segment Snapshot.Stable Users"
                         }
                       },
                       "FillRule": {
@@ -309,7 +309,7 @@
                 }
               }
             ],
-            "metadata": "Usage Segment Snapshot.Stable People"
+            "metadata": "Usage Segment Snapshot.Stable Users"
           }
         },
         {
@@ -321,7 +321,7 @@
                     "FillRule": {
                       "Input": {
                         "SelectRef": {
-                          "ExpressionName": "Usage Segment Snapshot.Sustained Users"
+                          "ExpressionName": "Usage Segment Snapshot.Users Active Most Weeks"
                         }
                       },
                       "FillRule": {
@@ -370,7 +370,7 @@
                 }
               }
             ],
-            "metadata": "Usage Segment Snapshot.Sustained Users"
+            "metadata": "Usage Segment Snapshot.Users Active Most Weeks"
           }
         },
         {
@@ -382,7 +382,7 @@
                     "FillRule": {
                       "Input": {
                         "SelectRef": {
-                          "ExpressionName": "Usage Segment Snapshot.Sustained Usage Share"
+                          "ExpressionName": "Usage Segment Snapshot.Active-Most-Weeks Rate"
                         }
                       },
                       "FillRule": {
@@ -431,7 +431,7 @@
                 }
               }
             ],
-            "metadata": "Usage Segment Snapshot.Sustained Usage Share"
+            "metadata": "Usage Segment Snapshot.Active-Most-Weeks Rate"
           }
         },
         {
@@ -443,7 +443,7 @@
                     "FillRule": {
                       "Input": {
                         "SelectRef": {
-                          "ExpressionName": "Usage Segment Snapshot.Sustained Retention Rate"
+                          "ExpressionName": "Usage Segment Snapshot.Most-Weeks User Retention"
                         }
                       },
                       "FillRule": {
@@ -492,7 +492,7 @@
                 }
               }
             ],
-            "metadata": "Usage Segment Snapshot.Sustained Retention Rate"
+            "metadata": "Usage Segment Snapshot.Most-Weeks User Retention"
           }
         }
       ],
@@ -852,7 +852,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Expandable Department to pseudonymous User ID hierarchy with stable people, sustained users, sustained-use share, and sustained-user retention. The current approved sources do not contain display names. Cell shading is relative within each measure.'"
+                  "Value": "'Expandable Department to pseudonymous User ID hierarchy with stable users, users active most weeks, active in most weeks, and regular-user retention. The current approved sources do not contain display names. Cell shading is relative within each measure.'"
                 }
               }
             }

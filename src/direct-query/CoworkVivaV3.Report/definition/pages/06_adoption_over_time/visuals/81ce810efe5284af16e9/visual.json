@@ -23,12 +23,12 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "Latest Weekly Active Rate"
+                  "Property": "Weekly Return Rate"
                 }
               },
-              "queryRef": "Consumption Weekly.Latest Weekly Active Rate",
-              "nativeQueryRef": "Latest weekly active rate",
-              "displayName": "Latest weekly active rate"
+              "queryRef": "Consumption Weekly.Weekly Return Rate",
+              "nativeQueryRef": "Weekly return rate",
+              "displayName": "Weekly return rate"
             }
           ]
         }
@@ -90,6 +90,13 @@
                   "Value": "'Suppressed'"
                 }
               }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
             }
           },
           "selector": {
@@ -110,7 +117,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Latest weekly active rate'"
+                  "Value": "'Weekly return rate'"
                 }
               }
             },

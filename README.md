@@ -1,8 +1,8 @@
 # CoworkSuperUser
 
 > **Turn Viva Insights and Microsoft 365 Copilot Cowork consumption data into a
-> clear, privacy-aware story of reach, repeat use, usage stages, potential
-> champions, and work-pattern context.**
+> clear, privacy-aware decisions about reach, return, Cowork super users,
+> department consumption, cost showback, and work-pattern context.**
 
 [![Status](https://img.shields.io/badge/status-testing-D83B96)](CHANGELOG.md)
 [![Power BI](https://img.shields.io/badge/Power%20BI-2%20PBITs%20%2B%20PBIP-F2C811)](src/)
@@ -21,14 +21,14 @@ It combines:
 - A Viva Insights Person Query that defines the approved person-week population
 - A Microsoft 365 Copilot consumption query filtered to exactly
   `Service Name = "Cowork"`
-- Available-history usage stages and movement
-- Cowork sessions, credits, and consumption intensity
+- A plain-language adoption funnel from total population to Cowork super users
+- Cowork sessions, credits, concentration, and customer-modeled cost
 - Organizational adoption patterns and potential peer-enablement champions
 - Descriptive collaboration, network, and beyond-hours context
-- A complete glossary for all 117 semantic-model measures, including helpers
+- A complete glossary for all 137 semantic-model measures, including helpers
 
 Both connection editions provide the same nine report pages, 39
-bookmark-controlled states, 117 measures, visual logic, filters, privacy rules,
+bookmark-controlled states, 137 measures, visual logic, filters, privacy rules,
 and interpretation guidance.
 
 ## Preview and walkthrough
@@ -42,7 +42,7 @@ paths differ.
 </div>
 
 The preview uses deterministic fabricated Contoso, Fabrikam, and Northwind data
-for 1,200 fictional people across 26 weeks. It contains no customer findings,
+for 1,200 fictional users across 26 weeks. It contains no customer findings,
 identities, or benchmarks.
 
 > **CoworkSuperUser Walkthrough:** a narrated tour of observed reach, weekly
@@ -79,7 +79,7 @@ The end-to-end flow is:
 4. Validate the population, date coverage, sessions, and credits before
    sharing findings.
 
-Different people can complete these steps. The runbook identifies exactly
+Different administrators and analysts can complete these steps. The runbook identifies exactly
 which role is needed at each point and distinguishes load-critical fields from
 optional report enrichment.
 
@@ -94,14 +94,14 @@ optional report enrichment.
 | Page | Business question |
 | --- | --- |
 | **Start Here** | Which page and connection path should I use? |
-| **Executive Adoption** | Is observed Cowork reach broadening, and how much use is sustained? |
-| **Weekly Adoption & Usage** | Are people joining, returning, intensifying, or churning? |
-| **Adoption by Attributes** | Where do reach and sustained-use patterns differ? |
-| **Habit Movement** | Are people moving toward stronger Cowork usage stages? |
-| **Champion Identification** | Who may be a suitable peer-enablement partner? |
-| **Sessions and Credits** | How much Cowork frequency and credit consumption is observed? |
-| **Work Pattern Context** | Which collaboration or beyond-hours differences should be investigated? |
-| **Methods and Metric Guide** | How is every current metric calculated and interpreted? |
+| **Is Cowork adoption growing?** | How many users move from the analyzed population to active use, activity in most weeks, and Cowork super-user behavior? |
+| **Are users returning?** | Are users joining, returning, remaining active, or lapsing? |
+| **Where should we focus enablement?** | Which departments need broader reach, more repeat use, or scaling support? |
+| **How are users progressing?** | How is the distribution of user activity patterns changing? |
+| **Which users could help scale adoption?** | Who may be a suitable peer-enablement partner? |
+| **Where is adoption lagging while credits are high?** | Which departments combine lower reach with higher credit exposure, concentration, or estimated cost? |
+| **How does work context differ?** | Do work patterns differ between Cowork super users and occasional users, and are those patterns changing over time? |
+| **Definitions, sources, and limits** | How is every current metric calculated and interpreted? |
 
 Potential champion results are enablement signals, not employee-performance
 ratings. Confirm role fit, willingness, manager support, and approved data use
@@ -112,15 +112,15 @@ before outreach.
 ## Why use this template
 
 - Keep the Person Query population intact while separating Cowork users from
-  covered people with zero observed Cowork sessions.
-- Read reach, repeat use, usage stage, movement, sessions, and credits as
+  covered users with zero observed Cowork sessions.
+- Read reach, return, usage pattern, movement, sessions, credits, and modeled cost as
   distinct signals.
 - Compare functions and organization groups without treating correlation as
   causation.
 - Identify possible peer-enablement champions using transparent criteria.
 - Preserve missing optional evidence as unavailable rather than converting it
   to zero.
-- Suppress aggregate person-derived results below the 10-person privacy floor.
+- Suppress aggregate user-derived results below the 10-user privacy floor.
 - Trace every current measure to its definition, source, grain, evidence class,
   caveat, and report use.
 
@@ -137,6 +137,11 @@ before outreach.
 Both templates open on **Start Here** and explain both connection choices.
 The Direct Query name describes the connection setup; both editions use Power
 BI Import storage.
+
+The department showback page includes a visible **Customer cost per credit**
+selector. It defaults to `0.0100`; replace it with the customer's contracted or
+planning rate. Estimated cost is shown in the customer's currency and is not an
+invoice, ROI calculation, or realized business value.
 
 <a id="instructions"></a>
 
@@ -185,12 +190,12 @@ supported field and what happens when it is omitted.
 
 - Nine report pages
 - 39 bookmark-controlled states
-- 117 semantic-model measures
-- Complete 117-row Methods and Metric Guide
+- 137 semantic-model measures
+- Complete 137-row Definitions, Sources, and Limits guide
 - Start Here saved as the opening page
 - Consistent page-header alignment
-- Available-history four- and twelve-week windows
-- Aggregate person-derived results suppressed below 10 people
+- Automatic use of available history up to 12 weeks
+- Aggregate user-derived results suppressed below 10 users
 - No tenant identifiers, customer data, local QA paths, or cached model data in
   the distributable templates
 
@@ -210,7 +215,7 @@ manifest; customers must label the refreshed PBIX before sharing it.
 6. Champion candidates are outreach starting points, not personnel scores.
 7. Missing optional evidence means unavailable, not zero.
 8. Pre-Cowork weeks are outside the analysis, not zero-use weeks.
-9. Aggregate person-derived results below 10 people are suppressed.
+9. Aggregate user-derived results below 10 users are suppressed.
 
 Use the
 [interpretation guide](INTERPRETATION_GUIDE.md) and
@@ -276,7 +281,7 @@ adapted by this project.
 
 ## Release status and feedback
 
-The current public release is **v1.0.1**. Review the
+The current public release is **v1.1.0**. Review the
 [changelog](CHANGELOG.md) and
 [release manifest](validation/release-manifest.json) before broad distribution.
 

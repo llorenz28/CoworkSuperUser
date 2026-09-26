@@ -320,9 +320,37 @@ def evidence_for(measure: dict[str, object]) -> str:
 
 
 def customer_text(value: str) -> str:
-    return value.replace("Novice users", "Developing users").replace(
-        "Novice user", "Developing user"
+    replacements = (
+        ("privacy-safe Power User count", "privacy-safe Cowork super user count"),
+        ("Cowork Habitual and Power users", "Cowork super users and steady users"),
+        ("No observed use, Low, and Developing users", "No observed use, occasional, and emerging users"),
+        ("New and resurrected people minus churned people", "New and returned users minus users who lapsed this week"),
+        ("Churned people", "Users who lapsed this week"),
+        ("Non-user average", "no-observed-use average"),
+        ("Novice users", "Emerging users"),
+        ("Novice user", "Emerging user"),
+        ("Power users", "Cowork super users"),
+        ("Power User", "Cowork super user"),
+        ("Habitual users", "steady users"),
+        ("Habitual user", "steady user"),
+        ("Developing users", "emerging users"),
+        ("Developing user", "emerging user"),
+        ("Low users", "occasional users"),
+        ("Low user", "occasional user"),
+        ("Non-users", "users with no observed use"),
+        ("Non-user", "no observed use"),
+        ("Person + consumption", "Person Query + consumption"),
+        ("Person-week", "User-week"),
+        ("Person-window", "User-window"),
+        ("Grain: Person.", "Grain: User."),
+        ("10-person", "10-user"),
+        ("people", "users"),
+        ("People", "Users"),
     )
+    result = value
+    for before, after in replacements:
+        result = result.replace(before, after)
+    return "User" if result == "Person" else result
 
 
 def build_rows(
@@ -544,7 +572,7 @@ def update_glossary_visuals(report_root: Path) -> None:
     ] = {
         "expr": {
             "Literal": {
-                "Value": "'Complete measure definitions | 117 current measures'"
+                "Value": "'Complete measure definitions | 137 current measures'"
             }
         }
     }
@@ -570,7 +598,7 @@ def update_glossary_visuals(report_root: Path) -> None:
         "textRuns"
     ][0]["value"] = (
         "Complete model contract\n"
-        "All 117 current measures are documented, including hidden helpers and "
+        "All 137 current measures are documented, including hidden helpers and "
         "alternate bookmark states. Use Category and Source family to narrow "
         "the table.\n\n"
         "Interpretation boundary\n"
@@ -624,8 +652,8 @@ def synchronize(check: bool) -> None:
         reference_root / MODEL_NAME / "definition" / "tables"
     )
     measures = parse_measures(reference_table_root)
-    if len(measures) != 117:
-        raise ValueError(f"Expected 117 measures, found {len(measures)}")
+    if len(measures) != 137:
+        raise ValueError(f"Expected 137 measures, found {len(measures)}")
     if any(not item["description"] for item in measures):
         raise ValueError("Every measure must have a /// description")
     existing = parse_existing_rows(reference_table_root / "Metric Definitions.tmdl")

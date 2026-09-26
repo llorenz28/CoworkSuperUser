@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "weekly_users_chart",
   "position": {
-    "x": 232,
-    "y": 208,
+    "x": 59,
+    "y": 232,
     "z": 18000,
     "height": 352,
-    "width": 860,
-    "tabOrder": 4000
+    "width": 1248,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "columnChart",
@@ -43,10 +43,10 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "New People (Latest 12 Weeks)"
+                  "Property": "New Users (Latest 12 Weeks)"
                 }
               },
-              "queryRef": "Consumption Weekly.New People (Latest 12 Weeks)",
+              "queryRef": "Consumption Weekly.New Users (Latest 12 Weeks)",
               "nativeQueryRef": "New",
               "displayName": "New"
             },
@@ -58,10 +58,10 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "Retained People (Latest 12 Weeks)"
+                  "Property": "Retained Users (Latest 12 Weeks)"
                 }
               },
-              "queryRef": "Consumption Weekly.Retained People (Latest 12 Weeks)",
+              "queryRef": "Consumption Weekly.Retained Users (Latest 12 Weeks)",
               "nativeQueryRef": "Retained",
               "displayName": "Retained"
             },
@@ -73,12 +73,12 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "Resurrected People (Latest 12 Weeks)"
+                  "Property": "Returned Users (Latest 12 Weeks)"
                 }
               },
-              "queryRef": "Consumption Weekly.Resurrected People (Latest 12 Weeks)",
-              "nativeQueryRef": "Resurrected",
-              "displayName": "Resurrected"
+              "queryRef": "Consumption Weekly.Returned Users (Latest 12 Weeks)",
+              "nativeQueryRef": "Returned",
+              "displayName": "Returned"
             },
             {
               "field": {
@@ -88,12 +88,12 @@
                       "Entity": "Consumption Weekly"
                     }
                   },
-                  "Property": "Churned People (Negative, Latest 12 Weeks)"
+                  "Property": "Lapsed Users (Negative, Latest 12 Weeks)"
                 }
               },
-              "queryRef": "Consumption Weekly.Churned People (Negative, Latest 12 Weeks)",
-              "nativeQueryRef": "Churned",
-              "displayName": "Churned"
+              "queryRef": "Consumption Weekly.Lapsed Users (Negative, Latest 12 Weeks)",
+              "nativeQueryRef": "Lapsed",
+              "displayName": "Lapsed"
             }
           ]
         }
@@ -373,7 +373,7 @@
             }
           },
           "selector": {
-            "metadata": "Consumption Weekly.New People (Latest 12 Weeks)"
+            "metadata": "Consumption Weekly.New Users (Latest 12 Weeks)"
           }
         },
         {
@@ -391,7 +391,7 @@
             }
           },
           "selector": {
-            "metadata": "Consumption Weekly.Retained People (Latest 12 Weeks)"
+            "metadata": "Consumption Weekly.Retained Users (Latest 12 Weeks)"
           }
         },
         {
@@ -409,7 +409,7 @@
             }
           },
           "selector": {
-            "metadata": "Consumption Weekly.Resurrected People (Latest 12 Weeks)"
+            "metadata": "Consumption Weekly.Returned Users (Latest 12 Weeks)"
           }
         },
         {
@@ -427,7 +427,7 @@
             }
           },
           "selector": {
-            "metadata": "Consumption Weekly.Churned People (Negative, Latest 12 Weeks)"
+            "metadata": "Consumption Weekly.Lapsed Users (Negative, Latest 12 Weeks)"
           }
         }
       ]
@@ -508,7 +508,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Latest 12 weeks of privacy-safe new, retained, resurrected, and churned people. Churn is plotted below zero.'"
+                  "Value": "'Latest 12 weeks of privacy-safe new, retained, returned, and lapsed users. Churn is plotted below zero.'"
                 }
               }
             }
@@ -575,7 +575,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'User mix (new, retained, resurrected, and churned)'"
+                  "Value": "'User mix (new, retained, returned, and lapsed)'"
                 }
               }
             },
@@ -616,5 +616,5 @@
       ]
     }
   },
-  "isHidden": true
+  "isHidden": false
 }
