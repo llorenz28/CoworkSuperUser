@@ -195,6 +195,7 @@ the consumption CSV remains in a local folder. See
 | Resource | Open or download |
 | --- | --- |
 | Direct Query Power BI template | [`CoworkSuperUser - Direct Query.pbit`](CoworkSuperUser%20-%20Direct%20Query.pbit) |
+| Synthetic demonstration report | [`CoworkSuperUser.pbix`](CoworkSuperUser.pbix) |
 | Optimized Export Power BI template | [`CoworkSuperUser - Optimized Export.pbit`](CoworkSuperUser%20-%20Optimized%20Export.pbit) |
 | Step-by-step setup | [`SETUP.md`](SETUP.md) |
 | Query build instructions | [`docs/QUERY_SETUP.md`](docs/QUERY_SETUP.md) |
@@ -297,7 +298,7 @@ adapted by this project.
 
 ## Release status and feedback
 
-The current public release is **v1.0.1**. Review the
+The current public release is **v1.0.1**. The refreshed report assets published on October 27, 2026 include an updated template, synthetic demonstration PBIX, interpretation deck, and narrated walkthrough. Review the
 [changelog](CHANGELOG.md) and
 [release manifest](validation/release-manifest.json) before broad distribution.
 
