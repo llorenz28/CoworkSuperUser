@@ -5,43 +5,32 @@
   "pbitPurviewLabelRetained": false,
   "pbitLabelNote": "Power BI sensitivity labels apply to PBIX files and are not retained in PBIT exports.",
   "report": {
-    "pages": 9,
-    "bookmarks": 39,
-    "measures": 117,
-    "glossaryRows": 117,
-    "hiddenMeasuresDocumented": 6,
-    "activePage": "Start Here",
-    "headerAlignment": "Passed for all 9 pages"
+    "pages": 8,
+    "measures": 565,
+    "visibleMeasures": 549,
+    "hiddenMeasures": 16,
+    "glossaryRows": 35,
+    "activePage": "Overview",
+    "canvas": "1280x720"
   },
   "validation": {
-    "optimizedExportLoadSeconds": 65.1,
-    "directQueryLoadSeconds": 113.7,
-    "fabricatedImagePopulation": 1200,
-    "fabricatedImageWeeks": 26,
-    "fabricatedRefreshSeconds": 33.4,
-    "populatedModelHealth": "Passed",
-    "populatedPageVisualReview": "Passed for all 9 pages",
-    "glossarySynchronization": "117 measures, 117 unique definitions, zero stale rows",
-    "historyGuidance": "All available Cowork history from the first available week; target at least 12 covered weeks when available",
-    "customerFacingLegacyTerminology": "None",
-    "privacyScan": "Passed: PBIT has no DataModel cache; PBIX package and model strings contain no emails, local paths, or nonsynthetic identifiers; exact synthetic CSV schemas and joins validated.",
-    "pbirValidation": "Passed with 4 remote-schema availability warnings",
-    "storyboardSlides": 24,
-    "storyboardValidation": "Passed",
-    "walkthroughSeconds": 222.5,
+    "pbitDataFolder": "Unset",
+    "pbitDataModelCache": false,
+    "syntheticUsageRows": 14599,
+    "syntheticPeopleRows": 240,
+    "syntheticActiveIds": 219,
+    "syntheticDateRange": "2026-07-06 through 2026-10-19",
+    "privacyScan": "Passed: packaged PBIT and PBIX contain no detected emails, populated tenant/query identifiers, or local user-profile paths; the PBIX uses only the generated synthetic CSV inputs.",
+    "pbirValidation": "Succeeded with 0 errors and 1 remote-schema availability warning",
+    "interpretationGuideSlides": 15,
+    "interpretationGuideValidation": "Passed structural and visual review",
+    "walkthroughSeconds": 223,
     "walkthroughResolution": "1920x1080",
-    "walkthroughFramesPerSecond": 30,
-    "walkthroughIntegratedLoudness": "-18.18 LUFS",
-    "walkthroughVisualReview": "Passed"
+    "walkthroughFramesPerSecond": 30.3
   },
   "artifacts": [
     {
-      "path": "CoworkSuperUser - Direct Query.pbit",
-      "bytes": 544510,
-      "sha256": "C25CAAF4490F4EBC10065CE1659D2DC8A3FE4E761234534A7CD5A0A1BB03C036"
-    },
-    {
-      "path": "CoworkSuperUser - Optimized Export.pbit",
+      "path": "CoworkSuperUser.pbit",
       "bytes": 544510,
       "sha256": "C25CAAF4490F4EBC10065CE1659D2DC8A3FE4E761234534A7CD5A0A1BB03C036"
     },
@@ -51,7 +40,7 @@
       "sha256": "3B8B009022B39D6B3D0A87559D3C8708C6E6EE1D7A7BBD06E3EF98FDE6357530"
     },
     {
-      "path": "CoworkSuperUser Interpretation Storyboard.pptx",
+      "path": "CoworkSuperUser Interpretation Guide.pptx",
       "bytes": 3580368,
       "sha256": "93058C53F522EC2BB385EEAA4D948CEE32D7493AA8A13C15B5FD2A6A3C554E75"
     },
@@ -59,16 +48,6 @@
       "path": "media/CoworkSuperUser-Walkthrough.mp4",
       "bytes": 55589491,
       "sha256": "D7C61347C958AC5452FD27D3D6B87DFC80151F06E90F15F23D38F2CE34425AB7"
-    },
-    {
-      "path": "media/CoworkSuperUser-Walkthrough.srt",
-      "bytes": 4998,
-      "sha256": "66F6AAC991B8A0C7275E19C65447D960B32EBF99582C15F82F522F1D726CB519"
-    },
-    {
-      "path": "media/CoworkSuperUser-Walkthrough-transcript.md",
-      "bytes": 3910,
-      "sha256": "C1F9D543C9EE84A810F3B2178FE2C75630EFA5D8B789B6E86A3A5A24AB534554"
     },
     {
       "path": "images/CoworkSuperUser.gif",

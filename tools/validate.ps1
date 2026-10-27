@@ -59,7 +59,9 @@ foreach ($relativePath in $projects) {
 
 $sensitivePatterns = @(
     "C:\\PBIQA",
-    "qa-real-"
+    "qa-real-",
+    "C:\Users\",
+    "OneDrive - Microsoft"
 )
 
 $sourceFiles = Get-ChildItem (Join-Path $RepositoryRoot "src") -Recurse -File
@@ -157,6 +159,9 @@ foreach ($artifact in $manifest.artifacts) {
     }
     $archive = [System.IO.Compression.ZipFile]::OpenRead($path)
     try {
+        if ($archive.GetEntry("DataModel")) {
+            throw "A PBIT contains an imported DataModel cache: $($artifact.path)"
+        }
         $schemaEntry = $archive.GetEntry("DataModelSchema")
         if (-not $schemaEntry) {
             throw "DataModelSchema is missing from $($artifact.path)"
@@ -175,7 +180,8 @@ foreach ($artifact in $manifest.artifacts) {
                     "Partition Identifier",
                     "Person Query Identifier",
                     "Consumption Query Identifier",
-                    "Viva Export Folder Path"
+                    "Viva Export Folder Path",
+                    "DataFolder"
                 ) -and
                 $expression.expression -notmatch "^null meta "
             ) {
