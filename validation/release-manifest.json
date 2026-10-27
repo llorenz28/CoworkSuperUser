@@ -1,5 +1,5 @@
 {
-  "releaseDate": "2026-09-25",
+  "releaseDate": "2026-10-27",
   "version": "1.0.1",
   "classification": "Public",
   "pbitPurviewLabelRetained": false,
@@ -24,7 +24,7 @@
     "glossarySynchronization": "117 measures, 117 unique definitions, zero stale rows",
     "historyGuidance": "All available Cowork history from the first available week; target at least 12 covered weeks when available",
     "customerFacingLegacyTerminology": "None",
-    "privacyScan": "Passed",
+    "privacyScan": "Passed: PBIT has no DataModel cache; PBIX package and model strings contain no emails, local paths, or nonsynthetic identifiers; exact synthetic CSV schemas and joins validated.",
     "pbirValidation": "Passed with 4 remote-schema availability warnings",
     "storyboardSlides": 24,
     "storyboardValidation": "Passed",
@@ -37,23 +37,28 @@
   "artifacts": [
     {
       "path": "CoworkSuperUser - Direct Query.pbit",
-      "bytes": 615419,
-      "sha256": "26DF2EBF5B80FB7BF3395F4BAF97986FAC30D79A6C1C154C99BA3C82D0E20569"
+      "bytes": 544510,
+      "sha256": "C25CAAF4490F4EBC10065CE1659D2DC8A3FE4E761234534A7CD5A0A1BB03C036"
     },
     {
       "path": "CoworkSuperUser - Optimized Export.pbit",
-      "bytes": 617210,
-      "sha256": "410B793A70944D7A063740EF04DE429876557BAEF26512CF39CD9F7933AB0224"
+      "bytes": 544510,
+      "sha256": "C25CAAF4490F4EBC10065CE1659D2DC8A3FE4E761234534A7CD5A0A1BB03C036"
+    },
+    {
+      "path": "CoworkSuperUser.pbix",
+      "bytes": 1023505,
+      "sha256": "3B8B009022B39D6B3D0A87559D3C8708C6E6EE1D7A7BBD06E3EF98FDE6357530"
     },
     {
       "path": "CoworkSuperUser Interpretation Storyboard.pptx",
-      "bytes": 2083328,
-      "sha256": "E315203F518CF753BD009D3516DD6FB2C77A8ED6C49EF515E52FA515F64B1875"
+      "bytes": 3580368,
+      "sha256": "93058C53F522EC2BB385EEAA4D948CEE32D7493AA8A13C15B5FD2A6A3C554E75"
     },
     {
       "path": "media/CoworkSuperUser-Walkthrough.mp4",
-      "bytes": 12008842,
-      "sha256": "FE7A214FBC53820C6A694C73A9BDF3BC1A9822BAE69B42603DF2707FC74E98E2"
+      "bytes": 55589491,
+      "sha256": "D7C61347C958AC5452FD27D3D6B87DFC80151F06E90F15F23D38F2CE34425AB7"
     },
     {
       "path": "media/CoworkSuperUser-Walkthrough.srt",
