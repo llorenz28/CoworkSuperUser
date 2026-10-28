@@ -22,9 +22,9 @@ The report starts with an **Overview** of active users, tasks, credits, and sche
 
 ## Light it up in 3 steps
 
-### 1. Turn on identification (one time, admin)
+### 1. (Optional) Turn on identification to drill into individual users
 
-The report ranks people by usage, so it needs a person-level export. In Copilot Analytics, person-level exports require **identification**. A Microsoft 365 **Global Administrator** or **AI Administrator** turns it on once:
+The report works out of the box with the anonymized IDs in the standard export. Every page, ranking, and department view functions without identification. Turn it on only if you want to see who the individual users are. A Microsoft 365 **Global Administrator** or **AI Administrator** turns it on once:
 
 1. In the [Microsoft 365 admin center](https://admin.cloud.microsoft/?#/viva/featureAccessManagement), go to **Settings** > **Viva** > **Feature access management**.
 2. Select **Viva Insights**, choose the **identification** feature, and add a policy. You can also use PowerShell (`Add-VivaModuleFeaturePolicy`).
@@ -32,23 +32,13 @@ The report ranks people by usage, so it needs a person-level export. In Copilot 
 
 Full details: [Identification in Copilot Analytics | Microsoft Learn](https://learn.microsoft.com/en-us/viva/insights/identification-copilot-analytics)
 
-### 2. Export your data into one folder
+### 2. Export and extract
 
-- **Cowork usage:** Go to [aka.ms/copilotdashboard](https://aka.ms/copilotdashboard) > **Consumption Dashboard** > **Explore Cowork** > **Export data**. Choose **Export by week**, then export to CSV.
-- **People metadata:** Prepare a file of organizational attributes (organization, function) keyed by `PeopleHistoricalId`. The [sample](sample-data/PeopleMetaData.csv) shows the layout.
-
-Put both files in the same folder. The files only need the right starting letters:
-
-| File must start with | Examples |
-|---|---|
-| `cowork` | `CoworkWeeklyMetrics.csv`, `Cowork_Weekly_Oct16_2026.xlsx` |
-| `people` | `PeopleMetaData.csv`, `People metadata 10.27.2026.xlsx` |
-
-The files can be `.csv` or `.xlsx`, and trailing dates in the names are fine. If several files match, the report uses the newest one.
+Go to [aka.ms/copilotdashboard](https://aka.ms/copilotdashboard) > **Consumption Dashboard** > **Explore Cowork** > **Export data**, and choose **Export by week**. The export downloads as a zip file. Extract it to a folder. That's all: there's no need to save, rename, or move individual files.
 
 ### 3. Open the template and refresh
 
-Open [`CoworkSuperUser.pbit`](CoworkSuperUser.pbit) in Power BI Desktop. When it asks for **DataFolder**, paste the folder path **without quotes**. A local folder or a SharePoint folder URL both work. Then select **Load**.
+Open [`CoworkSuperUser.pbit`](CoworkSuperUser.pbit) in Power BI Desktop. When it asks for **DataFolder**, paste the path of the extracted folder **without quotes**. A local folder or a SharePoint folder URL both work. Then select **Load**.
 
 That's it. Start on **Overview**.
 
@@ -56,7 +46,7 @@ Need the column details or troubleshooting help? See [docs/SETUP.md](docs/SETUP.
 
 ## Use it responsibly
 
-- **Identified data is sensitive.** Restrict the report and its source files to the people your identification policy allows. Apply your organization's privacy, retention, and access-control requirements.
+- **Identified data is sensitive.** If you turned on identification, restrict the report and its source files to the people your identification policy allows. Apply your organization's privacy, retention, and access-control requirements.
 - **Value modeling is directional.** Net value depends entirely on the assumptions you choose. It is not a measure of how important a task is. Complex, credit-heavy tasks show lower net value by design. The page is most useful for spotting credit-heavy automated tasks and asking whether they are essential.
 - **The sample data is synthetic.** Don't use it to draw conclusions about real people or organizations.
 
@@ -71,8 +61,8 @@ Need the column details or troubleshooting help? See [docs/SETUP.md](docs/SETUP.
 
 ## Related
 
+- [microsoft/Analytics-Hub](https://github.com/microsoft/Analytics-Hub): more reports and templates for Copilot Analytics, Purview, and Viva Insights
 - [microsoft/DecodingSuperUsage](https://github.com/microsoft/DecodingSuperUsage): the broader Copilot super-user methodology
-- [microsoft/Cowork-Adoption-Intelligence](https://github.com/microsoft/Cowork-Adoption-Intelligence)
 
 ## Contributing, security, and license
 

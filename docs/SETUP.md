@@ -5,8 +5,8 @@ This page has the details behind the three steps in the [README](../README.md).
 ## Requirements
 
 - A current release of Power BI Desktop.
-- **Identification** turned on for the person running the export. See [Identification in Copilot Analytics](https://learn.microsoft.com/en-us/viva/insights/identification-copilot-analytics).
-- One folder, local or SharePoint, that contains a `cowork*` file and a `people*` file.
+- The extracted Cowork export zip, in one folder (local or SharePoint). The zip already contains the `cowork*` and `people*` files, so you don't need to rename anything.
+- Optional: **identification**, only if you want to drill into individual users. The report works fully with anonymized IDs. See [Identification in Copilot Analytics](https://learn.microsoft.com/en-us/viva/insights/identification-copilot-analytics).
 
 ## How files are picked
 
@@ -21,7 +21,7 @@ This is the Consumption Dashboard export from **Explore Cowork** > **Export data
 
 | Column | Type | Notes |
 |---|---|---|
-| `PersonId` | Text | Stable person identifier |
+| `PersonId` | Text | Stable person identifier. Anonymized unless identification is on. |
 | `MetricDate` | Date | Week start |
 | `TaskCategory` | Text | For example `Analysis & research` or `Email workflows` |
 | `TaskType` | Text | `UserInitiated`, `Scheduled`, or `Unknown` |
