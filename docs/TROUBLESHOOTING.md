@@ -1,8 +1,8 @@
 # Troubleshooting
 
-This guidance applies to the current two-file `DataFolder` release. The saved
-query guidance in [QUERY_SETUP.md](QUERY_SETUP.md) is historical and does not
-apply to [`CoworkSuperUser.pbit`](../CoworkSuperUser.pbit).
+This guidance applies to [`CoworkSuperUser.pbit`](../CoworkSuperUser.pbit),
+which loads the extracted export from one `DataFolder`. See also
+[SETUP.md](SETUP.md).
 
 ## The Viva Insights web app does not open
 
@@ -45,14 +45,12 @@ Large exports can take time to prepare. Keep the dashboard page open and wait
 for the browser download to begin. If an error appears, verify network access
 and retry later. Do not repeatedly start parallel exports.
 
-## A required CSV is missing
+## A required file is missing
 
-The report requires both files with exact names:
-
-- `CoworkWeeklyMetrics.csv`
-- `PeopleMetaData.csv`
-
-Extract the complete dashboard download. If the current Cowork export does not
+The report needs one file whose name starts with `cowork` and one whose name
+starts with `people` (`.csv` or `.xlsx`; trailing text is fine). The export zip
+contains both. Extract the complete zip to one folder; you don't need to rename
+anything. If the current Cowork export does not
 provide both files or the documented columns, stop and confirm export
 availability and format with the dashboard administrator. Do not fabricate a
 missing file or infer identifiers.
@@ -60,7 +58,7 @@ missing file or infer identifiers.
 ## Power BI says a column is missing or has the wrong type
 
 Compare the first row of each CSV with the exact schemas in
-[`SETUP.md`](../SETUP.md). Common causes are:
+[`SETUP.md`](SETUP.md). Common causes are:
 
 - Renamed or deleted columns
 - Excel changing the file delimiter or encoding
@@ -75,11 +73,11 @@ Download a fresh export and preserve its identifiers. Do not manually re-key
 
 Open **Transform data > Edit parameters** and verify `DataFolder`.
 
-- For a local source, provide the folder path, not a CSV filename.
+- Provide the folder path without quotes, not a file name.
 - For SharePoint, provide the exact folder URL containing both files and sign in
 	with an organizational account.
-- Keep both required CSVs together and remove stale copies with the same names
-	from nested folders.
+- If several files share a prefix, the newest one is used. Remove stale copies
+	you don't want loaded.
 
 If Power BI is reusing the wrong credentials, open **File > Options and
 settings > Data source settings**, select the source, clear its permissions,
@@ -110,7 +108,7 @@ and population before treating a difference as a defect.
 	folder.
 - A SharePoint folder requires organizational-account credentials in the
 	semantic model settings.
-- Replace both CSV files as one coordinated update before refresh so the usage
+- Replace both files as one coordinated update before refresh so the usage
 	and metadata inputs remain aligned.
 - Schedule refresh only after the new dashboard export has been placed in the
 	configured folder.

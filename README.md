@@ -42,7 +42,7 @@ Open [`CoworkSuperUser.pbit`](CoworkSuperUser.pbit) in Power BI Desktop. When it
 
 That's it. Start on **Overview**.
 
-Need the column details or troubleshooting help? See [docs/SETUP.md](docs/SETUP.md).
+Need the column details or troubleshooting help? See [docs/SETUP.md](docs/SETUP.md) and [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md). For a page-by-page reading guide, see the [interpretation guide](docs/INTERPRETATION_GUIDE.md) ([slides](docs/CoworkSuperUser%20Interpretation%20Guide.pptx)).
 
 ## Use it responsibly
 
@@ -56,7 +56,7 @@ Need the column details or troubleshooting help? See [docs/SETUP.md](docs/SETUP.
 |---|---|
 | `CoworkSuperUser.pbit` | The Power BI template, with no data included |
 | `sample-data/` | Synthetic `cowork` and `people` files you can try the template on |
-| `docs/SETUP.md` | Data contract, validation checklist, and troubleshooting |
+| `docs/` | Setup and data contract, troubleshooting, and the interpretation guide (Markdown and slides) |
 | `archive/` | Earlier releases, source projects, build tools, and media, kept for reference |
 
 ## Related

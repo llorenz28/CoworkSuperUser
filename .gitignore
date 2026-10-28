@@ -1,5 +1,8 @@
-.pbi/
+# Populated reports and raw exports (may contain organizational data)
 *.pbix
+*.zip
+
+.pbi/
 *.bak
 *.tmp
 *.log

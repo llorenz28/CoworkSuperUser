@@ -19,7 +19,7 @@ demonstrations, not customer benchmarks, targets, or expected outcomes.
 | 2 | **Trends** | Are tasks, credits, and credits per task changing across complete periods? |
 | 3 | **Cost Concentration** | How concentrated are tasks and credits among the highest-usage users? |
 | 4 | **Group Breakdown** | Which organization, function, or usage-tier differences warrant follow-up? |
-| 5 | **Value assumptions** | What scenario results from the selected time, labor, credit, and realization assumptions? |
+| 5 | **Value modeling – experimental** | What scenario results from the selected time, labor, credit, and realization assumptions? |
 
 Use **Appendix - Share Shift** to diagnose composition changes. Use **Metric
 Glossary** and **Category assumptions** before presenting definitions or modeled
@@ -136,7 +136,7 @@ Compare activity and intensity by organization, function, or usage tier.
 Group differences are descriptive. They can reflect work mix, access, rollout
 timing, geography, or metadata coverage and do not establish causation.
 
-## Page 5: Value assumptions
+## Page 5: Value modeling – experimental
 
 ### Purpose
 
