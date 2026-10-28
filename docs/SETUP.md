@@ -1,122 +1,65 @@
-# Detailed setup
+# Setup and data contract
 
-This page applies to the current [`CoworkSuperUser.pbit`](../CoworkSuperUser.pbit)
-release. It does not require saved query IDs, an Analyst Workbench partition, or
-either historical template under `src/`.
+This page has the details behind the three steps in the [README](../README.md).
 
-## 1. Confirm access
+## Requirements
 
-Open **[aka.ms/copilotdashboard](https://aka.ms/copilotdashboard)**. The link
-opens the Viva Insights web app.
+- A current release of Power BI Desktop.
+- **Identification** turned on for the person running the export. See [Identification in Copilot Analytics](https://learn.microsoft.com/en-us/viva/insights/identification-copilot-analytics).
+- One folder, local or SharePoint, that contains a `cowork*` file and a `people*` file.
 
-To use the standard export, Microsoft requires:
+## How files are picked
 
-- An organizational account with an active Exchange Online account in an
-	eligible Microsoft 365 or Office 365 tenant.
-- At least **50 assigned Microsoft Copilot or Viva Insights licenses** in the
-	tenant.
-- **Global Copilot Dashboard access** for the person exporting. This includes
-	Microsoft 365 Global Administrators, Viva Insights Analysts with global
-	access, eligible senior leaders, users manually granted global access, and
-	delegates of globally enabled users.
-- The Viva Insights web app and data export feature to be enabled by policy.
+- The `DataFolder` parameter takes a folder path or SharePoint folder URL. Paste it **without quotes**; stray quotes are trimmed anyway.
+- In that folder, the report loads the newest file whose name starts with `cowork` and the newest file whose name starts with `people`. Matching ignores case.
+- Supported formats are `.csv`, `.xlsx`, `.xlsm`, and `.xls`. For Excel files, the report reads the first sheet.
+- Trailing text in file names is fine, for example `Cowork_Weekly_Oct16_2026_1900Hours.csv`.
 
-Managers with only team-level access cannot export. A delegate needs
-**Combined access** to open the Consumption Dashboard; **Your company** scope
-alone does not include it. An AI Administrator can manage access policy but is
-not automatically granted dashboard access.
+## `cowork*` file: weekly usage
 
-If access was recently granted, allow up to 24 hours for the change to appear.
-See Microsoft's
-[export prerequisites](https://learn.microsoft.com/viva/insights/org-team-insights/export-copilot-metrics#prerequisites),
-[access-management guidance](https://learn.microsoft.com/viva/insights/advanced/admin/manage-settings-copilot-dashboard),
-and
-[delegation guidance](https://learn.microsoft.com/viva/insights/org-team-insights/delegate-access).
+This is the Consumption Dashboard export from **Explore Cowork** > **Export data** > **Export by week**. Each row is one person, week, task category, and task type.
 
-## 2. Export Cowork data
+| Column | Type | Notes |
+|---|---|---|
+| `PersonId` | Text | Stable person identifier |
+| `MetricDate` | Date | Week start |
+| `TaskCategory` | Text | For example `Analysis & research` or `Email workflows` |
+| `TaskType` | Text | `UserInitiated`, `Scheduled`, or `Unknown` |
+| `Total credits used` | Decimal | Not negative |
+| `Total Cowork tasks` | Whole number | Not negative |
+| `PeopleHistoricalId` | Text | The key used to join to the people file |
 
-1. In the Viva Insights web app, open **Consumption Dashboard**.
-2. Under **Explore service insights**, select **Explore Cowork**.
-3. Review the displayed **View as**, **Scope**, **Job function**, and time period.
-4. Select **Export data** or the download icon.
-5. Choose **Export by week** when prompted.
-6. Keep the browser page open until the download starts, then extract the
-	 downloaded archive.
+## `people*` file: organizational attributes
 
-Use the week-level export because this report analyzes complete weekly periods.
-It provides up to six months of history and can be up to six days behind. The
-standard Microsoft export is not customizable, so do not assume that on-screen
-filters changed the downloaded population. Validate the extracted files before
-using them.
+One row per `PeopleHistoricalId`.
 
-## 3. Prepare the input folder
+| Column | Type | Notes |
+|---|---|---|
+| `PeopleHistoricalId` | Text | Unique and not blank |
+| `Organization` | Text | Used for the Organization view |
+| `FunctionType` | Text | Used for the Function view, which is the default grouping |
+| `IsCopilotLicensed` | Boolean | `true` or `false` |
 
-Place these two files in one local or SharePoint folder, using the exact names:
+Blank organization or function values show as `Unknown`. Tasks with no value assumption, such as `Unclassified`, are left out of value modeling.
 
-`CoworkWeeklyMetrics.csv`
+## Validation checklist
 
-```text
-PersonId,MetricDate,TaskCategory,TaskType,Total credits used,Total Cowork tasks,PeopleHistoricalId
-```
+- After refresh, check that the total users, tasks, and credits on Overview match your export.
+- Clear all slicers before you reconcile totals.
+- Confirm that most users map to a function. A large `Unknown` group means the `PeopleHistoricalId` values don't match between the two files.
 
-`PeopleMetaData.csv`
+## Publish and refresh
 
-```text
-PeopleHistoricalId,Organization,FunctionType,IsCopilotLicensed
-```
+- After you publish, set credentials for the data source.
+- A local folder needs an on-premises data gateway for scheduled refresh. A SharePoint folder doesn't.
+- To update the report, drop newer `cowork*` and `people*` files into the folder and refresh. The newest files are used automatically.
 
-Keep the exported identifier values unchanged so the files continue to join on
-`PeopleHistoricalId`. Use UTF-8 comma-delimited CSV. Dates, numeric values, and
-`IsCopilotLicensed` must be convertible using the `en-US` locale.
+## Troubleshooting
 
-`Organization` is sourced from Entra ID or uploaded organizational data.
-`FunctionType` depends on the organizational data maintained by an authorized
-administrator and can be blank when the attribute is unavailable. Do not infer
-or fabricate missing organizational values.
-
-## 4. Load the template
-
-1. Open [`CoworkSuperUser.pbit`](../CoworkSuperUser.pbit) in a current version
-	 of Power BI Desktop.
-2. Set `DataFolder` to either:
-	 - A local folder, such as `C:\CoworkData\`
-	 - The exact SharePoint folder URL that contains both files
-3. For SharePoint, sign in with an organizational account and use the privacy
-	 level required by your tenant policy.
-4. Select **Load** and allow the initial refresh to finish.
-
-The template does not use embedded sample data when an input is missing or
-invalid. To explore the report without customer data, use the separate
-[`CoworkSuperUser.pbix`](../CoworkSuperUser.pbix) synthetic demonstration.
-
-## 5. Validate the refresh
-
-Before interpreting or publishing the report:
-
-1. Confirm that all eight pages open without visual errors.
-2. Confirm that the date range matches the complete weeks in the export.
-3. Reconcile total Cowork tasks and credits to the source files.
-4. Confirm that organization and function values have the expected coverage.
-5. Review the time, labor, credit, and realization assumptions before using any
-	 modeled value result.
-6. Check each definition in **Metric Glossary** before quoting a metric.
-
-The dashboard can include a partial current week while the export contains only
-completed weeks. A difference between dashboard and report totals is not by
-itself a refresh defect.
-
-## 6. Publish safely
-
-The repository and unpopulated release template are classified **Public**. A
-populated report is not automatically Public.
-
-- Treat dashboard exports as potentially personal and confidential data. IDs
-	are anonymized by default, but an administrator can enable identifiable
-	exports.
-- Save populated PBIX files outside this repository.
-- Apply the organization's required sensitivity label before sharing.
-- Configure workspace permissions and retention for the intended audience.
-- No row-level security role is preconfigured; add and test one if restricted
-	audiences require it.
-- A local `DataFolder` requires an on-premises data gateway for service refresh.
-	A SharePoint folder can use organizational-account cloud credentials.
+| Symptom | Fix |
+|---|---|
+| "No file starting with 'cowork'" | Check the folder path and the file name prefix. Remove any quotes from the path. |
+| Most users fall under `Unknown` | The `PeopleHistoricalId` values in the two files don't match. |
+| Privacy or firewall prompt | Set the same privacy level for both sources. |
+| Blank visuals | Clear slicers, and check that the column headers match the tables above. |
+| Refresh fails in the Power BI service | Use a SharePoint folder, or configure a gateway for a local folder. |
