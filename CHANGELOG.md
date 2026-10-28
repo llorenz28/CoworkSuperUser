@@ -1,6 +1,20 @@
 # Changelog
 
-## Unreleased - 2026-10-27
+## Unreleased - 2026-10-28
+
+- Replaced the canonical template with the supplied `Cowork Super User V1.pbit`
+	and the canonical demonstration report with `CoworkSuperUser- DEMO.pbix`,
+	preserving both binaries byte-for-byte.
+- Copied the reference README, setup guide, walkthrough, interpretation deck,
+	Overview preview, and synthetic CSVs from `llorenz28/CoworkSuperUsage` commit
+	`58702fd48cbd0983b4bcb7390f1a4b8d45ebce11`.
+- Adapted documentation links to the existing Microsoft download filenames and
+	retained the reference content's MIT attribution.
+- Updated release hashes and verified the sample CSV contract. Earlier Desktop,
+	model-metadata, and package-privacy checks do not certify the replacement
+	Power BI files; those checks remain pending.
+
+## 2026-10-27
 
 - Replaced the public release binaries with the Cowork Super User V1 template,
 	synthetic PBIX, interpretation guide, and natural-voice walkthrough.
