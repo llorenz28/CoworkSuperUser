@@ -4,7 +4,9 @@
 
 Cowork usage grows fast and unevenly. A small group of people usually consumes most of the credits, scheduled automations run in the background, and organization-wide averages hide all of it. This Power BI template turns your Viva Insights Cowork export into a report that leaders can act on in a 20-minute review.
 
-> Try it now: open the template, point it at the [`sample-data`](sample-data) folder, and refresh. The sample data is fully synthetic.
+![CoworkSuperUser report tour: Overview, Cost Concentration, Trends, Group Breakdown, Value modeling, Share Shift, Deep Exploration, Metric Glossary and Category assumptions, shown with synthetic data](assets/CoworkSuperUser-sample.gif)
+
+> Try it now: open the template, point it at the [`sample-data`](sample-data) folder, and refresh. The sample is fully synthetic: 250 fictional people across 10 teams (Sales, Marketing, HR, IT, and more) over 18 weeks, in the same layout as a real export. It's the data in the tour above.
 
 ## The questions it answers
 
@@ -56,6 +58,7 @@ Need the column details or troubleshooting help? See [docs/SETUP.md](docs/SETUP.
 |---|---|
 | `CoworkSuperUser.pbit` | The Power BI template, with no data included |
 | `sample-data/` | Synthetic `cowork` and `people` files you can try the template on |
+| `assets/` | The report tour GIF |
 | `docs/` | Setup and data contract, troubleshooting, and the interpretation guide (Markdown and slides) |
 | `archive/` | Earlier releases, source projects, build tools, and media, kept for reference |
 

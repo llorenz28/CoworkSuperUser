@@ -1,241 +1,1498 @@
-﻿PeopleHistoricalId,Organization,FunctionType,IsCopilotLicensed
-SYN-H0001,Latin America,Customer Experience,true
-SYN-H0002,Asia Pacific,Customer Experience,true
-SYN-H0003,Europe,Customer Experience,true
-SYN-H0004,North America,Customer Experience,true
-SYN-H0005,Latin America,Customer Experience,true
-SYN-H0006,Asia Pacific,Customer Experience,true
-SYN-H0007,Europe,Customer Experience,true
-SYN-H0008,North America,Customer Experience,true
-SYN-H0009,Latin America,Customer Experience,true
-SYN-H0010,Asia Pacific,Customer Experience,true
-SYN-H0011,Asia Pacific,Customer Experience,false
-SYN-H0012,Europe,Customer Experience,true
-SYN-H0013,North America,Customer Experience,true
-SYN-H0014,Latin America,Customer Experience,true
-SYN-H0015,Asia Pacific,Customer Experience,true
-SYN-H0016,Europe,Customer Experience,true
-SYN-H0017,North America,Customer Experience,true
-SYN-H0018,Latin America,Customer Experience,true
-SYN-H0019,Asia Pacific,Customer Experience,true
-SYN-H0020,Europe,Customer Experience,true
-SYN-H0021,North America,Customer Experience,true
-SYN-H0022,North America,Customer Experience,false
-SYN-H0023,Latin America,Customer Experience,true
-SYN-H0024,Asia Pacific,Customer Experience,true
-SYN-H0025,Europe,Customer Experience,true
-SYN-H0026,North America,Customer Experience,true
-SYN-H0027,Latin America,Customer Experience,true
-SYN-H0028,Asia Pacific,Customer Experience,true
-SYN-H0029,Europe,Customer Experience,true
-SYN-H0030,North America,Customer Experience,true
-SYN-H0031,Latin America,Customer Experience,true
-SYN-H0032,Asia Pacific,Customer Experience,true
-SYN-H0033,Asia Pacific,Customer Experience,false
-SYN-H0034,Europe,Customer Experience,true
-SYN-H0035,North America,Engineering,true
-SYN-H0036,Latin America,Engineering,true
-SYN-H0037,Asia Pacific,Engineering,true
-SYN-H0038,Europe,Engineering,true
-SYN-H0039,North America,Engineering,true
-SYN-H0040,Latin America,Engineering,true
-SYN-H0041,Asia Pacific,Engineering,true
-SYN-H0042,Europe,Engineering,true
-SYN-H0043,North America,Engineering,true
-SYN-H0044,North America,Engineering,false
-SYN-H0045,Latin America,Engineering,true
-SYN-H0046,Asia Pacific,Engineering,true
-SYN-H0047,Europe,Engineering,true
-SYN-H0048,North America,Engineering,true
-SYN-H0049,Latin America,Engineering,true
-SYN-H0050,Asia Pacific,Engineering,true
-SYN-H0051,Europe,Engineering,true
-SYN-H0052,North America,Engineering,true
-SYN-H0053,Latin America,Engineering,true
-SYN-H0054,Asia Pacific,Engineering,true
-SYN-H0055,Asia Pacific,Engineering,false
-SYN-H0056,Europe,Engineering,true
-SYN-H0057,North America,Engineering,true
-SYN-H0058,Latin America,Engineering,true
-SYN-H0059,Asia Pacific,Engineering,true
-SYN-H0060,Europe,Engineering,true
-SYN-H0061,North America,Engineering,true
-SYN-H0062,Latin America,Engineering,true
-SYN-H0063,Asia Pacific,Engineering,true
-SYN-H0064,Europe,Engineering,true
-SYN-H0065,North America,Engineering,true
-SYN-H0066,North America,Engineering,false
-SYN-H0067,Latin America,Engineering,true
-SYN-H0068,Asia Pacific,Engineering,true
-SYN-H0069,Europe,Engineering,true
-SYN-H0070,North America,Engineering,true
-SYN-H0071,Latin America,Engineering,true
-SYN-H0072,Asia Pacific,Engineering,true
-SYN-H0073,Europe,Engineering,true
-SYN-H0074,North America,Engineering,true
-SYN-H0075,Latin America,Engineering,true
-SYN-H0076,Asia Pacific,Engineering,true
-SYN-H0077,Asia Pacific,Engineering,false
-SYN-H0078,Europe,Engineering,true
-SYN-H0079,North America,Engineering,true
-SYN-H0080,Latin America,Engineering,true
-SYN-H0081,Asia Pacific,Finance,true
-SYN-H0082,Europe,Finance,true
-SYN-H0083,North America,Finance,true
-SYN-H0084,Latin America,Finance,true
-SYN-H0085,Asia Pacific,Finance,true
-SYN-H0086,Europe,Finance,true
-SYN-H0087,North America,Finance,true
-SYN-H0088,North America,Finance,false
-SYN-H0089,Latin America,Finance,true
-SYN-H0090,Asia Pacific,Finance,true
-SYN-H0091,Europe,Finance,true
-SYN-H0092,North America,Finance,true
-SYN-H0093,Latin America,Finance,true
-SYN-H0094,Asia Pacific,Finance,true
-SYN-H0095,Europe,Finance,true
-SYN-H0096,North America,Finance,true
-SYN-H0097,Latin America,Finance,true
-SYN-H0098,Asia Pacific,Finance,true
-SYN-H0099,Asia Pacific,Finance,false
-SYN-H0100,Europe,Finance,true
-SYN-H0101,North America,Finance,true
-SYN-H0102,Latin America,Finance,true
-SYN-H0103,Asia Pacific,Finance,true
-SYN-H0104,Europe,Finance,true
-SYN-H0105,North America,Finance,true
-SYN-H0106,Latin America,Human Resources,true
-SYN-H0107,Asia Pacific,Human Resources,true
-SYN-H0108,Europe,Human Resources,true
-SYN-H0109,North America,Human Resources,true
-SYN-H0110,North America,Human Resources,false
-SYN-H0111,Latin America,Human Resources,true
-SYN-H0112,Asia Pacific,Human Resources,true
-SYN-H0113,Europe,Human Resources,true
-SYN-H0114,North America,Human Resources,true
-SYN-H0115,Latin America,Human Resources,true
-SYN-H0116,Asia Pacific,Human Resources,true
-SYN-H0117,Europe,Human Resources,true
-SYN-H0118,North America,Human Resources,true
-SYN-H0119,Latin America,Human Resources,true
-SYN-H0120,Asia Pacific,Human Resources,true
-SYN-H0121,Asia Pacific,Human Resources,false
-SYN-H0122,Europe,Human Resources,true
-SYN-H0123,North America,Human Resources,true
-SYN-H0124,Latin America,Human Resources,true
-SYN-H0125,Asia Pacific,Human Resources,true
-SYN-H0126,Europe,Human Resources,true
-SYN-H0127,North America,Human Resources,true
-SYN-H0128,Latin America,Marketing,true
-SYN-H0129,Asia Pacific,Marketing,true
-SYN-H0130,Europe,Marketing,true
-SYN-H0131,North America,Marketing,true
-SYN-H0132,North America,Marketing,false
-SYN-H0133,Latin America,Marketing,true
-SYN-H0134,Asia Pacific,Marketing,true
-SYN-H0135,Europe,Marketing,true
-SYN-H0136,North America,Marketing,true
-SYN-H0137,Latin America,Marketing,true
-SYN-H0138,Asia Pacific,Marketing,true
-SYN-H0139,Europe,Marketing,true
-SYN-H0140,North America,Marketing,true
-SYN-H0141,Latin America,Marketing,true
-SYN-H0142,Asia Pacific,Marketing,true
-SYN-H0143,Asia Pacific,Marketing,false
-SYN-H0144,Europe,Marketing,true
-SYN-H0145,North America,Marketing,true
-SYN-H0146,Latin America,Marketing,true
-SYN-H0147,Asia Pacific,Marketing,true
-SYN-H0148,Europe,Marketing,true
-SYN-H0149,North America,Marketing,true
-SYN-H0150,Latin America,Marketing,true
-SYN-H0151,Asia Pacific,Marketing,true
-SYN-H0152,Europe,Marketing,true
-SYN-H0153,North America,Marketing,true
-SYN-H0154,North America,Marketing,false
-SYN-H0155,Latin America,Marketing,true
-SYN-H0156,Asia Pacific,Marketing,true
-SYN-H0157,Europe,Operations,true
-SYN-H0158,North America,Operations,true
-SYN-H0159,Latin America,Operations,true
-SYN-H0160,Asia Pacific,Operations,true
-SYN-H0161,Europe,Operations,true
-SYN-H0162,North America,Operations,true
-SYN-H0163,Latin America,Operations,true
-SYN-H0164,Asia Pacific,Operations,true
-SYN-H0165,Asia Pacific,Operations,false
-SYN-H0166,Europe,Operations,true
-SYN-H0167,North America,Operations,true
-SYN-H0168,Latin America,Operations,true
-SYN-H0169,Asia Pacific,Operations,true
-SYN-H0170,Europe,Operations,true
-SYN-H0171,North America,Operations,true
-SYN-H0172,Latin America,Operations,true
-SYN-H0173,Asia Pacific,Operations,true
-SYN-H0174,Europe,Operations,true
-SYN-H0175,North America,Operations,true
-SYN-H0176,North America,Operations,false
-SYN-H0177,Latin America,Operations,true
-SYN-H0178,Asia Pacific,Operations,true
-SYN-H0179,Europe,Operations,true
-SYN-H0180,North America,Operations,true
-SYN-H0181,Latin America,Operations,true
-SYN-H0182,Asia Pacific,Operations,true
-SYN-H0183,Europe,Operations,true
-SYN-H0184,North America,Operations,true
-SYN-H0185,Latin America,Operations,true
-SYN-H0186,Asia Pacific,Operations,true
-SYN-H0187,Asia Pacific,Operations,false
-SYN-H0188,Europe,Operations,true
-SYN-H0189,North America,Operations,true
-SYN-H0190,Latin America,Operations,true
-SYN-H0191,Asia Pacific,Operations,true
-SYN-H0192,Europe,Operations,true
-SYN-H0193,North America,Operations,true
-SYN-H0194,Latin America,Operations,true
-SYN-H0195,Asia Pacific,Product Management,true
-SYN-H0196,Europe,Product Management,true
-SYN-H0197,North America,Product Management,true
-SYN-H0198,North America,Product Management,false
-SYN-H0199,Latin America,Product Management,true
-SYN-H0200,Asia Pacific,Product Management,true
-SYN-H0201,Europe,Product Management,true
-SYN-H0202,North America,Product Management,true
-SYN-H0203,Latin America,Product Management,true
-SYN-H0204,Asia Pacific,Product Management,true
-SYN-H0205,Europe,Product Management,true
-SYN-H0206,North America,Product Management,true
-SYN-H0207,Latin America,Product Management,true
-SYN-H0208,Asia Pacific,Product Management,true
-SYN-H0209,Asia Pacific,Product Management,false
-SYN-H0210,Europe,Product Management,true
-SYN-H0211,North America,Product Management,true
-SYN-H0212,Latin America,Product Management,true
-SYN-H0213,Asia Pacific,Product Management,true
-SYN-H0214,Europe,Product Management,true
-SYN-H0215,North America,Product Management,true
-SYN-H0216,Latin America,Product Management,true
-SYN-H0217,Asia Pacific,Product Management,true
-SYN-H0218,Europe,Product Management,true
-SYN-H0219,North America,Product Management,true
-SYN-H0220,North America,Product Management,false
-SYN-H0221,Latin America,Product Management,true
-SYN-H0222,Asia Pacific,Product Management,true
-SYN-H0223,Europe,Sales,true
-SYN-H0224,North America,Sales,true
-SYN-H0225,Latin America,Sales,true
-SYN-H0226,Asia Pacific,Sales,true
-SYN-H0227,Europe,Sales,true
-SYN-H0228,North America,Sales,true
-SYN-H0229,Latin America,Sales,true
-SYN-H0230,Asia Pacific,Sales,true
-SYN-H0231,Asia Pacific,Sales,false
-SYN-H0232,Europe,Sales,true
-SYN-H0233,North America,Sales,true
-SYN-H0234,Latin America,Sales,true
-SYN-H0235,Asia Pacific,Sales,true
-SYN-H0236,Europe,Sales,true
-SYN-H0237,North America,Sales,true
-SYN-H0238,Latin America,Sales,true
-SYN-H0239,Asia Pacific,Sales,true
-SYN-H0240,Europe,Sales,true
+PeopleHistoricalId,Organization,FunctionType,IsCopilotLicensed
+0084a167-1135-d928-63c1-d679fb50fdbf1786665600,Avery Lindqvist,Sales,True
+0084a167-1135-d928-63c1-d679fb50fdbf1787270400,Avery Lindqvist,Sales,True
+0084a167-1135-d928-63c1-d679fb50fdbf1788480000,Avery Lindqvist,Sales,True
+0084a167-1135-d928-63c1-d679fb50fdbf1789084800,Avery Lindqvist,Sales,True
+0084a167-1135-d928-63c1-d679fb50fdbf1789689600,Avery Lindqvist,Sales,True
+0084a167-1135-d928-63c1-d679fb50fdbf1790899200,Avery Lindqvist,Sales,True
+0084a167-1135-d928-63c1-d679fb50fdbf1791504000,Avery Lindqvist,Sales,True
+00e8f4dc-c886-4ac0-59ec-250b557580ce1786060800,Jordan Okafor,Marketing,True
+00e8f4dc-c886-4ac0-59ec-250b557580ce1786665600,Jordan Okafor,Marketing,True
+00e8f4dc-c886-4ac0-59ec-250b557580ce1788480000,Jordan Okafor,Marketing,True
+00e8f4dc-c886-4ac0-59ec-250b557580ce1789084800,Jordan Okafor,Marketing,True
+00e8f4dc-c886-4ac0-59ec-250b557580ce1789689600,Jordan Okafor,Marketing,True
+00e8f4dc-c886-4ac0-59ec-250b557580ce1790294400,Jordan Okafor,Marketing,True
+00e8f4dc-c886-4ac0-59ec-250b557580ce1790899200,Jordan Okafor,Marketing,True
+00e8f4dc-c886-4ac0-59ec-250b557580ce1792108800,Jordan Okafor,Marketing,True
+011b9aeb-dcf6-248a-4a8b-ec1b0c02e1fe1784246400,Priya Raman,Operations,False
+011b9aeb-dcf6-248a-4a8b-ec1b0c02e1fe1786665600,Priya Raman,Operations,False
+011b9aeb-dcf6-248a-4a8b-ec1b0c02e1fe1787270400,Priya Raman,Operations,False
+011b9aeb-dcf6-248a-4a8b-ec1b0c02e1fe1789084800,Priya Raman,Operations,False
+011b9aeb-dcf6-248a-4a8b-ec1b0c02e1fe1790899200,Priya Raman,Operations,False
+01469fce-048b-c6a9-3bbc-ef011e7ea8fb1787875200,Priya Raman,Sales,True
+01469fce-048b-c6a9-3bbc-ef011e7ea8fb1789084800,Priya Raman,Sales,True
+01469fce-048b-c6a9-3bbc-ef011e7ea8fb1789689600,Priya Raman,Sales,True
+01469fce-048b-c6a9-3bbc-ef011e7ea8fb1790294400,Priya Raman,Sales,True
+01469fce-048b-c6a9-3bbc-ef011e7ea8fb1790899200,Priya Raman,Sales,True
+01469fce-048b-c6a9-3bbc-ef011e7ea8fb1791504000,Priya Raman,Sales,True
+015f1290-10ec-d476-109c-e3da360f4aac1784851200,Mateo Alvarez,Sales,True
+015f1290-10ec-d476-109c-e3da360f4aac1785456000,Mateo Alvarez,Sales,True
+015f1290-10ec-d476-109c-e3da360f4aac1786060800,Mateo Alvarez,Sales,True
+015f1290-10ec-d476-109c-e3da360f4aac1786665600,Mateo Alvarez,Sales,True
+015f1290-10ec-d476-109c-e3da360f4aac1787270400,Mateo Alvarez,Sales,True
+015f1290-10ec-d476-109c-e3da360f4aac1787875200,Mateo Alvarez,Sales,True
+015f1290-10ec-d476-109c-e3da360f4aac1788480000,Mateo Alvarez,Sales,True
+015f1290-10ec-d476-109c-e3da360f4aac1789084800,Mateo Alvarez,Sales,True
+015f1290-10ec-d476-109c-e3da360f4aac1789689600,Mateo Alvarez,Sales,True
+015f1290-10ec-d476-109c-e3da360f4aac1790294400,Mateo Alvarez,Sales,True
+015f1290-10ec-d476-109c-e3da360f4aac1790899200,Mateo Alvarez,Sales,True
+015f1290-10ec-d476-109c-e3da360f4aac1791504000,Mateo Alvarez,Sales,True
+023372d0-5463-0cd5-17f7-a0470d3f674c1790899200,Mateo Alvarez,HR,True
+02cbb7a0-6e6d-e638-6783-b16498163bd31789689600,Avery Lindqvist,HR,True
+02cbb7a0-6e6d-e638-6783-b16498163bd31790294400,Avery Lindqvist,HR,True
+02cbb7a0-6e6d-e638-6783-b16498163bd31790899200,Avery Lindqvist,HR,True
+02cbb7a0-6e6d-e638-6783-b16498163bd31791504000,Avery Lindqvist,HR,True
+02f8624a-60d9-ad76-6799-ee4dbe0f9d6d1782432000,Avery Lindqvist,Customer Support,True
+02f8624a-60d9-ad76-6799-ee4dbe0f9d6d1783036800,Avery Lindqvist,Customer Support,True
+02f8624a-60d9-ad76-6799-ee4dbe0f9d6d1783641600,Avery Lindqvist,Customer Support,True
+02f8624a-60d9-ad76-6799-ee4dbe0f9d6d1784246400,Avery Lindqvist,Customer Support,True
+02f8624a-60d9-ad76-6799-ee4dbe0f9d6d1785456000,Avery Lindqvist,Customer Support,True
+02f8624a-60d9-ad76-6799-ee4dbe0f9d6d1786060800,Avery Lindqvist,Customer Support,True
+02f8624a-60d9-ad76-6799-ee4dbe0f9d6d1787875200,Avery Lindqvist,Customer Support,True
+02f8624a-60d9-ad76-6799-ee4dbe0f9d6d1788480000,Avery Lindqvist,Customer Support,True
+02f8624a-60d9-ad76-6799-ee4dbe0f9d6d1789084800,Avery Lindqvist,Customer Support,True
+02f8624a-60d9-ad76-6799-ee4dbe0f9d6d1789689600,Avery Lindqvist,Customer Support,True
+02f8624a-60d9-ad76-6799-ee4dbe0f9d6d1790294400,Avery Lindqvist,Customer Support,True
+02f8624a-60d9-ad76-6799-ee4dbe0f9d6d1790899200,Avery Lindqvist,Customer Support,True
+02f8624a-60d9-ad76-6799-ee4dbe0f9d6d1791504000,Avery Lindqvist,Customer Support,True
+0399c8a1-a985-dd73-3bbf-564a58e29e601784246400,Hana Kobayashi,Engineering,True
+0399c8a1-a985-dd73-3bbf-564a58e29e601786665600,Hana Kobayashi,Engineering,True
+0399c8a1-a985-dd73-3bbf-564a58e29e601787270400,Hana Kobayashi,Engineering,True
+0399c8a1-a985-dd73-3bbf-564a58e29e601788480000,Hana Kobayashi,Engineering,True
+0399c8a1-a985-dd73-3bbf-564a58e29e601789084800,Hana Kobayashi,Engineering,True
+0399c8a1-a985-dd73-3bbf-564a58e29e601789689600,Hana Kobayashi,Engineering,True
+0399c8a1-a985-dd73-3bbf-564a58e29e601790294400,Hana Kobayashi,Engineering,True
+04d9c6a2-b8b2-5bca-2c54-8f01e219dccd1791504000,Jordan Okafor,Finance,True
+051e1770-ffbd-85ed-23d8-6d4cc340a3a71789689600,Jordan Okafor,Sales,True
+052cb009-50cd-3c37-5f4c-2a42194df1981786060800,Jordan Okafor,Marketing,True
+052cb009-50cd-3c37-5f4c-2a42194df1981786665600,Jordan Okafor,Marketing,True
+052cb009-50cd-3c37-5f4c-2a42194df1981789084800,Jordan Okafor,Marketing,True
+052cb009-50cd-3c37-5f4c-2a42194df1981789689600,Jordan Okafor,Marketing,True
+052cb009-50cd-3c37-5f4c-2a42194df1981790294400,Jordan Okafor,Marketing,True
+052cb009-50cd-3c37-5f4c-2a42194df1981792108800,Jordan Okafor,Marketing,True
+05c430e6-9b80-d5ca-0de6-427919ef72821784246400,Jordan Okafor,IT,True
+05c430e6-9b80-d5ca-0de6-427919ef72821784851200,Jordan Okafor,IT,True
+05c430e6-9b80-d5ca-0de6-427919ef72821785456000,Jordan Okafor,IT,True
+05c430e6-9b80-d5ca-0de6-427919ef72821786060800,Jordan Okafor,IT,True
+05c430e6-9b80-d5ca-0de6-427919ef72821786665600,Jordan Okafor,IT,True
+05c430e6-9b80-d5ca-0de6-427919ef72821787270400,Jordan Okafor,IT,True
+05c430e6-9b80-d5ca-0de6-427919ef72821787875200,Jordan Okafor,IT,True
+05c430e6-9b80-d5ca-0de6-427919ef72821788480000,Jordan Okafor,IT,True
+05c430e6-9b80-d5ca-0de6-427919ef72821789689600,Jordan Okafor,IT,True
+05c430e6-9b80-d5ca-0de6-427919ef72821790294400,Jordan Okafor,IT,True
+05c430e6-9b80-d5ca-0de6-427919ef72821790899200,Jordan Okafor,IT,True
+05c430e6-9b80-d5ca-0de6-427919ef72821791504000,Jordan Okafor,IT,True
+0679c52a-fdd7-d9d7-50df-cc498180c3031787875200,Jordan Okafor,Sales,False
+06ba6fa2-a365-3315-274f-a585476687ca1782432000,Jordan Okafor,Customer Support,True
+06ba6fa2-a365-3315-274f-a585476687ca1783641600,Jordan Okafor,Customer Support,True
+06ba6fa2-a365-3315-274f-a585476687ca1784246400,Jordan Okafor,Customer Support,True
+06ba6fa2-a365-3315-274f-a585476687ca1785456000,Jordan Okafor,Customer Support,True
+06ba6fa2-a365-3315-274f-a585476687ca1786060800,Jordan Okafor,Customer Support,True
+06ba6fa2-a365-3315-274f-a585476687ca1787875200,Jordan Okafor,Customer Support,True
+06ba6fa2-a365-3315-274f-a585476687ca1788480000,Jordan Okafor,Customer Support,True
+06ba6fa2-a365-3315-274f-a585476687ca1789084800,Jordan Okafor,Customer Support,True
+06ba6fa2-a365-3315-274f-a585476687ca1789689600,Jordan Okafor,Customer Support,True
+06ba6fa2-a365-3315-274f-a585476687ca1790294400,Jordan Okafor,Customer Support,True
+06ba6fa2-a365-3315-274f-a585476687ca1790899200,Jordan Okafor,Customer Support,True
+06fb8532-e846-0763-26e4-554a511dc5261788480000,Jordan Okafor,Marketing,True
+06fb8532-e846-0763-26e4-554a511dc5261789084800,Jordan Okafor,Marketing,True
+06fb8532-e846-0763-26e4-554a511dc5261789689600,Jordan Okafor,Marketing,True
+06fb8532-e846-0763-26e4-554a511dc5261790294400,Jordan Okafor,Marketing,True
+06fb8532-e846-0763-26e4-554a511dc5261790899200,Jordan Okafor,Marketing,True
+075d8916-e0b6-89d6-2786-256ee38977d81786060800,Hana Kobayashi,Finance,True
+075d8916-e0b6-89d6-2786-256ee38977d81788480000,Hana Kobayashi,Finance,True
+079b0aaf-1b6e-8e6f-1bcd-73458f655ead1783641600,Priya Raman,Operations,True
+079b0aaf-1b6e-8e6f-1bcd-73458f655ead1784246400,Priya Raman,Operations,True
+079b0aaf-1b6e-8e6f-1bcd-73458f655ead1784851200,Priya Raman,Operations,True
+079b0aaf-1b6e-8e6f-1bcd-73458f655ead1787875200,Priya Raman,Operations,True
+079b0aaf-1b6e-8e6f-1bcd-73458f655ead1790899200,Priya Raman,Operations,True
+08243fe3-8513-4ad7-1e25-a0d6a494c6531782432000,Avery Lindqvist,Operations,True
+08243fe3-8513-4ad7-1e25-a0d6a494c6531783641600,Avery Lindqvist,Operations,True
+08243fe3-8513-4ad7-1e25-a0d6a494c6531784246400,Avery Lindqvist,Operations,True
+08243fe3-8513-4ad7-1e25-a0d6a494c6531784851200,Avery Lindqvist,Operations,True
+08243fe3-8513-4ad7-1e25-a0d6a494c6531787270400,Avery Lindqvist,Operations,True
+08243fe3-8513-4ad7-1e25-a0d6a494c6531787875200,Avery Lindqvist,Operations,True
+08243fe3-8513-4ad7-1e25-a0d6a494c6531788480000,Avery Lindqvist,Operations,True
+08243fe3-8513-4ad7-1e25-a0d6a494c6531789084800,Avery Lindqvist,Operations,True
+08243fe3-8513-4ad7-1e25-a0d6a494c6531789689600,Avery Lindqvist,Operations,True
+08243fe3-8513-4ad7-1e25-a0d6a494c6531790294400,Avery Lindqvist,Operations,True
+08243fe3-8513-4ad7-1e25-a0d6a494c6531792108800,Avery Lindqvist,Operations,True
+0896d89c-e437-840f-057e-a38f5d953b031786665600,Avery Lindqvist,Operations,True
+0896d89c-e437-840f-057e-a38f5d953b031788480000,Avery Lindqvist,Operations,True
+0896d89c-e437-840f-057e-a38f5d953b031789084800,Avery Lindqvist,Operations,True
+0896d89c-e437-840f-057e-a38f5d953b031790294400,Avery Lindqvist,Operations,True
+094d8b71-0a66-a1c5-4ed6-5bcb0fa744e51791504000,Priya Raman,Product,True
+099d5367-b10e-7901-6bb6-902726adedd21788480000,Jordan Okafor,Sales,True
+099d5367-b10e-7901-6bb6-902726adedd21790899200,Jordan Okafor,Sales,True
+0a4cc4a6-dc0e-918d-2c0b-dcf06c69560c1792108800,Avery Lindqvist,Marketing,True
+0ae5e890-2812-6e67-769b-62d8d9efad211784851200,Avery Lindqvist,Marketing,True
+0ae5e890-2812-6e67-769b-62d8d9efad211786060800,Avery Lindqvist,Marketing,True
+0ae5e890-2812-6e67-769b-62d8d9efad211786665600,Avery Lindqvist,Marketing,True
+0ae5e890-2812-6e67-769b-62d8d9efad211787875200,Avery Lindqvist,Marketing,True
+0ae5e890-2812-6e67-769b-62d8d9efad211789084800,Avery Lindqvist,Marketing,True
+0ae5e890-2812-6e67-769b-62d8d9efad211789689600,Avery Lindqvist,Marketing,True
+0ae5e890-2812-6e67-769b-62d8d9efad211790899200,Avery Lindqvist,Marketing,True
+0ae5e890-2812-6e67-769b-62d8d9efad211791504000,Avery Lindqvist,Marketing,True
+0ae5e890-2812-6e67-769b-62d8d9efad211792108800,Avery Lindqvist,Marketing,True
+0b7bc9a7-f9da-dc8e-3301-93ae15e8b61f1787270400,Jordan Okafor,Marketing,True
+0b7bc9a7-f9da-dc8e-3301-93ae15e8b61f1787875200,Jordan Okafor,Marketing,True
+0b7bc9a7-f9da-dc8e-3301-93ae15e8b61f1789689600,Jordan Okafor,Marketing,True
+0b7bc9a7-f9da-dc8e-3301-93ae15e8b61f1792108800,Jordan Okafor,Marketing,True
+0b908133-24f6-77d6-3829-863400ee3c831786060800,Priya Raman,HR,True
+0b908133-24f6-77d6-3829-863400ee3c831787270400,Priya Raman,HR,True
+0b908133-24f6-77d6-3829-863400ee3c831787875200,Priya Raman,HR,True
+0b908133-24f6-77d6-3829-863400ee3c831789084800,Priya Raman,HR,True
+0b908133-24f6-77d6-3829-863400ee3c831791504000,Priya Raman,HR,True
+0bb38078-1bea-1162-512e-7ca4437a8ca41787270400,Mateo Alvarez,Finance,True
+0bb38078-1bea-1162-512e-7ca4437a8ca41789084800,Mateo Alvarez,Finance,True
+0bb38078-1bea-1162-512e-7ca4437a8ca41789689600,Mateo Alvarez,Finance,True
+0cbc1f43-1e95-b499-0d1c-1f552e5ebdb11785456000,Avery Lindqvist,Sales,True
+0cbc1f43-1e95-b499-0d1c-1f552e5ebdb11788480000,Avery Lindqvist,Sales,True
+0cef835a-2179-00bc-5066-626ffde760cd1783036800,Jordan Okafor,Marketing,True
+0cef835a-2179-00bc-5066-626ffde760cd1783641600,Jordan Okafor,Marketing,True
+0cef835a-2179-00bc-5066-626ffde760cd1784246400,Jordan Okafor,Marketing,True
+0cef835a-2179-00bc-5066-626ffde760cd1784851200,Jordan Okafor,Marketing,True
+0cef835a-2179-00bc-5066-626ffde760cd1786665600,Jordan Okafor,Marketing,True
+0cef835a-2179-00bc-5066-626ffde760cd1790899200,Jordan Okafor,Marketing,True
+0cfcab1b-0901-6f43-220e-aeb88b15e6f91790899200,Avery Lindqvist,Marketing,True
+0edb8b5b-3112-9bec-58e7-b452b5792a3b1783036800,Jordan Okafor,HR,True
+0edb8b5b-3112-9bec-58e7-b452b5792a3b1784851200,Jordan Okafor,HR,True
+0edb8b5b-3112-9bec-58e7-b452b5792a3b1787875200,Jordan Okafor,HR,True
+0edb8b5b-3112-9bec-58e7-b452b5792a3b1788480000,Jordan Okafor,HR,True
+0edb8b5b-3112-9bec-58e7-b452b5792a3b1789689600,Jordan Okafor,HR,True
+0edb8b5b-3112-9bec-58e7-b452b5792a3b1790294400,Jordan Okafor,HR,True
+0edb8b5b-3112-9bec-58e7-b452b5792a3b1790899200,Jordan Okafor,HR,True
+0edb8b5b-3112-9bec-58e7-b452b5792a3b1791504000,Jordan Okafor,HR,True
+0ef8cdd1-43e0-203b-36dd-7dd775b2c9c81790294400,Avery Lindqvist,Operations,True
+0f3487cf-a0b3-5f97-11a1-5ef5c150b5491787875200,Jordan Okafor,Sales,True
+0f3487cf-a0b3-5f97-11a1-5ef5c150b5491788480000,Jordan Okafor,Sales,True
+0f3487cf-a0b3-5f97-11a1-5ef5c150b5491789689600,Jordan Okafor,Sales,True
+0f3487cf-a0b3-5f97-11a1-5ef5c150b5491790899200,Jordan Okafor,Sales,True
+0f9323e0-607d-ab50-5307-849709a546971784851200,Avery Lindqvist,Finance,True
+0f9323e0-607d-ab50-5307-849709a546971787875200,Avery Lindqvist,Finance,True
+0f9323e0-607d-ab50-5307-849709a546971789689600,Avery Lindqvist,Finance,True
+1039405e-c26e-8a00-23bf-60eaa1a865911785456000,Avery Lindqvist,Customer Support,True
+1039405e-c26e-8a00-23bf-60eaa1a865911786665600,Avery Lindqvist,Customer Support,True
+1039405e-c26e-8a00-23bf-60eaa1a865911787270400,Avery Lindqvist,Customer Support,True
+1039405e-c26e-8a00-23bf-60eaa1a865911787875200,Avery Lindqvist,Customer Support,True
+1039405e-c26e-8a00-23bf-60eaa1a865911789084800,Avery Lindqvist,Customer Support,True
+1039405e-c26e-8a00-23bf-60eaa1a865911791504000,Avery Lindqvist,Customer Support,True
+10a1f493-851f-0d39-1748-b852e26303231790899200,Hana Kobayashi,Product,True
+10a1f493-851f-0d39-1748-b852e26303231791504000,Hana Kobayashi,Product,True
+10e78cd9-04d9-06ca-357c-5c65a7f9e55b1783641600,Priya Raman,Marketing,True
+10e78cd9-04d9-06ca-357c-5c65a7f9e55b1784246400,Priya Raman,Marketing,True
+10e78cd9-04d9-06ca-357c-5c65a7f9e55b1784851200,Priya Raman,Marketing,True
+10e78cd9-04d9-06ca-357c-5c65a7f9e55b1785456000,Priya Raman,Marketing,True
+10e78cd9-04d9-06ca-357c-5c65a7f9e55b1786060800,Priya Raman,Marketing,True
+10e78cd9-04d9-06ca-357c-5c65a7f9e55b1786665600,Priya Raman,Marketing,True
+10e78cd9-04d9-06ca-357c-5c65a7f9e55b1787270400,Priya Raman,Marketing,True
+10e78cd9-04d9-06ca-357c-5c65a7f9e55b1787875200,Priya Raman,Marketing,True
+10e78cd9-04d9-06ca-357c-5c65a7f9e55b1788480000,Priya Raman,Marketing,True
+10e78cd9-04d9-06ca-357c-5c65a7f9e55b1789084800,Priya Raman,Marketing,True
+10e78cd9-04d9-06ca-357c-5c65a7f9e55b1789689600,Priya Raman,Marketing,True
+10e78cd9-04d9-06ca-357c-5c65a7f9e55b1790294400,Priya Raman,Marketing,True
+10e78cd9-04d9-06ca-357c-5c65a7f9e55b1790899200,Priya Raman,Marketing,True
+10e78cd9-04d9-06ca-357c-5c65a7f9e55b1791504000,Priya Raman,Marketing,True
+11132ea3-fded-c4fc-43d4-7f22debe38241787875200,Jordan Okafor,Operations,True
+11132ea3-fded-c4fc-43d4-7f22debe38241788480000,Jordan Okafor,Operations,True
+11132ea3-fded-c4fc-43d4-7f22debe38241789084800,Jordan Okafor,Operations,True
+11132ea3-fded-c4fc-43d4-7f22debe38241789689600,Jordan Okafor,Operations,True
+11132ea3-fded-c4fc-43d4-7f22debe38241790294400,Jordan Okafor,Operations,True
+11132ea3-fded-c4fc-43d4-7f22debe38241790899200,Jordan Okafor,Operations,True
+11132ea3-fded-c4fc-43d4-7f22debe38241791504000,Jordan Okafor,Operations,True
+11132ea3-fded-c4fc-43d4-7f22debe38241792108800,Jordan Okafor,Operations,True
+11292540-6873-3317-0b98-153f10735f581787270400,Hana Kobayashi,Engineering,True
+11292540-6873-3317-0b98-153f10735f581787875200,Hana Kobayashi,Engineering,True
+11292540-6873-3317-0b98-153f10735f581788480000,Hana Kobayashi,Engineering,True
+11292540-6873-3317-0b98-153f10735f581789084800,Hana Kobayashi,Engineering,True
+11292540-6873-3317-0b98-153f10735f581791504000,Hana Kobayashi,Engineering,True
+1130f227-7df2-695e-5e36-f015775ec3e91786060800,Mateo Alvarez,Product,True
+1130f227-7df2-695e-5e36-f015775ec3e91787270400,Mateo Alvarez,Product,True
+1130f227-7df2-695e-5e36-f015775ec3e91787875200,Mateo Alvarez,Product,True
+1130f227-7df2-695e-5e36-f015775ec3e91788480000,Mateo Alvarez,Product,True
+1130f227-7df2-695e-5e36-f015775ec3e91789084800,Mateo Alvarez,Product,True
+1130f227-7df2-695e-5e36-f015775ec3e91789689600,Mateo Alvarez,Product,True
+1130f227-7df2-695e-5e36-f015775ec3e91790294400,Mateo Alvarez,Product,True
+1130f227-7df2-695e-5e36-f015775ec3e91790899200,Mateo Alvarez,Product,True
+1130f227-7df2-695e-5e36-f015775ec3e91791504000,Mateo Alvarez,Product,True
+11ab612f-3163-aa8e-18c1-adabfcc757c31781827200,Avery Lindqvist,Marketing,False
+11ab612f-3163-aa8e-18c1-adabfcc757c31782432000,Avery Lindqvist,Marketing,False
+11ab612f-3163-aa8e-18c1-adabfcc757c31783036800,Avery Lindqvist,Marketing,False
+11ab612f-3163-aa8e-18c1-adabfcc757c31785456000,Avery Lindqvist,Marketing,False
+11ab612f-3163-aa8e-18c1-adabfcc757c31786665600,Avery Lindqvist,Marketing,False
+11ab612f-3163-aa8e-18c1-adabfcc757c31787875200,Avery Lindqvist,Marketing,False
+11ab612f-3163-aa8e-18c1-adabfcc757c31788480000,Avery Lindqvist,Marketing,False
+11ab612f-3163-aa8e-18c1-adabfcc757c31789084800,Avery Lindqvist,Marketing,False
+11ab612f-3163-aa8e-18c1-adabfcc757c31789689600,Avery Lindqvist,Marketing,False
+11ab612f-3163-aa8e-18c1-adabfcc757c31790294400,Avery Lindqvist,Marketing,False
+11ab612f-3163-aa8e-18c1-adabfcc757c31790899200,Avery Lindqvist,Marketing,False
+126b2612-d79f-789d-131f-6ffb19e10a7e1783036800,Avery Lindqvist,Marketing,True
+126b2612-d79f-789d-131f-6ffb19e10a7e1783641600,Avery Lindqvist,Marketing,True
+126b2612-d79f-789d-131f-6ffb19e10a7e1784851200,Avery Lindqvist,Marketing,True
+126b2612-d79f-789d-131f-6ffb19e10a7e1789689600,Avery Lindqvist,Marketing,True
+126b2612-d79f-789d-131f-6ffb19e10a7e1790294400,Avery Lindqvist,Marketing,True
+1288274c-6b23-46c8-4495-b0e28685a90d1790294400,Avery Lindqvist,Sales,True
+1288274c-6b23-46c8-4495-b0e28685a90d1790899200,Avery Lindqvist,Sales,True
+1288274c-6b23-46c8-4495-b0e28685a90d1791504000,Avery Lindqvist,Sales,True
+13b2fe76-cb1a-1c6d-3e8c-4d002634df791787875200,Hana Kobayashi,Sales,True
+13b2fe76-cb1a-1c6d-3e8c-4d002634df791789084800,Hana Kobayashi,Sales,True
+13b2fe76-cb1a-1c6d-3e8c-4d002634df791791504000,Hana Kobayashi,Sales,True
+13be70ef-a831-0f9e-074e-483369a732441783641600,Jordan Okafor,Sales,False
+13be70ef-a831-0f9e-074e-483369a732441784246400,Jordan Okafor,Sales,False
+13be70ef-a831-0f9e-074e-483369a732441784851200,Jordan Okafor,Sales,False
+13be70ef-a831-0f9e-074e-483369a732441785456000,Jordan Okafor,Sales,False
+13be70ef-a831-0f9e-074e-483369a732441786060800,Jordan Okafor,Sales,False
+13be70ef-a831-0f9e-074e-483369a732441787270400,Jordan Okafor,Sales,False
+13be70ef-a831-0f9e-074e-483369a732441787875200,Jordan Okafor,Sales,False
+13be70ef-a831-0f9e-074e-483369a732441788480000,Jordan Okafor,Sales,False
+13be70ef-a831-0f9e-074e-483369a732441789084800,Jordan Okafor,Sales,False
+13be70ef-a831-0f9e-074e-483369a732441789689600,Jordan Okafor,Sales,False
+13be70ef-a831-0f9e-074e-483369a732441790294400,Jordan Okafor,Sales,False
+13be70ef-a831-0f9e-074e-483369a732441790899200,Jordan Okafor,Sales,False
+13be70ef-a831-0f9e-074e-483369a732441791504000,Jordan Okafor,Sales,False
+145ac2b2-cc4f-c459-3f7e-4430caa9268d1790899200,Avery Lindqvist,Sales,True
+145ac2b2-cc4f-c459-3f7e-4430caa9268d1791504000,Avery Lindqvist,Sales,True
+149433d2-7d76-c6ea-6cb8-f3f08feae8e21792108800,Jordan Okafor,Product,True
+14e8b83b-aff8-b892-5aae-aa8f68a99dd01786665600,Priya Raman,Marketing,True
+14e8b83b-aff8-b892-5aae-aa8f68a99dd01787270400,Priya Raman,Marketing,True
+14e8b83b-aff8-b892-5aae-aa8f68a99dd01788480000,Priya Raman,Marketing,True
+14e8b83b-aff8-b892-5aae-aa8f68a99dd01789084800,Priya Raman,Marketing,True
+14e8b83b-aff8-b892-5aae-aa8f68a99dd01789689600,Priya Raman,Marketing,True
+14e8b83b-aff8-b892-5aae-aa8f68a99dd01790294400,Priya Raman,Marketing,True
+14e8b83b-aff8-b892-5aae-aa8f68a99dd01790899200,Priya Raman,Marketing,True
+14e8b83b-aff8-b892-5aae-aa8f68a99dd01791504000,Priya Raman,Marketing,True
+15be3408-5d6c-cb50-7c2f-4a037df5a4971784246400,Avery Lindqvist,Marketing,True
+15be3408-5d6c-cb50-7c2f-4a037df5a4971786060800,Avery Lindqvist,Marketing,True
+15be3408-5d6c-cb50-7c2f-4a037df5a4971789084800,Avery Lindqvist,Marketing,True
+15be3408-5d6c-cb50-7c2f-4a037df5a4971790294400,Avery Lindqvist,Marketing,True
+15c38ba2-bd6a-5580-676e-36fb7fb9aeb21787875200,Jordan Okafor,Product,True
+15c38ba2-bd6a-5580-676e-36fb7fb9aeb21788480000,Jordan Okafor,Product,True
+15c38ba2-bd6a-5580-676e-36fb7fb9aeb21789689600,Jordan Okafor,Product,True
+15c38ba2-bd6a-5580-676e-36fb7fb9aeb21790294400,Jordan Okafor,Product,True
+15c38ba2-bd6a-5580-676e-36fb7fb9aeb21790899200,Jordan Okafor,Product,True
+15df157d-00c8-eafa-0eb1-03e85ecbf9091784246400,Jordan Okafor,Sales,True
+15df157d-00c8-eafa-0eb1-03e85ecbf9091784851200,Jordan Okafor,Sales,True
+15df157d-00c8-eafa-0eb1-03e85ecbf9091785456000,Jordan Okafor,Sales,True
+15df157d-00c8-eafa-0eb1-03e85ecbf9091786060800,Jordan Okafor,Sales,True
+15df157d-00c8-eafa-0eb1-03e85ecbf9091786665600,Jordan Okafor,Sales,True
+15df157d-00c8-eafa-0eb1-03e85ecbf9091787270400,Jordan Okafor,Sales,True
+15df157d-00c8-eafa-0eb1-03e85ecbf9091787875200,Jordan Okafor,Sales,True
+15df157d-00c8-eafa-0eb1-03e85ecbf9091788480000,Jordan Okafor,Sales,True
+15df157d-00c8-eafa-0eb1-03e85ecbf9091789084800,Jordan Okafor,Sales,True
+15df157d-00c8-eafa-0eb1-03e85ecbf9091789689600,Jordan Okafor,Sales,True
+15df157d-00c8-eafa-0eb1-03e85ecbf9091790294400,Jordan Okafor,Sales,True
+15df157d-00c8-eafa-0eb1-03e85ecbf9091790899200,Jordan Okafor,Sales,True
+15df157d-00c8-eafa-0eb1-03e85ecbf9091791504000,Jordan Okafor,Sales,True
+1644f1cb-65f4-7a90-1ef8-c7ed7933900a1787270400,Jordan Okafor,Customer Support,True
+1644f1cb-65f4-7a90-1ef8-c7ed7933900a1787875200,Jordan Okafor,Customer Support,True
+1644f1cb-65f4-7a90-1ef8-c7ed7933900a1788480000,Jordan Okafor,Customer Support,True
+1644f1cb-65f4-7a90-1ef8-c7ed7933900a1789084800,Jordan Okafor,Customer Support,True
+1644f1cb-65f4-7a90-1ef8-c7ed7933900a1789689600,Jordan Okafor,Customer Support,True
+1644f1cb-65f4-7a90-1ef8-c7ed7933900a1790294400,Jordan Okafor,Customer Support,True
+1644f1cb-65f4-7a90-1ef8-c7ed7933900a1790899200,Jordan Okafor,Customer Support,True
+1644f1cb-65f4-7a90-1ef8-c7ed7933900a1791504000,Jordan Okafor,Customer Support,True
+1644f1cb-65f4-7a90-1ef8-c7ed7933900a1792108800,Jordan Okafor,Customer Support,True
+1694cfcb-b60b-e571-610e-f58c1b21b3da1786665600,Priya Raman,Sales,True
+1694cfcb-b60b-e571-610e-f58c1b21b3da1787270400,Priya Raman,Sales,True
+1694cfcb-b60b-e571-610e-f58c1b21b3da1787875200,Priya Raman,Sales,True
+1694cfcb-b60b-e571-610e-f58c1b21b3da1788480000,Priya Raman,Sales,True
+1694cfcb-b60b-e571-610e-f58c1b21b3da1789084800,Priya Raman,Sales,True
+1694cfcb-b60b-e571-610e-f58c1b21b3da1789689600,Priya Raman,Sales,True
+1694cfcb-b60b-e571-610e-f58c1b21b3da1790294400,Priya Raman,Sales,True
+1694cfcb-b60b-e571-610e-f58c1b21b3da1791504000,Priya Raman,Sales,True
+1694cfcb-b60b-e571-610e-f58c1b21b3da1792108800,Priya Raman,Sales,True
+1a0afa4c-dcc7-7f87-242b-d8dbf6ed3e1e1790294400,Mateo Alvarez,HR,True
+1a79ea6f-de79-975e-0eab-8af5a7b53d9b1789689600,Avery Lindqvist,IT,True
+1a79ea6f-de79-975e-0eab-8af5a7b53d9b1790294400,Avery Lindqvist,IT,True
+1a79ea6f-de79-975e-0eab-8af5a7b53d9b1790899200,Avery Lindqvist,IT,True
+1b8572d6-a97a-e452-6720-ae697d749e411784851200,Jordan Okafor,Marketing,True
+1b8572d6-a97a-e452-6720-ae697d749e411785456000,Jordan Okafor,Marketing,True
+1b8572d6-a97a-e452-6720-ae697d749e411786060800,Jordan Okafor,Marketing,True
+1b8572d6-a97a-e452-6720-ae697d749e411786665600,Jordan Okafor,Marketing,True
+1b8572d6-a97a-e452-6720-ae697d749e411787270400,Jordan Okafor,Marketing,True
+1b8572d6-a97a-e452-6720-ae697d749e411787875200,Jordan Okafor,Marketing,True
+1b8572d6-a97a-e452-6720-ae697d749e411788480000,Jordan Okafor,Marketing,True
+1b8572d6-a97a-e452-6720-ae697d749e411790899200,Jordan Okafor,Marketing,True
+1cb0611d-5210-409e-37a6-cb85c7262b511790294400,Mateo Alvarez,Sales,True
+1cb0611d-5210-409e-37a6-cb85c7262b511790899200,Mateo Alvarez,Sales,True
+1cb0611d-5210-409e-37a6-cb85c7262b511791504000,Mateo Alvarez,Sales,True
+1cc702af-a34f-5335-7f15-54c144ccdfe81782432000,Avery Lindqvist,Marketing,False
+1cc702af-a34f-5335-7f15-54c144ccdfe81783641600,Avery Lindqvist,Marketing,False
+1cc702af-a34f-5335-7f15-54c144ccdfe81784246400,Avery Lindqvist,Marketing,False
+1cc702af-a34f-5335-7f15-54c144ccdfe81785456000,Avery Lindqvist,Marketing,False
+1cc702af-a34f-5335-7f15-54c144ccdfe81786665600,Avery Lindqvist,Marketing,False
+1cc702af-a34f-5335-7f15-54c144ccdfe81787270400,Avery Lindqvist,Marketing,False
+1cc702af-a34f-5335-7f15-54c144ccdfe81787875200,Avery Lindqvist,Marketing,False
+1cc702af-a34f-5335-7f15-54c144ccdfe81788480000,Avery Lindqvist,Marketing,False
+1cc702af-a34f-5335-7f15-54c144ccdfe81789689600,Avery Lindqvist,Marketing,False
+1cc702af-a34f-5335-7f15-54c144ccdfe81790294400,Avery Lindqvist,Marketing,False
+1cc702af-a34f-5335-7f15-54c144ccdfe81792108800,Avery Lindqvist,Marketing,False
+1d4ff067-f012-b404-2a82-80e4431712831789689600,Jordan Okafor,Product,True
+1d4ff067-f012-b404-2a82-80e4431712831790294400,Jordan Okafor,Product,True
+1d4ff067-f012-b404-2a82-80e4431712831791504000,Jordan Okafor,Product,True
+1d85ead8-3509-4a6b-429b-4d7bbea0ce9c1787875200,Jordan Okafor,IT,True
+1d85ead8-3509-4a6b-429b-4d7bbea0ce9c1788480000,Jordan Okafor,IT,True
+1d85ead8-3509-4a6b-429b-4d7bbea0ce9c1789084800,Jordan Okafor,IT,True
+1d85ead8-3509-4a6b-429b-4d7bbea0ce9c1789689600,Jordan Okafor,IT,True
+1d85ead8-3509-4a6b-429b-4d7bbea0ce9c1790899200,Jordan Okafor,IT,True
+1d85ead8-3509-4a6b-429b-4d7bbea0ce9c1792108800,Jordan Okafor,IT,True
+1dca5ff7-969f-fd43-3769-e796de10c3971789689600,Mateo Alvarez,Product,True
+1dca5ff7-969f-fd43-3769-e796de10c3971790294400,Mateo Alvarez,Product,True
+1e0c8da5-c634-8090-025f-1b7525d112de1784246400,Jordan Okafor,Finance,True
+1e0c8da5-c634-8090-025f-1b7525d112de1787270400,Jordan Okafor,Finance,True
+1e0c8da5-c634-8090-025f-1b7525d112de1789689600,Jordan Okafor,Finance,True
+1e2de6f4-8d68-3d08-536a-696896004e3c1784246400,Avery Lindqvist,Operations,True
+1e2de6f4-8d68-3d08-536a-696896004e3c1784851200,Avery Lindqvist,Operations,True
+1e323ecf-bdff-ff9a-1bf5-0220f01ae7671785456000,Avery Lindqvist,Legal,True
+1e323ecf-bdff-ff9a-1bf5-0220f01ae7671787875200,Avery Lindqvist,Legal,True
+1ea07367-3727-92e9-63c7-3291e0825bce1782432000,Priya Raman,Customer Support,True
+1ea07367-3727-92e9-63c7-3291e0825bce1783036800,Priya Raman,Customer Support,True
+1ea07367-3727-92e9-63c7-3291e0825bce1784246400,Priya Raman,Customer Support,True
+1ea07367-3727-92e9-63c7-3291e0825bce1784851200,Priya Raman,Customer Support,True
+1ea07367-3727-92e9-63c7-3291e0825bce1785456000,Priya Raman,Customer Support,True
+1ea07367-3727-92e9-63c7-3291e0825bce1786060800,Priya Raman,Customer Support,True
+1ea07367-3727-92e9-63c7-3291e0825bce1786665600,Priya Raman,Customer Support,True
+1ea07367-3727-92e9-63c7-3291e0825bce1787270400,Priya Raman,Customer Support,True
+1ea07367-3727-92e9-63c7-3291e0825bce1787875200,Priya Raman,Customer Support,True
+1ea07367-3727-92e9-63c7-3291e0825bce1788480000,Priya Raman,Customer Support,True
+1ea07367-3727-92e9-63c7-3291e0825bce1789084800,Priya Raman,Customer Support,True
+1ea07367-3727-92e9-63c7-3291e0825bce1789689600,Priya Raman,Customer Support,True
+1ea07367-3727-92e9-63c7-3291e0825bce1790294400,Priya Raman,Customer Support,True
+1ea07367-3727-92e9-63c7-3291e0825bce1790899200,Priya Raman,Customer Support,True
+1ea07367-3727-92e9-63c7-3291e0825bce1791504000,Priya Raman,Customer Support,True
+1f9cf463-437e-eb01-6797-d0fc185afe4b1783641600,Jordan Okafor,Customer Support,True
+1f9cf463-437e-eb01-6797-d0fc185afe4b1787270400,Jordan Okafor,Customer Support,True
+1f9cf463-437e-eb01-6797-d0fc185afe4b1787875200,Jordan Okafor,Customer Support,True
+1f9cf463-437e-eb01-6797-d0fc185afe4b1790294400,Jordan Okafor,Customer Support,True
+200084b2-e1e8-d505-39b9-a79a8b0a0c8e1785456000,Jordan Okafor,Engineering,True
+200084b2-e1e8-d505-39b9-a79a8b0a0c8e1786060800,Jordan Okafor,Engineering,True
+200084b2-e1e8-d505-39b9-a79a8b0a0c8e1787875200,Jordan Okafor,Engineering,True
+200084b2-e1e8-d505-39b9-a79a8b0a0c8e1788480000,Jordan Okafor,Engineering,True
+209ab131-2702-4606-50ad-84e874a3ff4c1786665600,Avery Lindqvist,Marketing,True
+209ab131-2702-4606-50ad-84e874a3ff4c1787270400,Avery Lindqvist,Marketing,True
+209ab131-2702-4606-50ad-84e874a3ff4c1787875200,Avery Lindqvist,Marketing,True
+209ab131-2702-4606-50ad-84e874a3ff4c1788480000,Avery Lindqvist,Marketing,True
+209ab131-2702-4606-50ad-84e874a3ff4c1789084800,Avery Lindqvist,Marketing,True
+209ab131-2702-4606-50ad-84e874a3ff4c1789689600,Avery Lindqvist,Marketing,True
+209ab131-2702-4606-50ad-84e874a3ff4c1790294400,Avery Lindqvist,Marketing,True
+2114d05a-5e9b-ebd0-514d-cd0b0458a0921783036800,Avery Lindqvist,Product,True
+2114d05a-5e9b-ebd0-514d-cd0b0458a0921784851200,Avery Lindqvist,Product,True
+2114d05a-5e9b-ebd0-514d-cd0b0458a0921786060800,Avery Lindqvist,Product,True
+2114d05a-5e9b-ebd0-514d-cd0b0458a0921790294400,Avery Lindqvist,Product,True
+2139197b-5e40-9169-26c4-e39b081bc01e1787875200,Jordan Okafor,Customer Support,True
+2139197b-5e40-9169-26c4-e39b081bc01e1790294400,Jordan Okafor,Customer Support,True
+21d14d69-6cf7-3028-7fc7-3b2d4c6ef6d61785456000,Jordan Okafor,Marketing,True
+21d14d69-6cf7-3028-7fc7-3b2d4c6ef6d61787875200,Jordan Okafor,Marketing,True
+21d14d69-6cf7-3028-7fc7-3b2d4c6ef6d61788480000,Jordan Okafor,Marketing,True
+21d14d69-6cf7-3028-7fc7-3b2d4c6ef6d61790294400,Jordan Okafor,Marketing,True
+21d14d69-6cf7-3028-7fc7-3b2d4c6ef6d61791504000,Jordan Okafor,Marketing,True
+2210d23b-de49-085f-22ff-bcde7b97af221786060800,Hana Kobayashi,Customer Support,True
+2210d23b-de49-085f-22ff-bcde7b97af221786665600,Hana Kobayashi,Customer Support,True
+2210d23b-de49-085f-22ff-bcde7b97af221789084800,Hana Kobayashi,Customer Support,True
+2210d23b-de49-085f-22ff-bcde7b97af221790294400,Hana Kobayashi,Customer Support,True
+2210d23b-de49-085f-22ff-bcde7b97af221790899200,Hana Kobayashi,Customer Support,True
+2210d23b-de49-085f-22ff-bcde7b97af221791504000,Hana Kobayashi,Customer Support,True
+2280982d-deb9-2d1b-57be-2dab411017ad1784851200,Jordan Okafor,Engineering,True
+2280982d-deb9-2d1b-57be-2dab411017ad1785456000,Jordan Okafor,Engineering,True
+2280982d-deb9-2d1b-57be-2dab411017ad1786060800,Jordan Okafor,Engineering,True
+2280982d-deb9-2d1b-57be-2dab411017ad1787270400,Jordan Okafor,Engineering,True
+2280982d-deb9-2d1b-57be-2dab411017ad1789084800,Jordan Okafor,Engineering,True
+2280982d-deb9-2d1b-57be-2dab411017ad1789689600,Jordan Okafor,Engineering,True
+2280982d-deb9-2d1b-57be-2dab411017ad1790294400,Jordan Okafor,Engineering,True
+2280982d-deb9-2d1b-57be-2dab411017ad1790899200,Jordan Okafor,Engineering,True
+2280982d-deb9-2d1b-57be-2dab411017ad1791504000,Jordan Okafor,Engineering,True
+22a30021-db54-7917-624b-2770bef18a1e1789084800,Priya Raman,Operations,False
+22a30021-db54-7917-624b-2770bef18a1e1791504000,Priya Raman,Operations,False
+23e83426-1042-6609-55c3-823aa1b629241790899200,Avery Lindqvist,Customer Support,False
+23e83426-1042-6609-55c3-823aa1b629241791504000,Avery Lindqvist,Customer Support,False
+23e83426-1042-6609-55c3-823aa1b629241792108800,Avery Lindqvist,Customer Support,False
+241997b8-891b-68d1-7067-037edd530c8f1785456000,Avery Lindqvist,Product,True
+241997b8-891b-68d1-7067-037edd530c8f1786665600,Avery Lindqvist,Product,True
+241997b8-891b-68d1-7067-037edd530c8f1787270400,Avery Lindqvist,Product,True
+241997b8-891b-68d1-7067-037edd530c8f1787875200,Avery Lindqvist,Product,True
+241997b8-891b-68d1-7067-037edd530c8f1788480000,Avery Lindqvist,Product,True
+241997b8-891b-68d1-7067-037edd530c8f1789084800,Avery Lindqvist,Product,True
+241997b8-891b-68d1-7067-037edd530c8f1790294400,Avery Lindqvist,Product,True
+241997b8-891b-68d1-7067-037edd530c8f1790899200,Avery Lindqvist,Product,True
+2494c916-0b4d-f52d-7db4-f010f1a1178e1784851200,Jordan Okafor,Sales,True
+2494c916-0b4d-f52d-7db4-f010f1a1178e1785456000,Jordan Okafor,Sales,True
+2494c916-0b4d-f52d-7db4-f010f1a1178e1786060800,Jordan Okafor,Sales,True
+2494c916-0b4d-f52d-7db4-f010f1a1178e1787270400,Jordan Okafor,Sales,True
+2494c916-0b4d-f52d-7db4-f010f1a1178e1787875200,Jordan Okafor,Sales,True
+2494c916-0b4d-f52d-7db4-f010f1a1178e1789084800,Jordan Okafor,Sales,True
+2494c916-0b4d-f52d-7db4-f010f1a1178e1789689600,Jordan Okafor,Sales,True
+2494c916-0b4d-f52d-7db4-f010f1a1178e1791504000,Jordan Okafor,Sales,True
+251ce2ce-d06e-f3ff-3678-c30d06d12b1d1784851200,Avery Lindqvist,Marketing,True
+251ce2ce-d06e-f3ff-3678-c30d06d12b1d1786060800,Avery Lindqvist,Marketing,True
+251ce2ce-d06e-f3ff-3678-c30d06d12b1d1786665600,Avery Lindqvist,Marketing,True
+251ce2ce-d06e-f3ff-3678-c30d06d12b1d1787270400,Avery Lindqvist,Marketing,True
+251ce2ce-d06e-f3ff-3678-c30d06d12b1d1787875200,Avery Lindqvist,Marketing,True
+251ce2ce-d06e-f3ff-3678-c30d06d12b1d1788480000,Avery Lindqvist,Marketing,True
+251ce2ce-d06e-f3ff-3678-c30d06d12b1d1789689600,Avery Lindqvist,Marketing,True
+251ce2ce-d06e-f3ff-3678-c30d06d12b1d1790294400,Avery Lindqvist,Marketing,True
+251ce2ce-d06e-f3ff-3678-c30d06d12b1d1790899200,Avery Lindqvist,Marketing,True
+25e48706-9dfc-142b-6ae5-214f3cd4abb51788480000,Jordan Okafor,Product,True
+25e48706-9dfc-142b-6ae5-214f3cd4abb51790899200,Jordan Okafor,Product,True
+25e48706-9dfc-142b-6ae5-214f3cd4abb51791504000,Jordan Okafor,Product,True
+264c09c9-8a5c-4028-64fe-ab1697c830d11790899200,Priya Raman,Finance,True
+264c491c-dcf0-de60-01d9-7f7ae6ecfced1782432000,Priya Raman,Sales,True
+264c491c-dcf0-de60-01d9-7f7ae6ecfced1783036800,Priya Raman,Sales,True
+264c491c-dcf0-de60-01d9-7f7ae6ecfced1783641600,Priya Raman,Sales,True
+264c491c-dcf0-de60-01d9-7f7ae6ecfced1784246400,Priya Raman,Sales,True
+264c491c-dcf0-de60-01d9-7f7ae6ecfced1786060800,Priya Raman,Sales,True
+264c491c-dcf0-de60-01d9-7f7ae6ecfced1787270400,Priya Raman,Sales,True
+264c491c-dcf0-de60-01d9-7f7ae6ecfced1787875200,Priya Raman,Sales,True
+264c491c-dcf0-de60-01d9-7f7ae6ecfced1790899200,Priya Raman,Sales,True
+272366d7-1673-a1da-4c03-b6c44ebb710b1783641600,Avery Lindqvist,HR,True
+272366d7-1673-a1da-4c03-b6c44ebb710b1784246400,Avery Lindqvist,HR,True
+272366d7-1673-a1da-4c03-b6c44ebb710b1784851200,Avery Lindqvist,HR,True
+272366d7-1673-a1da-4c03-b6c44ebb710b1785456000,Avery Lindqvist,HR,True
+272366d7-1673-a1da-4c03-b6c44ebb710b1786060800,Avery Lindqvist,HR,True
+272366d7-1673-a1da-4c03-b6c44ebb710b1786665600,Avery Lindqvist,HR,True
+272366d7-1673-a1da-4c03-b6c44ebb710b1787270400,Avery Lindqvist,HR,True
+272366d7-1673-a1da-4c03-b6c44ebb710b1787875200,Avery Lindqvist,HR,True
+272366d7-1673-a1da-4c03-b6c44ebb710b1788480000,Avery Lindqvist,HR,True
+272366d7-1673-a1da-4c03-b6c44ebb710b1789084800,Avery Lindqvist,HR,True
+272366d7-1673-a1da-4c03-b6c44ebb710b1789689600,Avery Lindqvist,HR,True
+272366d7-1673-a1da-4c03-b6c44ebb710b1790294400,Avery Lindqvist,HR,True
+272366d7-1673-a1da-4c03-b6c44ebb710b1790899200,Avery Lindqvist,HR,True
+272366d7-1673-a1da-4c03-b6c44ebb710b1791504000,Avery Lindqvist,HR,True
+2746474c-52db-4f7d-7648-647af97cc2431783641600,Hana Kobayashi,Sales,True
+2746474c-52db-4f7d-7648-647af97cc2431784246400,Hana Kobayashi,Sales,True
+2746474c-52db-4f7d-7648-647af97cc2431787270400,Hana Kobayashi,Sales,True
+27c2fd76-9434-eaf6-7207-4cb97d688cae1783036800,Avery Lindqvist,Product,True
+27c2fd76-9434-eaf6-7207-4cb97d688cae1786665600,Avery Lindqvist,Product,True
+27c2fd76-9434-eaf6-7207-4cb97d688cae1787270400,Avery Lindqvist,Product,True
+27c2fd76-9434-eaf6-7207-4cb97d688cae1789084800,Avery Lindqvist,Product,True
+27c2fd76-9434-eaf6-7207-4cb97d688cae1792108800,Avery Lindqvist,Product,True
+292a81e7-8283-6cff-002e-06976c8d19f41783641600,Avery Lindqvist,Customer Support,True
+292a81e7-8283-6cff-002e-06976c8d19f41784246400,Avery Lindqvist,Customer Support,True
+292a81e7-8283-6cff-002e-06976c8d19f41784851200,Avery Lindqvist,Customer Support,True
+292a81e7-8283-6cff-002e-06976c8d19f41785456000,Avery Lindqvist,Customer Support,True
+292a81e7-8283-6cff-002e-06976c8d19f41786060800,Avery Lindqvist,Customer Support,True
+292a81e7-8283-6cff-002e-06976c8d19f41786665600,Avery Lindqvist,Customer Support,True
+292a81e7-8283-6cff-002e-06976c8d19f41787270400,Avery Lindqvist,Customer Support,True
+292a81e7-8283-6cff-002e-06976c8d19f41787875200,Avery Lindqvist,Customer Support,True
+292a81e7-8283-6cff-002e-06976c8d19f41788480000,Avery Lindqvist,Customer Support,True
+292a81e7-8283-6cff-002e-06976c8d19f41789084800,Avery Lindqvist,Customer Support,True
+292a81e7-8283-6cff-002e-06976c8d19f41789689600,Avery Lindqvist,Customer Support,True
+292a81e7-8283-6cff-002e-06976c8d19f41790294400,Avery Lindqvist,Customer Support,True
+292a81e7-8283-6cff-002e-06976c8d19f41790899200,Avery Lindqvist,Customer Support,True
+292a81e7-8283-6cff-002e-06976c8d19f41791504000,Avery Lindqvist,Customer Support,True
+2a0400be-e54d-f429-4f48-69050e8870111783036800,Priya Raman,Marketing,True
+2a0400be-e54d-f429-4f48-69050e8870111784851200,Priya Raman,Marketing,True
+2a0400be-e54d-f429-4f48-69050e8870111785456000,Priya Raman,Marketing,True
+2a0400be-e54d-f429-4f48-69050e8870111787270400,Priya Raman,Marketing,True
+2a0400be-e54d-f429-4f48-69050e8870111787875200,Priya Raman,Marketing,True
+2a0400be-e54d-f429-4f48-69050e8870111788480000,Priya Raman,Marketing,True
+2a0400be-e54d-f429-4f48-69050e8870111790294400,Priya Raman,Marketing,True
+2a0400be-e54d-f429-4f48-69050e8870111790899200,Priya Raman,Marketing,True
+2a0400be-e54d-f429-4f48-69050e8870111791504000,Priya Raman,Marketing,True
+2a41d282-b185-00ab-21f4-043ae395771e1785456000,Jordan Okafor,Finance,True
+2a41d282-b185-00ab-21f4-043ae395771e1786060800,Jordan Okafor,Finance,True
+2a41d282-b185-00ab-21f4-043ae395771e1789689600,Jordan Okafor,Finance,True
+2a41d282-b185-00ab-21f4-043ae395771e1790899200,Jordan Okafor,Finance,True
+2a41d282-b185-00ab-21f4-043ae395771e1791504000,Jordan Okafor,Finance,True
+2a58a9a6-9105-94b2-7c30-8e037bf14c0b1782432000,Jordan Okafor,HR,True
+2a58a9a6-9105-94b2-7c30-8e037bf14c0b1783036800,Jordan Okafor,HR,True
+2a58a9a6-9105-94b2-7c30-8e037bf14c0b1784246400,Jordan Okafor,HR,True
+2a58a9a6-9105-94b2-7c30-8e037bf14c0b1784851200,Jordan Okafor,HR,True
+2a58a9a6-9105-94b2-7c30-8e037bf14c0b1785456000,Jordan Okafor,HR,True
+2a58a9a6-9105-94b2-7c30-8e037bf14c0b1786060800,Jordan Okafor,HR,True
+2a58a9a6-9105-94b2-7c30-8e037bf14c0b1786665600,Jordan Okafor,HR,True
+2a58a9a6-9105-94b2-7c30-8e037bf14c0b1787270400,Jordan Okafor,HR,True
+2a58a9a6-9105-94b2-7c30-8e037bf14c0b1787875200,Jordan Okafor,HR,True
+2a58a9a6-9105-94b2-7c30-8e037bf14c0b1788480000,Jordan Okafor,HR,True
+2a58a9a6-9105-94b2-7c30-8e037bf14c0b1789084800,Jordan Okafor,HR,True
+2a58a9a6-9105-94b2-7c30-8e037bf14c0b1789689600,Jordan Okafor,HR,True
+2a58a9a6-9105-94b2-7c30-8e037bf14c0b1790899200,Jordan Okafor,HR,True
+2a58a9a6-9105-94b2-7c30-8e037bf14c0b1791504000,Jordan Okafor,HR,True
+2a58a9a6-9105-94b2-7c30-8e037bf14c0b1792108800,Jordan Okafor,HR,True
+2bd51dfe-3dfb-bbe8-0417-69fceb3c2f451786665600,Avery Lindqvist,Customer Support,True
+2bd51dfe-3dfb-bbe8-0417-69fceb3c2f451787875200,Avery Lindqvist,Customer Support,True
+2bd51dfe-3dfb-bbe8-0417-69fceb3c2f451789084800,Avery Lindqvist,Customer Support,True
+2bd51dfe-3dfb-bbe8-0417-69fceb3c2f451790899200,Avery Lindqvist,Customer Support,True
+2bd51dfe-3dfb-bbe8-0417-69fceb3c2f451791504000,Avery Lindqvist,Customer Support,True
+2c2db512-5bef-d4d3-4742-6f9a34dd456c1784246400,Priya Raman,Sales,True
+2c2db512-5bef-d4d3-4742-6f9a34dd456c1789084800,Priya Raman,Sales,True
+2c2db512-5bef-d4d3-4742-6f9a34dd456c1790294400,Priya Raman,Sales,True
+2d8f3791-f315-8bfc-3ffa-7f79870a8d5d1784246400,Jordan Okafor,Operations,True
+2d8f3791-f315-8bfc-3ffa-7f79870a8d5d1786060800,Jordan Okafor,Operations,True
+2d8f3791-f315-8bfc-3ffa-7f79870a8d5d1791504000,Jordan Okafor,Operations,True
+2d98b4d1-2884-3819-5578-725cfe5990a61783641600,Jordan Okafor,Sales,True
+2d98b4d1-2884-3819-5578-725cfe5990a61784246400,Jordan Okafor,Sales,True
+2d98b4d1-2884-3819-5578-725cfe5990a61784851200,Jordan Okafor,Sales,True
+2d98b4d1-2884-3819-5578-725cfe5990a61790294400,Jordan Okafor,Sales,True
+2d98b4d1-2884-3819-5578-725cfe5990a61790899200,Jordan Okafor,Sales,True
+2d98b4d1-2884-3819-5578-725cfe5990a61791504000,Jordan Okafor,Sales,True
+2df514d5-5082-7158-1e06-eadf04a01b861786060800,Avery Lindqvist,Marketing,True
+2df514d5-5082-7158-1e06-eadf04a01b861786665600,Avery Lindqvist,Marketing,True
+2df514d5-5082-7158-1e06-eadf04a01b861787270400,Avery Lindqvist,Marketing,True
+2df514d5-5082-7158-1e06-eadf04a01b861787875200,Avery Lindqvist,Marketing,True
+2df514d5-5082-7158-1e06-eadf04a01b861788480000,Avery Lindqvist,Marketing,True
+2df514d5-5082-7158-1e06-eadf04a01b861789084800,Avery Lindqvist,Marketing,True
+2df514d5-5082-7158-1e06-eadf04a01b861790294400,Avery Lindqvist,Marketing,True
+2df514d5-5082-7158-1e06-eadf04a01b861790899200,Avery Lindqvist,Marketing,True
+2df514d5-5082-7158-1e06-eadf04a01b861791504000,Avery Lindqvist,Marketing,True
+2e46f19b-7fee-b1ea-1234-d1cdfb54b9141783036800,Jordan Okafor,Customer Support,True
+2e46f19b-7fee-b1ea-1234-d1cdfb54b9141783641600,Jordan Okafor,Customer Support,True
+2e46f19b-7fee-b1ea-1234-d1cdfb54b9141784851200,Jordan Okafor,Customer Support,True
+2e46f19b-7fee-b1ea-1234-d1cdfb54b9141786665600,Jordan Okafor,Customer Support,True
+2e46f19b-7fee-b1ea-1234-d1cdfb54b9141787875200,Jordan Okafor,Customer Support,True
+2e46f19b-7fee-b1ea-1234-d1cdfb54b9141789084800,Jordan Okafor,Customer Support,True
+2e46f19b-7fee-b1ea-1234-d1cdfb54b9141789689600,Jordan Okafor,Customer Support,True
+2e46f19b-7fee-b1ea-1234-d1cdfb54b9141790294400,Jordan Okafor,Customer Support,True
+2e46f19b-7fee-b1ea-1234-d1cdfb54b9141791504000,Jordan Okafor,Customer Support,True
+2e704fa8-a0b2-6889-0cd3-86b4a751badc1785456000,Avery Lindqvist,Engineering,True
+2e704fa8-a0b2-6889-0cd3-86b4a751badc1786060800,Avery Lindqvist,Engineering,True
+2e704fa8-a0b2-6889-0cd3-86b4a751badc1786665600,Avery Lindqvist,Engineering,True
+2e704fa8-a0b2-6889-0cd3-86b4a751badc1787875200,Avery Lindqvist,Engineering,True
+2e704fa8-a0b2-6889-0cd3-86b4a751badc1789084800,Avery Lindqvist,Engineering,True
+2e704fa8-a0b2-6889-0cd3-86b4a751badc1789689600,Avery Lindqvist,Engineering,True
+2e704fa8-a0b2-6889-0cd3-86b4a751badc1790899200,Avery Lindqvist,Engineering,True
+2e704fa8-a0b2-6889-0cd3-86b4a751badc1791504000,Avery Lindqvist,Engineering,True
+2e82d857-6d24-b8fa-6bb3-0bdd2fc498851782432000,Jordan Okafor,Customer Support,True
+2e82d857-6d24-b8fa-6bb3-0bdd2fc498851783036800,Jordan Okafor,Customer Support,True
+2e82d857-6d24-b8fa-6bb3-0bdd2fc498851783641600,Jordan Okafor,Customer Support,True
+2e82d857-6d24-b8fa-6bb3-0bdd2fc498851784851200,Jordan Okafor,Customer Support,True
+2e82d857-6d24-b8fa-6bb3-0bdd2fc498851785456000,Jordan Okafor,Customer Support,True
+2e82d857-6d24-b8fa-6bb3-0bdd2fc498851786060800,Jordan Okafor,Customer Support,True
+2e82d857-6d24-b8fa-6bb3-0bdd2fc498851786665600,Jordan Okafor,Customer Support,True
+2e82d857-6d24-b8fa-6bb3-0bdd2fc498851787270400,Jordan Okafor,Customer Support,True
+2e82d857-6d24-b8fa-6bb3-0bdd2fc498851788480000,Jordan Okafor,Customer Support,True
+2e82d857-6d24-b8fa-6bb3-0bdd2fc498851789084800,Jordan Okafor,Customer Support,True
+2e82d857-6d24-b8fa-6bb3-0bdd2fc498851789689600,Jordan Okafor,Customer Support,True
+2e82d857-6d24-b8fa-6bb3-0bdd2fc498851790294400,Jordan Okafor,Customer Support,True
+2e82d857-6d24-b8fa-6bb3-0bdd2fc498851790899200,Jordan Okafor,Customer Support,True
+2e82d857-6d24-b8fa-6bb3-0bdd2fc498851791504000,Jordan Okafor,Customer Support,True
+2e9d84cc-865b-4a66-0268-75b35465e3181784851200,Priya Raman,Engineering,True
+2e9d84cc-865b-4a66-0268-75b35465e3181786060800,Priya Raman,Engineering,True
+2e9d84cc-865b-4a66-0268-75b35465e3181787875200,Priya Raman,Engineering,True
+2e9d84cc-865b-4a66-0268-75b35465e3181790899200,Priya Raman,Engineering,True
+2eac4ea0-4ce7-1be4-2bb2-dc8d7754174a1786665600,Jordan Okafor,Marketing,True
+2eac4ea0-4ce7-1be4-2bb2-dc8d7754174a1787270400,Jordan Okafor,Marketing,True
+2eac4ea0-4ce7-1be4-2bb2-dc8d7754174a1787875200,Jordan Okafor,Marketing,True
+2eac4ea0-4ce7-1be4-2bb2-dc8d7754174a1788480000,Jordan Okafor,Marketing,True
+2eac4ea0-4ce7-1be4-2bb2-dc8d7754174a1789084800,Jordan Okafor,Marketing,True
+2eac4ea0-4ce7-1be4-2bb2-dc8d7754174a1789689600,Jordan Okafor,Marketing,True
+2eac4ea0-4ce7-1be4-2bb2-dc8d7754174a1791504000,Jordan Okafor,Marketing,True
+2ed8c657-5a0a-f338-5d64-9a74e95e8cac1784246400,Jordan Okafor,Engineering,True
+2ed8c657-5a0a-f338-5d64-9a74e95e8cac1784851200,Jordan Okafor,Engineering,True
+2ed8c657-5a0a-f338-5d64-9a74e95e8cac1786060800,Jordan Okafor,Engineering,True
+2ed8c657-5a0a-f338-5d64-9a74e95e8cac1787270400,Jordan Okafor,Engineering,True
+2ed8c657-5a0a-f338-5d64-9a74e95e8cac1787875200,Jordan Okafor,Engineering,True
+2ed8c657-5a0a-f338-5d64-9a74e95e8cac1789689600,Jordan Okafor,Engineering,True
+2ed8c657-5a0a-f338-5d64-9a74e95e8cac1791504000,Jordan Okafor,Engineering,True
+2f10d041-b8db-ca4e-4962-eceef1a2ced71784246400,Priya Raman,Legal,True
+2f10d041-b8db-ca4e-4962-eceef1a2ced71784851200,Priya Raman,Legal,True
+2f10d041-b8db-ca4e-4962-eceef1a2ced71785456000,Priya Raman,Legal,True
+2f10d041-b8db-ca4e-4962-eceef1a2ced71786060800,Priya Raman,Legal,True
+2f10d041-b8db-ca4e-4962-eceef1a2ced71787270400,Priya Raman,Legal,True
+2f10d041-b8db-ca4e-4962-eceef1a2ced71787875200,Priya Raman,Legal,True
+2f10d041-b8db-ca4e-4962-eceef1a2ced71788480000,Priya Raman,Legal,True
+2f10d041-b8db-ca4e-4962-eceef1a2ced71789084800,Priya Raman,Legal,True
+2f10d041-b8db-ca4e-4962-eceef1a2ced71789689600,Priya Raman,Legal,True
+2f10d041-b8db-ca4e-4962-eceef1a2ced71790294400,Priya Raman,Legal,True
+2f10d041-b8db-ca4e-4962-eceef1a2ced71790899200,Priya Raman,Legal,True
+2f10d041-b8db-ca4e-4962-eceef1a2ced71791504000,Priya Raman,Legal,True
+2f515e7f-9bd4-bcb9-0125-4c987d8554221784851200,Priya Raman,Customer Support,True
+2f515e7f-9bd4-bcb9-0125-4c987d8554221786060800,Priya Raman,Customer Support,True
+2f515e7f-9bd4-bcb9-0125-4c987d8554221786665600,Priya Raman,Customer Support,True
+2f515e7f-9bd4-bcb9-0125-4c987d8554221787875200,Priya Raman,Customer Support,True
+2f515e7f-9bd4-bcb9-0125-4c987d8554221788480000,Priya Raman,Customer Support,True
+2f515e7f-9bd4-bcb9-0125-4c987d8554221790294400,Priya Raman,Customer Support,True
+2f515e7f-9bd4-bcb9-0125-4c987d8554221791504000,Priya Raman,Customer Support,True
+2f8f3c4b-5d1f-7cf6-2ba2-75eecdd0d3391790294400,Priya Raman,Marketing,True
+2f8f3c4b-5d1f-7cf6-2ba2-75eecdd0d3391790899200,Priya Raman,Marketing,True
+2f8f3c4b-5d1f-7cf6-2ba2-75eecdd0d3391791504000,Priya Raman,Marketing,True
+2f8f3c4b-5d1f-7cf6-2ba2-75eecdd0d3391792108800,Priya Raman,Marketing,True
+2facebdd-78d3-bfc2-16f3-19ee0dea70dc1788480000,Priya Raman,Marketing,True
+3020a836-0081-6c86-2a8c-6994614284891783641600,Jordan Okafor,Sales,True
+3020a836-0081-6c86-2a8c-6994614284891784246400,Jordan Okafor,Sales,True
+3020a836-0081-6c86-2a8c-6994614284891784851200,Jordan Okafor,Sales,True
+3020a836-0081-6c86-2a8c-6994614284891785456000,Jordan Okafor,Sales,True
+3020a836-0081-6c86-2a8c-6994614284891786060800,Jordan Okafor,Sales,True
+3020a836-0081-6c86-2a8c-6994614284891786665600,Jordan Okafor,Sales,True
+3020a836-0081-6c86-2a8c-6994614284891787270400,Jordan Okafor,Sales,True
+3020a836-0081-6c86-2a8c-6994614284891787875200,Jordan Okafor,Sales,True
+3020a836-0081-6c86-2a8c-6994614284891788480000,Jordan Okafor,Sales,True
+3020a836-0081-6c86-2a8c-6994614284891789084800,Jordan Okafor,Sales,True
+3020a836-0081-6c86-2a8c-6994614284891789689600,Jordan Okafor,Sales,True
+3020a836-0081-6c86-2a8c-6994614284891790294400,Jordan Okafor,Sales,True
+3020a836-0081-6c86-2a8c-6994614284891790899200,Jordan Okafor,Sales,True
+3020a836-0081-6c86-2a8c-6994614284891791504000,Jordan Okafor,Sales,True
+306406da-cf43-3887-5cd3-fc4c688783741789689600,Avery Lindqvist,Customer Support,True
+306406da-cf43-3887-5cd3-fc4c688783741790899200,Avery Lindqvist,Customer Support,True
+306406da-cf43-3887-5cd3-fc4c688783741791504000,Avery Lindqvist,Customer Support,True
+30818574-39d7-1240-73b0-4c73d355303f1789084800,Avery Lindqvist,Engineering,True
+30818574-39d7-1240-73b0-4c73d355303f1789689600,Avery Lindqvist,Engineering,True
+30818574-39d7-1240-73b0-4c73d355303f1791504000,Avery Lindqvist,Engineering,True
+30f9641f-c600-9e89-69b6-913f2a42ef0b1786665600,Mateo Alvarez,Customer Support,True
+30f9641f-c600-9e89-69b6-913f2a42ef0b1792108800,Mateo Alvarez,Customer Support,True
+31f62439-afdc-827a-4242-65328f6e8e7b1789084800,Hana Kobayashi,Marketing,True
+31f62439-afdc-827a-4242-65328f6e8e7b1789689600,Hana Kobayashi,Marketing,True
+31f62439-afdc-827a-4242-65328f6e8e7b1790899200,Hana Kobayashi,Marketing,True
+31f62439-afdc-827a-4242-65328f6e8e7b1791504000,Hana Kobayashi,Marketing,True
+3290ff6c-d027-92ad-7f1b-987f131e74c11791504000,Priya Raman,Product,True
+329d79fe-5239-18e6-2c57-ae125bd12c8d1790294400,Jordan Okafor,Sales,True
+329d79fe-5239-18e6-2c57-ae125bd12c8d1790899200,Jordan Okafor,Sales,True
+329d79fe-5239-18e6-2c57-ae125bd12c8d1791504000,Jordan Okafor,Sales,True
+32c3e6f9-e942-4be0-4330-f3d0177f2af51784246400,Priya Raman,IT,True
+32c3e6f9-e942-4be0-4330-f3d0177f2af51785456000,Priya Raman,IT,True
+32c3e6f9-e942-4be0-4330-f3d0177f2af51786665600,Priya Raman,IT,True
+32c3e6f9-e942-4be0-4330-f3d0177f2af51787875200,Priya Raman,IT,True
+32c3e6f9-e942-4be0-4330-f3d0177f2af51789084800,Priya Raman,IT,True
+32c3e6f9-e942-4be0-4330-f3d0177f2af51789689600,Priya Raman,IT,True
+3448d6a3-840a-207d-0599-67089b279ef71783641600,Avery Lindqvist,Sales,True
+3448d6a3-840a-207d-0599-67089b279ef71787270400,Avery Lindqvist,Sales,True
+3448d6a3-840a-207d-0599-67089b279ef71789689600,Avery Lindqvist,Sales,True
+3448d6a3-840a-207d-0599-67089b279ef71790899200,Avery Lindqvist,Sales,True
+34da124f-50ba-46a9-2122-892f80a008831785456000,Jordan Okafor,Sales,True
+34da124f-50ba-46a9-2122-892f80a008831786060800,Jordan Okafor,Sales,True
+34da124f-50ba-46a9-2122-892f80a008831788480000,Jordan Okafor,Sales,True
+34da124f-50ba-46a9-2122-892f80a008831789084800,Jordan Okafor,Sales,True
+34da124f-50ba-46a9-2122-892f80a008831790294400,Jordan Okafor,Sales,True
+34da124f-50ba-46a9-2122-892f80a008831791504000,Jordan Okafor,Sales,True
+375af734-2c8c-0920-5935-a7eda30f3c781788480000,Avery Lindqvist,HR,True
+375af734-2c8c-0920-5935-a7eda30f3c781789084800,Avery Lindqvist,HR,True
+375af734-2c8c-0920-5935-a7eda30f3c781790294400,Avery Lindqvist,HR,True
+375af734-2c8c-0920-5935-a7eda30f3c781790899200,Avery Lindqvist,HR,True
+38a23774-0b7a-d8c5-36ff-da517be4c2ad1784246400,Avery Lindqvist,Customer Support,True
+38a23774-0b7a-d8c5-36ff-da517be4c2ad1785456000,Avery Lindqvist,Customer Support,True
+38a23774-0b7a-d8c5-36ff-da517be4c2ad1786665600,Avery Lindqvist,Customer Support,True
+38a23774-0b7a-d8c5-36ff-da517be4c2ad1787270400,Avery Lindqvist,Customer Support,True
+38a23774-0b7a-d8c5-36ff-da517be4c2ad1789084800,Avery Lindqvist,Customer Support,True
+38a23774-0b7a-d8c5-36ff-da517be4c2ad1791504000,Avery Lindqvist,Customer Support,True
+39d0ffe0-a2bf-a438-3777-869754f508bb1786665600,Avery Lindqvist,Engineering,True
+39d0ffe0-a2bf-a438-3777-869754f508bb1787270400,Avery Lindqvist,Engineering,True
+39d0ffe0-a2bf-a438-3777-869754f508bb1788480000,Avery Lindqvist,Engineering,True
+39d0ffe0-a2bf-a438-3777-869754f508bb1789084800,Avery Lindqvist,Engineering,True
+39d0ffe0-a2bf-a438-3777-869754f508bb1790294400,Avery Lindqvist,Engineering,True
+39d0ffe0-a2bf-a438-3777-869754f508bb1791504000,Avery Lindqvist,Engineering,True
+3a036501-3833-ea5d-6745-1990fb2ab3751782432000,Avery Lindqvist,Customer Support,True
+3a036501-3833-ea5d-6745-1990fb2ab3751783036800,Avery Lindqvist,Customer Support,True
+3a036501-3833-ea5d-6745-1990fb2ab3751783641600,Avery Lindqvist,Customer Support,True
+3a036501-3833-ea5d-6745-1990fb2ab3751784851200,Avery Lindqvist,Customer Support,True
+3a036501-3833-ea5d-6745-1990fb2ab3751786060800,Avery Lindqvist,Customer Support,True
+3a036501-3833-ea5d-6745-1990fb2ab3751786665600,Avery Lindqvist,Customer Support,True
+3a036501-3833-ea5d-6745-1990fb2ab3751787270400,Avery Lindqvist,Customer Support,True
+3a036501-3833-ea5d-6745-1990fb2ab3751787875200,Avery Lindqvist,Customer Support,True
+3a036501-3833-ea5d-6745-1990fb2ab3751788480000,Avery Lindqvist,Customer Support,True
+3a036501-3833-ea5d-6745-1990fb2ab3751789084800,Avery Lindqvist,Customer Support,True
+3a036501-3833-ea5d-6745-1990fb2ab3751789689600,Avery Lindqvist,Customer Support,True
+3a036501-3833-ea5d-6745-1990fb2ab3751790899200,Avery Lindqvist,Customer Support,True
+3a036501-3833-ea5d-6745-1990fb2ab3751791504000,Avery Lindqvist,Customer Support,True
+3a88cc5c-c268-331d-71a2-eb9bdd4ffc311788480000,Priya Raman,Finance,True
+3a88cc5c-c268-331d-71a2-eb9bdd4ffc311789084800,Priya Raman,Finance,True
+3a88cc5c-c268-331d-71a2-eb9bdd4ffc311789689600,Priya Raman,Finance,True
+3a88cc5c-c268-331d-71a2-eb9bdd4ffc311790294400,Priya Raman,Finance,True
+3a88cc5c-c268-331d-71a2-eb9bdd4ffc311790899200,Priya Raman,Finance,True
+3a88cc5c-c268-331d-71a2-eb9bdd4ffc311791504000,Priya Raman,Finance,True
+3b7e825b-1148-bb86-09d9-6e461092b98c1783036800,Mateo Alvarez,Finance,True
+3b7e825b-1148-bb86-09d9-6e461092b98c1784851200,Mateo Alvarez,Finance,True
+3b7e825b-1148-bb86-09d9-6e461092b98c1786060800,Mateo Alvarez,Finance,True
+3b7e825b-1148-bb86-09d9-6e461092b98c1786665600,Mateo Alvarez,Finance,True
+3b7e825b-1148-bb86-09d9-6e461092b98c1787875200,Mateo Alvarez,Finance,True
+3b7e825b-1148-bb86-09d9-6e461092b98c1788480000,Mateo Alvarez,Finance,True
+3b7e825b-1148-bb86-09d9-6e461092b98c1789084800,Mateo Alvarez,Finance,True
+3b7e825b-1148-bb86-09d9-6e461092b98c1790899200,Mateo Alvarez,Finance,True
+3b87d6d1-91b8-1d21-4c48-a3d24994da141784851200,Jordan Okafor,Marketing,True
+3b87d6d1-91b8-1d21-4c48-a3d24994da141785456000,Jordan Okafor,Marketing,True
+3b87d6d1-91b8-1d21-4c48-a3d24994da141787270400,Jordan Okafor,Marketing,True
+3b87d6d1-91b8-1d21-4c48-a3d24994da141787875200,Jordan Okafor,Marketing,True
+3b87d6d1-91b8-1d21-4c48-a3d24994da141788480000,Jordan Okafor,Marketing,True
+3b87d6d1-91b8-1d21-4c48-a3d24994da141789689600,Jordan Okafor,Marketing,True
+3b87d6d1-91b8-1d21-4c48-a3d24994da141790899200,Jordan Okafor,Marketing,True
+3b87d6d1-91b8-1d21-4c48-a3d24994da141791504000,Jordan Okafor,Marketing,True
+3bd8a375-682f-ca91-1da0-a46eb9f4fdda1788480000,Jordan Okafor,Customer Support,True
+3bd8a375-682f-ca91-1da0-a46eb9f4fdda1790294400,Jordan Okafor,Customer Support,True
+3c467918-9fb8-59a8-542f-ffc30409a23d1784246400,Jordan Okafor,HR,True
+3c467918-9fb8-59a8-542f-ffc30409a23d1786060800,Jordan Okafor,HR,True
+3c467918-9fb8-59a8-542f-ffc30409a23d1787270400,Jordan Okafor,HR,True
+3c467918-9fb8-59a8-542f-ffc30409a23d1787875200,Jordan Okafor,HR,True
+3c467918-9fb8-59a8-542f-ffc30409a23d1790899200,Jordan Okafor,HR,True
+3c467918-9fb8-59a8-542f-ffc30409a23d1791504000,Jordan Okafor,HR,True
+3c570c1b-9d24-01fd-6ea0-865133bd459d1785456000,Avery Lindqvist,Sales,True
+3c570c1b-9d24-01fd-6ea0-865133bd459d1786060800,Avery Lindqvist,Sales,True
+3c570c1b-9d24-01fd-6ea0-865133bd459d1786665600,Avery Lindqvist,Sales,True
+3c570c1b-9d24-01fd-6ea0-865133bd459d1787270400,Avery Lindqvist,Sales,True
+3c570c1b-9d24-01fd-6ea0-865133bd459d1788480000,Avery Lindqvist,Sales,True
+3c570c1b-9d24-01fd-6ea0-865133bd459d1789689600,Avery Lindqvist,Sales,True
+3c570c1b-9d24-01fd-6ea0-865133bd459d1792108800,Avery Lindqvist,Sales,True
+3c6040ed-9420-285c-27f1-f2a042d699fa1784246400,Mateo Alvarez,Engineering,False
+3c6040ed-9420-285c-27f1-f2a042d699fa1785456000,Mateo Alvarez,Engineering,False
+3c6040ed-9420-285c-27f1-f2a042d699fa1786665600,Mateo Alvarez,Engineering,False
+3c6040ed-9420-285c-27f1-f2a042d699fa1790899200,Mateo Alvarez,Engineering,False
+3c6040ed-9420-285c-27f1-f2a042d699fa1792108800,Mateo Alvarez,Engineering,False
+3cec1055-29ee-352c-6b04-aa87fb56bdca1785456000,Avery Lindqvist,IT,True
+3cec1055-29ee-352c-6b04-aa87fb56bdca1787270400,Avery Lindqvist,IT,True
+3cec1055-29ee-352c-6b04-aa87fb56bdca1789084800,Avery Lindqvist,IT,True
+3e19bb50-33cb-993c-3fe8-47ea11d2e4991781827200,Jordan Okafor,Sales,True
+3e19bb50-33cb-993c-3fe8-47ea11d2e4991782432000,Jordan Okafor,Sales,True
+3e19bb50-33cb-993c-3fe8-47ea11d2e4991783036800,Jordan Okafor,Sales,True
+3e19bb50-33cb-993c-3fe8-47ea11d2e4991783641600,Jordan Okafor,Sales,True
+3e19bb50-33cb-993c-3fe8-47ea11d2e4991784246400,Jordan Okafor,Sales,True
+3e19bb50-33cb-993c-3fe8-47ea11d2e4991784851200,Jordan Okafor,Sales,True
+3e19bb50-33cb-993c-3fe8-47ea11d2e4991785456000,Jordan Okafor,Sales,True
+3e19bb50-33cb-993c-3fe8-47ea11d2e4991786060800,Jordan Okafor,Sales,True
+3e19bb50-33cb-993c-3fe8-47ea11d2e4991786665600,Jordan Okafor,Sales,True
+3e19bb50-33cb-993c-3fe8-47ea11d2e4991787875200,Jordan Okafor,Sales,True
+3e19bb50-33cb-993c-3fe8-47ea11d2e4991788480000,Jordan Okafor,Sales,True
+3e19bb50-33cb-993c-3fe8-47ea11d2e4991789084800,Jordan Okafor,Sales,True
+3e19bb50-33cb-993c-3fe8-47ea11d2e4991789689600,Jordan Okafor,Sales,True
+3e19bb50-33cb-993c-3fe8-47ea11d2e4991790294400,Jordan Okafor,Sales,True
+3e19bb50-33cb-993c-3fe8-47ea11d2e4991790899200,Jordan Okafor,Sales,True
+3e19bb50-33cb-993c-3fe8-47ea11d2e4991791504000,Jordan Okafor,Sales,True
+3e36f8e6-5786-dfa6-5584-eef0833dd6961783641600,Jordan Okafor,Sales,True
+3e36f8e6-5786-dfa6-5584-eef0833dd6961784246400,Jordan Okafor,Sales,True
+3e36f8e6-5786-dfa6-5584-eef0833dd6961785456000,Jordan Okafor,Sales,True
+3e36f8e6-5786-dfa6-5584-eef0833dd6961786060800,Jordan Okafor,Sales,True
+3e36f8e6-5786-dfa6-5584-eef0833dd6961787875200,Jordan Okafor,Sales,True
+3e36f8e6-5786-dfa6-5584-eef0833dd6961788480000,Jordan Okafor,Sales,True
+3e36f8e6-5786-dfa6-5584-eef0833dd6961789689600,Jordan Okafor,Sales,True
+3e36f8e6-5786-dfa6-5584-eef0833dd6961791504000,Jordan Okafor,Sales,True
+3e5540a7-c8e5-e7f3-0857-40e57464b7f41784246400,Priya Raman,Sales,True
+3e5540a7-c8e5-e7f3-0857-40e57464b7f41784851200,Priya Raman,Sales,True
+3e5540a7-c8e5-e7f3-0857-40e57464b7f41785456000,Priya Raman,Sales,True
+3e5540a7-c8e5-e7f3-0857-40e57464b7f41786060800,Priya Raman,Sales,True
+3e5540a7-c8e5-e7f3-0857-40e57464b7f41786665600,Priya Raman,Sales,True
+3e5540a7-c8e5-e7f3-0857-40e57464b7f41787875200,Priya Raman,Sales,True
+3e5540a7-c8e5-e7f3-0857-40e57464b7f41788480000,Priya Raman,Sales,True
+3e5540a7-c8e5-e7f3-0857-40e57464b7f41789084800,Priya Raman,Sales,True
+3e5540a7-c8e5-e7f3-0857-40e57464b7f41789689600,Priya Raman,Sales,True
+3e5540a7-c8e5-e7f3-0857-40e57464b7f41790294400,Priya Raman,Sales,True
+3e5540a7-c8e5-e7f3-0857-40e57464b7f41790899200,Priya Raman,Sales,True
+3e5540a7-c8e5-e7f3-0857-40e57464b7f41791504000,Priya Raman,Sales,True
+3e5540a7-c8e5-e7f3-0857-40e57464b7f41792108800,Priya Raman,Sales,True
+3e7f3a7c-f464-06c6-4ed7-f2b140abd28c1788480000,Avery Lindqvist,IT,True
+3e9e542d-1980-2415-61b9-2666c96c2b911783641600,Priya Raman,Sales,True
+3e9e542d-1980-2415-61b9-2666c96c2b911784246400,Priya Raman,Sales,True
+3e9e542d-1980-2415-61b9-2666c96c2b911784851200,Priya Raman,Sales,True
+3e9e542d-1980-2415-61b9-2666c96c2b911785456000,Priya Raman,Sales,True
+3e9e542d-1980-2415-61b9-2666c96c2b911786060800,Priya Raman,Sales,True
+3e9e542d-1980-2415-61b9-2666c96c2b911786665600,Priya Raman,Sales,True
+3e9e542d-1980-2415-61b9-2666c96c2b911787270400,Priya Raman,Sales,True
+3e9e542d-1980-2415-61b9-2666c96c2b911788480000,Priya Raman,Sales,True
+3e9e542d-1980-2415-61b9-2666c96c2b911789084800,Priya Raman,Sales,True
+3e9e542d-1980-2415-61b9-2666c96c2b911789689600,Priya Raman,Sales,True
+3e9e542d-1980-2415-61b9-2666c96c2b911790294400,Priya Raman,Sales,True
+3e9e542d-1980-2415-61b9-2666c96c2b911790899200,Priya Raman,Sales,True
+3e9e542d-1980-2415-61b9-2666c96c2b911791504000,Priya Raman,Sales,True
+3e9e542d-1980-2415-61b9-2666c96c2b911792108800,Priya Raman,Sales,True
+3fe2d465-4fd2-cde0-6314-8cfdf77094211784851200,Priya Raman,Customer Support,True
+3fe2d465-4fd2-cde0-6314-8cfdf77094211786060800,Priya Raman,Customer Support,True
+3fe2d465-4fd2-cde0-6314-8cfdf77094211786665600,Priya Raman,Customer Support,True
+3fe2d465-4fd2-cde0-6314-8cfdf77094211789084800,Priya Raman,Customer Support,True
+3fe2d465-4fd2-cde0-6314-8cfdf77094211790294400,Priya Raman,Customer Support,True
+3fe2d465-4fd2-cde0-6314-8cfdf77094211790899200,Priya Raman,Customer Support,True
+3fe2d465-4fd2-cde0-6314-8cfdf77094211792108800,Priya Raman,Customer Support,True
+4063a72a-4fe8-676e-608d-316b55751d101788480000,Avery Lindqvist,Customer Support,True
+4063a72a-4fe8-676e-608d-316b55751d101789084800,Avery Lindqvist,Customer Support,True
+4063a72a-4fe8-676e-608d-316b55751d101791504000,Avery Lindqvist,Customer Support,True
+40963e14-7acb-d5c8-4016-2364b46301071784246400,Jordan Okafor,Sales,True
+40963e14-7acb-d5c8-4016-2364b46301071784851200,Jordan Okafor,Sales,True
+40963e14-7acb-d5c8-4016-2364b46301071785456000,Jordan Okafor,Sales,True
+40963e14-7acb-d5c8-4016-2364b46301071786060800,Jordan Okafor,Sales,True
+40963e14-7acb-d5c8-4016-2364b46301071786665600,Jordan Okafor,Sales,True
+40963e14-7acb-d5c8-4016-2364b46301071787270400,Jordan Okafor,Sales,True
+40963e14-7acb-d5c8-4016-2364b46301071787875200,Jordan Okafor,Sales,True
+40963e14-7acb-d5c8-4016-2364b46301071788480000,Jordan Okafor,Sales,True
+40963e14-7acb-d5c8-4016-2364b46301071789084800,Jordan Okafor,Sales,True
+40963e14-7acb-d5c8-4016-2364b46301071789689600,Jordan Okafor,Sales,True
+40963e14-7acb-d5c8-4016-2364b46301071790294400,Jordan Okafor,Sales,True
+40963e14-7acb-d5c8-4016-2364b46301071792108800,Jordan Okafor,Sales,True
+40b61f95-85fb-f4ea-3f7b-1babb26c45131783036800,Priya Raman,HR,True
+40b61f95-85fb-f4ea-3f7b-1babb26c45131784851200,Priya Raman,HR,True
+40b61f95-85fb-f4ea-3f7b-1babb26c45131787875200,Priya Raman,HR,True
+40b61f95-85fb-f4ea-3f7b-1babb26c45131789084800,Priya Raman,HR,True
+40b61f95-85fb-f4ea-3f7b-1babb26c45131790294400,Priya Raman,HR,True
+40b61f95-85fb-f4ea-3f7b-1babb26c45131791504000,Priya Raman,HR,True
+41671f79-aa88-7776-2348-7ecb98e49d2c1784246400,Priya Raman,Product,True
+41671f79-aa88-7776-2348-7ecb98e49d2c1784851200,Priya Raman,Product,True
+41671f79-aa88-7776-2348-7ecb98e49d2c1786060800,Priya Raman,Product,True
+41671f79-aa88-7776-2348-7ecb98e49d2c1787270400,Priya Raman,Product,True
+41671f79-aa88-7776-2348-7ecb98e49d2c1789084800,Priya Raman,Product,True
+41671f79-aa88-7776-2348-7ecb98e49d2c1790899200,Priya Raman,Product,True
+41a50816-7139-5c8d-79fa-e7be77edc3f61786665600,Hana Kobayashi,Sales,True
+41a50816-7139-5c8d-79fa-e7be77edc3f61787270400,Hana Kobayashi,Sales,True
+41a50816-7139-5c8d-79fa-e7be77edc3f61788480000,Hana Kobayashi,Sales,True
+41b589cb-0a8f-f69d-6265-8a1aeab6ff351783036800,Avery Lindqvist,Sales,False
+41b589cb-0a8f-f69d-6265-8a1aeab6ff351783641600,Avery Lindqvist,Sales,False
+41b589cb-0a8f-f69d-6265-8a1aeab6ff351784246400,Avery Lindqvist,Sales,False
+41b589cb-0a8f-f69d-6265-8a1aeab6ff351784851200,Avery Lindqvist,Sales,False
+41b589cb-0a8f-f69d-6265-8a1aeab6ff351785456000,Avery Lindqvist,Sales,False
+41b589cb-0a8f-f69d-6265-8a1aeab6ff351786060800,Avery Lindqvist,Sales,False
+41b589cb-0a8f-f69d-6265-8a1aeab6ff351786665600,Avery Lindqvist,Sales,False
+41b589cb-0a8f-f69d-6265-8a1aeab6ff351789084800,Avery Lindqvist,Sales,False
+41b589cb-0a8f-f69d-6265-8a1aeab6ff351790294400,Avery Lindqvist,Sales,False
+41b589cb-0a8f-f69d-6265-8a1aeab6ff351790899200,Avery Lindqvist,Sales,False
+41b589cb-0a8f-f69d-6265-8a1aeab6ff351791504000,Avery Lindqvist,Sales,False
+41d38719-66c6-b82c-1ea2-e346305386d01790294400,Priya Raman,Engineering,True
+41d38719-66c6-b82c-1ea2-e346305386d01791504000,Priya Raman,Engineering,True
+41d38719-66c6-b82c-1ea2-e346305386d01792108800,Priya Raman,Engineering,True
+4302b4b6-7196-2a13-7969-27eb0d5c2fd21783641600,Jordan Okafor,IT,True
+4302b4b6-7196-2a13-7969-27eb0d5c2fd21784851200,Jordan Okafor,IT,True
+4302b4b6-7196-2a13-7969-27eb0d5c2fd21785456000,Jordan Okafor,IT,True
+4302b4b6-7196-2a13-7969-27eb0d5c2fd21786060800,Jordan Okafor,IT,True
+4302b4b6-7196-2a13-7969-27eb0d5c2fd21787270400,Jordan Okafor,IT,True
+4302b4b6-7196-2a13-7969-27eb0d5c2fd21791504000,Jordan Okafor,IT,True
+4314dae7-8867-92af-5a90-9436c7dab1091784851200,Priya Raman,Engineering,True
+4314dae7-8867-92af-5a90-9436c7dab1091788480000,Priya Raman,Engineering,True
+4314dae7-8867-92af-5a90-9436c7dab1091789084800,Priya Raman,Engineering,True
+4314dae7-8867-92af-5a90-9436c7dab1091790899200,Priya Raman,Engineering,True
+447c72d8-ac20-d7b7-4ea8-793d08be5a3c1791504000,Avery Lindqvist,Sales,True
+447c72d8-ac20-d7b7-4ea8-793d08be5a3c1792108800,Avery Lindqvist,Sales,True
+449f4e15-ee97-7309-4b9b-aa29f99702f01784246400,Avery Lindqvist,Sales,True
+449f4e15-ee97-7309-4b9b-aa29f99702f01784851200,Avery Lindqvist,Sales,True
+449f4e15-ee97-7309-4b9b-aa29f99702f01786060800,Avery Lindqvist,Sales,True
+449f4e15-ee97-7309-4b9b-aa29f99702f01786665600,Avery Lindqvist,Sales,True
+449f4e15-ee97-7309-4b9b-aa29f99702f01788480000,Avery Lindqvist,Sales,True
+449f4e15-ee97-7309-4b9b-aa29f99702f01789689600,Avery Lindqvist,Sales,True
+449f4e15-ee97-7309-4b9b-aa29f99702f01790899200,Avery Lindqvist,Sales,True
+449f4e15-ee97-7309-4b9b-aa29f99702f01791504000,Avery Lindqvist,Sales,True
+44b18470-765e-6ce1-6df6-465f16684d4c1783036800,Mateo Alvarez,Customer Support,True
+44b18470-765e-6ce1-6df6-465f16684d4c1784851200,Mateo Alvarez,Customer Support,True
+44b18470-765e-6ce1-6df6-465f16684d4c1786060800,Mateo Alvarez,Customer Support,True
+44b18470-765e-6ce1-6df6-465f16684d4c1786665600,Mateo Alvarez,Customer Support,True
+44b18470-765e-6ce1-6df6-465f16684d4c1787270400,Mateo Alvarez,Customer Support,True
+44b18470-765e-6ce1-6df6-465f16684d4c1787875200,Mateo Alvarez,Customer Support,True
+44b18470-765e-6ce1-6df6-465f16684d4c1788480000,Mateo Alvarez,Customer Support,True
+44b18470-765e-6ce1-6df6-465f16684d4c1789689600,Mateo Alvarez,Customer Support,True
+44b18470-765e-6ce1-6df6-465f16684d4c1790294400,Mateo Alvarez,Customer Support,True
+44b18470-765e-6ce1-6df6-465f16684d4c1790899200,Mateo Alvarez,Customer Support,True
+44ba2924-c228-88bc-3c15-ebab37b8301b1784851200,Hana Kobayashi,Sales,True
+44ba2924-c228-88bc-3c15-ebab37b8301b1785456000,Hana Kobayashi,Sales,True
+44ba2924-c228-88bc-3c15-ebab37b8301b1786060800,Hana Kobayashi,Sales,True
+44ba2924-c228-88bc-3c15-ebab37b8301b1787875200,Hana Kobayashi,Sales,True
+44ba2924-c228-88bc-3c15-ebab37b8301b1789084800,Hana Kobayashi,Sales,True
+44ba2924-c228-88bc-3c15-ebab37b8301b1790294400,Hana Kobayashi,Sales,True
+44ba2924-c228-88bc-3c15-ebab37b8301b1791504000,Hana Kobayashi,Sales,True
+45479274-9df9-86df-18ef-103b1c7adf681782432000,Jordan Okafor,Product,True
+45479274-9df9-86df-18ef-103b1c7adf681783036800,Jordan Okafor,Product,True
+45479274-9df9-86df-18ef-103b1c7adf681783641600,Jordan Okafor,Product,True
+45479274-9df9-86df-18ef-103b1c7adf681784246400,Jordan Okafor,Product,True
+45479274-9df9-86df-18ef-103b1c7adf681784851200,Jordan Okafor,Product,True
+45479274-9df9-86df-18ef-103b1c7adf681785456000,Jordan Okafor,Product,True
+45479274-9df9-86df-18ef-103b1c7adf681786060800,Jordan Okafor,Product,True
+45479274-9df9-86df-18ef-103b1c7adf681786665600,Jordan Okafor,Product,True
+45479274-9df9-86df-18ef-103b1c7adf681787270400,Jordan Okafor,Product,True
+45479274-9df9-86df-18ef-103b1c7adf681787875200,Jordan Okafor,Product,True
+45479274-9df9-86df-18ef-103b1c7adf681788480000,Jordan Okafor,Product,True
+45479274-9df9-86df-18ef-103b1c7adf681789084800,Jordan Okafor,Product,True
+45479274-9df9-86df-18ef-103b1c7adf681789689600,Jordan Okafor,Product,True
+45479274-9df9-86df-18ef-103b1c7adf681790294400,Jordan Okafor,Product,True
+45479274-9df9-86df-18ef-103b1c7adf681790899200,Jordan Okafor,Product,True
+45479274-9df9-86df-18ef-103b1c7adf681791504000,Jordan Okafor,Product,True
+45479274-9df9-86df-18ef-103b1c7adf681792108800,Jordan Okafor,Product,True
+45948ae6-a9ed-60f2-2bed-b6f1f5726f6d1786060800,Mateo Alvarez,Sales,True
+45948ae6-a9ed-60f2-2bed-b6f1f5726f6d1787270400,Mateo Alvarez,Sales,True
+45948ae6-a9ed-60f2-2bed-b6f1f5726f6d1787875200,Mateo Alvarez,Sales,True
+45948ae6-a9ed-60f2-2bed-b6f1f5726f6d1788480000,Mateo Alvarez,Sales,True
+45948ae6-a9ed-60f2-2bed-b6f1f5726f6d1789084800,Mateo Alvarez,Sales,True
+45948ae6-a9ed-60f2-2bed-b6f1f5726f6d1789689600,Mateo Alvarez,Sales,True
+45948ae6-a9ed-60f2-2bed-b6f1f5726f6d1790294400,Mateo Alvarez,Sales,True
+45948ae6-a9ed-60f2-2bed-b6f1f5726f6d1790899200,Mateo Alvarez,Sales,True
+45948ae6-a9ed-60f2-2bed-b6f1f5726f6d1791504000,Mateo Alvarez,Sales,True
+4710615d-2610-e36a-1552-daad198240fe1784246400,Priya Raman,Engineering,True
+4710615d-2610-e36a-1552-daad198240fe1784851200,Priya Raman,Engineering,True
+4710615d-2610-e36a-1552-daad198240fe1786060800,Priya Raman,Engineering,True
+4710615d-2610-e36a-1552-daad198240fe1787875200,Priya Raman,Engineering,True
+4710615d-2610-e36a-1552-daad198240fe1789084800,Priya Raman,Engineering,True
+4710615d-2610-e36a-1552-daad198240fe1790899200,Priya Raman,Engineering,True
+4807d44f-7d0a-6419-1b07-1bf0a734375d1784246400,Jordan Okafor,Marketing,True
+4807d44f-7d0a-6419-1b07-1bf0a734375d1784851200,Jordan Okafor,Marketing,True
+4807d44f-7d0a-6419-1b07-1bf0a734375d1786060800,Jordan Okafor,Marketing,True
+4807d44f-7d0a-6419-1b07-1bf0a734375d1787875200,Jordan Okafor,Marketing,True
+4807d44f-7d0a-6419-1b07-1bf0a734375d1789084800,Jordan Okafor,Marketing,True
+4807d44f-7d0a-6419-1b07-1bf0a734375d1789689600,Jordan Okafor,Marketing,True
+4807d44f-7d0a-6419-1b07-1bf0a734375d1790899200,Jordan Okafor,Marketing,True
+4807d44f-7d0a-6419-1b07-1bf0a734375d1792108800,Jordan Okafor,Marketing,True
+491d6137-ad5f-ed6a-1c7b-949bdc69b51b1790294400,Mateo Alvarez,Marketing,True
+4a062535-0f86-fb70-64bc-d09b0dc3d23c1788480000,Jordan Okafor,Customer Support,True
+4a6e2a54-06af-fe8a-7781-2c2aa1f686281790899200,Mateo Alvarez,Marketing,True
+4b64c5c5-069a-6a3a-5160-e73cd179389a1791504000,Jordan Okafor,Customer Support,True
+4b8383b7-5083-a0c5-2854-c7102283d5771784851200,Hana Kobayashi,Marketing,False
+4b8383b7-5083-a0c5-2854-c7102283d5771786665600,Hana Kobayashi,Marketing,False
+4b8383b7-5083-a0c5-2854-c7102283d5771787270400,Hana Kobayashi,Marketing,False
+4b8383b7-5083-a0c5-2854-c7102283d5771787875200,Hana Kobayashi,Marketing,False
+4b8383b7-5083-a0c5-2854-c7102283d5771788480000,Hana Kobayashi,Marketing,False
+4b8383b7-5083-a0c5-2854-c7102283d5771789084800,Hana Kobayashi,Marketing,False
+4b8383b7-5083-a0c5-2854-c7102283d5771789689600,Hana Kobayashi,Marketing,False
+4b8383b7-5083-a0c5-2854-c7102283d5771790899200,Hana Kobayashi,Marketing,False
+4b8383b7-5083-a0c5-2854-c7102283d5771791504000,Hana Kobayashi,Marketing,False
+4b8383b7-5083-a0c5-2854-c7102283d5771792108800,Hana Kobayashi,Marketing,False
+4c6f5b2a-b391-910e-09df-22d97f95bc561790899200,Jordan Okafor,Customer Support,True
+4c6f5b2a-b391-910e-09df-22d97f95bc561791504000,Jordan Okafor,Customer Support,True
+4c7c4b49-2618-75d2-0681-4929c62672371787270400,Avery Lindqvist,Marketing,True
+4c7c4b49-2618-75d2-0681-4929c62672371787875200,Avery Lindqvist,Marketing,True
+4c7c4b49-2618-75d2-0681-4929c62672371788480000,Avery Lindqvist,Marketing,True
+4c7c4b49-2618-75d2-0681-4929c62672371789084800,Avery Lindqvist,Marketing,True
+4c7c4b49-2618-75d2-0681-4929c62672371789689600,Avery Lindqvist,Marketing,True
+4c7c4b49-2618-75d2-0681-4929c62672371790294400,Avery Lindqvist,Marketing,True
+4c7c4b49-2618-75d2-0681-4929c62672371790899200,Avery Lindqvist,Marketing,True
+4c7c4b49-2618-75d2-0681-4929c62672371791504000,Avery Lindqvist,Marketing,True
+4cb5fa33-09c8-4f73-6b7c-57a41d551bcf1789084800,Avery Lindqvist,Sales,True
+4cb5fa33-09c8-4f73-6b7c-57a41d551bcf1790899200,Avery Lindqvist,Sales,True
+4ed330cc-0247-389b-64aa-3970771f1ba31782432000,Avery Lindqvist,Sales,False
+4ed330cc-0247-389b-64aa-3970771f1ba31783036800,Avery Lindqvist,Sales,False
+4ed330cc-0247-389b-64aa-3970771f1ba31784246400,Avery Lindqvist,Sales,False
+4ed330cc-0247-389b-64aa-3970771f1ba31784851200,Avery Lindqvist,Sales,False
+4ed330cc-0247-389b-64aa-3970771f1ba31785456000,Avery Lindqvist,Sales,False
+4ed330cc-0247-389b-64aa-3970771f1ba31786060800,Avery Lindqvist,Sales,False
+4ed330cc-0247-389b-64aa-3970771f1ba31786665600,Avery Lindqvist,Sales,False
+4ed330cc-0247-389b-64aa-3970771f1ba31787270400,Avery Lindqvist,Sales,False
+4ed330cc-0247-389b-64aa-3970771f1ba31787875200,Avery Lindqvist,Sales,False
+4ed330cc-0247-389b-64aa-3970771f1ba31788480000,Avery Lindqvist,Sales,False
+4ed330cc-0247-389b-64aa-3970771f1ba31789084800,Avery Lindqvist,Sales,False
+4ed330cc-0247-389b-64aa-3970771f1ba31789689600,Avery Lindqvist,Sales,False
+4ed330cc-0247-389b-64aa-3970771f1ba31790294400,Avery Lindqvist,Sales,False
+4ed330cc-0247-389b-64aa-3970771f1ba31790899200,Avery Lindqvist,Sales,False
+4ed330cc-0247-389b-64aa-3970771f1ba31791504000,Avery Lindqvist,Sales,False
+4ed7dfda-bb72-8733-5a6b-c37b1bc200841783641600,Hana Kobayashi,Product,True
+4ed7dfda-bb72-8733-5a6b-c37b1bc200841787875200,Hana Kobayashi,Product,True
+4ed7dfda-bb72-8733-5a6b-c37b1bc200841789084800,Hana Kobayashi,Product,True
+506454f8-de98-7375-0422-2a6d596d9a5f1787875200,Jordan Okafor,Engineering,True
+506454f8-de98-7375-0422-2a6d596d9a5f1791504000,Jordan Okafor,Engineering,True
+506454f8-de98-7375-0422-2a6d596d9a5f1792108800,Jordan Okafor,Engineering,True
+5102e717-f953-a45e-55c6-85baf40537c01789084800,Avery Lindqvist,Marketing,True
+5102e717-f953-a45e-55c6-85baf40537c01789689600,Avery Lindqvist,Marketing,True
+5102e717-f953-a45e-55c6-85baf40537c01790899200,Avery Lindqvist,Marketing,True
+5102e717-f953-a45e-55c6-85baf40537c01791504000,Avery Lindqvist,Marketing,True
+51667ccf-bdd7-8a37-6bff-54bbcf6a3c051787875200,Avery Lindqvist,Customer Support,True
+51667ccf-bdd7-8a37-6bff-54bbcf6a3c051789689600,Avery Lindqvist,Customer Support,True
+51667ccf-bdd7-8a37-6bff-54bbcf6a3c051790294400,Avery Lindqvist,Customer Support,True
+527ff623-be6a-8b37-4b9e-710b6ada814a1783641600,Avery Lindqvist,Marketing,False
+527ff623-be6a-8b37-4b9e-710b6ada814a1784246400,Avery Lindqvist,Marketing,False
+527ff623-be6a-8b37-4b9e-710b6ada814a1784851200,Avery Lindqvist,Marketing,False
+527ff623-be6a-8b37-4b9e-710b6ada814a1786060800,Avery Lindqvist,Marketing,False
+527ff623-be6a-8b37-4b9e-710b6ada814a1786665600,Avery Lindqvist,Marketing,False
+527ff623-be6a-8b37-4b9e-710b6ada814a1787270400,Avery Lindqvist,Marketing,False
+527ff623-be6a-8b37-4b9e-710b6ada814a1787875200,Avery Lindqvist,Marketing,False
+527ff623-be6a-8b37-4b9e-710b6ada814a1788480000,Avery Lindqvist,Marketing,False
+527ff623-be6a-8b37-4b9e-710b6ada814a1789084800,Avery Lindqvist,Marketing,False
+527ff623-be6a-8b37-4b9e-710b6ada814a1789689600,Avery Lindqvist,Marketing,False
+527ff623-be6a-8b37-4b9e-710b6ada814a1790899200,Avery Lindqvist,Marketing,False
+527ff623-be6a-8b37-4b9e-710b6ada814a1792108800,Avery Lindqvist,Marketing,False
+52d7952f-48cb-e7cc-081b-3c93c6d0a9c21783036800,Avery Lindqvist,Sales,True
+52d7952f-48cb-e7cc-081b-3c93c6d0a9c21786060800,Avery Lindqvist,Sales,True
+52d7952f-48cb-e7cc-081b-3c93c6d0a9c21787270400,Avery Lindqvist,Sales,True
+52d7952f-48cb-e7cc-081b-3c93c6d0a9c21787875200,Avery Lindqvist,Sales,True
+52d7952f-48cb-e7cc-081b-3c93c6d0a9c21789084800,Avery Lindqvist,Sales,True
+52d7952f-48cb-e7cc-081b-3c93c6d0a9c21791504000,Avery Lindqvist,Sales,True
+54a4a5d7-4519-75ad-34e0-e77e4e2f14ac1791504000,Priya Raman,Operations,True
+5532219e-87c3-cac5-16a1-886377c2ee3b1786665600,Jordan Okafor,Marketing,True
+5532219e-87c3-cac5-16a1-886377c2ee3b1787270400,Jordan Okafor,Marketing,True
+5532219e-87c3-cac5-16a1-886377c2ee3b1790899200,Jordan Okafor,Marketing,True
+5532219e-87c3-cac5-16a1-886377c2ee3b1792108800,Jordan Okafor,Marketing,True
+5540f83b-2095-5d00-7a6b-da3600fe26c51786665600,Mateo Alvarez,Sales,True
+5540f83b-2095-5d00-7a6b-da3600fe26c51787270400,Mateo Alvarez,Sales,True
+5540f83b-2095-5d00-7a6b-da3600fe26c51787875200,Mateo Alvarez,Sales,True
+5540f83b-2095-5d00-7a6b-da3600fe26c51788480000,Mateo Alvarez,Sales,True
+5540f83b-2095-5d00-7a6b-da3600fe26c51789084800,Mateo Alvarez,Sales,True
+5540f83b-2095-5d00-7a6b-da3600fe26c51789689600,Mateo Alvarez,Sales,True
+5540f83b-2095-5d00-7a6b-da3600fe26c51790294400,Mateo Alvarez,Sales,True
+5540f83b-2095-5d00-7a6b-da3600fe26c51790899200,Mateo Alvarez,Sales,True
+5540f83b-2095-5d00-7a6b-da3600fe26c51791504000,Mateo Alvarez,Sales,True
+5540f83b-2095-5d00-7a6b-da3600fe26c51792108800,Mateo Alvarez,Sales,True
+55e959d1-1f15-41d9-1dce-6a7bc587780c1782432000,Jordan Okafor,Sales,True
+55e959d1-1f15-41d9-1dce-6a7bc587780c1783036800,Jordan Okafor,Sales,True
+55e959d1-1f15-41d9-1dce-6a7bc587780c1783641600,Jordan Okafor,Sales,True
+55e959d1-1f15-41d9-1dce-6a7bc587780c1784246400,Jordan Okafor,Sales,True
+55e959d1-1f15-41d9-1dce-6a7bc587780c1784851200,Jordan Okafor,Sales,True
+55e959d1-1f15-41d9-1dce-6a7bc587780c1785456000,Jordan Okafor,Sales,True
+55e959d1-1f15-41d9-1dce-6a7bc587780c1786060800,Jordan Okafor,Sales,True
+55e959d1-1f15-41d9-1dce-6a7bc587780c1786665600,Jordan Okafor,Sales,True
+55e959d1-1f15-41d9-1dce-6a7bc587780c1787270400,Jordan Okafor,Sales,True
+55e959d1-1f15-41d9-1dce-6a7bc587780c1787875200,Jordan Okafor,Sales,True
+55e959d1-1f15-41d9-1dce-6a7bc587780c1788480000,Jordan Okafor,Sales,True
+55e959d1-1f15-41d9-1dce-6a7bc587780c1789084800,Jordan Okafor,Sales,True
+55e959d1-1f15-41d9-1dce-6a7bc587780c1789689600,Jordan Okafor,Sales,True
+55e959d1-1f15-41d9-1dce-6a7bc587780c1790294400,Jordan Okafor,Sales,True
+55e959d1-1f15-41d9-1dce-6a7bc587780c1790899200,Jordan Okafor,Sales,True
+55e959d1-1f15-41d9-1dce-6a7bc587780c1791504000,Jordan Okafor,Sales,True
+5657386e-0a60-88e1-5e8a-b1f9a42670461789689600,Jordan Okafor,Sales,True
+5657386e-0a60-88e1-5e8a-b1f9a42670461790899200,Jordan Okafor,Sales,True
+56bebea9-567a-0fbe-784c-fdb72704b2de1787875200,Priya Raman,Sales,True
+56bebea9-567a-0fbe-784c-fdb72704b2de1789084800,Priya Raman,Sales,True
+56bebea9-567a-0fbe-784c-fdb72704b2de1789689600,Priya Raman,Sales,True
+56bebea9-567a-0fbe-784c-fdb72704b2de1791504000,Priya Raman,Sales,True
+5718ab90-8788-b5a3-27be-c3a199521a6a1784851200,Priya Raman,Product,True
+5718ab90-8788-b5a3-27be-c3a199521a6a1786665600,Priya Raman,Product,True
+57587b0b-83a8-4d6f-559a-b9568cfa7ef81783641600,Hana Kobayashi,Customer Support,True
+57587b0b-83a8-4d6f-559a-b9568cfa7ef81784851200,Hana Kobayashi,Customer Support,True
+57587b0b-83a8-4d6f-559a-b9568cfa7ef81787875200,Hana Kobayashi,Customer Support,True
+57587b0b-83a8-4d6f-559a-b9568cfa7ef81788480000,Hana Kobayashi,Customer Support,True
+57587b0b-83a8-4d6f-559a-b9568cfa7ef81792108800,Hana Kobayashi,Customer Support,True
+583feff6-c9d6-90e4-09e4-3ac9e6a678ed1785456000,Hana Kobayashi,Engineering,False
+583feff6-c9d6-90e4-09e4-3ac9e6a678ed1786665600,Hana Kobayashi,Engineering,False
+583feff6-c9d6-90e4-09e4-3ac9e6a678ed1787270400,Hana Kobayashi,Engineering,False
+583feff6-c9d6-90e4-09e4-3ac9e6a678ed1787875200,Hana Kobayashi,Engineering,False
+583feff6-c9d6-90e4-09e4-3ac9e6a678ed1788480000,Hana Kobayashi,Engineering,False
+583feff6-c9d6-90e4-09e4-3ac9e6a678ed1789084800,Hana Kobayashi,Engineering,False
+583feff6-c9d6-90e4-09e4-3ac9e6a678ed1789689600,Hana Kobayashi,Engineering,False
+583feff6-c9d6-90e4-09e4-3ac9e6a678ed1790899200,Hana Kobayashi,Engineering,False
+583feff6-c9d6-90e4-09e4-3ac9e6a678ed1791504000,Hana Kobayashi,Engineering,False
+583feff6-c9d6-90e4-09e4-3ac9e6a678ed1792108800,Hana Kobayashi,Engineering,False
+590dffdf-a9d4-c10e-22c7-fd9d3d1f32991790899200,Avery Lindqvist,Marketing,True
+590dffdf-a9d4-c10e-22c7-fd9d3d1f32991791504000,Avery Lindqvist,Marketing,True
+5948db86-62c6-78f8-439e-39c941f4428e1783641600,Mateo Alvarez,Sales,True
+5948db86-62c6-78f8-439e-39c941f4428e1784246400,Mateo Alvarez,Sales,True
+5948db86-62c6-78f8-439e-39c941f4428e1787270400,Mateo Alvarez,Sales,True
+59545929-3e85-0b38-2860-6f5a78886cdb1790294400,Hana Kobayashi,Product,True
+59545929-3e85-0b38-2860-6f5a78886cdb1791504000,Hana Kobayashi,Product,True
+595eb42f-dec9-2e26-1df2-51c7209d91a21784851200,Jordan Okafor,Sales,True
+595eb42f-dec9-2e26-1df2-51c7209d91a21787875200,Jordan Okafor,Sales,True
+595eb42f-dec9-2e26-1df2-51c7209d91a21789689600,Jordan Okafor,Sales,True
+595eb42f-dec9-2e26-1df2-51c7209d91a21790899200,Jordan Okafor,Sales,True
+595eb42f-dec9-2e26-1df2-51c7209d91a21791504000,Jordan Okafor,Sales,True
+59692a81-8362-830b-082a-b1c9e7a619291786665600,Avery Lindqvist,Engineering,True
+59692a81-8362-830b-082a-b1c9e7a619291787270400,Avery Lindqvist,Engineering,True
+59692a81-8362-830b-082a-b1c9e7a619291789084800,Avery Lindqvist,Engineering,True
+59692a81-8362-830b-082a-b1c9e7a619291790294400,Avery Lindqvist,Engineering,True
+5a176607-3555-fbab-7439-02827c3d1bd11790899200,Jordan Okafor,HR,True
+5a6af5f4-9b4c-4cad-4443-b0ae623299881792108800,Avery Lindqvist,Customer Support,True
+5abd3401-b691-eaf1-1585-18f8162697461786665600,Priya Raman,Legal,True
+5abd3401-b691-eaf1-1585-18f8162697461787875200,Priya Raman,Legal,True
+5abd3401-b691-eaf1-1585-18f8162697461789689600,Priya Raman,Legal,True
+5abd3401-b691-eaf1-1585-18f8162697461790294400,Priya Raman,Legal,True
+5abd3401-b691-eaf1-1585-18f8162697461790899200,Priya Raman,Legal,True
+5abd3401-b691-eaf1-1585-18f8162697461791504000,Priya Raman,Legal,True
+5b09d331-2715-7a82-405c-6e3190e76dd21785456000,Avery Lindqvist,Product,False
+5b09d331-2715-7a82-405c-6e3190e76dd21786060800,Avery Lindqvist,Product,False
+5b09d331-2715-7a82-405c-6e3190e76dd21787270400,Avery Lindqvist,Product,False
+5b09d331-2715-7a82-405c-6e3190e76dd21787875200,Avery Lindqvist,Product,False
+5b09d331-2715-7a82-405c-6e3190e76dd21788480000,Avery Lindqvist,Product,False
+5b09d331-2715-7a82-405c-6e3190e76dd21789084800,Avery Lindqvist,Product,False
+5ba9f78d-27fe-95ec-3b80-ef22f74cbdb91783036800,Jordan Okafor,Legal,True
+5ba9f78d-27fe-95ec-3b80-ef22f74cbdb91784246400,Jordan Okafor,Legal,True
+5ba9f78d-27fe-95ec-3b80-ef22f74cbdb91785456000,Jordan Okafor,Legal,True
+5ba9f78d-27fe-95ec-3b80-ef22f74cbdb91786060800,Jordan Okafor,Legal,True
+5ba9f78d-27fe-95ec-3b80-ef22f74cbdb91786665600,Jordan Okafor,Legal,True
+5ba9f78d-27fe-95ec-3b80-ef22f74cbdb91787270400,Jordan Okafor,Legal,True
+5ba9f78d-27fe-95ec-3b80-ef22f74cbdb91787875200,Jordan Okafor,Legal,True
+5ba9f78d-27fe-95ec-3b80-ef22f74cbdb91788480000,Jordan Okafor,Legal,True
+5ba9f78d-27fe-95ec-3b80-ef22f74cbdb91789084800,Jordan Okafor,Legal,True
+5ba9f78d-27fe-95ec-3b80-ef22f74cbdb91789689600,Jordan Okafor,Legal,True
+5ba9f78d-27fe-95ec-3b80-ef22f74cbdb91790294400,Jordan Okafor,Legal,True
+5ba9f78d-27fe-95ec-3b80-ef22f74cbdb91790899200,Jordan Okafor,Legal,True
+5bda1bda-3782-ad15-65cf-e43b32c3f4a01785456000,Mateo Alvarez,Marketing,True
+5bda1bda-3782-ad15-65cf-e43b32c3f4a01787270400,Mateo Alvarez,Marketing,True
+5bda1bda-3782-ad15-65cf-e43b32c3f4a01788480000,Mateo Alvarez,Marketing,True
+5c22426c-0b75-4e47-1ecf-f17f9e2dc1f81784851200,Jordan Okafor,Marketing,True
+5c22426c-0b75-4e47-1ecf-f17f9e2dc1f81785456000,Jordan Okafor,Marketing,True
+5c22426c-0b75-4e47-1ecf-f17f9e2dc1f81787270400,Jordan Okafor,Marketing,True
+5c22426c-0b75-4e47-1ecf-f17f9e2dc1f81790294400,Jordan Okafor,Marketing,True
+5c22426c-0b75-4e47-1ecf-f17f9e2dc1f81792108800,Jordan Okafor,Marketing,True
+5c82c23d-c4ed-b4e5-223f-6cfd3a2a5c611787270400,Avery Lindqvist,Product,True
+5c82c23d-c4ed-b4e5-223f-6cfd3a2a5c611791504000,Avery Lindqvist,Product,True
+5d9a649c-e538-86b4-6457-fe7315f774341788480000,Jordan Okafor,Finance,True
+5d9a649c-e538-86b4-6457-fe7315f774341789084800,Jordan Okafor,Finance,True
+5d9a649c-e538-86b4-6457-fe7315f774341789689600,Jordan Okafor,Finance,True
+5d9a649c-e538-86b4-6457-fe7315f774341790294400,Jordan Okafor,Finance,True
+5d9a649c-e538-86b4-6457-fe7315f774341791504000,Jordan Okafor,Finance,True
+5d9a649c-e538-86b4-6457-fe7315f774341792108800,Jordan Okafor,Finance,True
+5de189c8-370a-23a1-11b0-6881f61cf70e1787270400,Jordan Okafor,HR,True
+5de189c8-370a-23a1-11b0-6881f61cf70e1787875200,Jordan Okafor,HR,True
+5de189c8-370a-23a1-11b0-6881f61cf70e1789084800,Jordan Okafor,HR,True
+5de189c8-370a-23a1-11b0-6881f61cf70e1789689600,Jordan Okafor,HR,True
+5de189c8-370a-23a1-11b0-6881f61cf70e1790294400,Jordan Okafor,HR,True
+5de189c8-370a-23a1-11b0-6881f61cf70e1790899200,Jordan Okafor,HR,True
+5eff40cc-b352-6c0c-059e-8da696fc61ce1787270400,Jordan Okafor,HR,True
+5eff40cc-b352-6c0c-059e-8da696fc61ce1787875200,Jordan Okafor,HR,True
+5eff40cc-b352-6c0c-059e-8da696fc61ce1790294400,Jordan Okafor,HR,True
+5eff40cc-b352-6c0c-059e-8da696fc61ce1790899200,Jordan Okafor,HR,True
+5f152f4b-619e-523f-6876-9bf2faea16ed1784246400,Priya Raman,Marketing,True
+5f152f4b-619e-523f-6876-9bf2faea16ed1786665600,Priya Raman,Marketing,True
+5f152f4b-619e-523f-6876-9bf2faea16ed1788480000,Priya Raman,Marketing,True
+5f152f4b-619e-523f-6876-9bf2faea16ed1789084800,Priya Raman,Marketing,True
+5f152f4b-619e-523f-6876-9bf2faea16ed1791504000,Priya Raman,Marketing,True
+5f152f4b-619e-523f-6876-9bf2faea16ed1792108800,Priya Raman,Marketing,True
+5f1b1d5c-1a36-34fc-7a9b-49d8fdcd5d861786665600,Hana Kobayashi,Sales,False
+5f1b1d5c-1a36-34fc-7a9b-49d8fdcd5d861788480000,Hana Kobayashi,Sales,False
+5f1b1d5c-1a36-34fc-7a9b-49d8fdcd5d861790294400,Hana Kobayashi,Sales,False
+5f230a59-31a0-14b9-5441-2f84f6f08c171785456000,Hana Kobayashi,Marketing,True
+5f230a59-31a0-14b9-5441-2f84f6f08c171786060800,Hana Kobayashi,Marketing,True
+5f230a59-31a0-14b9-5441-2f84f6f08c171788480000,Hana Kobayashi,Marketing,True
+5f230a59-31a0-14b9-5441-2f84f6f08c171789689600,Hana Kobayashi,Marketing,True
+5f230a59-31a0-14b9-5441-2f84f6f08c171790294400,Hana Kobayashi,Marketing,True
+608d2ef1-a6ea-92ad-117c-94959c5e3d251782432000,Avery Lindqvist,Finance,True
+608d2ef1-a6ea-92ad-117c-94959c5e3d251783641600,Avery Lindqvist,Finance,True
+608d2ef1-a6ea-92ad-117c-94959c5e3d251784246400,Avery Lindqvist,Finance,True
+608d2ef1-a6ea-92ad-117c-94959c5e3d251784851200,Avery Lindqvist,Finance,True
+608d2ef1-a6ea-92ad-117c-94959c5e3d251785456000,Avery Lindqvist,Finance,True
+608d2ef1-a6ea-92ad-117c-94959c5e3d251786060800,Avery Lindqvist,Finance,True
+608d2ef1-a6ea-92ad-117c-94959c5e3d251786665600,Avery Lindqvist,Finance,True
+608d2ef1-a6ea-92ad-117c-94959c5e3d251787270400,Avery Lindqvist,Finance,True
+608d2ef1-a6ea-92ad-117c-94959c5e3d251787875200,Avery Lindqvist,Finance,True
+608d2ef1-a6ea-92ad-117c-94959c5e3d251788480000,Avery Lindqvist,Finance,True
+608d2ef1-a6ea-92ad-117c-94959c5e3d251789084800,Avery Lindqvist,Finance,True
+608d2ef1-a6ea-92ad-117c-94959c5e3d251789689600,Avery Lindqvist,Finance,True
+608d2ef1-a6ea-92ad-117c-94959c5e3d251790294400,Avery Lindqvist,Finance,True
+608d2ef1-a6ea-92ad-117c-94959c5e3d251790899200,Avery Lindqvist,Finance,True
+608d2ef1-a6ea-92ad-117c-94959c5e3d251791504000,Avery Lindqvist,Finance,True
+60dbbaeb-c6e8-932d-0887-4a61f9815ff41791504000,Avery Lindqvist,Marketing,True
+613cfab5-de53-9b6c-0862-27e5456ef3ee1789084800,Hana Kobayashi,Legal,True
+613cfab5-de53-9b6c-0862-27e5456ef3ee1789689600,Hana Kobayashi,Legal,True
+61f26bd6-b7f0-aad3-1ef7-56c76a8d740e1783641600,Priya Raman,Sales,True
+61f26bd6-b7f0-aad3-1ef7-56c76a8d740e1785456000,Priya Raman,Sales,True
+61f26bd6-b7f0-aad3-1ef7-56c76a8d740e1786665600,Priya Raman,Sales,True
+61f26bd6-b7f0-aad3-1ef7-56c76a8d740e1787875200,Priya Raman,Sales,True
+61f26bd6-b7f0-aad3-1ef7-56c76a8d740e1788480000,Priya Raman,Sales,True
+61f26bd6-b7f0-aad3-1ef7-56c76a8d740e1789689600,Priya Raman,Sales,True
+62c13700-b473-ac66-42da-1bf81337cddc1790899200,Hana Kobayashi,Customer Support,True
+6403171e-b18c-31ce-75c1-b7ec5b8a928e1792108800,Hana Kobayashi,Sales,True
+6452c72b-c5c7-3b41-7349-ae21511346571786060800,Priya Raman,Product,True
+6452c72b-c5c7-3b41-7349-ae21511346571786665600,Priya Raman,Product,True
+6452c72b-c5c7-3b41-7349-ae21511346571787270400,Priya Raman,Product,True
+6452c72b-c5c7-3b41-7349-ae21511346571787875200,Priya Raman,Product,True
+6452c72b-c5c7-3b41-7349-ae21511346571788480000,Priya Raman,Product,True
+6452c72b-c5c7-3b41-7349-ae21511346571790294400,Priya Raman,Product,True
+64c7e4c4-c0d3-9c83-5179-15ddd042fb231783641600,Avery Lindqvist,Sales,True
+64c7e4c4-c0d3-9c83-5179-15ddd042fb231787270400,Avery Lindqvist,Sales,True
+64c7e4c4-c0d3-9c83-5179-15ddd042fb231787875200,Avery Lindqvist,Sales,True
+64c7e4c4-c0d3-9c83-5179-15ddd042fb231788480000,Avery Lindqvist,Sales,True
+64c7e4c4-c0d3-9c83-5179-15ddd042fb231789084800,Avery Lindqvist,Sales,True
+64c7e4c4-c0d3-9c83-5179-15ddd042fb231790294400,Avery Lindqvist,Sales,True
+655fc62d-0227-1d4a-7027-91d0f28612a21788480000,Jordan Okafor,Sales,True
+655fc62d-0227-1d4a-7027-91d0f28612a21789084800,Jordan Okafor,Sales,True
+655fc62d-0227-1d4a-7027-91d0f28612a21790294400,Jordan Okafor,Sales,True
+655fc62d-0227-1d4a-7027-91d0f28612a21790899200,Jordan Okafor,Sales,True
+655fc62d-0227-1d4a-7027-91d0f28612a21791504000,Jordan Okafor,Sales,True
+65a26d6b-0ccc-0d93-601b-e87d26428f3c1786665600,Avery Lindqvist,Marketing,True
+65a26d6b-0ccc-0d93-601b-e87d26428f3c1787270400,Avery Lindqvist,Marketing,True
+65a26d6b-0ccc-0d93-601b-e87d26428f3c1787875200,Avery Lindqvist,Marketing,True
+65a26d6b-0ccc-0d93-601b-e87d26428f3c1788480000,Avery Lindqvist,Marketing,True
+65a26d6b-0ccc-0d93-601b-e87d26428f3c1789084800,Avery Lindqvist,Marketing,True
+65a26d6b-0ccc-0d93-601b-e87d26428f3c1789689600,Avery Lindqvist,Marketing,True
+65a26d6b-0ccc-0d93-601b-e87d26428f3c1790294400,Avery Lindqvist,Marketing,True
+65a26d6b-0ccc-0d93-601b-e87d26428f3c1790899200,Avery Lindqvist,Marketing,True
+65a26d6b-0ccc-0d93-601b-e87d26428f3c1791504000,Avery Lindqvist,Marketing,True
+65c7c894-09f7-23ad-4836-942d67b167e51786060800,Avery Lindqvist,Sales,True
+65c7c894-09f7-23ad-4836-942d67b167e51786665600,Avery Lindqvist,Sales,True
+65c7c894-09f7-23ad-4836-942d67b167e51787270400,Avery Lindqvist,Sales,True
+65c7c894-09f7-23ad-4836-942d67b167e51787875200,Avery Lindqvist,Sales,True
+65c7c894-09f7-23ad-4836-942d67b167e51788480000,Avery Lindqvist,Sales,True
+65c7c894-09f7-23ad-4836-942d67b167e51789084800,Avery Lindqvist,Sales,True
+65c7c894-09f7-23ad-4836-942d67b167e51789689600,Avery Lindqvist,Sales,True
+65c7c894-09f7-23ad-4836-942d67b167e51790294400,Avery Lindqvist,Sales,True
+65c7c894-09f7-23ad-4836-942d67b167e51790899200,Avery Lindqvist,Sales,True
+65c7c894-09f7-23ad-4836-942d67b167e51791504000,Avery Lindqvist,Sales,True
+65c7c894-09f7-23ad-4836-942d67b167e51792108800,Avery Lindqvist,Sales,True
+66166df3-8401-da22-29d3-a312ea5fc3241786060800,Mateo Alvarez,Engineering,False
+66166df3-8401-da22-29d3-a312ea5fc3241786665600,Mateo Alvarez,Engineering,False
+66166df3-8401-da22-29d3-a312ea5fc3241787270400,Mateo Alvarez,Engineering,False
+66166df3-8401-da22-29d3-a312ea5fc3241787875200,Mateo Alvarez,Engineering,False
+66166df3-8401-da22-29d3-a312ea5fc3241788480000,Mateo Alvarez,Engineering,False
+66166df3-8401-da22-29d3-a312ea5fc3241789084800,Mateo Alvarez,Engineering,False
+66166df3-8401-da22-29d3-a312ea5fc3241789689600,Mateo Alvarez,Engineering,False
+66166df3-8401-da22-29d3-a312ea5fc3241790294400,Mateo Alvarez,Engineering,False
+66166df3-8401-da22-29d3-a312ea5fc3241790899200,Mateo Alvarez,Engineering,False
+66166df3-8401-da22-29d3-a312ea5fc3241791504000,Mateo Alvarez,Engineering,False
+670ae76e-ea54-28d2-3c8f-22cd373995cc1786665600,Mateo Alvarez,Sales,True
+670ae76e-ea54-28d2-3c8f-22cd373995cc1787875200,Mateo Alvarez,Sales,True
+670ae76e-ea54-28d2-3c8f-22cd373995cc1790294400,Mateo Alvarez,Sales,True
+671a5589-31df-82dc-098c-1cde2fc98c7e1786060800,Priya Raman,Sales,True
+671a5589-31df-82dc-098c-1cde2fc98c7e1786665600,Priya Raman,Sales,True
+671a5589-31df-82dc-098c-1cde2fc98c7e1787270400,Priya Raman,Sales,True
+671a5589-31df-82dc-098c-1cde2fc98c7e1787875200,Priya Raman,Sales,True
+671a5589-31df-82dc-098c-1cde2fc98c7e1790294400,Priya Raman,Sales,True
+671a5589-31df-82dc-098c-1cde2fc98c7e1790899200,Priya Raman,Sales,True
+67575549-c3f4-742c-48c9-19f3a92bb7011784851200,Avery Lindqvist,Legal,True
+67575549-c3f4-742c-48c9-19f3a92bb7011786060800,Avery Lindqvist,Legal,True
+67575549-c3f4-742c-48c9-19f3a92bb7011786665600,Avery Lindqvist,Legal,True
+67575549-c3f4-742c-48c9-19f3a92bb7011787270400,Avery Lindqvist,Legal,True
+67575549-c3f4-742c-48c9-19f3a92bb7011787875200,Avery Lindqvist,Legal,True
+67575549-c3f4-742c-48c9-19f3a92bb7011788480000,Avery Lindqvist,Legal,True
+67575549-c3f4-742c-48c9-19f3a92bb7011789084800,Avery Lindqvist,Legal,True
+67575549-c3f4-742c-48c9-19f3a92bb7011791504000,Avery Lindqvist,Legal,True
+680dd56a-e089-5ad3-7df3-095dc7e60d151786060800,Mateo Alvarez,Product,True
+680dd56a-e089-5ad3-7df3-095dc7e60d151786665600,Mateo Alvarez,Product,True
+680dd56a-e089-5ad3-7df3-095dc7e60d151787270400,Mateo Alvarez,Product,True
+680dd56a-e089-5ad3-7df3-095dc7e60d151787875200,Mateo Alvarez,Product,True
+680dd56a-e089-5ad3-7df3-095dc7e60d151788480000,Mateo Alvarez,Product,True
+680dd56a-e089-5ad3-7df3-095dc7e60d151789084800,Mateo Alvarez,Product,True
+680dd56a-e089-5ad3-7df3-095dc7e60d151790294400,Mateo Alvarez,Product,True
+680dd56a-e089-5ad3-7df3-095dc7e60d151790899200,Mateo Alvarez,Product,True
+680dd56a-e089-5ad3-7df3-095dc7e60d151791504000,Mateo Alvarez,Product,True
+687736f0-3c96-93d8-4996-d76fd71fc6d61784246400,Mateo Alvarez,Sales,False
+687736f0-3c96-93d8-4996-d76fd71fc6d61784851200,Mateo Alvarez,Sales,False
+687736f0-3c96-93d8-4996-d76fd71fc6d61786060800,Mateo Alvarez,Sales,False
+687736f0-3c96-93d8-4996-d76fd71fc6d61786665600,Mateo Alvarez,Sales,False
+687736f0-3c96-93d8-4996-d76fd71fc6d61787270400,Mateo Alvarez,Sales,False
+687736f0-3c96-93d8-4996-d76fd71fc6d61787875200,Mateo Alvarez,Sales,False
+687736f0-3c96-93d8-4996-d76fd71fc6d61788480000,Mateo Alvarez,Sales,False
+687736f0-3c96-93d8-4996-d76fd71fc6d61789084800,Mateo Alvarez,Sales,False
+687736f0-3c96-93d8-4996-d76fd71fc6d61789689600,Mateo Alvarez,Sales,False
+687736f0-3c96-93d8-4996-d76fd71fc6d61790294400,Mateo Alvarez,Sales,False
+687736f0-3c96-93d8-4996-d76fd71fc6d61791504000,Mateo Alvarez,Sales,False
+688000e6-e8e1-2580-5dd5-8165d28cf1b41781827200,Priya Raman,Legal,True
+688000e6-e8e1-2580-5dd5-8165d28cf1b41782432000,Priya Raman,Legal,True
+688000e6-e8e1-2580-5dd5-8165d28cf1b41784246400,Priya Raman,Legal,True
+688000e6-e8e1-2580-5dd5-8165d28cf1b41785456000,Priya Raman,Legal,True
+688000e6-e8e1-2580-5dd5-8165d28cf1b41786665600,Priya Raman,Legal,True
+688000e6-e8e1-2580-5dd5-8165d28cf1b41788480000,Priya Raman,Legal,True
+688000e6-e8e1-2580-5dd5-8165d28cf1b41789084800,Priya Raman,Legal,True
+688000e6-e8e1-2580-5dd5-8165d28cf1b41790294400,Priya Raman,Legal,True
+688000e6-e8e1-2580-5dd5-8165d28cf1b41790899200,Priya Raman,Legal,True
+688000e6-e8e1-2580-5dd5-8165d28cf1b41791504000,Priya Raman,Legal,True
+69a582cb-3958-36e3-5de4-dae51045863b1786665600,Priya Raman,IT,True
+69a582cb-3958-36e3-5de4-dae51045863b1787875200,Priya Raman,IT,True
+69a582cb-3958-36e3-5de4-dae51045863b1788480000,Priya Raman,IT,True
+69a582cb-3958-36e3-5de4-dae51045863b1789084800,Priya Raman,IT,True
+6a440624-5778-c5ff-51a0-98d2eb90cdc01783641600,Jordan Okafor,Sales,True
+6a440624-5778-c5ff-51a0-98d2eb90cdc01786665600,Jordan Okafor,Sales,True
+6a440624-5778-c5ff-51a0-98d2eb90cdc01790294400,Jordan Okafor,Sales,True
+6a440624-5778-c5ff-51a0-98d2eb90cdc01791504000,Jordan Okafor,Sales,True
+6a77ddc4-a91b-c0d4-3a25-c088dcabc2e61782432000,Hana Kobayashi,Marketing,True
+6a77ddc4-a91b-c0d4-3a25-c088dcabc2e61783036800,Hana Kobayashi,Marketing,True
+6a77ddc4-a91b-c0d4-3a25-c088dcabc2e61783641600,Hana Kobayashi,Marketing,True
+6a77ddc4-a91b-c0d4-3a25-c088dcabc2e61784246400,Hana Kobayashi,Marketing,True
+6a77ddc4-a91b-c0d4-3a25-c088dcabc2e61784851200,Hana Kobayashi,Marketing,True
+6a77ddc4-a91b-c0d4-3a25-c088dcabc2e61785456000,Hana Kobayashi,Marketing,True
+6a77ddc4-a91b-c0d4-3a25-c088dcabc2e61786060800,Hana Kobayashi,Marketing,True
+6a77ddc4-a91b-c0d4-3a25-c088dcabc2e61788480000,Hana Kobayashi,Marketing,True
+6a77ddc4-a91b-c0d4-3a25-c088dcabc2e61789084800,Hana Kobayashi,Marketing,True
+6a77ddc4-a91b-c0d4-3a25-c088dcabc2e61789689600,Hana Kobayashi,Marketing,True
+6a77ddc4-a91b-c0d4-3a25-c088dcabc2e61790294400,Hana Kobayashi,Marketing,True
+6a77ddc4-a91b-c0d4-3a25-c088dcabc2e61790899200,Hana Kobayashi,Marketing,True
+6a77ddc4-a91b-c0d4-3a25-c088dcabc2e61791504000,Hana Kobayashi,Marketing,True
+6a77ddc4-a91b-c0d4-3a25-c088dcabc2e61792108800,Hana Kobayashi,Marketing,True
+6b7613aa-f46a-5aec-57f7-c5c3f232eb3e1784246400,Jordan Okafor,Marketing,True
+6b7613aa-f46a-5aec-57f7-c5c3f232eb3e1784851200,Jordan Okafor,Marketing,True
+6b7613aa-f46a-5aec-57f7-c5c3f232eb3e1785456000,Jordan Okafor,Marketing,True
+6b7613aa-f46a-5aec-57f7-c5c3f232eb3e1786060800,Jordan Okafor,Marketing,True
+6b7613aa-f46a-5aec-57f7-c5c3f232eb3e1787270400,Jordan Okafor,Marketing,True
+6b7613aa-f46a-5aec-57f7-c5c3f232eb3e1787875200,Jordan Okafor,Marketing,True
+6b7613aa-f46a-5aec-57f7-c5c3f232eb3e1788480000,Jordan Okafor,Marketing,True
+6b7613aa-f46a-5aec-57f7-c5c3f232eb3e1789084800,Jordan Okafor,Marketing,True
+6b7613aa-f46a-5aec-57f7-c5c3f232eb3e1789689600,Jordan Okafor,Marketing,True
+6b7613aa-f46a-5aec-57f7-c5c3f232eb3e1790294400,Jordan Okafor,Marketing,True
+6b7613aa-f46a-5aec-57f7-c5c3f232eb3e1790899200,Jordan Okafor,Marketing,True
+6bdbf94b-22b3-ef08-464c-a619d363e1e51789689600,Mateo Alvarez,Product,True
+6bdbf94b-22b3-ef08-464c-a619d363e1e51791504000,Mateo Alvarez,Product,True
+6c18ffdd-883f-6710-0e09-3e5ed468deca1786665600,Mateo Alvarez,HR,True
+6c18ffdd-883f-6710-0e09-3e5ed468deca1787270400,Mateo Alvarez,HR,True
+6c18ffdd-883f-6710-0e09-3e5ed468deca1789084800,Mateo Alvarez,HR,True
+6c18ffdd-883f-6710-0e09-3e5ed468deca1789689600,Mateo Alvarez,HR,True
+6c2293a6-c1e2-2acb-5c7b-5bc627d9d8181784851200,Jordan Okafor,IT,True
+6c2293a6-c1e2-2acb-5c7b-5bc627d9d8181786060800,Jordan Okafor,IT,True
+6c2293a6-c1e2-2acb-5c7b-5bc627d9d8181786665600,Jordan Okafor,IT,True
+6c2293a6-c1e2-2acb-5c7b-5bc627d9d8181787270400,Jordan Okafor,IT,True
+6c2293a6-c1e2-2acb-5c7b-5bc627d9d8181789084800,Jordan Okafor,IT,True
+6c2293a6-c1e2-2acb-5c7b-5bc627d9d8181790294400,Jordan Okafor,IT,True
+6c2293a6-c1e2-2acb-5c7b-5bc627d9d8181790899200,Jordan Okafor,IT,True
+6c2293a6-c1e2-2acb-5c7b-5bc627d9d8181791504000,Jordan Okafor,IT,True
+6cc898b4-4911-6522-1c6a-acdcd15447301787270400,Mateo Alvarez,Sales,True
+6cc898b4-4911-6522-1c6a-acdcd15447301788480000,Mateo Alvarez,Sales,True
+6cf3c848-95a4-f325-32e4-117c465d03191785456000,Mateo Alvarez,Marketing,True
+6cf3c848-95a4-f325-32e4-117c465d03191786060800,Mateo Alvarez,Marketing,True
+6cf3c848-95a4-f325-32e4-117c465d03191786665600,Mateo Alvarez,Marketing,True
+6cf3c848-95a4-f325-32e4-117c465d03191787270400,Mateo Alvarez,Marketing,True
+6cf3c848-95a4-f325-32e4-117c465d03191787875200,Mateo Alvarez,Marketing,True
+6cf3c848-95a4-f325-32e4-117c465d03191788480000,Mateo Alvarez,Marketing,True
+6cf3c848-95a4-f325-32e4-117c465d03191789084800,Mateo Alvarez,Marketing,True
+6cf3c848-95a4-f325-32e4-117c465d03191790294400,Mateo Alvarez,Marketing,True
+6cf3c848-95a4-f325-32e4-117c465d03191790899200,Mateo Alvarez,Marketing,True
+6cf3c848-95a4-f325-32e4-117c465d03191791504000,Mateo Alvarez,Marketing,True
+6d4549e0-5104-67a2-33d2-3a84b301b9031791504000,Mateo Alvarez,Product,True
+6eddae8c-65ba-a152-23c3-f8d54d8a8a391790294400,Avery Lindqvist,Customer Support,True
+6eddae8c-65ba-a152-23c3-f8d54d8a8a391791504000,Avery Lindqvist,Customer Support,True
+6ef528df-ba80-62f1-48ff-25cef22d8aad1786060800,Mateo Alvarez,Product,True
+6ef528df-ba80-62f1-48ff-25cef22d8aad1788480000,Mateo Alvarez,Product,True
+6ef528df-ba80-62f1-48ff-25cef22d8aad1789689600,Mateo Alvarez,Product,True
+6ef528df-ba80-62f1-48ff-25cef22d8aad1792108800,Mateo Alvarez,Product,True
+6f5a8d1a-254c-c692-76fa-25292c80999b1786665600,Priya Raman,Sales,True
+6f5a8d1a-254c-c692-76fa-25292c80999b1787270400,Priya Raman,Sales,True
+6f5a8d1a-254c-c692-76fa-25292c80999b1787875200,Priya Raman,Sales,True
+6f5a8d1a-254c-c692-76fa-25292c80999b1788480000,Priya Raman,Sales,True
+6f5a8d1a-254c-c692-76fa-25292c80999b1789084800,Priya Raman,Sales,True
+6f5a8d1a-254c-c692-76fa-25292c80999b1789689600,Priya Raman,Sales,True
+6f5a8d1a-254c-c692-76fa-25292c80999b1790294400,Priya Raman,Sales,True
+6f5a8d1a-254c-c692-76fa-25292c80999b1790899200,Priya Raman,Sales,True
+6fddc4fa-4ee2-a2c7-0bc5-ad5b0881f2dc1783036800,Priya Raman,Sales,True
+6fddc4fa-4ee2-a2c7-0bc5-ad5b0881f2dc1784246400,Priya Raman,Sales,True
+6fddc4fa-4ee2-a2c7-0bc5-ad5b0881f2dc1786665600,Priya Raman,Sales,True
+6fddc4fa-4ee2-a2c7-0bc5-ad5b0881f2dc1788480000,Priya Raman,Sales,True
+6fddc4fa-4ee2-a2c7-0bc5-ad5b0881f2dc1789689600,Priya Raman,Sales,True
+6fddc4fa-4ee2-a2c7-0bc5-ad5b0881f2dc1790294400,Priya Raman,Sales,True
+6fddc4fa-4ee2-a2c7-0bc5-ad5b0881f2dc1790899200,Priya Raman,Sales,True
+6fddc4fa-4ee2-a2c7-0bc5-ad5b0881f2dc1791504000,Priya Raman,Sales,True
+701fef72-1a82-cb4c-4337-dee2ce251e441790294400,Avery Lindqvist,Customer Support,True
+701fef72-1a82-cb4c-4337-dee2ce251e441790899200,Avery Lindqvist,Customer Support,True
+701fef72-1a82-cb4c-4337-dee2ce251e441791504000,Avery Lindqvist,Customer Support,True
+701fef72-1a82-cb4c-4337-dee2ce251e441792108800,Avery Lindqvist,Customer Support,True
+71323444-6b5e-6682-5a10-223dd577e1df1782432000,Mateo Alvarez,Finance,True
+71323444-6b5e-6682-5a10-223dd577e1df1783641600,Mateo Alvarez,Finance,True
+71323444-6b5e-6682-5a10-223dd577e1df1784246400,Mateo Alvarez,Finance,True
+71323444-6b5e-6682-5a10-223dd577e1df1784851200,Mateo Alvarez,Finance,True
+71323444-6b5e-6682-5a10-223dd577e1df1785456000,Mateo Alvarez,Finance,True
+71323444-6b5e-6682-5a10-223dd577e1df1786060800,Mateo Alvarez,Finance,True
+71323444-6b5e-6682-5a10-223dd577e1df1787270400,Mateo Alvarez,Finance,True
+71323444-6b5e-6682-5a10-223dd577e1df1787875200,Mateo Alvarez,Finance,True
+71323444-6b5e-6682-5a10-223dd577e1df1788480000,Mateo Alvarez,Finance,True
+71323444-6b5e-6682-5a10-223dd577e1df1789084800,Mateo Alvarez,Finance,True
+71323444-6b5e-6682-5a10-223dd577e1df1789689600,Mateo Alvarez,Finance,True
+71323444-6b5e-6682-5a10-223dd577e1df1790294400,Mateo Alvarez,Finance,True
+71323444-6b5e-6682-5a10-223dd577e1df1791504000,Mateo Alvarez,Finance,True
+716467fd-1b81-a49a-5964-b533216441db1784246400,Hana Kobayashi,Sales,True
+716467fd-1b81-a49a-5964-b533216441db1784851200,Hana Kobayashi,Sales,True
+716467fd-1b81-a49a-5964-b533216441db1785456000,Hana Kobayashi,Sales,True
+716467fd-1b81-a49a-5964-b533216441db1786060800,Hana Kobayashi,Sales,True
+716467fd-1b81-a49a-5964-b533216441db1786665600,Hana Kobayashi,Sales,True
+716467fd-1b81-a49a-5964-b533216441db1787875200,Hana Kobayashi,Sales,True
+716467fd-1b81-a49a-5964-b533216441db1788480000,Hana Kobayashi,Sales,True
+716467fd-1b81-a49a-5964-b533216441db1789084800,Hana Kobayashi,Sales,True
+716467fd-1b81-a49a-5964-b533216441db1789689600,Hana Kobayashi,Sales,True
+716467fd-1b81-a49a-5964-b533216441db1790294400,Hana Kobayashi,Sales,True
+716467fd-1b81-a49a-5964-b533216441db1790899200,Hana Kobayashi,Sales,True
+716467fd-1b81-a49a-5964-b533216441db1791504000,Hana Kobayashi,Sales,True
+725e9ac9-a3f3-2fbc-624e-97dd68365caf1787270400,Avery Lindqvist,Customer Support,True
+725e9ac9-a3f3-2fbc-624e-97dd68365caf1788480000,Avery Lindqvist,Customer Support,True
+725e9ac9-a3f3-2fbc-624e-97dd68365caf1789084800,Avery Lindqvist,Customer Support,True
+725e9ac9-a3f3-2fbc-624e-97dd68365caf1789689600,Avery Lindqvist,Customer Support,True
+725e9ac9-a3f3-2fbc-624e-97dd68365caf1790294400,Avery Lindqvist,Customer Support,True
+725e9ac9-a3f3-2fbc-624e-97dd68365caf1790899200,Avery Lindqvist,Customer Support,True
+725e9ac9-a3f3-2fbc-624e-97dd68365caf1791504000,Avery Lindqvist,Customer Support,True
+729302af-1214-6bb0-3bc4-ab2fd819b0af1784851200,Avery Lindqvist,Finance,True
+729302af-1214-6bb0-3bc4-ab2fd819b0af1785456000,Avery Lindqvist,Finance,True
+729302af-1214-6bb0-3bc4-ab2fd819b0af1786060800,Avery Lindqvist,Finance,True
+729302af-1214-6bb0-3bc4-ab2fd819b0af1786665600,Avery Lindqvist,Finance,True
+729302af-1214-6bb0-3bc4-ab2fd819b0af1787270400,Avery Lindqvist,Finance,True
+729302af-1214-6bb0-3bc4-ab2fd819b0af1787875200,Avery Lindqvist,Finance,True
+729302af-1214-6bb0-3bc4-ab2fd819b0af1788480000,Avery Lindqvist,Finance,True
+729302af-1214-6bb0-3bc4-ab2fd819b0af1789689600,Avery Lindqvist,Finance,True
+729302af-1214-6bb0-3bc4-ab2fd819b0af1790294400,Avery Lindqvist,Finance,True
+729302af-1214-6bb0-3bc4-ab2fd819b0af1790899200,Avery Lindqvist,Finance,True
+729302af-1214-6bb0-3bc4-ab2fd819b0af1791504000,Avery Lindqvist,Finance,True
+729302af-1214-6bb0-3bc4-ab2fd819b0af1792108800,Avery Lindqvist,Finance,True
+72ac4c4d-42bb-156e-0e1c-6cbb9a0236b61790294400,Avery Lindqvist,Sales,True
+72ac4c4d-42bb-156e-0e1c-6cbb9a0236b61791504000,Avery Lindqvist,Sales,True
+734f917e-0e0e-48cf-4417-9a12db5967501787270400,Mateo Alvarez,Product,True
+734f917e-0e0e-48cf-4417-9a12db5967501789084800,Mateo Alvarez,Product,True
+734f917e-0e0e-48cf-4417-9a12db5967501789689600,Mateo Alvarez,Product,True
+734f917e-0e0e-48cf-4417-9a12db5967501790899200,Mateo Alvarez,Product,True
+734f917e-0e0e-48cf-4417-9a12db5967501792108800,Mateo Alvarez,Product,True
+737eab57-d607-6495-75c3-7f8a13992cbb1785456000,Avery Lindqvist,Sales,True
+737eab57-d607-6495-75c3-7f8a13992cbb1786060800,Avery Lindqvist,Sales,True
+737eab57-d607-6495-75c3-7f8a13992cbb1790294400,Avery Lindqvist,Sales,True
+737eab57-d607-6495-75c3-7f8a13992cbb1791504000,Avery Lindqvist,Sales,True
+73cc0f30-5e7d-48dd-20b0-9a2a57b544ac1784246400,Avery Lindqvist,Product,True
+73cc0f30-5e7d-48dd-20b0-9a2a57b544ac1784851200,Avery Lindqvist,Product,True
+73cc0f30-5e7d-48dd-20b0-9a2a57b544ac1785456000,Avery Lindqvist,Product,True
+73cc0f30-5e7d-48dd-20b0-9a2a57b544ac1786060800,Avery Lindqvist,Product,True
+73cc0f30-5e7d-48dd-20b0-9a2a57b544ac1786665600,Avery Lindqvist,Product,True
+73cc0f30-5e7d-48dd-20b0-9a2a57b544ac1787270400,Avery Lindqvist,Product,True
+73cc0f30-5e7d-48dd-20b0-9a2a57b544ac1787875200,Avery Lindqvist,Product,True
+73cc0f30-5e7d-48dd-20b0-9a2a57b544ac1788480000,Avery Lindqvist,Product,True
+73cc0f30-5e7d-48dd-20b0-9a2a57b544ac1789689600,Avery Lindqvist,Product,True
+73cc0f30-5e7d-48dd-20b0-9a2a57b544ac1790899200,Avery Lindqvist,Product,True
+73cc0f30-5e7d-48dd-20b0-9a2a57b544ac1791504000,Avery Lindqvist,Product,True
+73fd0c6d-cd94-fa10-0d97-4318cfdd84b71789689600,Mateo Alvarez,Sales,True
+74e37861-f1f6-b15c-588e-cc15339efa2f1786060800,Avery Lindqvist,Marketing,True
+74e37861-f1f6-b15c-588e-cc15339efa2f1786665600,Avery Lindqvist,Marketing,True
+74e37861-f1f6-b15c-588e-cc15339efa2f1787270400,Avery Lindqvist,Marketing,True
+74e37861-f1f6-b15c-588e-cc15339efa2f1787875200,Avery Lindqvist,Marketing,True
+74e37861-f1f6-b15c-588e-cc15339efa2f1789084800,Avery Lindqvist,Marketing,True
+74e37861-f1f6-b15c-588e-cc15339efa2f1790294400,Avery Lindqvist,Marketing,True
+74e37861-f1f6-b15c-588e-cc15339efa2f1790899200,Avery Lindqvist,Marketing,True
+74e37861-f1f6-b15c-588e-cc15339efa2f1791504000,Avery Lindqvist,Marketing,True
+76d2453d-3aa4-9733-0409-25552984cd4a1782432000,Avery Lindqvist,Marketing,True
+76d2453d-3aa4-9733-0409-25552984cd4a1783036800,Avery Lindqvist,Marketing,True
+76d2453d-3aa4-9733-0409-25552984cd4a1784246400,Avery Lindqvist,Marketing,True
+76d2453d-3aa4-9733-0409-25552984cd4a1784851200,Avery Lindqvist,Marketing,True
+76d2453d-3aa4-9733-0409-25552984cd4a1785456000,Avery Lindqvist,Marketing,True
+76d2453d-3aa4-9733-0409-25552984cd4a1786060800,Avery Lindqvist,Marketing,True
+76d2453d-3aa4-9733-0409-25552984cd4a1786665600,Avery Lindqvist,Marketing,True
+76d2453d-3aa4-9733-0409-25552984cd4a1787270400,Avery Lindqvist,Marketing,True
+76d2453d-3aa4-9733-0409-25552984cd4a1787875200,Avery Lindqvist,Marketing,True
+76d2453d-3aa4-9733-0409-25552984cd4a1789689600,Avery Lindqvist,Marketing,True
+76d2453d-3aa4-9733-0409-25552984cd4a1790294400,Avery Lindqvist,Marketing,True
+76d2453d-3aa4-9733-0409-25552984cd4a1790899200,Avery Lindqvist,Marketing,True
+76d2453d-3aa4-9733-0409-25552984cd4a1791504000,Avery Lindqvist,Marketing,True
+76d2453d-3aa4-9733-0409-25552984cd4a1792108800,Avery Lindqvist,Marketing,True
+772b3e23-b3b3-9ffc-6bef-02b73557b6bf1782432000,Priya Raman,Marketing,True
+772b3e23-b3b3-9ffc-6bef-02b73557b6bf1783036800,Priya Raman,Marketing,True
+772b3e23-b3b3-9ffc-6bef-02b73557b6bf1786060800,Priya Raman,Marketing,True
+772b3e23-b3b3-9ffc-6bef-02b73557b6bf1787270400,Priya Raman,Marketing,True
+772b3e23-b3b3-9ffc-6bef-02b73557b6bf1789084800,Priya Raman,Marketing,True
+772b3e23-b3b3-9ffc-6bef-02b73557b6bf1790899200,Priya Raman,Marketing,True
+779eab8a-2241-ed53-6044-5441f17d1e9d1790294400,Avery Lindqvist,Operations,True
+779eab8a-2241-ed53-6044-5441f17d1e9d1790899200,Avery Lindqvist,Operations,True
+779eab8a-2241-ed53-6044-5441f17d1e9d1791504000,Avery Lindqvist,Operations,True
+77a6aa6b-3e7f-9ae4-0feb-b26fe25de54a1789689600,Avery Lindqvist,Marketing,True
+77a6aa6b-3e7f-9ae4-0feb-b26fe25de54a1790899200,Avery Lindqvist,Marketing,True
+77a6aa6b-3e7f-9ae4-0feb-b26fe25de54a1791504000,Avery Lindqvist,Marketing,True
+77fa8bc2-c3fe-2b94-584d-b742731059981788480000,Mateo Alvarez,Product,True
+77fa8bc2-c3fe-2b94-584d-b742731059981789689600,Mateo Alvarez,Product,True
+77fa8bc2-c3fe-2b94-584d-b742731059981790899200,Mateo Alvarez,Product,True
+7828e37b-58db-cd76-0b89-16fac22e44291787875200,Jordan Okafor,Marketing,True
+78fe01d9-dd7f-3fa4-2a85-73348b1b83ef1787270400,Jordan Okafor,Operations,True
+78fe01d9-dd7f-3fa4-2a85-73348b1b83ef1787875200,Jordan Okafor,Operations,True
+78fe01d9-dd7f-3fa4-2a85-73348b1b83ef1788480000,Jordan Okafor,Operations,True
+78fe01d9-dd7f-3fa4-2a85-73348b1b83ef1789689600,Jordan Okafor,Operations,True
+78fe01d9-dd7f-3fa4-2a85-73348b1b83ef1790294400,Jordan Okafor,Operations,True
+78fe01d9-dd7f-3fa4-2a85-73348b1b83ef1791504000,Jordan Okafor,Operations,True
+792eeccd-b1c2-5b42-765f-2c481f3a8e3a1786665600,Priya Raman,Finance,True
+792eeccd-b1c2-5b42-765f-2c481f3a8e3a1787270400,Priya Raman,Finance,True
+792eeccd-b1c2-5b42-765f-2c481f3a8e3a1787875200,Priya Raman,Finance,True
+792eeccd-b1c2-5b42-765f-2c481f3a8e3a1788480000,Priya Raman,Finance,True
+792eeccd-b1c2-5b42-765f-2c481f3a8e3a1790899200,Priya Raman,Finance,True
+792eeccd-b1c2-5b42-765f-2c481f3a8e3a1792108800,Priya Raman,Finance,True
+798462fb-3611-769f-28ef-3427d2c2d3361782432000,Jordan Okafor,Product,True
+798462fb-3611-769f-28ef-3427d2c2d3361783036800,Jordan Okafor,Product,True
+798462fb-3611-769f-28ef-3427d2c2d3361783641600,Jordan Okafor,Product,True
+798462fb-3611-769f-28ef-3427d2c2d3361784246400,Jordan Okafor,Product,True
+798462fb-3611-769f-28ef-3427d2c2d3361784851200,Jordan Okafor,Product,True
+798462fb-3611-769f-28ef-3427d2c2d3361785456000,Jordan Okafor,Product,True
+798462fb-3611-769f-28ef-3427d2c2d3361786060800,Jordan Okafor,Product,True
+798462fb-3611-769f-28ef-3427d2c2d3361786665600,Jordan Okafor,Product,True
+798462fb-3611-769f-28ef-3427d2c2d3361787270400,Jordan Okafor,Product,True
+798462fb-3611-769f-28ef-3427d2c2d3361787875200,Jordan Okafor,Product,True
+798462fb-3611-769f-28ef-3427d2c2d3361788480000,Jordan Okafor,Product,True
+798462fb-3611-769f-28ef-3427d2c2d3361789084800,Jordan Okafor,Product,True
+798462fb-3611-769f-28ef-3427d2c2d3361789689600,Jordan Okafor,Product,True
+798462fb-3611-769f-28ef-3427d2c2d3361790294400,Jordan Okafor,Product,True
+798462fb-3611-769f-28ef-3427d2c2d3361790899200,Jordan Okafor,Product,True
+798462fb-3611-769f-28ef-3427d2c2d3361791504000,Jordan Okafor,Product,True
+7bb92be8-6795-e972-50f2-c9b74323b8fe1784246400,Priya Raman,Sales,True
+7bb92be8-6795-e972-50f2-c9b74323b8fe1784851200,Priya Raman,Sales,True
+7bb92be8-6795-e972-50f2-c9b74323b8fe1785456000,Priya Raman,Sales,True
+7bb92be8-6795-e972-50f2-c9b74323b8fe1786060800,Priya Raman,Sales,True
+7bb92be8-6795-e972-50f2-c9b74323b8fe1786665600,Priya Raman,Sales,True
+7bb92be8-6795-e972-50f2-c9b74323b8fe1787270400,Priya Raman,Sales,True
+7bb92be8-6795-e972-50f2-c9b74323b8fe1787875200,Priya Raman,Sales,True
+7bb92be8-6795-e972-50f2-c9b74323b8fe1788480000,Priya Raman,Sales,True
+7bb92be8-6795-e972-50f2-c9b74323b8fe1789084800,Priya Raman,Sales,True
+7bb92be8-6795-e972-50f2-c9b74323b8fe1789689600,Priya Raman,Sales,True
+7bb92be8-6795-e972-50f2-c9b74323b8fe1790899200,Priya Raman,Sales,True
+7bb92be8-6795-e972-50f2-c9b74323b8fe1791504000,Priya Raman,Sales,True
+7bd29352-6ac1-49ab-751c-e264689bc1801783641600,Priya Raman,Legal,True
+7bd29352-6ac1-49ab-751c-e264689bc1801784246400,Priya Raman,Legal,True
+7bd29352-6ac1-49ab-751c-e264689bc1801784851200,Priya Raman,Legal,True
+7bd29352-6ac1-49ab-751c-e264689bc1801786665600,Priya Raman,Legal,True
+7bd29352-6ac1-49ab-751c-e264689bc1801787270400,Priya Raman,Legal,True
+7bd29352-6ac1-49ab-751c-e264689bc1801787875200,Priya Raman,Legal,True
+7bd29352-6ac1-49ab-751c-e264689bc1801789689600,Priya Raman,Legal,True
+7bd29352-6ac1-49ab-751c-e264689bc1801790899200,Priya Raman,Legal,True
+7bd29352-6ac1-49ab-751c-e264689bc1801791504000,Priya Raman,Legal,True
+7bd29352-6ac1-49ab-751c-e264689bc1801792108800,Priya Raman,Legal,True
+7cb81b8e-b937-239a-6f3d-a7a9d07c40751788480000,Jordan Okafor,Marketing,True
+7cb81b8e-b937-239a-6f3d-a7a9d07c40751789084800,Jordan Okafor,Marketing,True
+7cb81b8e-b937-239a-6f3d-a7a9d07c40751789689600,Jordan Okafor,Marketing,True
+7cb81b8e-b937-239a-6f3d-a7a9d07c40751790294400,Jordan Okafor,Marketing,True
+7cb81b8e-b937-239a-6f3d-a7a9d07c40751790899200,Jordan Okafor,Marketing,True
+7cb81b8e-b937-239a-6f3d-a7a9d07c40751791504000,Jordan Okafor,Marketing,True
+7cb81b8e-b937-239a-6f3d-a7a9d07c40751792108800,Jordan Okafor,Marketing,True
+7d35a8ce-2e7f-bcd0-15e3-ea94c704090a1788480000,Avery Lindqvist,Customer Support,True
+7d35a8ce-2e7f-bcd0-15e3-ea94c704090a1789689600,Avery Lindqvist,Customer Support,True
+7d35a8ce-2e7f-bcd0-15e3-ea94c704090a1790899200,Avery Lindqvist,Customer Support,True
+7d35a8ce-2e7f-bcd0-15e3-ea94c704090a1791504000,Avery Lindqvist,Customer Support,True
+7d77ab2d-4222-f1bc-77c8-f7378ee5b0c71788480000,Mateo Alvarez,Sales,True
+7d77ab2d-4222-f1bc-77c8-f7378ee5b0c71790294400,Mateo Alvarez,Sales,True
+7d77ab2d-4222-f1bc-77c8-f7378ee5b0c71791504000,Mateo Alvarez,Sales,True
+7e4c3205-5239-8c25-370e-e7de6421d9751787875200,Avery Lindqvist,Sales,True
+7e4c3205-5239-8c25-370e-e7de6421d9751788480000,Avery Lindqvist,Sales,True
+7e4c3205-5239-8c25-370e-e7de6421d9751789689600,Avery Lindqvist,Sales,True
+7e4c3205-5239-8c25-370e-e7de6421d9751790294400,Avery Lindqvist,Sales,True
+7e4c3205-5239-8c25-370e-e7de6421d9751791504000,Avery Lindqvist,Sales,True
+7fd3dd73-e9ad-65ed-37c6-fa64a6a994fa1789689600,Avery Lindqvist,Finance,True
