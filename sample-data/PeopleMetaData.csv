@@ -1,0 +1,241 @@
+﻿PeopleHistoricalId,Organization,FunctionType,IsCopilotLicensed
+SYN-H0001,Latin America,Customer Experience,true
+SYN-H0002,Asia Pacific,Customer Experience,true
+SYN-H0003,Europe,Customer Experience,true
+SYN-H0004,North America,Customer Experience,true
+SYN-H0005,Latin America,Customer Experience,true
+SYN-H0006,Asia Pacific,Customer Experience,true
+SYN-H0007,Europe,Customer Experience,true
+SYN-H0008,North America,Customer Experience,true
+SYN-H0009,Latin America,Customer Experience,true
+SYN-H0010,Asia Pacific,Customer Experience,true
+SYN-H0011,Asia Pacific,Customer Experience,false
+SYN-H0012,Europe,Customer Experience,true
+SYN-H0013,North America,Customer Experience,true
+SYN-H0014,Latin America,Customer Experience,true
+SYN-H0015,Asia Pacific,Customer Experience,true
+SYN-H0016,Europe,Customer Experience,true
+SYN-H0017,North America,Customer Experience,true
+SYN-H0018,Latin America,Customer Experience,true
+SYN-H0019,Asia Pacific,Customer Experience,true
+SYN-H0020,Europe,Customer Experience,true
+SYN-H0021,North America,Customer Experience,true
+SYN-H0022,North America,Customer Experience,false
+SYN-H0023,Latin America,Customer Experience,true
+SYN-H0024,Asia Pacific,Customer Experience,true
+SYN-H0025,Europe,Customer Experience,true
+SYN-H0026,North America,Customer Experience,true
+SYN-H0027,Latin America,Customer Experience,true
+SYN-H0028,Asia Pacific,Customer Experience,true
+SYN-H0029,Europe,Customer Experience,true
+SYN-H0030,North America,Customer Experience,true
+SYN-H0031,Latin America,Customer Experience,true
+SYN-H0032,Asia Pacific,Customer Experience,true
+SYN-H0033,Asia Pacific,Customer Experience,false
+SYN-H0034,Europe,Customer Experience,true
+SYN-H0035,North America,Engineering,true
+SYN-H0036,Latin America,Engineering,true
+SYN-H0037,Asia Pacific,Engineering,true
+SYN-H0038,Europe,Engineering,true
+SYN-H0039,North America,Engineering,true
+SYN-H0040,Latin America,Engineering,true
+SYN-H0041,Asia Pacific,Engineering,true
+SYN-H0042,Europe,Engineering,true
+SYN-H0043,North America,Engineering,true
+SYN-H0044,North America,Engineering,false
+SYN-H0045,Latin America,Engineering,true
+SYN-H0046,Asia Pacific,Engineering,true
+SYN-H0047,Europe,Engineering,true
+SYN-H0048,North America,Engineering,true
+SYN-H0049,Latin America,Engineering,true
+SYN-H0050,Asia Pacific,Engineering,true
+SYN-H0051,Europe,Engineering,true
+SYN-H0052,North America,Engineering,true
+SYN-H0053,Latin America,Engineering,true
+SYN-H0054,Asia Pacific,Engineering,true
+SYN-H0055,Asia Pacific,Engineering,false
+SYN-H0056,Europe,Engineering,true
+SYN-H0057,North America,Engineering,true
+SYN-H0058,Latin America,Engineering,true
+SYN-H0059,Asia Pacific,Engineering,true
+SYN-H0060,Europe,Engineering,true
+SYN-H0061,North America,Engineering,true
+SYN-H0062,Latin America,Engineering,true
+SYN-H0063,Asia Pacific,Engineering,true
+SYN-H0064,Europe,Engineering,true
+SYN-H0065,North America,Engineering,true
+SYN-H0066,North America,Engineering,false
+SYN-H0067,Latin America,Engineering,true
+SYN-H0068,Asia Pacific,Engineering,true
+SYN-H0069,Europe,Engineering,true
+SYN-H0070,North America,Engineering,true
+SYN-H0071,Latin America,Engineering,true
+SYN-H0072,Asia Pacific,Engineering,true
+SYN-H0073,Europe,Engineering,true
+SYN-H0074,North America,Engineering,true
+SYN-H0075,Latin America,Engineering,true
+SYN-H0076,Asia Pacific,Engineering,true
+SYN-H0077,Asia Pacific,Engineering,false
+SYN-H0078,Europe,Engineering,true
+SYN-H0079,North America,Engineering,true
+SYN-H0080,Latin America,Engineering,true
+SYN-H0081,Asia Pacific,Finance,true
+SYN-H0082,Europe,Finance,true
+SYN-H0083,North America,Finance,true
+SYN-H0084,Latin America,Finance,true
+SYN-H0085,Asia Pacific,Finance,true
+SYN-H0086,Europe,Finance,true
+SYN-H0087,North America,Finance,true
+SYN-H0088,North America,Finance,false
+SYN-H0089,Latin America,Finance,true
+SYN-H0090,Asia Pacific,Finance,true
+SYN-H0091,Europe,Finance,true
+SYN-H0092,North America,Finance,true
+SYN-H0093,Latin America,Finance,true
+SYN-H0094,Asia Pacific,Finance,true
+SYN-H0095,Europe,Finance,true
+SYN-H0096,North America,Finance,true
+SYN-H0097,Latin America,Finance,true
+SYN-H0098,Asia Pacific,Finance,true
+SYN-H0099,Asia Pacific,Finance,false
+SYN-H0100,Europe,Finance,true
+SYN-H0101,North America,Finance,true
+SYN-H0102,Latin America,Finance,true
+SYN-H0103,Asia Pacific,Finance,true
+SYN-H0104,Europe,Finance,true
+SYN-H0105,North America,Finance,true
+SYN-H0106,Latin America,Human Resources,true
+SYN-H0107,Asia Pacific,Human Resources,true
+SYN-H0108,Europe,Human Resources,true
+SYN-H0109,North America,Human Resources,true
+SYN-H0110,North America,Human Resources,false
+SYN-H0111,Latin America,Human Resources,true
+SYN-H0112,Asia Pacific,Human Resources,true
+SYN-H0113,Europe,Human Resources,true
+SYN-H0114,North America,Human Resources,true
+SYN-H0115,Latin America,Human Resources,true
+SYN-H0116,Asia Pacific,Human Resources,true
+SYN-H0117,Europe,Human Resources,true
+SYN-H0118,North America,Human Resources,true
+SYN-H0119,Latin America,Human Resources,true
+SYN-H0120,Asia Pacific,Human Resources,true
+SYN-H0121,Asia Pacific,Human Resources,false
+SYN-H0122,Europe,Human Resources,true
+SYN-H0123,North America,Human Resources,true
+SYN-H0124,Latin America,Human Resources,true
+SYN-H0125,Asia Pacific,Human Resources,true
+SYN-H0126,Europe,Human Resources,true
+SYN-H0127,North America,Human Resources,true
+SYN-H0128,Latin America,Marketing,true
+SYN-H0129,Asia Pacific,Marketing,true
+SYN-H0130,Europe,Marketing,true
+SYN-H0131,North America,Marketing,true
+SYN-H0132,North America,Marketing,false
+SYN-H0133,Latin America,Marketing,true
+SYN-H0134,Asia Pacific,Marketing,true
+SYN-H0135,Europe,Marketing,true
+SYN-H0136,North America,Marketing,true
+SYN-H0137,Latin America,Marketing,true
+SYN-H0138,Asia Pacific,Marketing,true
+SYN-H0139,Europe,Marketing,true
+SYN-H0140,North America,Marketing,true
+SYN-H0141,Latin America,Marketing,true
+SYN-H0142,Asia Pacific,Marketing,true
+SYN-H0143,Asia Pacific,Marketing,false
+SYN-H0144,Europe,Marketing,true
+SYN-H0145,North America,Marketing,true
+SYN-H0146,Latin America,Marketing,true
+SYN-H0147,Asia Pacific,Marketing,true
+SYN-H0148,Europe,Marketing,true
+SYN-H0149,North America,Marketing,true
+SYN-H0150,Latin America,Marketing,true
+SYN-H0151,Asia Pacific,Marketing,true
+SYN-H0152,Europe,Marketing,true
+SYN-H0153,North America,Marketing,true
+SYN-H0154,North America,Marketing,false
+SYN-H0155,Latin America,Marketing,true
+SYN-H0156,Asia Pacific,Marketing,true
+SYN-H0157,Europe,Operations,true
+SYN-H0158,North America,Operations,true
+SYN-H0159,Latin America,Operations,true
+SYN-H0160,Asia Pacific,Operations,true
+SYN-H0161,Europe,Operations,true
+SYN-H0162,North America,Operations,true
+SYN-H0163,Latin America,Operations,true
+SYN-H0164,Asia Pacific,Operations,true
+SYN-H0165,Asia Pacific,Operations,false
+SYN-H0166,Europe,Operations,true
+SYN-H0167,North America,Operations,true
+SYN-H0168,Latin America,Operations,true
+SYN-H0169,Asia Pacific,Operations,true
+SYN-H0170,Europe,Operations,true
+SYN-H0171,North America,Operations,true
+SYN-H0172,Latin America,Operations,true
+SYN-H0173,Asia Pacific,Operations,true
+SYN-H0174,Europe,Operations,true
+SYN-H0175,North America,Operations,true
+SYN-H0176,North America,Operations,false
+SYN-H0177,Latin America,Operations,true
+SYN-H0178,Asia Pacific,Operations,true
+SYN-H0179,Europe,Operations,true
+SYN-H0180,North America,Operations,true
+SYN-H0181,Latin America,Operations,true
+SYN-H0182,Asia Pacific,Operations,true
+SYN-H0183,Europe,Operations,true
+SYN-H0184,North America,Operations,true
+SYN-H0185,Latin America,Operations,true
+SYN-H0186,Asia Pacific,Operations,true
+SYN-H0187,Asia Pacific,Operations,false
+SYN-H0188,Europe,Operations,true
+SYN-H0189,North America,Operations,true
+SYN-H0190,Latin America,Operations,true
+SYN-H0191,Asia Pacific,Operations,true
+SYN-H0192,Europe,Operations,true
+SYN-H0193,North America,Operations,true
+SYN-H0194,Latin America,Operations,true
+SYN-H0195,Asia Pacific,Product Management,true
+SYN-H0196,Europe,Product Management,true
+SYN-H0197,North America,Product Management,true
+SYN-H0198,North America,Product Management,false
+SYN-H0199,Latin America,Product Management,true
+SYN-H0200,Asia Pacific,Product Management,true
+SYN-H0201,Europe,Product Management,true
+SYN-H0202,North America,Product Management,true
+SYN-H0203,Latin America,Product Management,true
+SYN-H0204,Asia Pacific,Product Management,true
+SYN-H0205,Europe,Product Management,true
+SYN-H0206,North America,Product Management,true
+SYN-H0207,Latin America,Product Management,true
+SYN-H0208,Asia Pacific,Product Management,true
+SYN-H0209,Asia Pacific,Product Management,false
+SYN-H0210,Europe,Product Management,true
+SYN-H0211,North America,Product Management,true
+SYN-H0212,Latin America,Product Management,true
+SYN-H0213,Asia Pacific,Product Management,true
+SYN-H0214,Europe,Product Management,true
+SYN-H0215,North America,Product Management,true
+SYN-H0216,Latin America,Product Management,true
+SYN-H0217,Asia Pacific,Product Management,true
+SYN-H0218,Europe,Product Management,true
+SYN-H0219,North America,Product Management,true
+SYN-H0220,North America,Product Management,false
+SYN-H0221,Latin America,Product Management,true
+SYN-H0222,Asia Pacific,Product Management,true
+SYN-H0223,Europe,Sales,true
+SYN-H0224,North America,Sales,true
+SYN-H0225,Latin America,Sales,true
+SYN-H0226,Asia Pacific,Sales,true
+SYN-H0227,Europe,Sales,true
+SYN-H0228,North America,Sales,true
+SYN-H0229,Latin America,Sales,true
+SYN-H0230,Asia Pacific,Sales,true
+SYN-H0231,Asia Pacific,Sales,false
+SYN-H0232,Europe,Sales,true
+SYN-H0233,North America,Sales,true
+SYN-H0234,Latin America,Sales,true
+SYN-H0235,Asia Pacific,Sales,true
+SYN-H0236,Europe,Sales,true
+SYN-H0237,North America,Sales,true
+SYN-H0238,Latin America,Sales,true
+SYN-H0239,Asia Pacific,Sales,true
+SYN-H0240,Europe,Sales,true

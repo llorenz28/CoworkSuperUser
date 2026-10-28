@@ -1,101 +1,101 @@
-# CoworkSuperUser setup
+# Setup
 
-## Access prerequisites
+This guide covers the CSV-import contract used by `CoworkSuperUser.pbix` and `CoworkSuperUser.pbit`.
 
-1. Open **[aka.ms/copilotdashboard](https://aka.ms/copilotdashboard)** and
-  confirm that the Viva Insights web app loads with an organizational account
-  that has an active Exchange Online account.
-2. Confirm that the tenant has at least **50 assigned Microsoft Copilot or Viva
-  Insights licenses**.
-3. Confirm that the person exporting has **global Copilot Dashboard access**.
-  This may be through Microsoft 365 Global Administrator access, Viva Insights
-  Analyst global access, eligible senior-leader access, manual assignment, or
-  delegation from a globally enabled user.
-4. If using delegated access, use **Combined access**. The **Your company**
-  scope does not include the Consumption Dashboard.
-5. Confirm that an AI Administrator or Global Administrator has not disabled
-  the Viva Insights web app or data export through feature access management.
+## Requirements
 
-Managers with only team-level dashboard access cannot use the standard data
-export. Access-policy changes can take up to 24 hours to appear. See Microsoft's
-[export prerequisites](https://learn.microsoft.com/viva/insights/org-team-insights/export-copilot-metrics#prerequisites)
-and
-[access-management guidance](https://learn.microsoft.com/viva/insights/advanced/admin/manage-settings-copilot-dashboard).
+- A current Power BI Desktop release
+- Both CSV files in the same accessible folder
+- Exact filenames and headers shown below
 
-## Start here
+The included sample files are ready to use and fully synthetic.
 
-1. Download [`CoworkSuperUser.pbit`](CoworkSuperUser.pbit).
-2. Go to **Consumption Dashboard** > **Explore Cowork**.
-3. Review the displayed **View as**, **Scope**, **Job function**, and time
-  period as dashboard context. The standard export is not customizable, so do
-  not assume these controls change the downloaded population.
-4. Select **Export data**, then choose **Export by week** when prompted. The
-  week-level export provides up to six months of completed-week history.
-5. Extract the download and put both required CSV files in the same local or
-  SharePoint folder.
-6. Open the PBIT, set `DataFolder` to that folder, and refresh.
-7. Validate the report with the checklist below.
+## Data contract
 
-To explore the report without customer data, open the
-[`CoworkSuperUser.pbix`](CoworkSuperUser.pbix) synthetic demonstration report.
+### `CoworkWeeklyMetrics.csv`
 
-## Required files
+Grain: one person, week, task category, and task type per row.
 
-`CoworkWeeklyMetrics.csv` must contain:
+| Column | Expected type | Requirement |
+|---|---|---|
+| `PersonId` | Text | Stable person identifier; nonblank |
+| `MetricDate` | Date (`YYYY-MM-DD`) | Weekly observation date |
+| `TaskCategory` | Text | Category used in report breakdowns |
+| `TaskType` | Text | `UserInitiated`, `Scheduled`, or `Unknown` |
+| `Total credits used` | Decimal number | Nonnegative credits for the row |
+| `Total Cowork tasks` | Whole number | Nonnegative task count |
+| `PeopleHistoricalId` | Text | Required key into `PeopleMetaData.csv` |
 
-```text
-PersonId,MetricDate,TaskCategory,TaskType,Total credits used,Total Cowork tasks,PeopleHistoricalId
-```
+Supported sample categories are:
 
-`PeopleMetaData.csv` must contain:
+- `Analysis & research`
+- `Communication workflows`
+- `Document & content creation`
+- `Email workflows`
+- `General assistance / Other`
+- `Meeting workflows`
+- `Specialized workflows`
+- `Write or debug code`
 
-```text
-PeopleHistoricalId,Organization,FunctionType,IsCopilotLicensed
-```
+### `PeopleMetaData.csv`
 
-Use UTF-8 comma-delimited CSV files. The template does not fall back to sample
-data if a file is missing, inaccessible, or incompatible.
+Grain: one row per `PeopleHistoricalId`.
 
-The export can be up to six days behind and contains only completed weeks. The
-dashboard can include partial-week activity, so dashboard totals and imported
-totals might differ. The export contains anonymized user IDs by default, but it
-can contain identifiable fields when an administrator enables identifiable
-export. Handle every download as potentially personal and confidential data.
+| Column | Expected type | Requirement |
+|---|---|---|
+| `PeopleHistoricalId` | Text | Unique, nonblank join key |
+| `Organization` | Text | Grouping dimension |
+| `FunctionType` | Text | Functional grouping dimension |
+| `IsCopilotLicensed` | Boolean | `true` or `false` |
 
-## Configure `DataFolder`
+Every weekly row must match exactly one metadata row through `PeopleHistoricalId`. Keep identifiers as text and preserve leading zeros where applicable.
 
-Set `DataFolder` to one of these values:
+## Load the included data
 
-- A local folder, such as `C:\CoworkData\`
-- An exact SharePoint folder URL containing both files
+1. Download the repository or the two files in `sample-data`.
+2. Keep the CSV files together; do not open them in an application that locks the files during refresh.
+3. Open `CoworkSuperUser.pbix` for the populated demonstration, or open `CoworkSuperUser.pbit` to create a new report.
+4. If Power BI prompts for a source, enter the folder containing the two CSV files. Otherwise, use **Transform data > Data source settings > Change Source** to replace the existing local path.
+5. Apply changes and select **Refresh**.
+6. In Model view, confirm the relationship uses `PeopleHistoricalId` and that the metadata side is unique.
+7. Check the latest `MetricDate`, row totals, category values, and slicers before saving or publishing.
 
-For SharePoint, authenticate with an organizational account and use the privacy
-level required by your tenant policy. The folder must contain exactly named
-files that match the schemas above.
+## Use organizational data
 
-## Validation
+Create both CSVs from approved data using the exact contract above. Remove direct identifiers unless they are necessary and authorized, use stable pseudonymous keys, and apply your organization's privacy, retention, access-control, and minimum-group-size requirements.
 
-- **Overview** is the opening page.
-- All eight pages open without visual errors.
-- Active users, tasks, credits, and date coverage reconcile with the source CSVs.
-- Organization, function, category, and task-type controls populate.
-- Latest-versus-prior trend windows use complete source periods.
-- Cost, labor, realization, and category-time assumptions are reviewed before
-  modeled value is presented.
-- The Metric Glossary contains the 35 priority definitions.
-- No visual shows an error.
+This model expects already-prepared Cowork usage facts. It is not the Viva Insights Person Query model used by [`microsoft/DecodingSuperUsage`](https://github.com/microsoft/DecodingSuperUsage), and its schemas are not interchangeable.
 
-## Publish
+## Model behavior
 
-1. Save as PBIX.
-2. Apply the organization's sensitivity label.
-3. Publish to an approved Power BI or Fabric workspace.
-4. Configure SharePoint credentials or a gateway for local-folder refresh.
-5. Add and test row-level security if audiences require restricted access.
-6. Schedule refresh only after source availability and privacy controls are
-   approved.
+- Credits and tasks aggregate from the weekly fact table.
+- Organization and function filters come from metadata through `PeopleHistoricalId`.
+- Tier-oriented pages classify and compare users from their usage in the current report context; changing date or group filters can therefore change membership and shares.
+- Share-shift views compare how tier shares move over time.
+- Value results are directional scenarios driven by report assumptions. They are not forecasts or guaranteed savings.
+- Blank or misleading results usually indicate unmatched keys, renamed headers, invalid types, unsupported category values, or active filters.
 
-Read [Security](SECURITY.md) and the
-[Interpretation Guide](CoworkSuperUser%20Interpretation%20Guide.pptx) before
-sharing populated results.
+## Validation checklist
 
+- Both files retain the exact filenames and header capitalization.
+- `PeopleHistoricalId` is unique in metadata and has no orphan values in weekly metrics.
+- Dates import as dates; credits as decimal numbers; tasks as whole numbers; license flags as Boolean.
+- Credits and tasks are nonnegative.
+- All expected weeks, categories, organizations, and functions appear.
+- Page filters and slicers are cleared when reconciling source totals.
+- The report refreshes without errors before it is published.
+
+## Refresh and publish
+
+For a manual refresh, replace the two source CSVs with validated files of the same names and schema, then refresh in Power BI Desktop. After publishing, configure credentials and refresh behavior appropriate to the storage location; a local-only folder may require an on-premises data gateway. Test refresh in the Power BI service and restrict workspace/report access appropriately.
+
+## Troubleshooting
+
+| Symptom | Likely cause | Resolution |
+|---|---|---|
+| Source file not found | Saved source path differs | Change the source to the folder containing both CSVs |
+| Privacy/firewall prompt | Sources have incompatible privacy settings | Set organization-approved privacy levels consistently |
+| Relationship or duplicate-key error | Metadata key is blank or repeated | Make `PeopleHistoricalId` unique and nonblank in metadata |
+| Blank group or tier visuals | Orphan keys, wrong types, or filters | Validate joins and types, then clear slicers |
+| Totals differ from source | Grain duplication or active filters | Aggregate at the documented grain and reconcile with filters cleared |
+| Refresh cannot access a CSV | File is locked or service lacks access | Close the editor; use an accessible source and gateway if required |
