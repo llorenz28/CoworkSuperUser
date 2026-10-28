@@ -1,38 +1,88 @@
 # CoworkSuperUser setup
 
+## Access prerequisites
+
+1. Open **[aka.ms/copilotdashboard](https://aka.ms/copilotdashboard)** and
+  confirm that the Viva Insights web app loads with an organizational account
+  that has an active Exchange Online account.
+2. Confirm that the tenant has at least **50 assigned Microsoft Copilot or Viva
+  Insights licenses**.
+3. Confirm that the person exporting has **global Copilot Dashboard access**.
+  This may be through Microsoft 365 Global Administrator access, Viva Insights
+  Analyst global access, eligible senior-leader access, manual assignment, or
+  delegation from a globally enabled user.
+4. If using delegated access, use **Combined access**. The **Your company**
+  scope does not include the Consumption Dashboard.
+5. Confirm that an AI Administrator or Global Administrator has not disabled
+  the Viva Insights web app or data export through feature access management.
+
+Managers with only team-level dashboard access cannot use the standard data
+export. Access-policy changes can take up to 24 hours to appear. See Microsoft's
+[export prerequisites](https://learn.microsoft.com/viva/insights/org-team-insights/export-copilot-metrics#prerequisites)
+and
+[access-management guidance](https://learn.microsoft.com/viva/insights/advanced/admin/manage-settings-copilot-dashboard).
+
 ## Start here
 
-1. Read [Build the Viva Insights queries](docs/QUERY_SETUP.md).
-2. Download either:
-   - `CoworkSuperUser - Direct Query.pbit`
-   - `CoworkSuperUser - Optimized Export.pbit`
-3. Wait until the required Viva Insights analyses show **Completed** or **Success**.
-4. Open the PBIT and enter the requested parameters.
-5. Validate the report with the checklist below.
+1. Download [`CoworkSuperUser.pbit`](CoworkSuperUser.pbit).
+2. Go to **Consumption Dashboard** > **Explore Cowork**.
+3. Review the displayed **View as**, **Scope**, **Job function**, and time
+  period as dashboard context. The standard export is not customizable, so do
+  not assume these controls change the downloaded population.
+4. Select **Export data**, then choose **Export by week** when prompted. The
+  week-level export provides up to six months of completed-week history.
+5. Extract the download and put both required CSV files in the same local or
+  SharePoint folder.
+6. Open the PBIT, set `DataFolder` to that folder, and refresh.
+7. Validate the report with the checklist below.
 
-## Parameters
+To explore the report without customer data, open the
+[`CoworkSuperUser.pbix`](CoworkSuperUser.pbix) synthetic demonstration report.
 
-### Direct Query
+## Required files
 
-- Partition Identifier
-- Person Query Identifier
-- Consumption Query Identifier
+`CoworkWeeklyMetrics.csv` must contain:
 
-### Optimized Export
+```text
+PersonId,MetricDate,TaskCategory,TaskType,Total credits used,Total Cowork tasks,PeopleHistoricalId
+```
 
-- Partition Identifier
-- Person Query Identifier
-- Folder containing `PersonM365CreditsMetrics.csv`
+`PeopleMetaData.csv` must contain:
+
+```text
+PeopleHistoricalId,Organization,FunctionType,IsCopilotLicensed
+```
+
+Use UTF-8 comma-delimited CSV files. The template does not fall back to sample
+data if a file is missing, inaccessible, or incompatible.
+
+The export can be up to six days behind and contains only completed weeks. The
+dashboard can include partial-week activity, so dashboard totals and imported
+totals might differ. The export contains anonymized user IDs by default, but it
+can contain identifiable fields when an administrator enables identifiable
+export. Handle every download as potentially personal and confidential data.
+
+## Configure `DataFolder`
+
+Set `DataFolder` to one of these values:
+
+- A local folder, such as `C:\CoworkData\`
+- An exact SharePoint folder URL containing both files
+
+For SharePoint, authenticate with an organizational account and use the privacy
+level required by your tenant policy. The folder must contain exactly named
+files that match the schemas above.
 
 ## Validation
 
-- Start Here is the opening page.
-- Population and latest weekly activity are nonzero.
-- Expected weeks appear.
-- Organization fields populate.
-- Sessions and credits reconcile with the source.
-- Work-pattern buttons match the supplied Person Query fields.
-- Privacy suppression applies below 10 people.
+- **Overview** is the opening page.
+- All eight pages open without visual errors.
+- Active users, tasks, credits, and date coverage reconcile with the source CSVs.
+- Organization, function, category, and task-type controls populate.
+- Latest-versus-prior trend windows use complete source periods.
+- Cost, labor, realization, and category-time assumptions are reviewed before
+  modeled value is presented.
+- The Metric Glossary contains the 35 priority definitions.
 - No visual shows an error.
 
 ## Publish
@@ -40,9 +90,12 @@
 1. Save as PBIX.
 2. Apply the organization's sensitivity label.
 3. Publish to an approved Power BI or Fabric workspace.
-4. Configure OAuth credentials.
-5. Configure a gateway for local-folder refresh when using Optimized Export.
-6. Schedule refresh after the Viva Insights analyses complete.
+4. Configure SharePoint credentials or a gateway for local-folder refresh.
+5. Add and test row-level security if audiences require restricted access.
+6. Schedule refresh only after source availability and privacy controls are
+   approved.
 
-See [Troubleshooting](docs/TROUBLESHOOTING.md) and the [Interpretation Guide](INTERPRETATION_GUIDE.md).
+Read [Security](SECURITY.md) and the
+[Interpretation Guide](CoworkSuperUser%20Interpretation%20Guide.pptx) before
+sharing populated results.
 

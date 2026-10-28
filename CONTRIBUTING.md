@@ -7,35 +7,37 @@ Thank you for helping improve CoworkSuperUser.
 - Search existing issues.
 - Remove tenant names, identities, query IDs, URLs, secrets, and export content.
 - Reproduce the problem with fabricated data when possible.
-- Include the Power BI Desktop version, template variant, report version, page name, and exact error text.
+- Include the Power BI Desktop version, report version, page name, source type
+   (local folder or SharePoint), and exact error text.
 
-Do not attach production Viva Insights query results or exported person-level data.
+Do not attach Consumption Dashboard exports, populated customer PBIX files, or
+exported person-level data.
 
 ## Develop locally
 
 1. Clone the repository on Windows.
-2. Choose one source project:
-   - `src\direct-query\CoworkVivaV3.pbip`
-   - `src\optimized-export\CoworkVivaV3.pbip`
-3. Keep `.pbi` local state and all production data outside commits.
-4. Update both report variants when report behavior changes.
-5. Validate every visible page, bookmark action, filter drawer, navigation control, and hidden bookmark state.
+2. Use generated synthetic data for report development and tests. Keep `.pbi`
+   local state and all production data outside commits.
+3. Treat the projects under `src\` as historical references; they are not the
+   source of the current `CoworkSuperUser.pbit` release.
+4. Preserve the current two-file input contract and verify both local-folder
+   and SharePoint `DataFolder` behavior when source handling changes.
+5. Validate every visible page, filter, navigation control, tooltip, and hidden
+   state affected by the change.
 6. Run:
 
    ```powershell
    .\tools\validate.ps1
    ```
 
-7. Rebuild public assets when the report changes:
-
-   ```powershell
-   python .\tools\build_public_images.py --source C:\path\to\fabricated\screenshots
-   npm install
-   npm run build:storyboard
-   .\media\build_walkthrough.ps1
-   ```
-
-8. Export data-free PBIT files only after confirming that customer data, query identifiers, local paths, cached models, and machine-bound security state are absent.
+7. Rebuild affected public images, the interpretation guide, and walkthrough
+   from fabricated data when the report changes. Do not reuse media that shows
+   a previous page layout or metric contract.
+8. Export a data-free PBIT only after confirming that `DataFolder` is unset and
+   customer data, local paths, imported model cache, credentials, and
+   machine-bound security state are absent.
+9. Verify the synthetic PBIX contains only generated data and update artifact
+   hashes and metadata in `validation\release-manifest.json`.
 
 ## Pull requests
 
@@ -43,10 +45,11 @@ A pull request should:
 
 - Explain the user problem and resulting behavior.
 - Keep unrelated changes out of the diff.
-- Update both connection variants when shared behavior changes.
 - Update setup and interpretation guidance when calculations change.
 - Use only deterministic fabricated data in tests, screenshots, decks, and videos.
-- Preserve the Start Here experience and privacy controls.
+- Preserve the eight-page navigation, Metric Glossary evidence classes, and
+   privacy boundaries unless the pull request explicitly changes the contract.
+- Keep dashboard-export access requirements and the exact CSV schemas current.
 - Update `CHANGELOG.md` and `validation\release-manifest.json` for release changes.
 
 By contributing, you agree to follow the [Microsoft Open Source Code of Conduct](CODE_OF_CONDUCT.md).
