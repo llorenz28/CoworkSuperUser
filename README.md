@@ -24,15 +24,33 @@ The report starts with an **Overview** of active users, tasks, credits, and sche
 
 ## Light it up in 3 steps
 
-### 1. (Optional) Turn on identification to drill into individual users
+### Before you start
 
-The report works out of the box with the anonymized IDs in the standard export. Every page, ranking, and department view functions without identification. Turn it on only if you want to see who the individual users are. A Microsoft 365 **Global Administrator** or **AI Administrator** turns it on once:
+The export requires:
 
-1. In the [Microsoft 365 admin center](https://admin.cloud.microsoft/?#/viva/featureAccessManagement), go to **Settings** > **Viva** > **Feature access management**.
-2. Select **Viva Insights**, choose the **identification** feature, and add a policy. You can also use PowerShell (`Add-VivaModuleFeaturePolicy`).
-3. Scope the policy to the analysts who will run this report, using users or Microsoft Entra groups. You can also set a tenant-wide default.
+- At least **50 Copilot or Viva Insights licenses**
+- **Global access** to the Copilot Dashboard
 
-Full details: [Identification in Copilot Analytics | Microsoft Learn](https://learn.microsoft.com/en-us/viva/insights/identification-copilot-analytics)
+Managers with only team-level access cannot export. New data can take up to seven days to appear.
+
+If **Export data** is missing, a Global Administrator should go to **Microsoft 365 admin center** > **Settings** > **Microsoft Viva** > **Settings** > **Manage feature access** > **Viva Insights** and confirm that **Copilot Metrics Export** is on. Changes can take up to 24 hours.
+
+[Full export details](https://learn.microsoft.com/en-us/viva/insights/org-team-insights/export-copilot-metrics)
+
+### 1. (Optional) Show individual users
+
+The report works with anonymized IDs. Complete this step only if authorized analysts need to see user identities.
+
+A Global Administrator or AI Administrator goes to **Microsoft 365 admin center** > **Settings** > **Microsoft Viva** > **Settings** > **Manage feature access**, then creates this policy:
+
+- **App:** Viva Insights
+- **Feature:** Identifiable Output
+- **Access:** On
+- **Users:** Analysts authorized to see identified data
+
+Changes can take up to 24 hours.
+
+[Full identification details](https://learn.microsoft.com/en-us/viva/insights/identification-copilot-analytics)
 
 ### 2. Export and extract
 
