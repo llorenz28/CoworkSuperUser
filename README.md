@@ -8,6 +8,14 @@ Cowork usage grows fast and unevenly. A small group of people usually consumes m
 
 > Try it now: open the template, point it at the [`sample-data`](sample-data) folder, and refresh. The sample is fully synthetic: 250 fictional people across 10 teams (Sales, Marketing, HR, IT, and more) over 18 weeks, in the same layout as a real export. It's the data in the tour above.
 
+## Watch the overview
+
+See how the report reveals who drives Cowork spend, what they do differently, and where the credits go.
+
+[![Cowork Super User Report Walkthrough: Find Who Drives Spend and Why](https://img.youtube.com/vi/zNMA3xz19O0/maxresdefault.jpg)](https://www.youtube.com/watch?v=zNMA3xz19O0)
+
+**[Watch on YouTube](https://www.youtube.com/watch?v=zNMA3xz19O0)**
+
 ## The questions it answers
 
 | Leader question | Where to look |
