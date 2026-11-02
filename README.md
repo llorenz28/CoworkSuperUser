@@ -34,7 +34,7 @@ The report starts with an **Overview** of active users, tasks, credits, and sche
 
 ### Before you start
 
-The export requires:
+The Cowork Export (In Private Preview) requires:
 
 - At least **50 Copilot or Viva Insights licenses**
 - **Global access** to the Copilot Dashboard
